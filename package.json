@@ -1,0 +1,33 @@
+{
+  "name": "projet-seo-sympa",
+  "version": "1.0.0",
+  "description": "Présentation générale du projet",
+  "source": "src/index.html",
+  "type": "module",
+"scripts": {
+      "start": "parcel",
+      "build": "parcel build"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Behemoth/projet-seo-sympa.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Behemoth/projet-seo-sympa/issues"
+  },
+  "homepage": "https://github.com/O-clock-Behemoth/projet-seo-sympa#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "helmet": "^8.1.0",
+    "pg": "^8.16.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.2"
+  }
+}
