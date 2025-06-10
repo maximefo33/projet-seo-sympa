@@ -208,6 +208,7 @@ Nous vérifierons la compatibilité avec  https://caniuse.com/webp ainsi qu’av
 L'arborescence de l'application (le chemin de l'utilisateur, correspondra aux routes front)
 
 
+![SEO Sympa - Arborescence générale](https://github.com/user-attachments/assets/a5c18c1b-f281-4063-bd51-cab1f32b938c)
 
 
 
@@ -409,6 +410,7 @@ MCD : modèle conceptuel de données
 
 
 
+![MCD seo sympa (1)](https://github.com/user-attachments/assets/c4754827-601f-4346-bd1e-7eb4cdcbf765)
 
 
 
@@ -448,6 +450,7 @@ MLD : modèle logique de données
 
 
 
+![MLD (1)](https://github.com/user-attachments/assets/dd1fb48e-7855-435a-bd99-0cfa1dc40ad6)
 
 
 
