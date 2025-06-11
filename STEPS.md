@@ -28,7 +28,13 @@ ajout script nodemon
             },
 
 
-
+- code des pages html
+    - home
+    - signin / login
+    - contact
+    - about + header + footer (modèle page statique)
+    - search
+    
 
 
 
