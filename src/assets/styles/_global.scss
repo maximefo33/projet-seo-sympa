@@ -6,6 +6,7 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 1rem;
 }
 
 
@@ -63,7 +64,47 @@ body {
   color: white;
   text-decoration: none;
   font-style: italic;
-  background-color: linear-gradient(to bottom right, #124d48, rgb(78, 112, 151)) ;
+  background-color: linear-gradient(to bottom right, #124d48, rgb(78, 112, 151));
+}
+
+
+.about_witness {
+
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.about_witness0 {
+
+  text-align: center;
+}
+
+.about_witness1 {
+  margin-right: 20rem;
+  margin-left: 20rem;
+  margin-bottom: 3rem;
+  background-color: #7ab1fa;
+  border-radius: 8%;
+  text-align: center;
+  display: inline-block;
+  width: 15%;
+}
+
+.about_witness2 {
+
+  margin-right: 10rem;
+  margin-left: 5rem;
+
+  background-color: #7ab1fa;
+  border-radius: 8%;
+  text-align: center;
+ display: inline-block;
+ width: 15%;
+}
+
+.about_witness_contain {
+
+  display: inline-block;
 }
 
 //*********************************************
