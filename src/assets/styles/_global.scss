@@ -109,8 +109,8 @@ body {
   display: inline-block;
   width: 12%;
   align-items: center;
-align-content: center;
-margin: auto;
+  align-content: center;
+  margin: auto;
 
 }
 
@@ -118,5 +118,25 @@ margin: auto;
   margin-left: 10rem;
   margin-right: 10rem;
 }
+
+// ici css pour ouvrir fermer questions réponses
+.coucou a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.coucou h1 {
+  display: inline-block;
+}
+
+.coucou p {
+  display: none;
+}
+
+.coucou p:target {
+  display: block;
+}
+
+
 
 //*********************************************
