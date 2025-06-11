@@ -35,7 +35,7 @@ ajout script nodemon
     - about + header + footer (modèle page statique)
     - search
     
-
+- penser à vérifier son code sur https://validator.w3.org/
 
 
 ## A penser, à faire, suivi général
