@@ -1,11 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <title>Inscription</title>
 </head>
 <body>
+  <h1>S’inscrire</h1>
+  <h2>Créer un nouveau compte</h2>
+  <form method="POST" action="/signup">
     
+    <label for="prenom">Prénom :</label><br />
+    <input type="text" id="prenom" name="prenom" placeholder="Prénom" required /><br /><br />
+    
+    <label for="nom">Nom :</label><br />
+    <input type="text" id="nom" name="nom" placeholder="Nom" required /><br /><br />
+    
+    <label for="role">Rôle :</label><br />
+    <select id="role" name="role" required>
+      <option value="" disabled selected>Choisissez un rôle</option>
+      <option value="expert">Expert</option>
+      <option value="demandeur">Demandeur</option>
+    </select><br /><br />
+    
+    <label for="email">Email :</label><br />
+    <input type="email" id="email" name="email" placeholder="Email" required /><br /><br />
+    
+    <label for="password">Mot de passe :</label><br />
+    <input type="password" id="password" name="password" placeholder="Mot de passe" required /><br /><br />
+    
+    <label for="confirm_password">Confirmer mot de passe :</label><br />
+    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmer mot de passe" required /><br /><br />
+    
+    <button type="submit">S’inscrire</button>
+  </form>
 </body>
 </html>
