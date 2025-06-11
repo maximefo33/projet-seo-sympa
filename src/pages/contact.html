@@ -1,11 +1,161 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - SEO-Sympa | Nous contacter</title>
+    <meta
+      name="description"
+      content="Contactez l'équipe SEO-Sympa pour toute question sur nos services"
+    />
+  </head>
+  <body>
+    <header role="banner">
+      <h1>SEO-Sympa</h1>
+      <p><strong>Le référencement sans prise de tête</strong></p>
+    </header>
+
+    <main id="main-content" role="main">
+      <h1>Contactez-nous</h1>
+      <p>
+        Vous avez des questions sur nos services ? N'hésitez pas à nous
+        contacter, nous vous répondrons dans les plus brefs délais.
+      </p>
+
+      <!-- Formulaire de contact -->
+
+      <section id="contact-form">
+        <h2>Formulaire de contact</h2>
+
+        <form
+          action="/contact"
+          method="post"
+          aria-label="Formulaire de contact"
+        >
+          <fieldset>
+            <legend>Informations personnelles</legend>
+
+            <p>
+              <label for="prenom">
+                Prénom <abbr title="obligatoire">*</abbr> </label
+              ><br />
+              <input
+                type="text"
+                id="prenom"
+                name="prenom"
+                required
+                aria-required="true"
+                aria-describedby="prenom-aide"
+              />
+              <br /><small id="prenom-aide">Votre prénom est obligatoire</small>
+            </p>
+
+            <p>
+              <label for="nom"> Nom <abbr title="obligatoire">*</abbr> </label
+              ><br />
+              <input
+                type="text"
+                id="nom"
+                name="nom"
+                required
+                aria-required="true"
+                aria-describedby="nom-aide"
+              />
+              <br /><small id="nom-aide"
+                >Votre nom de famille est obligatoire</small
+              >
+            </p>
+
+            <p>
+              <label for="email">
+                Adresse email <abbr title="obligatoire">*</abbr> </label
+              ><br />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-required="true"
+                aria-describedby="email-aide"
+              />
+              <br /><small id="email-aide">Format : exemple@domaine.com</small>
+            </p>
+
+            <p>
+              <label for="telephone">Numéro de téléphone</label><br />
+              <input
+                type="tel"
+                id="telephone"
+                name="telephone"
+                aria-describedby="telephone-aide"
+                placeholder="Ex : 00 00 00 00 00"
+              />
+              <br /><small id="telephone-aide"></small>
+            </p>
+          </fieldset>
+
+          <fieldset>
+            <legend>Votre demande</legend>
+
+            <p>
+              <label for="message">
+                Votre message <abbr title="obligatoire">*</abbr> </label
+              ><br />
+              <textarea
+                id="message"
+                name="message"
+                rows="8"
+                cols="50"
+                required
+                aria-required="true"
+                aria-describedby="message-aide"
+              >
+Veuillez saisir votre message ici...</textarea
+              >
+              <br /><small id="message-aide"
+                >Veuillez décrire votre demande</small
+              >
+            </p>
+          </fieldset>
+
+          <!-- Bouton de soumission -->
+
+          <p>
+            <button type="submit">Envoyer</button>
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <!-- Autres moyens de contact -->
+      <section>
+        <h2>Autres moyens de nous contacter</h2>
+
+        <h3>Réseaux sociaux</h3>
+        <ul>
+          <li>
+            <a href="https://linkedin.com/company/seo-sympa" rel="external"
+              >LinkedIn - SEO-SYMPA</a
+            >
+          </li>
+          <li>
+            <a href="https://twitter.com/seosympa" rel="external"
+              >Twitter - @seosympa</a
+            >
+          </li>
+        </ul>
+        <h3>FAQ</h3>
+        <a href="/faq">Questions fréquemment posées</a> - Trouvez rapidement des
+        réponses
+      </section>
+
+      <p>2025 SEO-Sympa. Tous droits réservés.</p>
+      <p>
+        Adresse : ...... , 75000 Paris<br />
+        Téléphone : 00 00 00 00 00<br />
+        Email : contact@seosympa.fr
+      </p>
+    </footer>
+  </body>
 </html>
