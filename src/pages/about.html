@@ -14,18 +14,16 @@
 <body>
 
     <!-- ceci sera notre header pour toutes les pages -->
-    <header role="banner">
+    <header>
 
-        <!-- insérer un fond dégradé -->
-
-        <nav>
+        <nav class="header_nav">
             <!-- ci-dessous logo SEO cliquable qui ramène à la page d'accueil / -->
 
             <a href="/"><img alt="logo de SEO Sympa" src="../../image/logo.png" width="160px" height="160px">
             </a>
             <!-- sûrement liste déroulante pour cette nav -->
 
-            <ul>
+            <ul class="header_nav_ul">
                 <li><a href="../index.html">Accueil - SEO Sympa</a></li>
                 <li><a href="./contact.html">Contact - SEO Sympa</a></li>
             </ul>
@@ -35,28 +33,28 @@
 
     </header>
 
-    <main role="main">
+    <main class="about_main">
         <!-- ceci sera dans la page A propos (/About) - c'est aussi un exemple de page statique -->
 
         <h1>A propos de SEO Sympa</h1>
         <h2>SEO Sympa, soyez en tête sans prise de tête !</h2>
 
         <p>Ne vous compliquez-pas la vie, venez surfer sur notre plateforme ! Sérénité garantie. </p>
-        <img src="../../image/img-about1.png" alt="image dessin d'un utilisateur de notre service heureux">
-
+        
         <h3>Histoire de notre plateforme</h3>
-
+        
         <p>Prenez 4 amis développeurs formés dans la même école (<a href="https://oclock.io/"
-                target="_blank">O'clock</a>) et passionnés de référencement. En juin 2025 leur est venue
+            target="_blank">O'clock</a>) et passionnés de référencement. En juin 2025 leur est venue
             l'idée d'aider les structures, entreprises, associations..., petites ou grandes, à mieux se faire connaître.
             La plateforme
             SEO Sympa est née !
         </p>
-
-
-
-        <h3>SEO, Kézako ?</h3>
-        <article title="définition du SEO">
+        
+        
+        
+        <article class="about_article_seo">
+            <h3>SEO, Kézako ?</h3>
+            <img src="../assets/img/imge-seo2.jpg" alt="ordinateur avec plein de post-its avec des mots clefs accrochés sur le mur derrière">
             <p>L'optimisation pour les moteurs de recherche, aussi connue sous le nom de référencement naturel et
                 le sigle SEO (de l'anglais « Search Engine Optimization »), inclut l'ensemble des techniques qui
                 visent à améliorer le positionnement d'une page, d'un site ou d'une application web dans la page de
@@ -65,16 +63,15 @@
                 Ces techniques cherchent à améliorer la compréhension et la prise en compte de la thématique et du
                 contenu d'une ou de l'ensemble des pages d'un site Web par l'algorithme de classement des moteurs de
                 recherche.</p>
-            <aside><a href="https://fr.wikipedia.org/wiki/Optimisation_pour_les_moteurs_de_recherche">d'après
+            <aside class="about_article_seo"><a class="about_link_article" href="https://fr.wikipedia.org/wiki/Optimisation_pour_les_moteurs_de_recherche">d'après
                     Wikipédia, 06/2025</a></aside>
-
         </article>
 
 
         <h3>Gagnant-Gagnant</h3>
 
         <p>Sur notre plateforme, tout le monde y trouve son compte.</p>
-        <img src="../../image/img-about2.png" alt="bulle de témoignages">
+        <img src="../assets/img/about2.png" alt="bulle de témoignages">
 
         <section aria-label="témoignages d'utilisateurs de notre site et propriétaires de pages web">Nos
             utilisateurs propriétaires de pages web témoignent :
@@ -104,35 +101,33 @@
 
         <h3>Foire Aux Questions (FAQ)</h3>
 
-        <p>Comment créer mon compte ?</p>
+        <h2>Comment créer mon compte ?</h2>
         <p>Cliquez-sur le petit bonhomme à côté de connexion, puis remplissez les informations
             demandées et
             validez. Votre compte est créé.</p>
 
-        <p>Je n'ai plus besoin de vos services, comment supprimer mon compte ?
-        </p>
+        <h2>Je n'ai plus besoin de vos services, comment supprimer mon compte ?
+        </h2>
         <p> Connectez-vous sur votre profil, puis cliquez sur le bouton "suppression de compte",
             puis
             confirmer à nouveau.</p>
-        <p>Quid de mes données personnelles ?</p>
+        <h2>Quid de mes données personnelles ?</h2>
         <p>Conformément au RGPD, bla bla bla. Si vous supprimez votre compte, toutes vos données
             personnelles seront immédiatement effacées de notre base de données.</p>
-        <p>Je n'ai pas trouvé de réponse à ma question, comment puis-je contacter l'administrateur du site ?</p>
-        <p>
+        <h2>Je n'ai pas trouvé de réponse à ma question, comment puis-je vous contacter ?</h2>
+
         <address>
             <a href="mailto:jim@example.com">jim@example.com</a>
             <a href="tel:+14155550132">+1 (415) 555‑0132</a>
-        </address>Nous sommes à votre service par email (réponse sous 72h jours ouvrés) ou par
-        téléphone
-        (de 9h à 17h les jours ouvrés).
-        </p>
-
+        </address>
+        <p>Nous sommes à votre service par email (réponse sous 72h jours ouvrés) ou par
+            téléphone (de 9h à 17h les jours ouvrés).</p>
 
     </main>
 
 
     <!-- ceci sera notre modèle de footer pour toutes les pages -->
-    <footer role="contentinfo">
+    <footer>
 
         <nav>
             <ul>

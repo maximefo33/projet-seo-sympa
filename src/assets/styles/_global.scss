@@ -1,1 +1,35 @@
 // fichier global.scss
+
+@use './components/var';
+
+// essais sur header
+
+.header_nav {
+  background-color: rgba(227, 140, 230, 0.363);
+  display: flex;
+
+}
+
+.header_nav_ul {
+  display:contents;
+
+}
+
+// styles de la page about
+//test - css ok répond bien
+
+.about_main {
+  background: linear-gradient(to bottom right, transparent, #acacf3, pink);
+
+}
+
+.about_article_seo {
+  background: linear-gradient(to bottom right,#224777, rgb(33, 82, 139));
+  color: white;
+  }
+
+.about_link_article {
+  color: white;
+  text-decoration: none;
+  font-style: italic;
+}
