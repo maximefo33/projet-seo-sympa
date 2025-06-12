@@ -4,10 +4,10 @@
   "description": "Présentation générale du projet",
   "source": "src/index.html",
   "type": "module",
-"scripts": {
-      "start": "parcel",
-      "build": "parcel build"
-    },
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/O-clock-Behemoth/projet-seo-sympa.git"
@@ -28,6 +28,7 @@
     "pg": "^8.16.0"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.15.2",
     "parcel": "^2.15.2"
   }
 }
