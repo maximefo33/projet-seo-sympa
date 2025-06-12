@@ -13,48 +13,32 @@
   <meta name="description" content="Page d'inscription pour créer un compte sur SEO Sympa. Remplissez le formulaire pour vous enregistrer." />
   
 </head>
-<body>
+<body class="auth-page">
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-  <header class="degrade-diagonal">
-    <a href="../index.html">
-      <img src="../assets/img/logo.png" alt="Retour à l'accueil – SEO Sympa" />
-    </a>
+  <header class="header">
+    <div class="degrade-diagonal">
+      <a href="../index.html" class="header-logo">
+        <img src="../assets/img/logo.png" alt="Retour à l'accueil – SEO Sympa" />
+      </a>
+    </div>
   </header>
 
-  <main id="main-content">
-    <h1>S’inscrire</h1>
-    <h2>Créer un nouveau compte</h2>
+  <main class="auth-main" id="main-content">
+    <h1 class="auth-title">S’inscrire</h1>
+    <h2 class="auth-subtitle">Créer un nouveau compte</h2>
 
-    <p id="form-desc" class="sr-only">
-      Tous les champs marqués d’un astérisque sont obligatoires.
-    </p>
+    <p id="form-desc" class="sr-only">Tous les champs marqués d’un astérisque sont obligatoires.</p>
 
     <form method="POST" action="/signup" novalidate aria-describedby="form-desc">
       <fieldset>
         <legend class="sr-only">Formulaire d'inscription</legend>
 
         <label for="prenom">Prénom <span aria-hidden="true">*</span></label>
-        <input
-          type="text"
-          id="prenom"
-          name="prenom"
-          placeholder="Prénom"
-          required
-          aria-required="true"
-          autocomplete="given-name"
-        />
+        <input type="text" id="prenom" name="prenom" placeholder="Prénom" required aria-required="true" autocomplete="given-name" />
 
         <label for="nom">Nom <span aria-hidden="true">*</span></label>
-        <input
-          type="text"
-          id="nom"
-          name="nom"
-          placeholder="Nom"
-          required
-          aria-required="true"
-          autocomplete="family-name"
-        />
+        <input type="text" id="nom" name="nom" placeholder="Nom" required aria-required="true" autocomplete="family-name" />
 
         <label for="role">Rôle <span aria-hidden="true">*</span></label>
         <select id="role" name="role" required aria-required="true">
@@ -64,42 +48,16 @@
         </select>
 
         <label for="email">Email <span aria-hidden="true">*</span></label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="exemple@domaine.com"
-          required
-          aria-required="true"
-          autocomplete="email"
-        />
+        <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true" autocomplete="email" />
 
         <label for="password">Mot de passe <span aria-hidden="true">*</span></label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Mot de passe"
-          required
-          aria-required="true"
-          autocomplete="new-password"
-        />
-
-        <label for="confirm_password">Confirmer le mot de passe <span aria-hidden="true">*</span></label>
-        <input
-          type="password"
-          id="confirm_password"
-          name="confirm_password"
-          placeholder="Confirmer le mot de passe"
-          required
-          aria-required="true"
-          autocomplete="new-password"
-        />
+        <input type="password" id="password" name="password" placeholder="Mot de passe" required aria-required="true" autocomplete="new-password" />
       </fieldset>
 
-      <button type="submit" aria-label="S’inscrire sur le site">S’inscrire</button>
+      <button type="submit" class="button" aria-label="Créer un compte">S’inscrire</button>
     </form>
   </main>
 </body>
+
 </html>
 
