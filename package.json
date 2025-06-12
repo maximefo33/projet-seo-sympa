@@ -2,7 +2,7 @@
   "name": "projet-seo-sympa",
   "version": "1.0.0",
   "description": "Présentation générale du projet",
-  "source": "src/pages/sign-in.html",
+  "source": "src/index.html",
   "type": "module",
   "scripts": {
     "start": "parcel",
