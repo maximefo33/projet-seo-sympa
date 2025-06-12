@@ -3,8 +3,9 @@
 
 @use './components/home.scss';
 
-// @use './auth';
-
+ @use './components/home.scss';
+ @use './components/var.scss';
 
 @use './components/about';
+
 

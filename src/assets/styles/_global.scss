@@ -1,10 +1,9 @@
-// fichier global.scss
+@use "./components/var";
 
-@use './components/var';
+
 
 // global style
 // verdana  ou arial ???
-
 
 body {
   font-family: var.$font-texte;
