@@ -1,0 +1,112 @@
+// page about Elise css
+
+@use './var';
+
+// styles de la page about
+//test - css ok répond bien
+
+.about_main {
+  background: linear-gradient(to bottom right, transparent, #acacf3, pink);
+  padding: 1rem;
+
+}
+
+.about_article_seo_contain {
+  display: flex;
+  margin-left: 3rem;
+  margin-top: 4rem;
+}
+
+.about_article_seo {
+  background: linear-gradient(to bottom right, #224777, rgb(33, 82, 139));
+  color: white;
+  margin-left: 10rem;
+  margin-right: 16rem;
+  border-radius: 15%;
+  text-align: center;
+  align-content: center;
+  padding: 3rem;
+  line-height: 2rem;
+}
+
+
+
+.about_link_article {
+  color: white;
+  text-decoration: none;
+  font-style: italic;
+  background-color: linear-gradient(to bottom right, #124d48, rgb(78, 112, 151));
+}
+
+
+.about_witness {
+
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.about_witness0 {
+
+  text-align: center;
+}
+
+.about_witness1 {
+  margin-right: 2rem;
+  margin-bottom: 3rem;
+  background-color: #7ab1fa;
+  border-radius: 8%;
+  text-align: center;
+  display: inline-block;
+  width: 20%;
+  column-gap: 3rem;
+  align-items: center;
+  padding: 1rem;
+}
+
+.about_witness2 {
+  column-gap: 3rem;
+  background-color: #7ab1fa;
+  border-radius: 8%;
+  text-align: center;
+  display: inline-block;
+  width: 20%;
+  align-items: center;
+  padding: 1rem;
+}
+
+// à revoir car l'image n'est pas responsive
+.about_witness_contain {
+  margin-right: 10rem;
+  display: inline-block;
+  width: 12%;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+
+}
+
+.about_witness_contain {
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
+
+// ici css pour ouvrir fermer questions réponses
+// essai de faire dérouler la réponse en cliquant sur question entière, pas sur flèche
+.coucou a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.coucou h1 {
+  display: inline-block;
+}
+
+.coucou p {
+  display: none;
+}
+
+.coucou p:target {
+  display: block;
+}
+
+
