@@ -2,36 +2,104 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+ 
+  <link rel="stylesheet" href="../assets/styles/index.scss" />
+  
+  <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
+  
   <title>Inscription</title>
+  <meta name="description" content="Page d'inscription pour créer un compte sur SEO Sympa. Remplissez le formulaire pour vous enregistrer." />
+  
 </head>
 <body>
-  <h1>S’inscrire</h1>
-  <h2>Créer un nouveau compte</h2>
-  <form method="POST" action="/signup">
-    
-    <label for="prenom">Prénom :</label><br />
-    <input type="text" id="prenom" name="prenom" placeholder="Prénom" required /><br /><br />
-    
-    <label for="nom">Nom :</label><br />
-    <input type="text" id="nom" name="nom" placeholder="Nom" required /><br /><br />
-    
-    <label for="role">Rôle :</label><br />
-    <select id="role" name="role" required>
-      <option value="" disabled selected>Choisissez un rôle</option>
-      <option value="expert">Expert</option>
-      <option value="demandeur">Demandeur</option>
-    </select><br /><br />
-    
-    <label for="email">Email :</label><br />
-    <input type="email" id="email" name="email" placeholder="Email" required /><br /><br />
-    
-    <label for="password">Mot de passe :</label><br />
-    <input type="password" id="password" name="password" placeholder="Mot de passe" required /><br /><br />
-    
-    <label for="confirm_password">Confirmer mot de passe :</label><br />
-    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirmer mot de passe" required /><br /><br />
-    
-    <button type="submit">S’inscrire</button>
-  </form>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="degrade-diagonal">
+    <a href="../index.html">
+      <img src="../assets/img/logo.png" alt="Retour à l'accueil – SEO Sympa" />
+    </a>
+  </header>
+
+  <main id="main-content">
+    <h1>S’inscrire</h1>
+    <h2>Créer un nouveau compte</h2>
+
+    <p id="form-desc" class="sr-only">
+      Tous les champs marqués d’un astérisque sont obligatoires.
+    </p>
+
+    <form method="POST" action="/signup" novalidate aria-describedby="form-desc">
+      <fieldset>
+        <legend class="sr-only">Formulaire d'inscription</legend>
+
+        <label for="prenom">Prénom <span aria-hidden="true">*</span></label>
+        <input
+          type="text"
+          id="prenom"
+          name="prenom"
+          placeholder="Prénom"
+          required
+          aria-required="true"
+          autocomplete="given-name"
+        />
+
+        <label for="nom">Nom <span aria-hidden="true">*</span></label>
+        <input
+          type="text"
+          id="nom"
+          name="nom"
+          placeholder="Nom"
+          required
+          aria-required="true"
+          autocomplete="family-name"
+        />
+
+        <label for="role">Rôle <span aria-hidden="true">*</span></label>
+        <select id="role" name="role" required aria-required="true">
+          <option value="" disabled selected>Choisissez un rôle</option>
+          <option value="expert">Expert</option>
+          <option value="demandeur">Demandeur</option>
+        </select>
+
+        <label for="email">Email <span aria-hidden="true">*</span></label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="exemple@domaine.com"
+          required
+          aria-required="true"
+          autocomplete="email"
+        />
+
+        <label for="password">Mot de passe <span aria-hidden="true">*</span></label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Mot de passe"
+          required
+          aria-required="true"
+          autocomplete="new-password"
+        />
+
+        <label for="confirm_password">Confirmer le mot de passe <span aria-hidden="true">*</span></label>
+        <input
+          type="password"
+          id="confirm_password"
+          name="confirm_password"
+          placeholder="Confirmer le mot de passe"
+          required
+          aria-required="true"
+          autocomplete="new-password"
+        />
+      </fieldset>
+
+      <button type="submit" aria-label="S’inscrire sur le site">S’inscrire</button>
+    </form>
+  </main>
 </body>
 </html>
+
