@@ -1,0 +1,309 @@
+/*EXAMPLE*/
+
+/* Reset et base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #a3a7ab;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+/* Container principal */
+html {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+/* Navigation */
+nav {
+  background: linear-gradient(90deg, #4834d4, #8e90d0);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 2rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #dda0dd;
+  text-shadow: 0 0 5px rgba(221, 160, 221, 0.5);
+}
+
+/* Logo */
+nav a:first-child img {
+  vertical-align: middle;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+nav a:first-child img:hover {
+  transform: scale(1.05);
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #667eea 0%, #793fb3 100%);
+  color: white;
+  text-align: center;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Main content */
+main {
+  padding: 0 2rem 2rem;
+}
+
+main h1 {
+  color: #3317e6;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+main > p {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #f8f8fa;
+}
+
+/* Section formulaire */
+#contact-form {
+  background: #f8f9ff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+}
+
+#contact-form h2 {
+  color: #3c24d7;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* Fieldsets */
+fieldset {
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: white;
+}
+
+legend {
+  color: #2c3dd6;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 0 1rem;
+}
+
+/* Labels et inputs */
+label {
+  color: #315eab;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Textarea spécifique */
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  font-family: inherit;
+}
+
+/* Texte d'aide */
+small {
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Abbr pour les champs obligatoires */
+abbr[title] {
+  color: #1619c0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Bouton de soumission */
+button[type="submit"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+  color: white;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+footer h2 {
+  color: #dda0dd;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+footer h3 {
+  color: #b794f6;
+  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+footer ul {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+
+footer ul li {
+  margin-bottom: 0.5rem;
+}
+
+footer a {
+  color: #90cdf4;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #dda0dd;
+  text-decoration: underline;
+}
+
+/* Paragraphes du footer */
+footer p {
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    padding: 1rem;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  main {
+    padding: 0 1rem 1rem;
+  }
+
+  #contact-form {
+    padding: 1rem;
+  }
+
+  fieldset {
+    padding: 1rem;
+  }
+
+  footer {
+    padding: 1rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#contact-form {
+  animation: fadeIn 0.8s ease-out;
+}
+
+/* États de validation */
+input:valid {
+  border-color: #48bb78;
+}
+
+input:invalid:not(:placeholder-shown) {
+  border-color: #e53e3e;
+}
+
+/* Amélioration de l'accessibilité */
+:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
