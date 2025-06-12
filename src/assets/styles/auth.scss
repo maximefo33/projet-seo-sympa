@@ -1,8 +1,7 @@
 // auth.scss
 
-@use 'components/var' as *; 
-@use './mixins' as *;
-
+@use "components/var" as *;
+@use "./mixins" as *;
 
 header {
   width: 100%;
@@ -10,9 +9,14 @@ header {
   box-sizing: border-box;
 
   .degrade-diagonal {
-    background: linear-gradient(to bottom right, transparent, rgb(177, 177, 245), pink);
-    padding: 0.5rem 1rem; 
-    display: flex;       
+    background: linear-gradient(
+      to bottom right,
+      transparent,
+      rgb(177, 177, 245),
+      pink
+    );
+    padding: 0.5rem 1rem;
+    display: flex;
     align-items: center;
     justify-content: flex-start;
 
@@ -44,7 +48,6 @@ header {
 }
 
 body {
-  background-color: $main-background-color;
   font-family: $main-font;
   color: $color-black;
   padding: 2rem;
@@ -71,7 +74,6 @@ body {
     max-width: 600px;
   }
 }
-
 
 h1 {
   font-size: $title-fontsize;
@@ -113,7 +115,7 @@ form {
   margin: 0 auto;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
   @include medium {
     max-width: 500px;
@@ -131,7 +133,9 @@ label {
   display: block;
 }
 
-input, select, button {
+input,
+select,
+button {
   width: 100%;
   padding: 0.75rem;
   font-size: $text-fontsize;
@@ -180,7 +184,6 @@ button {
   text-align: right;
   margin-top: 0.5rem;
 }
-
 
 .sr-only {
   position: absolute !important;
