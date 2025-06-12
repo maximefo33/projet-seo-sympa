@@ -2,9 +2,10 @@
 
 
  @use './components/home.scss';
+ @use './components/var.scss';
 
 @use './_global';
 @use './auth';
-@use './profile.scss';
+
 
 
