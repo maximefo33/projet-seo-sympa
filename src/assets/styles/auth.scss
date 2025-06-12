@@ -1,17 +1,4 @@
-@use 'components/var' as *;
-@use './mixins' as *;
 
-.auth-page {
-  font-family: $font-texte;
-  color: $color-black;
-
-  .header {
-    width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-
-    .degrade-diagonal {
-      background: linear-gradient(to bottom right, transparent, rgb(177, 177, 245), pink);
       padding: 0.5rem 1rem;
       display: flex;
       align-items: center;
