@@ -1,6 +1,6 @@
 # Suivi de notre projet - sprint 1 - ce qu'on fait quotidiennement
 
-10/06/25
+## 10/06/25
 - initialisation du projet : https://github.com/O-clock-Behemoth/S05E06-Decouvrir-Express-Marion-Oclock#démarrer-un-nouveau-serveur-express 
 
 COMMANDES
@@ -28,7 +28,25 @@ ajout script nodemon
             },
 
 
+- code des pages html
+    - home
+    - signin / login
+    - contact
+    - about + header + footer (modèle page statique)
+    - search
+    
+- penser à vérifier son code sur https://validator.w3.org/
 
+
+## 11/6
+suite de code des pages html du 10/6
+3 contacts vocaux avec Aurélie pour nous aider (1er git pull request, explication de la structure àm ettre en place pour le statique... + aide pour nos premiers git merge)
+
+
+## 12/6
+pages profil + recherche résultats - html à coder
+suivi de sprint 9h30-10h15 avec Aurélie
+coder ensemble header + footer
 
 
 

@@ -28,7 +28,7 @@
     "pg": "^8.16.0"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.14.4",
+    "@parcel/transformer-sass": "^2.15.2",
     "parcel": "^2.15.2"
   }
 }
