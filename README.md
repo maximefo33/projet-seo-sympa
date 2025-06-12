@@ -1,1 +1,1 @@
-ceci sera notre présentation proejt simple + procédure pour installer en local une fois le repos cloné
+ceci sera notre présentation projet simple + procédure pour installer en local une fois le repos cloné

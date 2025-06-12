@@ -412,7 +412,7 @@ MCD : modèle conceptuel de données
 
 ![MCD seo sympa (1)]
 
-![alt text](<image/MCD seo sympa (1).png>)
+![alt text](<image/MCD.png>)
 
 
 
@@ -450,12 +450,12 @@ MLD : modèle logique de données
 
 
 
-![alt text](<image/MLD (1).png>)
+![alt text](<image/MLD.png>)
 
 
+MLD : modèle physique de données
 
-
-
+![alt text](<image/MPD.png>)
 
 
 
