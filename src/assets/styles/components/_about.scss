@@ -40,8 +40,8 @@
 }
 
 .about_article_seo_img {
-height: auto;
-width: auto;
+  height: auto;
+  width: auto;
 }
 
 .about_link_article {
@@ -105,7 +105,7 @@ width: auto;
 }
 
 .about_witness_img {
-max-width: auto;
+  max-width: auto;
 }
 
 
@@ -132,13 +132,25 @@ max-width: auto;
 // header navigation de la page about 
 
 .header_nav {
-  background: linear-gradient(to right, var.$color-purple, transparent, var.$color-lightblue);
+  background: linear-gradient(to bottom right,
+      transparent,
+      var.$color-purple,
+      var.$color-blue,
+      var.$color-lightblue );
   display: flex;
   justify-content: center;
   column-gap: 10rem;
   font-size: var.$subtitle-fontsize;
+  padding: 1rem;
 
 }
+
+.header_nav img {
+  background-color: var.$color-white;
+  width: 160px;
+  height: 160px;
+}
+
 
 .header_nav_ul {
   display: inline-flex;
@@ -149,46 +161,76 @@ max-width: auto;
   font-size: var.$subtitle-fontsize;
 
   list-style: none;
-   
+
+
 
 }
+
 .header_nav_li a {
   text-decoration: none;
+  color: var.$color-white;
 }
 
 
 // footer nav de la page about
 
 .footer_nav {
-   background: linear-gradient(to right, var.$color-blue, transparent, var.$color-purple);
+  background: linear-gradient(to bottom right,
+      transparent,
+      var.$color-purple,
+      var.$color-blue,
+      var.$color-lightblue );
   display: flex;
-  column-gap: 20rem;
+  column-gap: 2rem;
   justify-content: center;
   font-size: var.$text-fontsize;
   align-items: center;
-  color: var.$color-black;
+  
 }
 
 .footer_nav a {
   text-decoration: none;
+  color: var.$color-white;
 }
+
+
 
 .footer_nav ul {
 
-list-style: none;
+  list-style: none;
+  display: inline-flex;
+  column-gap: 2rem;
+
+
+ 
 
 }
 
 .footer_nav_follow {
   flex-wrap: wrap;
   flex-direction: row;
-  
+
 }
 
-.footer_nav_contact {
-  flex-wrap: wrap;
-  flex-direction: row;
+.footer_nav_follow img {
+  width: 40px;
+  height: 40px;
+  background-color: var.$color-white;
 }
+
+
+
+.footer_nav_contact {
+  justify-content: center;
+ align-items: center;
+}
+
+.footer_nav_contact img {
+  width: 40px;
+  height: 40px;
+  background-color: var.$color-white;
+}
+
 
 .footer_aside {
   text-align: center;

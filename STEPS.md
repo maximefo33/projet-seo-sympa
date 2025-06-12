@@ -45,25 +45,37 @@ suite de code des pages html du 10/6
 
 ## 12/6
 - pages profil + recherche résultats - html à coder
-- suivi de sprint 9h30-10h15 avec Aurélie
+- suivi rétrospective de sprint 9h30-10h15 avec Aurélie
 - merge de toutes nos branches + 
         puis : git checkout dev
         git pull
         git checkout + nom de sa branche
         git merge dev
 - retouches de codes scss et html
+- SCSS = travail en pair programming pour page accueil
+-header + footer à valider ensemble
+
+
+## 13/6
+- pages statiques à finir de coder
+- valider header / footer + les intégrer sur toutes les pages SAUF page accueil (qui a son propre header footer)
+- OBJECTIF = page accueil OP
+
+
+## lundi 16/06
+commencer à coder BDD en groupe de 2
+commencer à installer serveur en groupe de 2
 
 
 
-
-
-coder ensemble header + footer
 
 
 
 ## A penser, à faire, suivi général
 
 - []  mettre l'intégration : wireframes et maquettes
+- passer code lighthouse pour accessibilité (sprint 3)
+- tester responsive
 
 
 
