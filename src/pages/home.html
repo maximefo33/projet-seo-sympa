@@ -5,27 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="#" type="image/x-icon">
+    <link rel="stylesheet" href="/src/assets/styles/index.scss">
     <title>Seo-Sympa</title>
 </head>
 
 <body>
-    <header>
-        <a href="./index.html"><img src="#" alt="logo seo sympa avec lien vers accuille"></a>
-
-        <nav>
-            <ul>
-            <li><a href="#">a propo</a></li>
-            <li><a href="#">contact</a></li>
+    <header class="menu">
+        <a href="../pages/home.html"><img src="/src/assets/img/logo.png"
+                alt="logo seo sympa avec lien vers accuille"></a>
+        <nav class="main-nav">
+            <ul class="main-nav__list">
+                <li class="main-nav__item"><a href="#" class="main-nav__link">a propo</a></li>
+                <li class="main-nav__item"><a href="#" class="main-nav__link">contact</a></li>
             </ul>
         </nav>
         <button>connexion</button>
         <button>inscription</button>
-        <input type="text">
+
+        <div class="input-group">
+
+            <input type="text" id="myInput" class="input-group__input">
+
+        </div>
         <a href="#"><i class="fi fi-rr-user"></i></a>
     </header>
     <main>
 
-        <img src="#" alt="">
+        <img src="/src/assets/img/home.jpg" alt="">
         <p>le référencement sans prise de tête
 
             SEO Sympa
@@ -43,11 +49,11 @@
         <h2>il en trouve de client grâce a notre plateforme</h2>
 
         <ul>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-
+            <li></li>
+             <li></li>
+              <li></li>
         </ul>
+
 
         <h3>A quoi me sert le SEO ? Les avantages d’être mieux référencé...</h3>
         <p>Le référencement (SEO) désigne l’ensemble des techniques visant à améliorer la visibilité d’un site web sur
@@ -59,7 +65,7 @@
 
     </main>
     <footer>
-         <a></a>
+        <a></a>
 
     </footer>
 </body>
