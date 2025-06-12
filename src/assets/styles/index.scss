@@ -1,9 +1,10 @@
 // index.scss de notre projet
-
-
- @use './components/home.scss';
-
 @use './_global';
-@use './auth';
 
+@use './components/home.scss';
+
+// @use './auth';
+
+
+@use './components/about';
 

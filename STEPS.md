@@ -44,8 +44,19 @@ suite de code des pages html du 10/6
 
 
 ## 12/6
-pages profil + recherche résultats - html à coder
-suivi de sprint 9h30-10h15 avec Aurélie
+- pages profil + recherche résultats - html à coder
+- suivi de sprint 9h30-10h15 avec Aurélie
+- merge de toutes nos branches + 
+        puis : git checkout dev
+        git pull
+        git checkout + nom de sa branche
+        git merge dev
+- retouches de codes scss et html
+
+
+
+
+
 coder ensemble header + footer
 
 
