@@ -51,18 +51,6 @@
   background-color: linear-gradient(to bottom right, #124d48, rgb(78, 112, 151));
 }
 
-
-.about_witness {
-
-  text-align: center;
-  margin-top: 5rem;
-}
-
-.about_witness0 {
-
-  text-align: center;
-}
-
 .about_witness1 {
   margin-right: 2rem;
   margin-bottom: 3rem;
@@ -89,22 +77,27 @@
 }
 
 // à revoir car l'image n'est pas responsive
-.about_witness_contain {
-  margin-right: 10rem;
-  display: inline-block;
-  width: 12%;
+.about_witness_contain0 {
+  display: flex;
   align-items: center;
   align-content: center;
-  margin: auto;
+  margin-top: 5rem;
 
 }
 
 .about_witness_contain {
-  margin-left: 10rem;
-  margin-right: 10rem;
+flex-wrap: wrap;
+margin: 1rem;
+ text-align: center;
+  align-items: flex-start;
+  color: var.$color-darkpurple;
+  font-weight: bold;
+  font-size: var.$text-fontsize;
+
 }
 
-.about_witness_img {
+.about_witness img {
+
   max-width: auto;
 }
 
@@ -132,11 +125,7 @@
 // header navigation de la page about 
 
 .header_nav {
-  background: linear-gradient(to bottom right,
-      transparent,
-      var.$color-purple,
-      var.$color-blue,
-      var.$color-lightblue );
+  background: var.$color-white;
   display: flex;
   justify-content: center;
   column-gap: 10rem;
@@ -159,16 +148,17 @@
   align-content: center;
   column-gap: 10rem;
   font-size: var.$subtitle-fontsize;
-
   list-style: none;
-
-
 
 }
 
+// ombres sur lettres : cf @ https://developer.mozilla.org/fr/docs/Web/CSS/text-shadow 
+
 .header_nav_li a {
   text-decoration: none;
-  color: var.$color-white;
+  color: var.$color-darkpurple;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px var.$color-lightblue;
 }
 
 
@@ -181,7 +171,8 @@
       var.$color-blue,
       var.$color-lightblue );
   display: flex;
-  column-gap: 2rem;
+  flex-wrap: wrap;
+  column-gap: 0.2rem;
   justify-content: center;
   font-size: var.$text-fontsize;
   align-items: center;
@@ -193,16 +184,11 @@
   color: var.$color-white;
 }
 
-
-
 .footer_nav ul {
 
   list-style: none;
   display: inline-flex;
-  column-gap: 2rem;
-
-
- 
+  column-gap: 1rem;
 
 }
 
@@ -213,22 +199,22 @@
 }
 
 .footer_nav_follow img {
-  width: 40px;
-  height: 40px;
-  background-color: var.$color-white;
+  width: 35px;
+  height: 35px;
 }
 
 
 
 .footer_nav_contact {
+  margin-left: 2rem;
   justify-content: center;
  align-items: center;
 }
 
 .footer_nav_contact img {
-  width: 40px;
-  height: 40px;
-  background-color: var.$color-white;
+  width: 35px;
+  height: 35px;
+  // background-color: var.$color-white;
 }
 
 
