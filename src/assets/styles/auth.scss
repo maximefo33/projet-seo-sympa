@@ -1,10 +1,22 @@
+@use 'components/var' as *;
+@use './mixins' as *;
+
+.auth-page {
+  font-family: $main-font;
+  color: $color-black;
+
+  .header {
+    width: 100%;
+    padding: 1rem;
+    box-sizing: border-box;
 
 
+    .degrade-diagonal {
+      background: linear-gradient(to bottom right, transparent, rgb(177, 177, 245), pink);
       padding: 0.5rem 1rem;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-
 
       @include small {
         padding: 1rem 2rem;
@@ -168,6 +180,19 @@
     }
 
 
+    .sr-only {
+      position: absolute !important;
+      width: 1px !important;
+      height: 1px !important;
+      padding: 0 !important;
+      margin: -1px !important;
+      overflow: hidden !important;
+      clip: rect(0, 0, 0, 0) !important;
+      white-space: nowrap !important;
+      border: 0 !important;
+    }
+
+
     .skip-link {
       position: absolute;
       left: -9999px;
@@ -195,5 +220,4 @@
       }
     }
   }
-}
 
