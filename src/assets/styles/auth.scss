@@ -2,7 +2,7 @@
 @use './mixins' as *;
 
 .auth-page {
-  font-family: $main-font;
+  font-family: $font-texte;
   color: $color-black;
 
   .header {
@@ -220,4 +220,5 @@
       }
     }
   }
+}
 
