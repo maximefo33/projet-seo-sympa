@@ -1,4 +1,3 @@
-sign-in.html:
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,9 +15,6 @@ sign-in.html:
     content="Page d'inscription pour créer un compte sur SEO Sympa. Remplissez le formulaire pour vous enregistrer." />
 
 </head>
-
-
-
 
 <body class="auth-page">
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
@@ -42,13 +38,12 @@ sign-in.html:
         <legend class="sr-only">Formulaire d'inscription</legend>
 
         <label for="prenom">Prénom <span aria-hidden="true">*</span></label>
-autocomplete="family-name" />
-
-        <input type="text" id="prenom" name="prenom" placeholder="Prénom" required aria-required="true" autocomplete="given-name" />
+        <input type="text" id="prenom" name="prenom" placeholder="Prénom" required aria-required="true"
+          autocomplete="given-name" />
 
         <label for="nom">Nom <span aria-hidden="true">*</span></label>
-        <input type="text" id="nom" name="nom" placeholder="Nom" required aria-required="true" autocomplete="family-name" />
-
+        <input type="text" id="nom" name="nom" placeholder="Nom" required aria-required="true"
+          autocomplete="family-name" />
 
         <label for="role">Rôle <span aria-hidden="true">*</span></label>
         <select id="role" name="role" required aria-required="true">
@@ -58,18 +53,17 @@ autocomplete="family-name" />
         </select>
 
         <label for="email">Email <span aria-hidden="true">*</span></label>
-
-        <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true" autocomplete="email" />
+        <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true"
+          autocomplete="email" />
 
         <label for="password">Mot de passe <span aria-hidden="true">*</span></label>
-        <input type="password" id="password" name="password" placeholder="Mot de passe" required aria-required="true" autocomplete="new-password" />
-
+        <input type="password" id="password" name="password" placeholder="Mot de passe" required aria-required="true"
+          autocomplete="new-password" />
       </fieldset>
 
       <button type="submit" class="button" aria-label="Créer un compte">S’inscrire</button>
     </form>
   </main>
 </body>
-
 
 </html>
