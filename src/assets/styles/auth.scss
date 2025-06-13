@@ -1,6 +1,7 @@
 @use 'components/var' as *;
 @use './mixins' as *;
 
+
 .auth-page {
   font-family: $font-texte;
   color: $color-black;
@@ -12,10 +13,13 @@
 
     .degrade-diagonal {
       background: linear-gradient(to bottom right, transparent, rgb(177, 177, 245), pink);
+
+
       padding: 0.5rem 1rem;
       display: flex;
       align-items: center;
       justify-content: flex-start;
+
 
       @include small {
         padding: 1rem 2rem;
@@ -177,6 +181,7 @@
       white-space: nowrap !important;
       border: 0 !important;
     }
+
 
     .skip-link {
       position: absolute;
