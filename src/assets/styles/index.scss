@@ -9,9 +9,20 @@
 
 
 
- @use './components/var.scss';
 
 @use './components/about';
+
+@use './components/legal';
+=======
+
+
+@use './components/conditions';
+
+
+ @use './components/var';
+
+
+
 
 
 

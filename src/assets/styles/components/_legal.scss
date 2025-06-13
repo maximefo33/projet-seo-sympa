@@ -1,0 +1,33 @@
+//styles de la page conditions.html correspondant à /terms-and-conditions
+@use "/src/assets/styles/components/var";
+
+.main_legal {
+    background: var.$color-white;
+    font-size: var.$text-fontsize;
+    font-family: var.$font-texte;
+    margin: 2rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
+    text-align: justify;
+  
+}
+
+.main_legal h1 {
+    color: var.$color-blue;
+    font-size: var.$title-fontsize;
+    text-align: center;
+}
+
+.main_legal h2 {
+    color: var.$color-darkpurple;
+    font-size: var.$subtitle-fontsize;
+    text-align: left;
+}
+
+
+.main_legal_aside {
+    font-style: italic;
+    
+}
+
+

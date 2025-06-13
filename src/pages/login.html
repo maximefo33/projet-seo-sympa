@@ -22,6 +22,8 @@
     <h1 class="auth-title">Se connecter</h1>
     <p id="form-desc" class="sr-only">Veuillez entrer votre adresse email et votre mot de passe pour vous connecter.</p>
 
+    <form method="POST" action="/login" aria-describedby="form-desc" novalidate>
+      <div id="loginStatus" class="sr-only" role="alert" aria-live="assertive"></div>
 
     <form method="POST" action="/login" aria-describedby="form-desc" novalidate>
       <div id="loginStatus" class="sr-only" role="alert" aria-live="assertive"></div>
@@ -50,11 +52,7 @@
         </div>
       </fieldset>
 
-      <button type="submit" class="button" aria-label="Se connecter au site">Se connecter</button>
-    </form>
-  </main>
-</body>
-</html> 
+
 
       <fieldset>
         <legend class="sr-only">Informations de connexion</legend>
@@ -71,6 +69,7 @@
           <a href="#" aria-label="Réinitialiser le mot de passe">Mot de passe oublié&nbsp;?</a>
         </div>
       </fieldset>
+
 
       <button type="submit" class="button" aria-label="Se connecter au site">Se connecter</button>
     </form>
