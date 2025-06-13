@@ -6,10 +6,17 @@
     font-size: var.$text-fontsize;
     font-family: var.$font-texte;
     margin: 2rem;
-    padding-left: 15rem;
-    padding-right: 15rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     text-align: justify;
   
+  
+}
+
+.main_bg_img{  background-image: url(/src/assets/img/img-seo4.jpg);
+       background-repeat: no-repeat;
+       background-size: 40%;
+       background-position: right;
 }
 
 .main_legal h1 {
@@ -26,8 +33,136 @@
 
 
 .main_legal_aside {
-    font-style: italic;
+    text-transform:uppercase;
+    text-align: center;
+    font-size: 22px;
+    color: var.$color-darkpurple;
+    text-shadow: 1px 0 10px var.$color-blue;
+   
+
     
 }
 
+.main_nav {
+    display: flex;
+    column-gap: 4rem;
+    justify-content: center;
+    align-items: center;
+}
 
+.main_nav img {
+    border-radius: 15%;
+    border: solid 1rem;
+    border-style: inset;
+    border-block-color: var.$color-blue;
+
+}
+.main_nav2 {
+    flex-wrap: nowrap;
+    justify-self: right;
+}
+
+.copyright {
+    float: left;
+    margin-bottom: 2rem;
+    width: 30%;
+    margin: auto;
+}
+
+.property {
+    display: flex;
+    margin-bottom: 1rem;
+   justify-content: center;
+}
+
+//header modele importé
+
+// styles scss header commun à toutes les pages sauf la page /home
+
+.header_nav {
+  background: var.$color-white;
+  display: flex;
+  justify-content: center;
+  column-gap: 10rem;
+  font-size: var.$subtitle-fontsize;
+  padding: 1rem;
+
+}
+
+.header_nav img {
+  background-color: var.$color-white;
+  width: 160px;
+  height: 160px;
+}
+
+
+.header_nav_ul {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  column-gap: 10rem;
+  font-size: var.$subtitle-fontsize;
+  list-style: none;
+
+}
+
+// ombres sur lettres : cf @ https://developer.mozilla.org/fr/docs/Web/CSS/text-shadow 
+
+.header_nav_li a {
+  text-decoration: none;
+  color: var.$color-darkpurple;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px var.$color-lightblue;
+}
+
+// footer modele importé
+
+// styles scss header commun à toutes les pages sauf la page /home
+
+.footer_nav {
+  background: linear-gradient(to bottom right,
+      transparent,
+      var.$color-purple,
+      var.$color-blue,
+      var.$color-lightblue );
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.2rem;
+  justify-content: center;
+  font-size: var.$text-fontsize;
+  align-items: center;
+  
+}
+
+.footer_nav a {
+  text-decoration: none;
+  color: var.$color-white;
+}
+
+.footer_nav ul {
+
+  list-style: none;
+  display: inline-flex;
+  column-gap: 1rem;
+
+}
+
+.footer_nav_follow {
+  flex-wrap: wrap;
+  flex-direction: row;
+
+}
+
+.footer_nav_follow img {
+  width: 35px;
+  height: 35px;
+}
+
+
+
+.footer_nav_contact {
+  margin-left: 2rem;
+  justify-content: center;
+ align-items: center;
+}
