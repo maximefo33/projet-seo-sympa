@@ -9,20 +9,15 @@
 
 
 
+@use './components/var.scss';
 
 @use './components/about';
 
+@use './components/commune_footer';
+@use './components/commune_header';
+@use './components/commune_logo';
 @use './components/legal';
-=======
-
-
 @use './components/conditions';
-
-
- @use './components/var';
-
-
-
-
+@use './components/var';
 
 

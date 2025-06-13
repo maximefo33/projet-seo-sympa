@@ -1,0 +1,17 @@
+// style scss du logo seo
+// recommandations pour accessibilité environ 160px par 160px
+// mais si besoin créez une autre classe avec un logo plus petit si ça fait trop gros dans votre page
+
+@use './var';
+
+.logo_style_transparent_bg{
+  background-color: var.$color-white;
+  width: 160px;
+  height: 160px;
+}
+
+.logo_style_white_bg{
+  background-color: var.$color-white;
+  width: 160px;
+  height: 160px;
+}
