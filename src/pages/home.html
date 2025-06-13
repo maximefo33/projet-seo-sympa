@@ -1,73 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#" type="image/x-icon">
-    <link rel="stylesheet" href="/src/assets/styles/index.scss">
-    <title>Seo-Sympa</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/src/assets/styles/index.scss">
+  <title>Seo-Sympa</title>
 </head>
 
 <body>
-    <header class="menu">
-        <a href="../pages/home.html"><img src="/src/assets/img/logo.png"
-                alt="logo seo sympa avec lien vers accuille"></a>
-        <nav class="main-nav">
-            <ul class="main-nav__list">
-                <li class="main-nav__item"><a href="#" class="main-nav__link">a propo</a></li>
-                <li class="main-nav__item"><a href="#" class="main-nav__link">contact</a></li>
+  <header class="menu">
+    <div class="menu-nav">
+      <a href="../pages/home.html">
+        <img class="logo" src="/src/assets/img/logo.png" alt="logo seo sympa avec lien vers accuille">
+      </a>
+
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="#" class="main-nav__link">a propo</a></li>
+          <li class="main-nav__item"><a href="#" class="main-nav__link">contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="button__append">connexion</button>
+      <button class="button__append">inscription</button>
+
+      <input type="text" id="myInput" class="input-group__input">
+      <a href="#"><i class="fi fi-rr-user"></i></a>
+    </div>
+  </header>
+
+  <main>
+    <article class="contenu">
+      <img class="img_main" src="/src/assets/img/home.jpg" alt="">
+      <p class="text_main1">
+        le référencement sans prise de tête
+        SEO Sympa
+        + de visibilité
+        = d’opportunités clients
+      </p>
+    </article>
+
+    <section class="carousel">
+      <h2 class="titre">il ont trouvé des clients grâce à notre plateforme</h2>
+      <ul class="cardes">
+        <li class="carde">pier</li>
+        <li  class="carde">paule</li>
+        <li  class="carde">jack</li>
+      </ul>
+    </section>
+
+    <article class="présentation">
+      <img src="/src/assets/img/graph2.jpg" alt="">
+      <h3 class="titre">A quoi me sert le SEO ? Les avantages d’être mieux référencé...</h3>
+      <p class="text_main2">
+        Le référencement (SEO) désigne l’ensemble des techniques visant à améliorer la visibilité d’un site web
+        sur les moteurs de recherche comme Google. Il repose sur trois piliers : le contenu, la technique
+        (structure du site) et la popularité (liens entrants). Un bon référencement permet d’attirer plus de
+        visiteurs de façon naturelle.
+      </p>
+      <button>En savoir +</button>
+    </article>
+  </main>
+
+  <footer class="pied_de_page">
+
+        <nav>
+            <ul>
+                <li><a href="/">Retour à l'accueil - SEO Sympa</a></li>
+                <li><a href="">Mentions légales & RGPD</a></li>
+                <li><a href="">Conditions générales</a></li>
+                <li><a href="">Déclaration d'accessibilité</a></li>
+                <li><a href="">Plan du site SEO Sympa</a></li>
             </ul>
         </nav>
-        <button>connexion</button>
-        <button>inscription</button>
 
-        <div class="input-group">
+        <a href="">Suivez-nous (liens vers réseaux sociaux)</a>
 
-            <input type="text" id="myInput" class="input-group__input">
+        <p>Contactez-nous :</p>
+        <address>
+            <a href="mailto:jim@example.com">jim@example.com</a>
+            <a href="tel:+14155550132">+1 (415) 555‑0132</a>
+        </address>
 
-        </div>
-        <a href="#"><i class="fi fi-rr-user"></i></a>
-    </header>
-    <main>
-
-        <img src="/src/assets/img/home.jpg" alt="">
-        <p>le référencement sans prise de tête
-
-            SEO Sympa
-
-            + de visibilité
-            = d’opportunités clients
-
-
-
-        </p>
-
-
-
-
-        <h2>il en trouve de client grâce a notre plateforme</h2>
-
-        <ul>
-            <li></li>
-             <li></li>
-              <li></li>
-        </ul>
-
-
-        <h3>A quoi me sert le SEO ? Les avantages d’être mieux référencé...</h3>
-        <p>Le référencement (SEO) désigne l’ensemble des techniques visant à améliorer la visibilité d’un site web sur
-            les moteurs de recherche comme Google. Il repose sur trois piliers : le contenu, la technique (structure du
-            site) et la popularité (liens entrants). Un bon référencement permet d’attirer plus de visiteurs de façon
-            naturelle.</p>
-        <button>En savoir +</button>
-
-
-    </main>
-    <footer>
-        <a></a>
-
+        <aside>2025 © SEO Sympa</aside>
+        <!-- Pour insérer le symbole de copyright, appuyez sur Alt+0169 -->
     </footer>
 </body>
-
 </html>
