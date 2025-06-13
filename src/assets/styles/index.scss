@@ -3,9 +3,12 @@
 
 @use './components/home.scss';
 
- @use './components/home.scss';
- @use './components/var.scss';
+@use './components/var.scss';
 
 @use './components/about';
+
+@use './components/commune_footer';
+@use './components/commune_header';
+@use './components/commune_logo';
 
 
