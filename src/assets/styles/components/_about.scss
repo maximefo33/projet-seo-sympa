@@ -1,4 +1,4 @@
-// page about Elise css
+// page about Elise scss
 
 @use './var';
 
@@ -6,7 +6,7 @@
 //test - css ok répond bien
 
 .about_main {
-  background: linear-gradient(to bottom right, transparent, #acacf3, pink);
+  // background: linear-gradient(to bottom right, transparent, #acacf3, pink);
   padding: 1rem;
 
 }
@@ -18,21 +18,34 @@
 }
 
 .about_article_seo {
-  background: linear-gradient(to bottom right, #224777, rgb(33, 82, 139));
-  color: white;
+  background: linear-gradient(to bottom right, var.$color-purple, var.$color-lightblue);
+  color: var.$color-white;
+  font-weight: 600;
   margin-left: 10rem;
   margin-right: 16rem;
   border-radius: 15%;
-  text-align: center;
+  text-align: left;
   align-content: center;
-  padding: 3rem;
+  padding: 2rem;
   line-height: 2rem;
+
 }
 
+.about_article_seo h2 {
+  text-align: center;
+}
 
+.about_article_seo aside {
+  text-align: left;
+}
+
+.about_article_seo_img {
+  height: auto;
+  width: auto;
+}
 
 .about_link_article {
-  color: white;
+  color: var.$color-white;
   text-decoration: none;
   font-style: italic;
   background-color: linear-gradient(to bottom right, #124d48, rgb(78, 112, 151));
@@ -53,7 +66,7 @@
 .about_witness1 {
   margin-right: 2rem;
   margin-bottom: 3rem;
-  background-color: #7ab1fa;
+  background-color: var.$color-lightblue;
   border-radius: 8%;
   text-align: center;
   display: inline-block;
@@ -65,7 +78,8 @@
 
 .about_witness2 {
   column-gap: 3rem;
-  background-color: #7ab1fa;
+  background-color: var.$color-purple;
+  color: var.$color-white;
   border-radius: 8%;
   text-align: center;
   display: inline-block;
@@ -90,6 +104,11 @@
   margin-right: 10rem;
 }
 
+.about_witness_img {
+  max-width: auto;
+}
+
+
 // ici css pour ouvrir fermer questions réponses
 // essai de faire dérouler la réponse en cliquant sur question entière, pas sur flèche
 .coucou a {
@@ -110,3 +129,110 @@
 }
 
 
+// header navigation de la page about 
+
+.header_nav {
+  background: linear-gradient(to bottom right,
+      transparent,
+      var.$color-purple,
+      var.$color-blue,
+      var.$color-lightblue );
+  display: flex;
+  justify-content: center;
+  column-gap: 10rem;
+  font-size: var.$subtitle-fontsize;
+  padding: 1rem;
+
+}
+
+.header_nav img {
+  background-color: var.$color-white;
+  width: 160px;
+  height: 160px;
+}
+
+
+.header_nav_ul {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  column-gap: 10rem;
+  font-size: var.$subtitle-fontsize;
+
+  list-style: none;
+
+
+
+}
+
+.header_nav_li a {
+  text-decoration: none;
+  color: var.$color-white;
+}
+
+
+// footer nav de la page about
+
+.footer_nav {
+  background: linear-gradient(to bottom right,
+      transparent,
+      var.$color-purple,
+      var.$color-blue,
+      var.$color-lightblue );
+  display: flex;
+  column-gap: 2rem;
+  justify-content: center;
+  font-size: var.$text-fontsize;
+  align-items: center;
+  
+}
+
+.footer_nav a {
+  text-decoration: none;
+  color: var.$color-white;
+}
+
+
+
+.footer_nav ul {
+
+  list-style: none;
+  display: inline-flex;
+  column-gap: 2rem;
+
+
+ 
+
+}
+
+.footer_nav_follow {
+  flex-wrap: wrap;
+  flex-direction: row;
+
+}
+
+.footer_nav_follow img {
+  width: 40px;
+  height: 40px;
+  background-color: var.$color-white;
+}
+
+
+
+.footer_nav_contact {
+  justify-content: center;
+ align-items: center;
+}
+
+.footer_nav_contact img {
+  width: 40px;
+  height: 40px;
+  background-color: var.$color-white;
+}
+
+
+.footer_aside {
+  text-align: center;
+  font-weight: 800;
+}
