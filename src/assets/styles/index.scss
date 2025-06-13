@@ -8,10 +8,15 @@
 @use './_global';
 
 
-
- @use './components/var.scss';
-
 @use './components/about';
+
+@use './components/conditions';
+
+
+ @use './components/var';
+
+
+
 
 
 
