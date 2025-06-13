@@ -1,0 +1,50 @@
+// styles scss header commun à toutes les pages sauf la page /home
+@use './var';
+
+
+.footer_nav {
+  background: linear-gradient(to bottom right,
+      transparent,
+      var.$color-purple,
+      var.$color-blue,
+      var.$color-lightblue );
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.2rem;
+  justify-content: center;
+  font-size: var.$text-fontsize;
+  align-items: center;
+  
+}
+
+.footer_nav a {
+  text-decoration: none;
+  color: var.$color-white;
+}
+
+.footer_nav ul {
+
+  list-style: none;
+  display: inline-flex;
+  column-gap: 1rem;
+
+}
+
+.footer_nav_follow {
+  flex-wrap: wrap;
+  flex-direction: row;
+
+}
+
+.footer_nav_follow img {
+  width: 35px;
+  height: 35px;
+}
+
+
+
+.footer_nav_contact {
+  margin-left: 2rem;
+  justify-content: center;
+ align-items: center;
+}
