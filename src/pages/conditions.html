@@ -17,8 +17,20 @@
 <body>
 
     <header>
-        <a href="./home.html">Retour accueil</a>
-        <!-- recopier le modèle commun ici -->
+       
+     <nav class="header_nav">
+            <!-- ci-dessous logo SEO cliquable qui ramène à la page d'accueil / -->
+
+            <a href="/"><img alt="logo de SEO Sympa" src="../../image/logo.png">
+            </a>
+            <!-- sûrement liste déroulante pour cette nav -->
+
+            <ul class="header_nav_ul">
+                <li class="header_nav_li"><a href="./home.html">Page d'accueil</a></li>
+                <li class="header_nav_li"><a href="./contact.html">Contact</a></li>
+                
+            </ul>
+        </nav>
     </header>
 
     <main class="main_conditions">
@@ -76,16 +88,17 @@
         Les présentes CGU sont régies par le droit français. Tout litige sera soumis aux tribunaux compétents de XX.
 
         <h2>9. Acceptation des CGU</h2>
-        <p class="main_cgu">En cochant la case ci-dessous, vous confirmez avoir lu et accepté les conditions générales d'utilisation de
+        <p class="main_cgu">En cochant la case ci-dessous, vous confirmez avoir lu et accepté les conditions générales
+            d'utilisation de
             SEO Sympa.</p>
 
         <!-- ici case à cocher vide à l'affichage, puis valeur cochée renvoyée -->
-<!-- https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/input/checkbox -->
+        <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/input/checkbox -->
         <fieldset class="main_cgu_checkbox">
             <legend class="main_cgu_legend">CGU SEO Sympa</legend>
 
             <div>
-                <input type="checkbox" id="cgu" name="cgu" value="terms-and-conditions accepted" required/>
+                <input type="checkbox" id="cgu" name="cgu" value="terms-and-conditions accepted" required>
                 <label for="cgu">J'accepte les conditions générales d'utilisation (mises à jour 06/2025).</label>
             </div>
         </fieldset>
@@ -94,7 +107,33 @@
 
 
     <footer>
-        <!-- recopier le modèle commun ici -->
+        <div class="footer_nav">
+            <nav class="footer_nav_links">
+                <ul>
+                    <li><a href="/">Retour à l'accueil - SEO Sympa</a></li>
+                    <li><a href="">Mentions légales & RGPD</a></li>
+                    <li><a href="">Conditions générales</a></li>
+                    <li><a href="">Déclaration d'accessibilité</a></li>
+                    <li><a href="">Plan du site SEO Sympa</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="footer_nav_follow">
+                <a href="#"><img src="../assets/img/icones/youtube.png" alt="lien pour nous suivre sur YouTube"></a>
+                <a href="#"> <img src="../assets/img/icones/instagram.png"
+                        alt="lien pour nous suivre sur instagram"></a>
+                <a href="#"> <img src="../assets/img/icones/linkedin.png" alt="lien pour nous suivre sur Linkedin"></a>
+            </div>
+            <div class="footer_nav_contact">
+                <a href="./contact.html"><img src="../assets/img/icones/mail.png"
+                        alt="lien vers notre page contact pour voir notre mail"></a>
+                <a href="./contact.html"><img src="../assets/img/icones/phone.png"
+                        alt="lien vers notre page contact pour voir notre téléphone"></a>
+            </div>
+        </div>
+        <aside class="footer_aside">2025 © SEO Sympa</aside>
+        <!-- Pour insérer le symbole de copyright, appuyez sur Alt+0169 -->
     </footer>
 
 </body>
