@@ -1,10 +1,10 @@
 # Projet SEO Sympa - Cahier des charges V4 (03/06/25)
 
 
-Présentation générale du projet
+## Présentation générale du projet
 
 
-Nom du projet : SEO Sympa 
+### Nom du projet : SEO Sympa 
 
 
 SEO Sympa est une plateforme qui a pour vocation de mettre en relation des professionnels experts du SEO (SEO = Search Engine Optimization) avec des potentiels partenaires ayant besoin de services de référencement, afin d’optimiser leur visibilité sur le web.
@@ -22,7 +22,7 @@ Nous avons la volonté que les échanges créés soient mutuellement bénéfique
 L’équipe de SEO Sympa, composée de 4 développeurs web,  est chargée du développement de cette plateforme. Pour ce projet, elle dispose d’un délai de 8 semaines, partagé par 4 sprints. 
 
 
-Définition des besoins et des objectifs du projet
+## Définition des besoins et des objectifs du projet
 
 
 La visibilité sur le web est un enjeu crucial pour toute plateforme commerciale ou non présente sur le web.
@@ -34,51 +34,34 @@ Les spécialistes du SEO, les agences de marketing ont besoin de gagner en clien
 Notre plateforme SEO Sympa souhaite apporter une solution à ce problème en proposant à ces  professionnels  d’entrer en relation. 
 
 
+## Les fonctionnalités du projet (spécifications fonctionnelles)
 
 
-
-
-
-
-Les fonctionnalités du projet (spécifications fonctionnelles)
-
-
-Le MVP (Minimum Viable Product) :
-Nos pages statiques :
+### Le MVP (Minimum Viable Product) :
+#### Nos pages statiques :
 une page à propos avec présentation de notre plateforme, historique, concept, quelques témoignages (forme ? témoignage par mails mis en statique ? bdd / formulaire ?)
 une page mentions légales & rgpd 
 une page accessibilité
 une page des conditions générales du service (lorem ipsum… ou modèle…!! et dans le formulaire = case à cocher lien vers ces conditions)
 une page plan du site
 
-
-Nos pages dynamiques : 
-
+#### Nos pages dynamiques : 
 
 une page d’accueil avec présentation du site, inscription, connexion, recherche par mots-clefs, “cards” sous format carrousel de quelques professionnels (qui met-on en avant ? = 3 profils d’experts SEO récents et le 4e en random)
 une page contact avec formulaire
 une page profil avec des informations visibles (publiques) , un tableau de bord (privé pour éditer / compléter son profil), un formulaire de prise de contact et une messagerie
 une page d'erreur 404 (à prévoir même si pas dans arborescence)
 
-
-
-
-FONCTIONNALITÉS ANNEXES / BONUS
+### FONCTIONNALITÉS ANNEXES / BONUS
 Les évolutions potentielles (ce qui ne sera pas terminé) : tout ce qui est prévu mais ne fait pas partie du MVP
-idées proposées dans l'énoncé :
+#### Idées proposées dans l'énoncé :
 Suivi des sites : ajout, modification, suppression, détails. => intéressante ++, + value
 Évolution du tableau de bord : gestion des sites.
 Système de notifications : notifications pour les réponses aux demandes de partenariat, pour les mises à jour de sites.
 Suivi de l’évolution des scores de référencement de ses sites.
 Système de messagerie : utilisation de websockets pour des échanges instantanés.
 
-
-
-
-
-
-idées venues au fil de nos réflexions (évolutions)
-
+#### Idées venues au fil de nos réflexions (évolutions)
 
 une newsletter proposée en abonnement sur la page blog, pour connaître les dernières actualités…
 système de messagerie : utilisation de websockets pour des échanges instantanés.
@@ -97,10 +80,10 @@ vérification et modération régulières des contenus proposés par les utilisa
 
 
 
-La liste des technologies utilisées pour le projet, avec justification (spécifications techniques)
+## La liste des technologies utilisées pour le projet, avec justification (spécifications techniques)
 
 
-pour notre travail d’équipe / gestion de projet  :
+### pour notre travail d’équipe / gestion de projet  :
 
 
 Google Drive => pour partager et pouvoir tous éditer les fichiers / documents créés
@@ -165,7 +148,7 @@ Nous nous orientons sur l’outil de test vitest pour vérifier que les fonction
 Nous serons vigilants tout au long du projet au fait de produire un code le plus accessible possible, ainsi qu’à avoir un référencement optimal.
 
 
-Définition de la cible du projet (le public visé) 
+## Définition de la cible du projet (le public visé) 
 
 
 Nos cibles principales sont : 
@@ -173,57 +156,23 @@ Nos cibles principales sont :
 -  les spécialistes du référencement tels que des freelance SEO, des agences marketings SEO, des experts SEO.
 
 
-Les navigateurs compatibles
-
+## Les navigateurs compatibles
 
 Nous allons faire en sorte que notre site soit accessible par le plus grand nombre tous supports confondus.
 Navigateurs principaux ciblés : Chrome + Safari + Mozilla Firefox
 
-
 Nous vérifierons la compatibilité avec  https://caniuse.com/webp ainsi qu’avec la documentation sur le site de mdn.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-L'arborescence de l'application (le chemin de l'utilisateur, correspondra aux routes front)
-
+## L'arborescence de l'application (le chemin de l'utilisateur, correspondra aux routes front)
 
 ![!image/SEO Sympa - Arborescence générale (3).png](<image/SEO Sympa - Arborescence générale (3).png>)
-
 
 
 La liste des routes prévues (les routes front sont couvertes par l'arborescence en toute logique, restent les endpoints de votre API) 
 = à détailler routes back-end, à faire
 RECHERCHE
-
-
 FORMULAIRE DE CONTACT 
-
-
-
-
-
-
 GET 
 POST
 PUT
@@ -231,23 +180,7 @@ PATCH
 DELETE
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- User Stories 
+## User Stories 
 
 En tant que…
 J’ai besoin de…
@@ -288,16 +221,19 @@ m’assurer que mon interlocuteur peut mener à bien mon projet (demandeurs) / m
 
 
 
-Liste des rôles de chacun
+## Liste des rôles de chacun
 
 
 Product Owner (PO) : Maxime et Gulnur en appui
 Scrum Master : Elise et Gulnur en appui
 Lead Dev : Alexandre et Elise en appui
-Documents relatifs à la BDD
 
 
-Dictionnaire de données – projet SEO Sympa 
+## Documents relatifs à la BDD
+
+
+### Dictionnaire de données – projet SEO Sympa 
+
 UTILISATEUR (USER)
 
 Nom
@@ -405,61 +341,42 @@ statut de la demande (en attente, acceptée, refusée, supprimée)
 alphabétique
 obligatoire
 
-MCD : modèle conceptuel de données
-
-
-
+### MCD : modèle conceptuel de données
 
 ![MCD seo sympa (1)]
 
 ![alt text](<image/MCD.png>)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-MLD : modèle logique de données
-
-
+### MLD : modèle logique de données
 
 ![alt text](<image/MLD.png>)
 
 
-MLD : modèle physique de données
+### MPD : modèle physique de données
 
 ![alt text](<image/MPD.png>)
 
+### Wireframes
 
+#### Wireframes version mobile (mobile first)
 
+![wireframe page accueil](<image/wireframes/Page_Accueil_Mobile.png>)
+![wireframe exemple page statique](<image/wireframes/Exemple_page_statique.png>)
+![wireframes pages inscription et connexion](<image/wireframes/Pages_Inscription_Connexion.png>)
+![wireframe pages profil et recherche](<image/wireframes/Resultats_recherche_DisplayProfile_Tableau_de_bord.png>)
 
+#### Wireframes version desktop 
 
- Maquettes
- Charte graphique
+<!-- A ajouter -->
+
+### Maquettes
+
+<!-- A ajouter -->
+
+### Charte graphique
+
+page 1 : 
+![charte graphique 1ère page](<image/charte-graphp1.png>)
+page 2 :
+![charte graphique 2ème page](<image/charte-graphp2.png>)
