@@ -1,6 +1,32 @@
-<!DOCTYPE html>
-<html lang="fr">
 
+ <!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page de connexion</title>
+  <link rel="stylesheet" href="../assets/styles/index.scss" />
+  <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
+</head>
+<body class="auth-page">
+  <header class="header">
+    <div class="degrade-diagonal">
+      <a href="../index.html" class="header-logo" aria-label="Page d'accueil">
+        <img src="../assets/img/logo.png" alt="Logo SEO Sympa" />
+      </a>
+    </div>
+  </header>
+
+  <main class="auth-main">
+    <h1 class="auth-title">Se connecter</h1>
+    <p id="form-desc" class="sr-only">Veuillez entrer votre adresse email et votre mot de passe pour vous connecter.</p>
+
+    <form method="POST" action="/login" aria-describedby="form-desc" novalidate>
+      <div id="loginStatus" class="sr-only" role="alert" aria-live="assertive"></div>
+
+    <form method="POST" action="/login" aria-describedby="form-desc" novalidate>
+      <div id="loginStatus" class="sr-only" role="alert" aria-live="assertive"></div>
 
 
           <div class="forgot-password-link">
@@ -8,8 +34,47 @@
               >Mot de passe oublié&nbsp;?</a
             >
           </div>
-        </fieldset>
+       
+
+      <fieldset>
+        <legend class="sr-only">Informations de connexion</legend>
+
+
+        <label for="email">Adresse email <span aria-hidden="true">*</span></label>
+        <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true" autocomplete="email" aria-describedby="emailHelp" />
+        <small id="emailHelp">Nous ne partagerons jamais votre email.</small>
+
+        <label for="loginPassword">Mot de passe <span aria-hidden="true">*</span></label>
+        <input type="password" id="loginPassword" name="password" placeholder="Mot de passe" required aria-required="true" autocomplete="current-password" />
+
+        <div class="forgot-password-link">
+          <a href="#" aria-label="Réinitialiser le mot de passe">Mot de passe oublié&nbsp;?</a>
+        </div>
+      </fieldset>
 
 
 
-</html>
+      <fieldset>
+        <legend class="sr-only">Informations de connexion</legend>
+
+
+        <label for="email">Adresse email <span aria-hidden="true">*</span></label>
+        <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true" autocomplete="email" aria-describedby="emailHelp" />
+        <small id="emailHelp">Nous ne partagerons jamais votre email.</small>
+
+        <label for="loginPassword">Mot de passe <span aria-hidden="true">*</span></label>
+        <input type="password" id="loginPassword" name="password" placeholder="Mot de passe" required aria-required="true" autocomplete="current-password" />
+
+        <div class="forgot-password-link">
+          <a href="#" aria-label="Réinitialiser le mot de passe">Mot de passe oublié&nbsp;?</a>
+        </div>
+      </fieldset>
+
+
+      <button type="submit" class="button" aria-label="Se connecter au site">Se connecter</button>
+    </form>
+  </main>
+</body>
+</html> 
+
+

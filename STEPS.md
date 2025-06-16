@@ -82,7 +82,7 @@ commencer à installer serveur en groupe de 2
 - []  mettre l'intégration : wireframes et maquettes
 - passer code lighthouse pour accessibilité (sprint 3)
 - tester responsive
-
+- idée en JS : garder le header lisible au scroll vers le bas
 
 
 - architecture de base (exemple) : 
