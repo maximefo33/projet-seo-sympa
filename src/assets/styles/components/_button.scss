@@ -1,14 +1,6 @@
 @use './var' as *;
 @use '../mixins' as *;
 
-// fonction darken  (fonce la couleur)
-@function darken($color, $percent) {
-  @return mix(black, $color, $percent);
-}
-
-@function lighten($color, $percent) {
-  @return mix(white, $color, $percent);
-}
 
 .button {
   display: inline-block;

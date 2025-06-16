@@ -5,20 +5,60 @@
 
 
 .public-profile-page {
-  padding: 2rem;
+   background: linear-gradient(to bottom, $color-blue, $color-white);
+  padding: 0;
+  min-height: 100vh;
+  font-family: $font-texte;
+  color: $color-black;
 
   @include small {
-    padding: 4rem;
+    padding: 0;
   }
 
-  background: linear-gradient(to bottom, $color-lightblue, $color-white);
+  background: linear-gradient(to bottom, $color-blue, $color-white);
   min-height: 100vh;
 }
 
 .public-profile-main {
   .card {
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column;  // mobile : bouton en dessous
+    gap: 1rem;
+    align-items: center;
+
+    @include small {  // grand écran : alignement horizontal
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    .card__image {
+      flex-shrink: 0;
+      width: 150px;
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
+      }
+    }
+
+    .card__info {
+      flex: 1;
+      text-align: center;
+
+      @include small {
+        text-align: left;
+      }
+    }
+
+    .card__contact {
+      margin-top: 1rem;
+
+      @include small {
+        margin-top: 0;
+        margin-left: auto;  // pousse à droite
+        align-self: flex-start;
+      }
+    }
   }
 }
-
-

@@ -9,15 +9,22 @@
   <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
 </head>
 <body class="public-profile-page">
-  <header class="header">
-    <div class="degrade-diagonal">
-      <a href="../index.html" class="header-logo" aria-label="Page d'accueil">
-        <img src="../assets/img/logo.png" alt="Logo SEO Sympa" />
-      </a>
-    </div>
-  </header>
+     <header>
+        <nav class="header_nav">
+            <!-- ci-dessous logo SEO cliquable qui ramène à la page d'accueil / -->
+
+            <a href="/"><img alt="logo de SEO Sympa" src="../../image/logo.png">
+            </a>
+            <!-- sûrement liste déroulante pour cette nav -->
+
+            <ul class="header_nav_ul">
+                <li class="header_nav_li"><a href="../index.html">Page d'accueil</a></li>
+                <li class="header_nav_li"><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
   <main class="public-profile-main">
-  <section class="card">
+ <section class="card">
   <div class="card__image">
     <img src="../assets/img/profile-img.png" alt="Portrait de Marie Dupont" />
   </div>
@@ -29,11 +36,37 @@
       Passionnée par le référencement naturel, l'accessibilité numérique et la performance web.
     </p>
   </div>
-</section>
-      <section class="profile-contact">
-  <h2>Contact</h2>
-  <a href="/#" class="button">Contacter Marie</a>
+  <a href="/#" class="button card__contact">Contacter Marie</a>
 </section>
   </main>
+    <footer>
+        <div class="footer_nav">
+            <nav class="footer_nav_links">
+                <ul>
+                    <li><a href="/">Retour à l'accueil - SEO Sympa</a></li>
+                    <li><a href="">Mentions légales & RGPD</a></li>
+                    <li><a href="">Conditions générales</a></li>
+                    <li><a href="">Déclaration d'accessibilité</a></li>
+                    <li><a href="">Plan du site SEO Sympa</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer_nav_follow">
+                <a href="#"><img src="../assets/img/icones/youtube.png" alt="lien pour nous suivre sur YouTube"></a>
+                <a href="#"> <img src="../assets/img/icones/instagram.png"
+                        alt="lien pour nous suivre sur instagram"></a>
+                <a href="#"> <img src="../assets/img/icones/linkedin.png" alt="lien pour nous suivre sur Linkedin"></a>
+            </div>
+            <div class="footer_nav_contact">
+                <a href="./contact.html"><img src="../assets/img/icones/mail.png"
+                        alt="lien vers notre page contact pour voir notre mail"></a>
+                <a href="./contact.html"><img src="../assets/img/icones/phone.png"
+                        alt="lien vers notre page contact pour voir notre téléphone"></a>
+            </div>
+        </div>
+        <aside class="footer_aside">2025 © SEO Sympa</aside>
+        <!-- Pour insérer le symbole de copyright, appuyez sur Alt+0169 -->
+    </footer>
+
 </body>
-</html>
+</html> 
