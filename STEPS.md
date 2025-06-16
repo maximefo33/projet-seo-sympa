@@ -57,12 +57,19 @@ suite de code des pages html du 10/6
 
 
 ## 13/6
+- débug pendant 2h, corrections sur github
 - pages statiques à finir de coder
 - valider header / footer + les intégrer sur toutes les pages SAUF page accueil (qui a son propre header footer)
 - OBJECTIF = page accueil OP
+- cahier des charges en md = fait sur branche "specifications"
 
 
 ## lundi 16/06
+
+- suite code html et scss des pages
+- point à 14h pour tout enregistrer sur github
+
+
 commencer à coder BDD en groupe de 2
 commencer à installer serveur en groupe de 2
 
@@ -76,7 +83,7 @@ commencer à installer serveur en groupe de 2
 - []  mettre l'intégration : wireframes et maquettes
 - passer code lighthouse pour accessibilité (sprint 3)
 - tester responsive
-
+- idée en JS : garder le header lisible au scroll vers le bas
 
 
 - architecture de base (exemple) : 

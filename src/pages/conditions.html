@@ -1,0 +1,142 @@
+<!--  page statique /terms-and-conditions = conditions générales -->
+<!-- exigences dans cahier des charges MVP : une page des conditions générales du service (lorem ipsum… ou modèle…!! et dans le formulaire = case à cocher lien vers ces conditions) -->
+<!-- pour ce contenu, utilisation d'un prompt adapté sur l'outil d'intelligence artificielle poe.com.  -->
+
+<!-- il faudra coder en JS un message d'alert : veuillez lire et accepter les conditions générales d'utilisation -->
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles/index.scss">
+    <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
+    <title>Conditions générales - SEO Sympa</title>
+</head>
+
+<body>
+
+    <header>
+       
+     <nav class="header_nav">
+            <!-- ci-dessous logo SEO cliquable qui ramène à la page d'accueil / -->
+
+            <a href="/"><img alt="logo de SEO Sympa" src="../../image/logo.png">
+            </a>
+            <!-- sûrement liste déroulante pour cette nav -->
+
+            <ul class="header_nav_ul">
+                <li class="header_nav_li"><a href="./home.html">Page d'accueil</a></li>
+                <li class="header_nav_li"><a href="./contact.html">Contact</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main_conditions">
+
+        <h1>Conditions Générales d'Utilisation du site SEO Sympa</h1>
+
+        <h2>1. Introduction</h2>
+
+        <p>Les présentes conditions générales d'utilisation (CGU) régissent l'accès et l'utilisation de la plateforme
+            SEO Sympa, qui a pour objectif la mise en relation entre professionnels du SEO et partenaires recherchant
+            des services de
+            référencement. En vous inscrivant et en utilisant notre plateforme, vous acceptez sans réserve les présentes
+            CGU.</p>
+
+        <h2>2. Objet</h2>
+
+        <p>SEO Sympa a pour objectif de faciliter les échanges entre experts du SEO, agences de marketing et
+            propriétaires
+            de sites web, blogueurs et rédacteurs de contenu. D'un côté les premiers augmentent leur portefeuille client
+            et leur notoriété, de l'autre les seconds optimisent leur visibilité sur le web.</p>
+
+        <h2>3. Comportement des utilisateurs</h2>
+        Les utilisateurs s'engagent à adopter un comportement respectueux et responsable vis-à-vis des autres membres de
+        la plateforme. Il est strictement interdit de :
+        <ul>
+            <li>tenir des propos injurieux, diffamatoires ou discriminatoires.</li>
+            <li>partager des informations mensongères ou trompeuses.</li>
+            <li>utiliser la plateforme à des fins illégales ou contraires aux bonnes mœurs.</li>
+        </ul>
+
+        <h2>4. Inscription et responsabilité</h2>
+
+        <p>L'inscription sur la plateforme nécessite de s'engager à fournir des informations véridiques et à jour.
+            Aucune vérification d'identité ne sera effectuée, SEO Sympa ayant confiance en ses utilisateurs. Chaque
+            utilisateur est responsable de la confidentialité de ses identifiants et s'engage à informer immédiatement
+            SEO Sympa en cas d'utilisation non autorisée de son compte, ou en cas de problème(s) lié(s) à sa navigation
+            sur la plateforme et/ou aux échanges effectués.</p>
+
+
+        <h2>5. Propriété intellectuelle</h2>
+
+        <p>Tous les contenus, marques et logos présents sur SEO Sympa sont protégés par des droits de propriété
+            intellectuelle. Toute reproduction ou utilisation sans autorisation est interdite.</p>
+
+        <h2>6. Limitation de responsabilité</h2>
+        <p>SEO Sympa ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation de la
+            plateforme, notamment en cas de perte de données ou de profits.</p>
+
+        <h2>7. Modifications des CGU</h2>
+        <p>SEO Sympa se réserve le droit de modifier les présentes conditions générales. Les utilisateurs seront
+            informés de toute modification par e-mail ou via la plateforme.</p>
+
+
+        <h2>8. Droit applicable</h2>
+        Les présentes CGU sont régies par le droit français. Tout litige sera soumis aux tribunaux compétents de XX.
+
+        <h2>9. Acceptation des CGU</h2>
+        <p class="main_cgu">En cochant la case ci-dessous, vous confirmez avoir lu et accepté les conditions générales
+            d'utilisation de
+            SEO Sympa.</p>
+
+        <!-- ici case à cocher vide à l'affichage, puis valeur cochée renvoyée -->
+        <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/input/checkbox -->
+        <fieldset class="main_cgu_checkbox">
+            <legend class="main_cgu_legend">CGU SEO Sympa</legend>
+
+            <div>
+                <input type="checkbox" id="cgu" name="cgu" value="terms-and-conditions accepted" required>
+                <label for="cgu">J'accepte les conditions générales d'utilisation (mises à jour 06/2025).</label>
+            </div>
+        </fieldset>
+
+    </main>
+
+
+    <footer>
+        <div class="footer_nav">
+            <nav class="footer_nav_links">
+                <ul>
+                    <li><a href="/">Retour à l'accueil - SEO Sympa</a></li>
+                    <li><a href="">Mentions légales & RGPD</a></li>
+                    <li><a href="">Conditions générales</a></li>
+                    <li><a href="">Déclaration d'accessibilité</a></li>
+                    <li><a href="">Plan du site SEO Sympa</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="footer_nav_follow">
+                <a href="#"><img src="../assets/img/icones/youtube.png" alt="lien pour nous suivre sur YouTube"></a>
+                <a href="#"> <img src="../assets/img/icones/instagram.png"
+                        alt="lien pour nous suivre sur instagram"></a>
+                <a href="#"> <img src="../assets/img/icones/linkedin.png" alt="lien pour nous suivre sur Linkedin"></a>
+            </div>
+            <div class="footer_nav_contact">
+                <a href="./contact.html"><img src="../assets/img/icones/mail.png"
+                        alt="lien vers notre page contact pour voir notre mail"></a>
+                <a href="./contact.html"><img src="../assets/img/icones/phone.png"
+                        alt="lien vers notre page contact pour voir notre téléphone"></a>
+            </div>
+        </div>
+        <aside class="footer_aside">2025 © SEO Sympa</aside>
+        <!-- Pour insérer le symbole de copyright, appuyez sur Alt+0169 -->
+    </footer>
+
+</body>
+
+</html>
