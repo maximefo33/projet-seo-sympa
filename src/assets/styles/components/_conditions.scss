@@ -1,8 +1,15 @@
 //styles de la page conditions.html correspondant à /terms-and-conditions
 @use "/src/assets/styles/components/var";
 
+main {
+    background: linear-gradient(to right, var.$color-white, var.$color-lightblue);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 5%;
+}
+
 .main_conditions {
-    background: var.$color-white;
+    // background: var.$color-white;
     font-size: var.$text-fontsize;
     font-family: var.$font-texte;
 }
@@ -25,11 +32,11 @@
 .main_cgu_checkbox {
     display: block;
     color: var.$color-black;
-    border: 4rem;
     border-color: var.$color-darkpurple;
     border: solid;
     border-style: inset;
-    height: 100px;
+    height: auto;
+    width: auto;
     text-align: left;
     align-items: center;
 }

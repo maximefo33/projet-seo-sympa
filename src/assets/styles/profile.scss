@@ -1,3 +1,4 @@
+
 @use 'components/var' as *;
 @use './mixins' as *;
 @use 'components/card' as *;
@@ -11,11 +12,31 @@
   font-family: $font-texte;
   color: $color-black;
 
+
   @include small {
     padding: 0;
-  }
 
-  background: linear-gradient(to bottom, $color-blue, $color-white);
+  .header {
+    padding: 1rem;
+
+    .degrade-diagonal {
+      background: linear-gradient(
+        to bottom right,
+        transparent,
+        rgb(177, 177, 245),
+        pink
+      );
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 100px;
+    }
+
+  }
+background: linear-gradient(to bottom, $color-blue, $color-white);
   min-height: 100vh;
 }
 
@@ -42,10 +63,12 @@
       }
     }
 
+
     .card__info {
       flex: 1;
       text-align: center;
 
+ 
       @include small {
         text-align: left;
       }
