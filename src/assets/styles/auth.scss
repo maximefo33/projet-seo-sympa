@@ -2,25 +2,23 @@
 @use "./mixins" as *;
 
 .auth-page {
-
-   background: linear-gradient(to bottom, $color-blue, $color-white);
+  background: linear-gradient(to bottom, $color-blue, $color-white);
   padding: 0;
   min-height: 100vh;
   font-family: $font-texte;
-
-
   color: $color-black;
+}
 
-  .header {
-    width: 100%;
-    padding: 1rem;
-    box-sizing: border-box;
-    @include small {
-      padding: 0;
-    }
+.header {
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+  @include small {
+    padding: 0;
+  }
 
-    @include medium {
-      justify-content: space-between;
+  @include medium {
+    justify-content: space-between;
     .degrade-diagonal {
       background: linear-gradient(
         to bottom right,
@@ -40,7 +38,6 @@
       @include medium {
         justify-content: space-between;
       }
-
     }
 
     .header-logo {
@@ -183,8 +180,6 @@
       }
     }
 
-
-
     .sr-only {
       position: absolute !important;
       width: 1px !important;
@@ -224,4 +219,4 @@
       }
     }
   }
-
+}
