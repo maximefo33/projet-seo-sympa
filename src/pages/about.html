@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/styles/index.scss">
+    <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
     <title>page à propos - SEO Sympa</title>
 </head>
 
@@ -25,8 +26,12 @@
             <!-- sûrement liste déroulante pour cette nav -->
 
             <ul class="header_nav_ul">
-                <li class="header_nav_li"><a href="../index.html">Accueil - SEO Sympa</a></li>
-                <li class="header_nav_li"><a href="./contact.html">Contact - SEO Sympa</a></li>
+                <li class="header_nav_li"><a href="../index.html">Page d'accueil</a></li>
+                <li class="header_nav_li"><a href="./contact.html">Contact</a></li>
+                <li class="header_nav_li"><a href="#history">L'histoire de SEO Sympa</a></li>
+                <li class="header_nav_li"><a href="#seo_kezako">Définition du SEO</a></li>
+                <li class="header_nav_li"><a href="#faq">Foire aux questions</a></li>
+
             </ul>
 
         </nav>
@@ -36,8 +41,8 @@
 
     <main class="about_main">
         <!-- ceci sera dans la page A propos (/About) - c'est aussi un exemple de page statique -->
-
-        <h1>A propos de SEO Sympa</h1>
+<div class="presentation">
+        <h1 id="history">A propos de SEO Sympa</h1>
         <h2>SEO Sympa, soyez en tête sans prise de tête !</h2>
 
         <p>Avec notre site, ne vous compliquez-pas la vie ! Sérénité garantie. </p>
@@ -50,14 +55,14 @@
             l'idée d'aider les structures, entreprises, associations..., petites ou grandes, à mieux se faire connaître.
             La plateforme
             SEO Sympa est née !</p>
-
+        </div>
 
 
         <div class="about_article_seo_contain">
             <div class="about_article_seo_img"><img src="../assets/img/img-seo3.jpg"
                     alt="ordinateur avec plein de post-its avec des mots clefs accrochés sur le mur derrière"></div>
             <article class="about_article_seo">
-                <h2>SEO, Kézako ?</h2>
+                <h2 id="seo_kezako">SEO, Kézako ?</h2>
                 <p>L'optimisation pour les moteurs de recherche, aussi connue sous le nom de référencement naturel et
                     le sigle SEO (de l'anglais « Search Engine Optimization »), inclut l'ensemble des techniques qui
                     visent à améliorer le positionnement d'une page, d'un site ou d'une application web dans la page de
@@ -66,19 +71,21 @@
                     Ces techniques cherchent à améliorer la compréhension et la prise en compte de la thématique et du
                     contenu d'une ou de l'ensemble des pages d'un site Web par l'algorithme de classement des moteurs de
                     recherche.</p>
-                <aside class="about_article_seo"><a class="about_link_article"
+                <aside><a class="about_link_article"
                         href="https://fr.wikipedia.org/wiki/Optimisation_pour_les_moteurs_de_recherche">d'après
                         Wikipédia - 06/2025</a></aside>
             </article>
         </div>
 
         <div class="about_witness_contain0">
-            <h3 class="about_witness">Gagnant-Gagnant</h3>
-
-            <p class="about_witness0">Sur notre plateforme, tout le monde y trouve son compte.</p>
             <div class="about_witness_contain">
-                <img class="about_witness_img" src="../assets/img/about2.png" alt="bulle de témoignages">
+                <h3>Gagnant-Gagnant</h3>
+
+                <p>Sur notre plateforme, tout le monde y trouve son compte.</p>
+
+                <img src="../assets/img/about2.png" alt="bulle de témoignages">
             </div>
+
 
             <section class="about_witness1"
                 aria-label="témoignages d'utilisateurs de notre site et propriétaires de pages web">
@@ -109,7 +116,8 @@
             </section>
         </div>
 
-        <h2>Foire Aux Questions (FAQ)</h2>
+        <section title="FAQ" class="faq">
+        <h2 id="faq">Foire Aux Questions (FAQ)</h2>
         <!-- essai question ouvrante -->
         <!-- cf https://codepen.io/anon/pen/gvWVvj?editors=1100#0 -->
 
@@ -146,7 +154,7 @@
                 (réponse sous 72h jours ouvrés) ou par
                 téléphone <a href="tel:+14155550132">+1 (415) 555‑0132</a> (de 9h à 17h les jours ouvrés) </p>
         </article>
-
+</section>
 
     </main>
 
@@ -166,12 +174,17 @@
 
 
             <div class="footer_nav_follow">
-                <a href="#"><img src="../assets/img/icones/icone9.png" alt="lien pour nous suivre sur YouTube"></a>
-<a href="#"> <img src="../assets/img/icones/icone2.png" alt="lien pour nous suivre sur insta"></a>
-<a href="#"> <img src="../assets/img/icones/icone10.png" alt="lien pour nous suivre sur insta"></a>
+                <a href="#"><img src="../assets/img/icones/youtube.png" alt="lien pour nous suivre sur YouTube"></a>
+                <a href="#"> <img src="../assets/img/icones/instagram.png"
+                        alt="lien pour nous suivre sur instagram"></a>
+                <a href="#"> <img src="../assets/img/icones/linkedin.png" alt="lien pour nous suivre sur Linkedin"></a>
             </div>
-
-            <a class="footer_nav_contact" href="#"><img src="../assets/img/icones/icone11.png" alt="lien pour nous suivre sur insta"></a>
+            <div class="footer_nav_contact">
+                <a href="./contact.html"><img src="../assets/img/icones/mail.png"
+                        alt="lien vers notre page contact pour voir notre mail"></a>
+                <a href="./contact.html"><img src="../assets/img/icones/phone.png"
+                        alt="lien vers notre page contact pour voir notre téléphone"></a>
+            </div>
         </div>
         <aside class="footer_aside">2025 © SEO Sympa</aside>
         <!-- Pour insérer le symbole de copyright, appuyez sur Alt+0169 -->
