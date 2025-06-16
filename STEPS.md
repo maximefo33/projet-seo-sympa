@@ -57,6 +57,7 @@ suite de code des pages html du 10/6
 
 
 ## 13/6
+- débug pendant 2h, corrections sur github
 - pages statiques à finir de coder
 - valider header / footer + les intégrer sur toutes les pages SAUF page accueil (qui a son propre header footer)
 - OBJECTIF = page accueil OP
