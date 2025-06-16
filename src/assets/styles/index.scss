@@ -1,8 +1,13 @@
 // index.scss de notre projet
 
+
 @use './profile';
 @use './components/button';
 @use './components/card';
+
+
+
+
 @use './components/home';
 @use './auth';
 @use './_global';
@@ -13,5 +18,4 @@
 @use './components/legal';
 @use './components/conditions';
 @use './components/var';
-
 
