@@ -4,6 +4,17 @@
 
 // styles de la page about
 //test - css ok répond bien
+.presentation {
+  border: solid 0.4rem;
+  border-color: var.$color-blue var.$color-purple;
+  background: linear-gradient(to right, var.$color-white, var.$color-lightblue);
+  margin-left: 8rem;
+  margin-right: 8rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  border-radius: 15%;
+}
 
 .about_main {
   // background: linear-gradient(to bottom right, transparent, #acacf3, pink);
@@ -18,16 +29,20 @@
 }
 
 .about_article_seo {
-  background: linear-gradient(to bottom right, var.$color-purple, var.$color-lightblue);
-  color: var.$color-white;
+  background: linear-gradient(to left, var.$color-white, var.$color-purple);
+  color: var.$color-black;
   font-weight: 600;
-  margin-left: 10rem;
-  margin-right: 16rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
   border-radius: 15%;
   text-align: left;
   align-content: center;
   padding: 2rem;
   line-height: 2rem;
+  width: auto;
+  flex-wrap: wrap;
+  border: solid 0.4rem;
+  border-color: var.$color-blue var.$color-darkpurple;
 
 }
 
@@ -35,13 +50,12 @@
   text-align: center;
 }
 
-.about_article_seo aside {
-  text-align: left;
-}
+
 
 .about_article_seo_img {
   height: auto;
   width: auto;
+  
 }
 
 .about_link_article {
@@ -54,7 +68,7 @@
 .about_witness1 {
   margin-right: 2rem;
   margin-bottom: 3rem;
-  background-color: var.$color-lightblue;
+  background: linear-gradient(to bottom, var.$color-white, var.$color-lightblue);
   border-radius: 8%;
   text-align: center;
   display: inline-block;
@@ -62,11 +76,14 @@
   column-gap: 3rem;
   align-items: center;
   padding: 1rem;
+  border: solid 0.4rem;
+  border-color: var.$color-blue var.$color-purple;
+  
 }
 
 .about_witness2 {
   column-gap: 3rem;
-  background-color: var.$color-purple;
+    background: linear-gradient(to bottom, var.$color-purple, var.$color-blue);
   color: var.$color-white;
   border-radius: 8%;
   text-align: center;
@@ -74,6 +91,8 @@
   width: 20%;
   align-items: center;
   padding: 1rem;
+    border: solid 0.4rem;
+  border-color: var.$color-lightblue var.$color-blue;
 }
 
 // à revoir car l'image n'est pas responsive
@@ -86,9 +105,9 @@
 }
 
 .about_witness_contain {
-flex-wrap: wrap;
-margin: 1rem;
- text-align: center;
+  flex-wrap: wrap;
+  margin: 1rem;
+  text-align: center;
   align-items: flex-start;
   color: var.$color-darkpurple;
   font-weight: bold;
@@ -101,6 +120,25 @@ margin: 1rem;
   max-width: auto;
 }
 
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, var.$color-white, var.$color-lightblue);
+  margin-left: 8rem;
+  margin-right: 8rem;
+  border-radius: 15%;
+  padding: 2.5rem;
+  color: var.$color-black;
+  border: solid 0.4rem;
+  border-color: var.$color-blue var.$color-purple;
+
+}
+
+.faq h2{
+  text-align: center;
+  font-size: var.$subtitle-fontsize;
+}
 
 // ici css pour ouvrir fermer questions réponses
 // essai de faire dérouler la réponse en cliquant sur question entière, pas sur flèche
@@ -176,7 +214,7 @@ margin: 1rem;
   justify-content: center;
   font-size: var.$text-fontsize;
   align-items: center;
-  
+
 }
 
 .footer_nav a {
@@ -208,7 +246,7 @@ margin: 1rem;
 .footer_nav_contact {
   margin-left: 2rem;
   justify-content: center;
- align-items: center;
+  align-items: center;
 }
 
 .footer_nav_contact img {
