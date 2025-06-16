@@ -14,23 +14,21 @@
       content="Page d'inscription pour créer un compte sur SEO Sympa. Remplissez le formulaire pour vous enregistrer."
     />
   </head>
-  <body class="auth-page">
+  <body>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-    <header class="header">
-      <div class="degrade-diagonal">
-        <a href="../index.html" class="header-logo">
-          <img
-            src="../assets/img/logo.png"
-            alt="Retour à l'accueil – SEO Sympa"
-          />
-        </a>
-      </div>
+    <header class="degrade-diagonal">
+      <a href="../index.html">
+        <img
+          src="../assets/img/logo.png"
+          alt="Retour à l'accueil – SEO Sympa"
+        />
+      </a>
     </header>
 
-    <main class="auth-main" id="main-content">
-      <h1 class="auth-title">S’inscrire</h1>
-      <h2 class="auth-subtitle">Créer un nouveau compte</h2>
+    <main id="main-content">
+      <h1>S’inscrire</h1>
+      <h2>Créer un nouveau compte</h2>
 
       <p id="form-desc" class="sr-only">
         Tous les champs marqués d’un astérisque sont obligatoires.
@@ -97,9 +95,22 @@
             aria-required="true"
             autocomplete="new-password"
           />
+
+          <label for="confirm_password"
+            >Confirmer le mot de passe <span aria-hidden="true">*</span></label
+          >
+          <input
+            type="password"
+            id="confirm_password"
+            name="confirm_password"
+            placeholder="Confirmer le mot de passe"
+            required
+            aria-required="true"
+            autocomplete="new-password"
+          />
         </fieldset>
 
-        <button type="submit" class="button" aria-label="Créer un compte">
+        <button type="submit" aria-label="S’inscrire sur le site">
           S’inscrire
         </button>
       </form>
