@@ -2,16 +2,21 @@
 
  
 
-//@use './_global';
 @use './auth';
+@use './profile';
 
-@use './_global';
+
+@use './global';
 
 
 
  @use './components/var';
 
 @use './components/about';
+@use './components/button';
+@use './components/card';
+
+
 
 
 

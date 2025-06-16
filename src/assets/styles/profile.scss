@@ -1,8 +1,10 @@
 @use 'components/var' as *;
 @use './mixins' as *;
 @use 'components/card' as *;
+@use 'components/button' as *;
 
-.profile-page {
+
+.public-profile-page {
   padding: 2rem;
 
   @include small {
