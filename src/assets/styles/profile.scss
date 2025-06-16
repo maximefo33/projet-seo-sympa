@@ -1,9 +1,8 @@
-@use 'components/var' as *;
-@use './mixins' as *;
-
+@use "components/var" as *;
+@use "./mixins" as *;
 
 .public-profile-page {
-  font-family: $main-font;
+  font-family: $font-texte;
   color: $color-black;
   background-color: $color-white;
 
@@ -11,7 +10,12 @@
     padding: 1rem;
 
     .degrade-diagonal {
-      background: linear-gradient(to bottom right, transparent, rgb(177, 177, 245), pink);
+      background: linear-gradient(
+        to bottom right,
+        transparent,
+        rgb(177, 177, 245),
+        pink
+      );
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
@@ -61,7 +65,8 @@
         color: $color-lightblue;
       }
 
-      p, ul {
+      p,
+      ul {
         font-size: $text-fontsize;
       }
 

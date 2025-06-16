@@ -1,5 +1,13 @@
 // index.scss de notre projet
 
+
+//@use './_global';
+@use "./auth";
+
+@use "./_global";
+
+@use "./components/var";
+
 @use './components/home';
 @use './auth';
 @use './_global';
@@ -7,10 +15,8 @@
 @use './components/commune_header';
 @use './components/commune_footer';
 @use './components/commune_logo';
-@use './components/commune_footer';
-@use './components/commune_header';
-@use './components/commune_logo';
 @use './components/legal';
 @use './components/conditions';
 @use './components/var';
 
+@use "/src/assets/styles/contact.scss";

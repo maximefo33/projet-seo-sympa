@@ -1,4 +1,7 @@
- @use './var';
+
+@use "./var";
+
+
 
 //header
 
@@ -103,6 +106,23 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
+
+  padding: 20px;
+  background: linear-gradient(
+    to bottom right,
+    transparent,
+    var.$color-purple,
+    var.$color-blue,
+    var.$color-lightblue
+  );
+}
+
+.text_main1 {
+  line-height: 1.4;
+  font-family: var.$font-texte;
+  font-size: 70px;
+  color: white;
+
   padding: 2rem;
   gap: 2rem;
   flex-wrap: wrap; // pour le responsive
@@ -136,14 +156,13 @@
     font-weight: bold;
     margin-top: 1rem;
   }
+
 }
 
 .carousel {
   display: flex;
   flex-direction: column;
   align-items: center;
-  ;
-
 }
 
 .titre {
@@ -181,6 +200,13 @@
   align-items: center;
   background-color: var.$color-blue;
   margin: 3%;
+
+
+.text_main2 {
+  line-height: 1.4;
+  font-family: var.$font-texte;
+  font-size: 35px;
+  color: white;
 
   &__img {
     width: 1000px;
@@ -229,6 +255,16 @@
 
 
 .pied_de_page {
+
+  background: radial-gradient(
+    circle at 0% 100%,
+    var.$color-purple,
+    var.$color-blue,
+    var.$color-lightblue
+  );
+  text-decoration-color: white;
+}
+
   background: linear-gradient(to bottom right, var.$color-purple, var.$color-blue, var.$color-lightblue);
   display: flex;
   flex-wrap: wrap;
@@ -279,3 +315,4 @@
   color: var.$color-white;
   margin-top: 1rem;
 }
+
