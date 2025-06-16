@@ -1,30 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-    <link rel="stylesheet" href="../assets/styles/index.scss" />
-
-    <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
-
-    <title>Inscription</title>
-    <meta
-      name="description"
-      content="Page d'inscription pour créer un compte sur SEO Sympa. Remplissez le formulaire pour vous enregistrer."
-    />
-  </head>
-  <body>
-    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-
-    <header class="degrade-diagonal">
-      <a href="../index.html">
-        <img
-          src="../assets/img/logo.png"
-          alt="Retour à l'accueil – SEO Sympa"
-        />
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -43,53 +19,30 @@
 <body class="auth-page">
   <a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-  <header class="header">
-    <div class="degrade-diagonal">
-      <a href="../index.html" class="header-logo">
-        <img src="../assets/img/logo.png" alt="Retour à l'accueil – SEO Sympa" />
+      <header>
+        <nav class="header_nav">
+            <!-- ci-dessous logo SEO cliquable qui ramène à la page d'accueil / -->
 
-      </a>
+            <a href="/"><img alt="logo de SEO Sympa" src="../../image/logo.png">
+            </a>
+            <!-- sûrement liste déroulante pour cette nav -->
+
+            <ul class="header_nav_ul">
+                <li class="header_nav_li"><a href="../index.html">Page d'accueil</a></li>
+                <li class="header_nav_li"><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <main id="main-content">
-      <h1>S’inscrire</h1>
-      <h2>Créer un nouveau compte</h2>
+  <main class="auth-main" id="main-content">
+    <h1 class="auth-title">S’inscrire</h1>
+    <h2 class="auth-subtitle">Créer un nouveau compte</h2>
 
-      <p id="form-desc" class="sr-only">
-        Tous les champs marqués d’un astérisque sont obligatoires.
-      </p>
+    <p id="form-desc" class="sr-only">Tous les champs marqués d’un astérisque sont obligatoires.</p>
 
-      <form
-        method="POST"
-        action="/signup"
-        novalidate
-        aria-describedby="form-desc"
-      >
-        <fieldset>
-          <legend class="sr-only">Formulaire d'inscription</legend>
-
-
-          <label for="prenom">Prénom <span aria-hidden="true">*</span></label>
-          <input
-            type="text"
-            id="prenom"
-            name="prenom"
-            placeholder="Prénom"
-            required
-            aria-required="true"
-            autocomplete="given-name"
-          />
-
-          <label for="nom">Nom <span aria-hidden="true">*</span></label>
-          <input
-            type="text"
-            id="nom"
-            name="nom"
-            placeholder="Nom"
-            required
-            aria-required="true"
-            autocomplete="family-name"
-          />
+    <form method="POST" action="/signup" novalidate aria-describedby="form-desc">
+      <fieldset>
+        <legend class="sr-only">Formulaire d'inscription</legend>
 
         <label for="prenom">Prénom <span aria-hidden="true">*</span></label>
         <input type="text" id="prenom" name="prenom" placeholder="Prénom" required aria-required="true"
@@ -99,38 +52,12 @@
         <input type="text" id="nom" name="nom" placeholder="Nom" required aria-required="true"
           autocomplete="family-name" />
 
-
-          <label for="role">Rôle <span aria-hidden="true">*</span></label>
-          <select id="role" name="role" required aria-required="true">
-            <option value="" disabled selected>Choisissez un rôle</option>
-            <option value="expert">Expert</option>
-            <option value="demandeur">Demandeur</option>
-          </select>
-
-
-          <label for="email">Email <span aria-hidden="true">*</span></label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="exemple@domaine.com"
-            required
-            aria-required="true"
-            autocomplete="email"
-          />
-
-          <label for="password"
-            >Mot de passe <span aria-hidden="true">*</span></label
-          >
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Mot de passe"
-            required
-            aria-required="true"
-            autocomplete="new-password"
-          />
+        <label for="role">Rôle <span aria-hidden="true">*</span></label>
+        <select id="role" name="role" required aria-required="true">
+          <option value="" disabled selected>Choisissez un rôle</option>
+          <option value="expert">Expert</option>
+          <option value="demandeur">Demandeur</option>
+        </select>
 
         <label for="email">Email <span aria-hidden="true">*</span></label>
         <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true"
@@ -141,25 +68,40 @@
           autocomplete="new-password" />
       </fieldset>
 
+      <button type="submit" class="button" aria-label="Créer un compte">S’inscrire</button>
+    </form>
+  </main>
+    <footer>
+        <div class="footer_nav">
+            <nav class="footer_nav_links">
+                <ul>
+                    <li><a href="/">Retour à l'accueil - SEO Sympa</a></li>
+                    <li><a href="">Mentions légales & RGPD</a></li>
+                    <li><a href="">Conditions générales</a></li>
+                    <li><a href="">Déclaration d'accessibilité</a></li>
+                    <li><a href="">Plan du site SEO Sympa</a></li>
+                </ul>
+            </nav>
 
-          <label for="confirm_password"
-            >Confirmer le mot de passe <span aria-hidden="true">*</span></label
-          >
-          <input
-            type="password"
-            id="confirm_password"
-            name="confirm_password"
-            placeholder="Confirmer le mot de passe"
-            required
-            aria-required="true"
-            autocomplete="new-password"
-          />
-        </fieldset>
 
-        <button type="submit" aria-label="S’inscrire sur le site">
-          S’inscrire
-        </button>
-      </form>
-    </main>
-  </body>
+            <div class="footer_nav_follow">
+                <a href="#"><img src="../assets/img/icones/youtube.png" alt="lien pour nous suivre sur YouTube"></a>
+                <a href="#"> <img src="../assets/img/icones/instagram.png"
+                        alt="lien pour nous suivre sur instagram"></a>
+                <a href="#"> <img src="../assets/img/icones/linkedin.png" alt="lien pour nous suivre sur Linkedin"></a>
+            </div>
+            <div class="footer_nav_contact">
+                <a href="./contact.html"><img src="../assets/img/icones/mail.png"
+                        alt="lien vers notre page contact pour voir notre mail"></a>
+                <a href="./contact.html"><img src="../assets/img/icones/phone.png"
+                        alt="lien vers notre page contact pour voir notre téléphone"></a>
+            </div>
+        </div>
+        <aside class="footer_aside">2025 © SEO Sympa</aside>
+        <!-- Pour insérer le symbole de copyright, appuyez sur Alt+0169 -->
+    </footer>
+
+ 
+</body>
+
 </html>

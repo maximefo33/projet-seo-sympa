@@ -1,12 +1,12 @@
 // index.scss de notre projet
 
 
-//@use './_global';
-@use "./auth";
+@use './profile';
+@use './components/button';
+@use './components/card';
 
-@use "./_global";
 
-@use "./components/var";
+
 
 @use './components/home';
 @use './auth';
@@ -19,4 +19,6 @@
 @use './components/conditions';
 @use './components/var';
 
+
 @use "/src/assets/styles/contact.scss";
+

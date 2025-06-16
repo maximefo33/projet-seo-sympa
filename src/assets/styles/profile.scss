@@ -1,10 +1,20 @@
-@use "components/var" as *;
-@use "./mixins" as *;
+
+@use 'components/var' as *;
+@use './mixins' as *;
+@use 'components/card' as *;
+@use 'components/button' as *;
+
 
 .public-profile-page {
+   background: linear-gradient(to bottom, $color-blue, $color-white);
+  padding: 0;
+  min-height: 100vh;
   font-family: $font-texte;
   color: $color-black;
-  background-color: $color-white;
+
+
+  @include small {
+    padding: 0;
 
   .header {
     padding: 1rem;
@@ -24,74 +34,53 @@
     .header-logo img {
       height: 100px;
     }
+
   }
+background: linear-gradient(to bottom, $color-blue, $color-white);
+  min-height: 100vh;
+}
 
-  .public-profile-main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+.public-profile-main {
+  .card {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;  // mobile : bouton en dessous
+    gap: 1rem;
+    align-items: center;
 
-    .profile-banner {
-      text-align: center;
-      margin-bottom: 2rem;
+    @include small {  // grand écran : alignement horizontal
+      flex-direction: row;
+      align-items: flex-start;
+    }
 
-      .profile-photo {
-        border-radius: 50%;
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        border: 4px solid $color-lightblue;
-        margin-bottom: 1rem;
-      }
-
-      h1 {
-        font-size: 2rem;
-        color: $color-purple;
-      }
-
-      .subtitle {
-        font-size: 1.2rem;
-        color: $color-darkpurple;
+    .card__image {
+      flex-shrink: 0;
+      width: 150px;
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 0.5rem;
       }
     }
 
-    .profile-bio,
-    .profile-skills {
-      margin-bottom: 2rem;
 
-      h2 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        color: $color-lightblue;
-      }
+    .card__info {
+      flex: 1;
+      text-align: center;
 
-      p,
-      ul {
-        font-size: $text-fontsize;
-      }
-
-      ul {
-        list-style: disc;
-        padding-left: 1.5rem;
+ 
+      @include small {
+        text-align: left;
       }
     }
 
-    .profile-contact {
-      text-align: center;
+    .card__contact {
+      margin-top: 1rem;
 
-      .button {
-        padding: 0.75rem 1.5rem;
-        background-color: $color-purple;
-        color: $color-white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-        display: inline-block;
-
-        &:hover,
-        &:focus {
-          background-color: darken($color-purple, 10%);
-        }
+      @include small {
+        margin-top: 0;
+        margin-left: auto;  // pousse à droite
+        align-self: flex-start;
       }
     }
   }
