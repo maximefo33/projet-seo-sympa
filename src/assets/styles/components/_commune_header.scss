@@ -1,39 +1,59 @@
-// styles scss header commun à toutes les pages sauf la page /home
 @use './var';
+@use '../mixins' as *; // pour les media queries @include small etc.
 
+// Conteneur de navigation principal
 .header_nav {
   background: var.$color-white;
   display: flex;
-  justify-content: center;
-  column-gap: 10rem;
-  font-size: var.$subtitle-fontsize;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   padding: 1rem;
 
+  @include small {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  img {
+    width: 120px;
+    height: 120px;
+    background-color: var.$color-white;
+
+    @include small {
+      width: 160px;
+      height: 160px;
+    }
+  }
 }
 
-.header_nav img {
-  background-color: var.$color-white;
-  width: 160px;
-  height: 160px;
-}
-
-
+// Liste de liens de navigation
 .header_nav_ul {
-  display: inline-flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: center;
-  column-gap: 10rem;
-  font-size: var.$subtitle-fontsize;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
   list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
 
+  @include small {
+    flex-direction: row;
+    gap: 4rem;
+    text-align: left;
+  }
 }
 
-// ombres sur lettres : cf @ https://developer.mozilla.org/fr/docs/Web/CSS/text-shadow 
-
+// Styles des liens
 .header_nav_li a {
   text-decoration: none;
   color: var.$color-darkpurple;
   font-weight: bold;
   text-shadow: 1px 1px 2px var.$color-lightblue;
+  font-size: var.$subtitle-fontsize;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

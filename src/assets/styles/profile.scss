@@ -1,62 +1,38 @@
-
 @use 'components/var' as *;
 @use './mixins' as *;
-@use 'components/card' as *;
-@use 'components/button' as *;
 
+
+//header integre via index.scss , profile.html
 
 .public-profile-page {
-   background: linear-gradient(to bottom, $color-blue, $color-white);
-  padding: 0;
+  background: linear-gradient(to bottom, $color-blue, $color-white);
   min-height: 100vh;
+  padding: 0;
   font-family: $font-texte;
   color: $color-black;
 
-
   @include small {
     padding: 0;
-
-  .header {
-    padding: 1rem;
-
-    .degrade-diagonal {
-      background: linear-gradient(
-        to bottom right,
-        transparent,
-        rgb(177, 177, 245),
-        pink
-      );
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-    }
-
-    .header-logo img {
-      height: 100px;
-    }
-
   }
-background: linear-gradient(to bottom, $color-blue, $color-white);
-  min-height: 100vh;
-}
 }
 
 .public-profile-main {
   .card {
     margin-top: 2rem;
     display: flex;
-    flex-direction: column;  // mobile : bouton en dessous
+    flex-direction: column; 
     gap: 1rem;
     align-items: center;
 
-    @include small {  // grand écran : alignement horizontal
-      flex-direction: row;
+    @include small {
+      flex-direction: row; 
       align-items: flex-start;
     }
 
     .card__image {
       flex-shrink: 0;
       width: 150px;
+
       img {
         width: 100%;
         height: auto;
@@ -64,12 +40,10 @@ background: linear-gradient(to bottom, $color-blue, $color-white);
       }
     }
 
-
     .card__info {
       flex: 1;
       text-align: center;
 
- 
       @include small {
         text-align: left;
       }
@@ -80,7 +54,7 @@ background: linear-gradient(to bottom, $color-blue, $color-white);
 
       @include small {
         margin-top: 0;
-        margin-left: auto;  // pousse à droite
+        margin-left: auto; 
         align-self: flex-start;
       }
     }
