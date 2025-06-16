@@ -60,9 +60,15 @@ suite de code des pages html du 10/6
 - pages statiques à finir de coder
 - valider header / footer + les intégrer sur toutes les pages SAUF page accueil (qui a son propre header footer)
 - OBJECTIF = page accueil OP
+- cahier des charges en md = fait sur branche "specifications"
 
 
 ## lundi 16/06
+
+- suite code html et scss des pages
+- point à 14h pour tout enregistrer sur github
+
+
 commencer à coder BDD en groupe de 2
 commencer à installer serveur en groupe de 2
 
