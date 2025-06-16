@@ -1,13 +1,16 @@
 //styles de la page conditions.html correspondant à /terms-and-conditions
 @use "/src/assets/styles/components/var";
 
+
+
+
 .main_legal {
-    background: var.$color-white;
+    background: linear-gradient(to top, var.$color-lightblue, var.$color-white);
     font-size: var.$text-fontsize;
     font-family: var.$font-texte;
-    margin: 2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    margin: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     text-align: justify;
   
   
@@ -15,7 +18,7 @@
 
 .main_bg_img{  background-image: url(/src/assets/img/img-seo4.jpg);
        background-repeat: no-repeat;
-       background-size: 40%;
+       background-size: 35%;
        background-position: right;
 }
 
@@ -45,6 +48,7 @@
 
 .main_nav {
     display: flex;
+    flex-wrap: wrap;
     column-gap: 4rem;
     justify-content: center;
     align-items: center;
@@ -65,7 +69,7 @@
 .copyright {
     float: left;
     margin-bottom: 2rem;
-    width: 30%;
+    width: 15%;
     margin: auto;
 }
 
