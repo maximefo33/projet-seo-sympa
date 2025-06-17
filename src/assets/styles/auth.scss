@@ -4,6 +4,8 @@
 //  le header est importé via index.scss depuis commune_header.scss
 
 .auth-page {
+  display: flex;               // CHANGEMENT
+  flex-direction: column;      // CHANGEMENT
   background: linear-gradient(to bottom, $color-blue, $color-white);
   padding: 0;
   min-height: 100vh;
@@ -12,6 +14,7 @@
 }
 
 .auth-main {
+  flex: 1;                     // CHANGEMENT
   max-width: 400px;
   margin: 2rem auto;
   padding: 0 1rem;

@@ -1,10 +1,12 @@
-@use 'components/var' as *;
+@use './components/var' as *;
 @use './mixins' as *;
 
 
 //header integre via index.scss , profile.html
 
 .public-profile-page {
+  display: flex;                 // CHANGEMENT
+  flex-direction: column;        // CHANGEMENT
   background: linear-gradient(to bottom, $color-blue, $color-white);
   min-height: 100vh;
   padding: 0;
@@ -17,6 +19,7 @@
 }
 
 .public-profile-main {
+    flex: 1;                       // CHANGEMENT
   .card {
     margin-top: 2rem;
     display: flex;
