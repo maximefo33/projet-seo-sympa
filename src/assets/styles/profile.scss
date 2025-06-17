@@ -1,7 +1,7 @@
-@use "components/var" as *;
+@use "./components/var" as *;
 @use "./mixins" as *;
-@use "components/card" as *;
-@use "components/button" as *;
+@use "./components/card" as *;
+@use "./components/button" as *;
 
 .public-profile-page {
   background: linear-gradient(to bottom, $color-blue, $color-white);

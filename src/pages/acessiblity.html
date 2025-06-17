@@ -1,104 +1,147 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <a href="/"
-      ><img
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/styles/index.scss" />
+    <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
+
+    <a href="/" class="logo-link">
+      <img
         alt="logo de SEO Sympa"
         src="../assets/img/logo.png"
         width="180px"
         height="180px"
+        class="logo-img"
       />
     </a>
     <title>Déclaration d'Accessibilité - SEO-Sympa</title>
-    <meta name="description" content="Déclaration d'accessibilité du site SEO-Sympa">
-</head>
-<body>
-    <header>
-        <h1>SEO-Sympa - Déclaration d'Accessibilité</h1>
-        <nav aria-label="Navigation principale">
-            <ul>
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#Contact">Contact</a></li>
-            </ul>
-        </nav>
+    <meta
+      name="description"
+      content="Déclaration d'accessibilité du site SEO-Sympa"
+    />
+  </head>
+  <body class="main-content">
+    <header class="header_nav" role="banner">
+      <h1 class="page-title">SEO-Sympa - Déclaration d'Accessibilité</h1>
+      <nav class="nav" aria-label="Navigation principale">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a href="#accueil" class="nav-link">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a href="#Contact" class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </nav>
     </header>
 
-    <main id="main-content">
-        <section id="declaration-accessibilite">
-            <h2>Déclaration d'Accessibilité</h2>
-            <p><strong>SEO-Sympa</strong> s'engage à rendre son site web accessible à tous les utilisateurs, conformément aux standards d'accessibilité.</p>
-            
+    <main id="main-content" class="accessibility-main">
+      <section id="declaration-accessibilite" class="declaration-section">
+        <h2 class="section-title">Déclaration d'Accessibilité</h2>
+        <p class="section-description">
+          <strong>SEO-Sympa</strong> s'engage à rendre son site web accessible à
+          tous les utilisateurs, conformément aux standards d'accessibilité.
+        </p>
 
-            <h3>État de conformité</h3>
-            <p>Ce site web est <strong>partiellement conforme</strong> aux règles pour l'accessibilité des contenus Web</p>
+        <h3 class="subsection-title">État de conformité</h3>
+        <p class="subsection-description">
+          Ce site web est <strong>partiellement conforme</strong> aux règles
+          pour l'accessibilité des contenus Web
+        </p>
 
+        <h3 class="subsection-title">
+          Préparation de cette déclaration d'accessibilité
+        </h3>
+        <p class="subsection-description">
+          Cette déclaration a été préparée le
+          <time datetime="2025-06-12">12 Juin 2025</time>. Elle est basée sur :
+        </p>
+        <ul class="custom-list">
+          <li>
+            Une auto-évaluation réalisée par l'équipe de développement de
+            SEO-Sympa
+          </li>
+          <li>
+            Des tests utilisateurs avec des personnes en situation de handicap
+          </li>
+        </ul>
 
-            <h3>Préparation de cette déclaration d'accessibilité</h3>
-            <p>Cette déclaration a été préparée le <time datetime="12-07-2025">12 Juin 2025</time>. Elle est basée sur :</p>
-            <ul>
-                <li>Une auto-évaluation réalisée par l'équipe de développement de SEO-Sympa</li>
-                <li>Des tests utilisateurs avec des personnes en situation de handicap</li>
-            </ul>
+        <h4 class="sub-subsection-title">Outils utilisés pour l'évaluation</h4>
+        <ul class="custom-list">
+          <li>Lecteurs d'écran : NVDA, VoiceOver</li>
+          <li>Tests de navigation clavier</li>
+          <li>Vérification du contraste des couleurs</li>
+        </ul>
 
-            <h4>Outils utilisés pour l'évaluation</h4>
-            <ul>
-                <li>Lecteurs d'écran : NVDA, VoiceOver</li>
-                <li>Tests de navigation clavier</li>
-                <li>Vérification du contraste des couleurs</li>
-            </ul>
-
-            <h3>Technologies utilisées</h3>
-            <p>L'accessibilité de ce site web s'appuie sur les technologies suivantes :</p>
-            <ul>
-                <li>HyperText Markup Language - HTML</li>
-                <li>Cascading Style Sheets - CSS</li>
-                <li>JavaScript</li>
-                <li>ARIA (Accessible Rich Internet Applications)</li>
-            </ul>
+        <h3 class="subsection-title">Technologies utilisées</h3>
+        <p class="subsection-description">
+          L'accessibilité de ce site web s'appuie sur les technologies suivantes
+          :
+        </p>
+        <ul class="custom-list">
+          <li>HyperText Markup Language - HTML</li>
+          <li>Cascading Style Sheets - CSS</li>
+          <li>JavaScript</li>
+          <li>ARIA (Accessible Rich Internet Applications)</li>
+        </ul>
+      </section>
     </main>
 
-    <footer>
+    <footer class="footer" role="contentinfo">
+      <section class="contact-options">
+        <h2 class="footer-section-title">Autres moyens de nous contacter</h2>
 
-        <!-- Autres moyens de contact -->
-         
-      <section>
-        <h2>Autres moyens de nous contacter</h2>
-
-        <h3>Réseaux sociaux</h3>
-        <ul>
+        <h3 class="footer-subtitle">Réseaux sociaux</h3>
+        <ul class="custom-list">
           <li>
-            <a href="https://linkedin.com/company/seo-sympa" rel="external"
+            <a
+              href="https://linkedin.com/company/seo-sympa"
+              rel="external"
+              class="footer-link"
               >LinkedIn - SEO-Sympa</a
             >
           </li>
           <li>
-            <a href="https://twitter.com/seosympa" rel="external"
+            <a
+              href="https://twitter.com/seosympa"
+              rel="external"
+              class="footer-link"
               >Twitter - @seosympa</a
             >
           </li>
         </ul>
-        <h3>FAQ</h3>
-        <a href="/faq">Questions fréquemment posées</a> - Trouvez rapidement des
-        réponses
+
+        <h3 class="footer-subtitle">FAQ</h3>
+        <a href="/faq" class="footer-link">Questions fréquemment posées</a> -
+        Trouvez rapidement des réponses
       </section>
-      <p>
+
+      <p class="footer-contact">
         Adresse : ...... , 75000 Paris<br />
         Téléphone : 00 00 00 00 00<br />
         Email : contact@seosympa.fr
       </p>
 
-        <p>&copy; 2025 SEO-Sympa. Tous droits réservés.</p>
-        <nav aria-label="Navigation du pied de page">
-            <ul>
-                <li><a href="/">Retour à l'accueil - SEO Sympa</a></li>
-                <li><a href="">Mentions légales & RGPD</a></li>
-                <li><a href="">Conditions générales</a></li>
-                <li><a href="">Déclaration d'accessibilité</a></li>
-                <li><a href="">Plan du site SEO Sympa</a></li>
-            </ul>
-        </nav>
+      <p class="footer-copy">&copy; 2025 SEO-Sympa. Tous droits réservés.</p>
+
+      <nav aria-label="Navigation du pied de page" class="footer-nav">
+        <ul class="footer-nav-list">
+          <li>
+            <a href="/" class="footer-nav-link"
+              >Retour à l'accueil - SEO Sympa</a
+            >
+          </li>
+          <li>
+            <a href="" class="footer-nav-link">Mentions légales & RGPD</a>
+          </li>
+          <li><a href="" class="footer-nav-link">Conditions générales</a></li>
+          <li>
+            <a href="" class="footer-nav-link">Déclaration d'accessibilité</a>
+          </li>
+          <li><a href="" class="footer-nav-link">Plan du site SEO Sympa</a></li>
+        </ul>
+      </nav>
     </footer>
-</body>
+  </body>
 </html>
