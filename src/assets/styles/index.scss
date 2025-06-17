@@ -1,9 +1,8 @@
 // index.scss de notre projet
 
 
-@use './profile';
-@use './components/button';
-@use './components/card';
+
+
 
 
 
@@ -19,4 +18,15 @@
 @use './components/conditions';
 @use './components/var';
 @use "./mixins";
+
+
+@use "./profile";
+@use "./components/button";
+@use "./components/card";
+
+
+
+
+@use "./contact";
+@use "./acessibility";
 
