@@ -68,9 +68,18 @@ suite de code des pages html du 10/6
 
 - suite code html et scss des pages
 - point à 14h pour tout enregistrer sur github
+- pb avec scss on débugue ensemble, puis on fait tous des pull request pour mettre à jour notre code
+- call avec Aurélie et Guilhaume 30 min => débug git
 
+## mardi 17/06
 
-commencer à coder BDD en groupe de 2
+- suite scss Alexandre
+- call Guilhaume 30 min pour débug github Elise, pages conditions a pb, corrompue
+- recherches pour création bdd
+- essai avec fakerjs pour créer faux noms mails etc
+
+- après midi : 
+commencer à coder BDD en groupe de 2 ou 1 table chacun (4 tables)
 commencer à installer serveur en groupe de 2
 
 

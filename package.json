@@ -28,7 +28,9 @@
     "pg": "^8.16.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^9.8.0",
     "@parcel/transformer-sass": "^2.15.2",
+    "buffer": "^6.0.3",
     "parcel": "^2.15.2"
   }
 }
