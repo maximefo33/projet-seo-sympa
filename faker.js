@@ -1,4 +1,5 @@
 // essai https://fakerjs.dev/guide/usage.html - 17/6/25
+// https://github.com/O-clock-Behemoth/Projects/blob/main/aide/README.md => si besoin de + de 20 entrées dans la BDD
 
 // installation du package : npm install @faker-js/faker --save-dev
 // puis suivi de la consigne : https://fakerjs.dev/guide/usage.html
@@ -79,3 +80,32 @@ console.log(randomZipCode, 'CP au hasard');
 
 const randomSiret = faker.string.numeric(14);
 console.log(randomSiret, 'n° siret 14 chiffres au hasard');
+
+
+// *********************************** @see https://fakerjs.dev/api/commerce.html
+
+const randomProductDescription = faker.commerce.productDescription;
+console.log(randomProductDescription, 'description de l\'activité');
+
+
+// ************************************* @see https://fakerjs.dev/api/image.html
+
+const randomAvatar = faker.image.avatar();
+console.log(randomAvatar, 'avatar au hasard');
+
+// ************************************** @see https://fakerjs.dev/api/lorem.html
+
+const randomSentence = faker.lorem.sentence({ min: 4, max: 15 });
+console.log(randomSentence, 'phrase au hasard');
+
+const randomLines = faker.lorem.lines({ min: 1, max: 4 })
+console.log(randomLines, 'petit texte de 1 à 4 lignes');
+
+
+// ************************************* @see https://fakerjs.dev/api/date.html
+
+const randomFutureDate = faker.date.future({ years: 2 }) // '2026-11-23T09:38:28.710Z'
+console.log(randomFutureDate, 'date inventée dans les 2 ans à venir');
+
+const randomPastDate = faker.date.past({ years: 1 }) // '2024-10-25T21:34:19.488Z'
+console.log(randomPastDate, 'date passée au hasard dans la dernière année');
