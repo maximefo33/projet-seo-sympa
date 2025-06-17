@@ -131,6 +131,49 @@
       text-align: right;
       margin-top: 0.5rem;
     }
+
+    //confirme password, CGU
+    .checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: 1rem;
+
+  input[type="checkbox"] {
+      margin: 0;
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+
+  label {
+    font-weight: normal;
+    font-size: $text-fontsize;
+    line-height: 1.4;
+
+    a {
+      color: $color-purple;
+      text-decoration: underline;
+
+      &:hover {
+        color: darken($color-purple, 10%);
+      }
+    }
+  }
+}
+
+.confirm-password {
+  margin-top: 1rem;
+
+  input {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+
+  label {
+    color: #666;
+  }
+}
+
   }
 
   .sr-only {

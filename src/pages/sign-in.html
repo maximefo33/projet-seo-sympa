@@ -66,6 +66,16 @@
         <label for="password">Mot de passe <span aria-hidden="true">*</span></label>
         <input type="password" id="password" name="password" placeholder="Mot de passe" required aria-required="true"
           autocomplete="new-password" />
+          
+          <label for="confirm-password">Confirmer le mot de passe <span aria-hidden="true">*</span></label>
+          <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmer le mot de passe" required aria-required="true" autocomplete="new-password" />
+          <div class="checkbox-wrapper">
+          <input type="checkbox" id="cgu" name="cgu" required aria-required="true" />
+          <label for="cgu"> J’accepte les <a href="#" target="_blank" rel="noopener noreferrer">CGU (Conditions Générales d’Utilisation)</a> 
+          <span aria-hidden="true">*</span>
+          </label>
+          </div>
+
       </fieldset>
 
       <button type="submit" class="button" aria-label="Créer un compte">S’inscrire</button>
