@@ -3,14 +3,14 @@
 
 // installation du package : npm install @faker-js/faker --save-dev
 // puis suivi de la consigne : https://fakerjs.dev/guide/usage.html
-
+/*
 import { faker } from '@faker-js/faker';
 // or, if desiring a different locale
 // import { fakerDE as faker } from '@faker-js/faker';
 
-//*************************** */ see@ https://fakerjs.dev/api/person.html
+//*************************** */ /*see@ https://fakerjs.dev/api/person.html
 // nom entier au hasard
-const randomName = faker.person.fullName(); // Rowan Nikolaus
+/*const randomName = faker.person.fullName(); // Rowan Nikolaus
 console.log(randomName, 'nom au hasard');
 
 // mail au hasard
@@ -108,4 +108,4 @@ const randomFutureDate = faker.date.future({ years: 2 }) // '2026-11-23T09:38:28
 console.log(randomFutureDate, 'date inventée dans les 2 ans à venir');
 
 const randomPastDate = faker.date.past({ years: 1 }) // '2024-10-25T21:34:19.488Z'
-console.log(randomPastDate, 'date passée au hasard dans la dernière année');
+console.log(randomPastDate, 'date passée au hasard dans la dernière année');*/

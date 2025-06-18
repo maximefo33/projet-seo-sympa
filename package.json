@@ -25,7 +25,8 @@
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
-    "pg": "^8.16.0"
+    "pg": "^8.16.0",
+    "sequelize": "^6.37.7"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.8.0",
