@@ -1,4 +1,5 @@
-// dans un script js
+// script de création des tables USER RELATION PROFILE MESSAGE
+// fait le lien avec sequelize - le lancer avec la commande npm run db:create
 // je prends mes modèles
 
 import '../db/index.js';
