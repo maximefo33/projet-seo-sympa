@@ -1,7 +1,7 @@
 // dans un script js
 // je prends mes modèles
 
-import './index.js';
+import '../db/index.js';
 // je prends mon client connecté
 import sequelize from '../app/database.js';
 // je supprime les tables et je les recrée
