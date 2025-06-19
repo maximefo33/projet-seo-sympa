@@ -15,5 +15,16 @@ router.get("/contact", (req, res) => {
   res.send();
 });
 
+router.get("/about", (req, res) => {
+   console.log('route /about');
+  res.render('about');
+});
+
+router.get("/terms-and-conditions", (req, res) => {
+   console.log('route /terms-and-conditions');
+  res.render('conditions');
+});
+
+
 // on l'exporte
 export default router;
