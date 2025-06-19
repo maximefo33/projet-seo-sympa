@@ -1,6 +1,9 @@
-import User from './user.js';
+import User from '../models/user.model.js';
+import  Relation from '../models/Relation.js';
+import Message from '../models/message.model.js';
+import Profile from '../models/Profile.js';
+
 //import Profile from './profile.js';
-import Message from './message.js';
 //import Relation from './relation.js';
 
 // Un utilisateur a un profil
