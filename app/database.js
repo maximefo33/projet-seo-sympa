@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize';
+import "dotenv/config";
 
 //  URL en dev ou production
 //  postgres://username:password@localhost:5432/seo_sympa
