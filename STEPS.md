@@ -76,10 +76,21 @@ suite de code des pages html du 10/6
 - suite scss Alexandre
 - call Guilhaume 30 min pour débug github Elise, pages conditions a pb, corrompue
 - recherches pour création bdd
-- essai avec fakerjs pour créer faux noms mails etc
+- essai avec fakerjs pour créer faux noms mails etc => finalement pas besoin car moins de 20 entités dans notre BDD
+- réflexion sur structure back
 
-- après midi : 
-commencer à coder BDD en groupe de 2 ou 1 table chacun (4 tables)
+## mercredi 18/6
+
+- point rapide avec Guilhaume
+- création database sur postgresql
+- installation de sequelize
+- code des 4 tables de la bdd sur 4 branches différentes
+
+
+
+
+
+
 commencer à installer serveur en groupe de 2
 
 
