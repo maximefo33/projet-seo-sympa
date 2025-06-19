@@ -25,6 +25,10 @@ router.get("/terms-and-conditions", (req, res) => {
   res.render('conditions');
 });
 
+router.get("/legal", (req, res) => {
+   console.log('route /legal');
+  res.render('legal');
+});
 
 // on l'exporte
 export default router;
