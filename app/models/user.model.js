@@ -1,6 +1,6 @@
 // models/message.model.js
 import { Model, DataTypes } from 'sequelize';
-import sequelize from '../app/database.js';
+import sequelize from '../database.js';
 
 export class User extends Model {}
  User.init({

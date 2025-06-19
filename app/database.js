@@ -1,10 +1,12 @@
 import { Sequelize } from 'sequelize';
+import "dotenv/config";
 
-// À adapter avec TES infos PostgreSQL
-const sequelize = new Sequelize('seo_sympa', 'seo_sympa', 'aegm_mgea_2025',{
-  host: 'localhost',
-  dialect: 'postgres',
-  logging: false, // désactive les logs SQL dans la console (optionnel)
+//  URL en dev ou production
+//  postgres://username:password@localhost:5432/seo_sympa
+const sequelize = new Sequelize(process.env.PG_URL, {
+  define: {
+    underscored: true, // pour utiliser le snake_case côté SQL
+  }
 });
 
 export default sequelize;
