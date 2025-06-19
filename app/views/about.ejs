@@ -1,0 +1,124 @@
+<!-- view ejs - page A propos - /about -->
+<%- include('partials/header') %>
+
+    <main class="about_main">
+        <!-- ceci sera dans la page A propos (/About) - c'est aussi un exemple de page statique -->
+        <div class="presentation">
+            <h1 id="history">A propos de SEO Sympa</h1>
+            <h2>SEO Sympa, soyez en tête sans prise de tête !</h2>
+
+            <p>Avec notre site, ne vous compliquez-pas la vie ! Sérénité garantie. </p>
+
+            <h2>Histoire de notre plateforme</h2>
+
+            <p>Prenez 4 amis développeurs formés dans la même école (<a href="https://oclock.io/"
+                    target="_blank">O'clock</a>) et passionnés de référencement. </p>
+            <p>En juin 2025 leur est venue
+                l'idée d'aider les structures, entreprises, associations..., petites ou grandes, à mieux se faire
+                connaître.
+                La plateforme
+                SEO Sympa est née !</p>
+        </div>
+
+
+        <div class="about_article_seo_contain">
+            <div class="about_article_seo_img"><img src="../assets/img/img-seo3.jpg"
+                    alt="ordinateur avec plein de post-its avec des mots clefs accrochés sur le mur derrière"></div>
+            <article class="about_article_seo">
+                <h2 id="seo_kezako">SEO, Kézako ?</h2>
+                <p>L'optimisation pour les moteurs de recherche, aussi connue sous le nom de référencement naturel et
+                    le sigle SEO (de l'anglais « Search Engine Optimization »), inclut l'ensemble des techniques qui
+                    visent à améliorer le positionnement d'une page, d'un site ou d'une application web dans la page de
+                    résultats d'un moteur de recherche.</p>
+                <p>
+                    Ces techniques cherchent à améliorer la compréhension et la prise en compte de la thématique et du
+                    contenu d'une ou de l'ensemble des pages d'un site Web par l'algorithme de classement des moteurs de
+                    recherche.</p>
+                <aside><a class="about_link_article"
+                        href="https://fr.wikipedia.org/wiki/Optimisation_pour_les_moteurs_de_recherche">d'après
+                        Wikipédia - 06/2025</a></aside>
+            </article>
+        </div>
+
+        <div class="about_witness_contain0">
+            <div class="about_witness_contain">
+                <h3>Gagnant-Gagnant</h3>
+
+                <p>Sur notre plateforme, tout le monde y trouve son compte.</p>
+
+                <img src="../assets/img/about2.png" alt="bulle de témoignages">
+            </div>
+
+
+            <section class="about_witness1"
+                aria-label="témoignages d'utilisateurs de notre site et propriétaires de pages web">
+
+                <h3>Nos utilisateurs propriétaires de pages web témoignent :</h3>
+
+
+                <p>"SEO sympa, site qui porte bien son nom ! Super service ! J'ai pu trouver un consultant en SEO qui a
+                    vraiment compris mes besoins. Merci !" - Eddy P.</p>
+                <p>"Après avoir utilisé cette plateforme, mes classements sur Google se sont améliorés. Je suis ravi
+                    des résultats !"
+                    - Sophie G.</p>
+                <p>"J'ai trouvé un expert en SEO grâce à cette plateforme et mes visites ont augmenté de 140 % en un
+                    mois ! Un service exceptionnel et très réactif !"
+                    - Marie L.</p>
+            </section>
+
+            <section class="about_witness2" aria-label="témoignages d'utilisateurs de notre site et experts du SEO">
+                <h3>Les experts du SEO qui ont utilisé notre site s'expriment :</h3>
+
+
+                <p>"J'ai trouvé des projets passionnants grâce à cette plateforme. La mise en relation est simple
+                    et efficace !" - Abdel M., Expert SEO</p>
+                <p>"Cette plateforme m'a permis de développer ma clientèle rapidement. Les utilisateurs sont sérieux et
+                    intéressés par mes services !" - Emma T., Consultante SEO</p>
+                <p>"En tant que freelance, cette plateforme m'a offert une visibilité incroyable. Je recommande à tous
+                    les professionnels du secteur !" - Lila B., Spécialiste en SEO</p>
+            </section>
+        </div>
+
+        <section title="FAQ" class="faq">
+            <h2 id="faq">Foire Aux Questions (FAQ)</h2>
+            <!-- essai question ouvrante -->
+            <!-- cf https://codepen.io/anon/pen/gvWVvj?editors=1100#0 -->
+
+            <!-- exemple => à améliorer pour A11Y en cliquant sur question entière plutôt que sur flèche pour dérouler (code en JS ?)-->
+            <!-- <article class="coucou">
+            <h1>Titre H1 </h1> <a href="#">[&uarr;]</a> <a href="#afficher">[&darr;]</a>
+            <p id="afficher">Un coup je suis là, un coup j'suis plus la</p>
+        </article> -->
+
+            <article class="coucou">
+                <h3>Comment créer mon compte ? </h3> <a href="#">[&uarr;]</a> <a href="#afficher2">[&darr;]</a>
+                <p id="afficher2">Cliquez sur le petit bonhomme à côté de connexion. , puis remplissez les informations
+                    demandées et validez. Votre compte est créé.</p>
+            </article>
+
+            <article class="coucou">
+                <h3>Je n'ai plus besoin de vos services, comment supprimer mon compte ? </h3> <a href="#">[&uarr;]</a>
+                <a href="#afficher3">[&darr;]</a>
+                <p id="afficher3">Connectez-vous sur votre profil, puis cliquez sur le bouton "suppression de compte",
+                    puis confirmer à nouveau.</p>
+            </article>
+
+            <article class="coucou">
+                <h3>Quid de mes données personnelles ? </h3> <a href="#">[&uarr;]</a> <a href="#afficher4">[&darr;]</a>
+                <p id="afficher4">Conformément au RGPD, bla bla bla. Si vous supprimez votre compte, toutes vos données
+                    personnelles seront immédiatement effacées de notre base de données.</p>
+            </article>
+
+
+            <article class="coucou">
+                <h3>Je n'ai pas trouvé de réponse à ma question, comment puis-je vous contacter ? </h3> <a
+                    href="#">[&uarr;]</a> <a href="#afficher5">[&darr;]</a>
+                <p id="afficher5">Nous sommes à votre service par email <a
+                        href="mailto:jim@example.com">jim@example.com</a>
+                    (réponse sous 72h jours ouvrés) ou par
+                    téléphone <a href="tel:+14155550132">+1 (415) 555‑0132</a> (de 9h à 17h les jours ouvrés) </p>
+            </article>
+        </section>
+
+    </main>
+    <%- include('partials/footer') %>
