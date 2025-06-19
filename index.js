@@ -1,6 +1,6 @@
 // index.js = index général de notre projet SEO Sympa
 
-// on récupè.gitignore re la fonction express du package express
+// on récupère .gitignore la fonction express du package express
 
 
 import express from "express";
