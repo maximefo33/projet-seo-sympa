@@ -1,7 +1,7 @@
-import User from './user.js';
-//import Profile from './profile.js';
-import Message from './message.js';
-//import Relation from './relation.js';
+import User from '../models/user.model.js';
+import Profile from '../models/Profile.js';
+import Message from '../models/message.model.js';
+import Relation from '../models/Relation.js';
 
 // Un utilisateur a un profil
 // User.hasOne(Profile, {
@@ -37,6 +37,11 @@ Message.belongsTo(User, {
 // Relation.belongsTo(User, {
 //   foreignKey: 'user_id'
 // });
+
+
+// User.hasOne(Relation, {foreignKey: 'relation_id', as : 'relation'})
+// Relation.belongsTo(User, {foreignKey : 'user_id', as : 'user'});
+
 
 export {
   User,

@@ -1,5 +1,3 @@
-
-=======
 // ici la database seo_sympa
 
 // see @ https://github.com/O-clock-Behemoth/Fiches-Objectifs/blob/main/saison6/e14.md => utilisation de sequelize pour communiquer avec notre base de données
@@ -9,9 +7,6 @@
 
 import Sequelize from 'sequelize';
 import "dotenv/config"; 
-
-
-
 
 
 //  URL en dev ou production

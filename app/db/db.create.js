@@ -1,9 +1,9 @@
 // dans un script js
 // je prends mes modèles
 
-import './index.js';
+import '../db/index.js';
 // je prends mon client connecté
-import sequelize from '../app/database.js';
+import sequelize from '../database.js';
 // je supprime les tables et je les recrée
 try  {
    sequelize.authenticate();
