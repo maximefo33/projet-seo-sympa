@@ -12,7 +12,8 @@ import { Model, DataTypes } from 'sequelize';
 // pas besoin de mettre les id, sequelize les gère automatiquement
 // XXXXX
 
-export class Relation extends Model { }
+
+export default class Relation extends Model {}
 
 Relation.init({
 //   id: {

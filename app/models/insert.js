@@ -1,5 +1,5 @@
 
-import User from './user.model';
+import User from '../models/user.model';
 
 try  {
   await User.create('alice@exemple.com', 'Vg9!rLu@3wQz', 'professionnel', '2025-06-17');
