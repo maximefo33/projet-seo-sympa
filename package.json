@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build",
+    "db:create": "node module/index.js"
   },
   "repository": {
     "type": "git",
