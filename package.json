@@ -7,7 +7,7 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "db:create" : "node app/create_db_relation.js"
+    "db:create": "node module/index.js"
   },
   "repository": {
     "type": "git",
