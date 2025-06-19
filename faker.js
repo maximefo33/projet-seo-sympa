@@ -4,7 +4,7 @@
 // installation du package : npm install @faker-js/faker --save-dev
 // puis suivi de la consigne : https://fakerjs.dev/guide/usage.html
 
-import { faker } from '@faker-js/faker';
+//import { faker } from '@faker-js/faker';
 // or, if desiring a different locale
 // import { fakerDE as faker } from '@faker-js/faker';
 
