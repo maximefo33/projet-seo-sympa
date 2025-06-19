@@ -10,6 +10,7 @@ import { Model, DataTypes } from 'sequelize';
 //see @ https://sequelize.org/docs/v6/core-concepts/model-basics/
 
 // pas besoin de mettre les id, sequelize les gère automatiquement
+// XXXXX
 
 export class Relation extends Model { }
 
