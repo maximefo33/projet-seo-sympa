@@ -1,4 +1,5 @@
 // database - table RELATION 
+// database - table RELATION 
 // traduire en langage sequelize pour communiquer avec la databse postgreSQL
 import sequelize from '../database.js';
 import { Model, DataTypes } from 'sequelize';
@@ -40,6 +41,10 @@ Relation.init({
 );
 
 export default Relation;
+
+
+// création des relations => dans le fichier index.js de la database
+
 
 // création des relations => dans le fichier index.js de la database
 

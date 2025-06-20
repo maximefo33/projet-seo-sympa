@@ -1,4 +1,3 @@
-// Besoin du connecteur
 import sequelize from "../database.js";
 
 // Besoin des classes Sequelize
@@ -63,4 +62,3 @@ Profile.init(
 
 // Export du modèle
 export default Profile;
-

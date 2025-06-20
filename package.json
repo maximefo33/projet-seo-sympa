@@ -7,9 +7,9 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-
     "db:create": "node app/db/db.create.js",
     "dev": "node --watch index.js"
+
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "helmet": "^8.1.0",
+    "nodemon": "^3.1.10",
     "pg": "^8.16.0",
     "sequelize": "^6.37.7"
   },
