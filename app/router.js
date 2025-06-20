@@ -10,7 +10,7 @@ const router = express.Router();
 // *************************** voir si dans l'url du nav vous voulez mettre les noms des routes en français ou en anglais ?
 
 router.get("/", (req, res) => {
-   console.log('route /home');
+   console.log('route /');
   res.render('home');
 });
 
@@ -40,6 +40,12 @@ router.get("/sign-in", (req, res) => {
    console.log('route /sign-in');
   res.render('sign-in');
 });
+
+router.get("/dashboard", (req, res) => {
+   console.log('route /dashboard');
+  res.render('dashboard');
+});
+
 
 router.get("/profile", (req, res) => {
    console.log('route /profile');
