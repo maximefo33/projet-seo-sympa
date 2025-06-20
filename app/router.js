@@ -11,8 +11,16 @@ router.get("/", (req, res) => {
   res.send("Coucou");
 });
 
+// *************************** voir si dans l'url du nav vous voulez mettre les noms des routes en français ou en anglais ?
+
+router.get("/", (req, res) => {
+   console.log('route /home');
+  res.render('home');
+});
+
 router.get("/contact", (req, res) => {
-  res.send();
+   console.log('route /contact');
+  res.render('contact');
 });
 
 
@@ -21,15 +29,43 @@ router.get("/about", (req, res) => {
   res.render('about');
 });
 
+
+router.get("/search", (req, res) => {
+   console.log('route /search');
+  res.render('search');
+});
+
+router.get("/login", (req, res) => {
+   console.log('route /login');
+  res.render('login');
+});
+
+router.get("/sign-in", (req, res) => {
+   console.log('route /sign-in');
+  res.render('sign-in');
+});
+
+router.get("/profile", (req, res) => {
+   console.log('route /profile');
+  res.render('profile');
+});
+
 router.get("/terms-and-conditions", (req, res) => {
    console.log('route /terms-and-conditions');
   res.render('conditions');
 });
 
 router.get("/legal", (req, res) => {
-   console.log('route /legal');
+   console.log('route /legal-notices');
   res.render('legal');
 });
+
+router.get("/accessibility-statement", (req, res) => {
+   console.log('route /accessibility');
+  res.render('accessibility');
+});
+
+
 
 // on l'exporte
 export default router;
