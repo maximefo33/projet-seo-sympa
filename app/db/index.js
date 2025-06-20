@@ -40,8 +40,6 @@ Relation.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-
-
 export {
   User,
   Profile,
