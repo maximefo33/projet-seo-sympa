@@ -7,11 +7,6 @@ console.log("coucou");
 // on crée un objet router à l'aide de la méthode adaptée fournie par express
 const router = express.Router();
 
-// on place dessus nos routes
-router.get("/", (req, res) => {
-  res.send("Coucou");
-});
-
 // *************************** voir si dans l'url du nav vous voulez mettre les noms des routes en français ou en anglais ?
 
 router.get("/", (req, res) => {
@@ -66,7 +61,7 @@ router.get("/accessibility-statement", (req, res) => {
   res.render('accessibility');
 });
 
-
+// à ajouter route sitemap quand vue sitemap sera OK
 
 
 // on l'exporte
