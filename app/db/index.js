@@ -1,7 +1,9 @@
 import User from '../models/user.model.js';
+
 import Profile from '../models/Profile.js';
 import Message from '../models/message.model.js';
 import Relation from '../models/Relation.js';
+
 
 // Un utilisateur a un profil
 User.hasOne(Profile, {
