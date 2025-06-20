@@ -1,7 +1,7 @@
 import { Model, DataTypes } from 'sequelize';
 import sequelize from '../database.js';
 
-export default class Message extends Model {}
+class Message extends Model {}
 
 
   Message.init({
@@ -38,6 +38,8 @@ export default class Message extends Model {}
     
   });
 
+ 
+export default Message;
  
 
 

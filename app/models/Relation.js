@@ -1,4 +1,5 @@
 // database - table RELATION 
+// database - table RELATION 
 // traduire en langage sequelize pour communiquer avec la databse postgreSQL
 import sequelize from '../database.js';
 import { Model, DataTypes } from 'sequelize';
@@ -12,8 +13,7 @@ import { Model, DataTypes } from 'sequelize';
 // pas besoin de mettre les id, sequelize les gère automatiquement
 // XXXXX
 
-
-export default class Relation extends Model {}
+class Relation extends Model { }
 
 Relation.init({
 //   id: {
@@ -40,13 +40,6 @@ Relation.init({
   }
 );
 
-// création des relations
+export default Relation;
 
-// un USER peut faire min 1 et max 1 demande de relation - 1 to 1
-// une RELATION concerne 1 USER min et 1 USER max - 1 to 1
-// see @ https://sequelize.org/docs/v6/core-concepts/assocs/#basics-of-queries-involving-associations
-// ==> "Pour créer une relation un à un , les associations hasOne et belongsTo sont utilisées ensemble"
-
-
-// User.hasOne(Relation, {foreignKey: 'relation_id', as : 'relation'})
-// Relation.belongsTo(User, {foreignKey : 'user_id', as : 'user'});
+// création des relations => dans le fichier index.js de la database

@@ -1,6 +1,3 @@
-// dans un script js
-// je prends mes modèles
-
 import '../db/index.js';
 // je prends mon client connecté
 import sequelize from '../database.js';
@@ -8,11 +5,10 @@ import sequelize from '../database.js';
 try  {
    sequelize.authenticate();
     console.log("✅ Connexion OK");
-    await sequelize.drop();
+
    sequelize.sync({ force: true });
     console.log("✅ Tables créées !");
   
 } catch (error) {
   console.error(error);
 }
-main();
