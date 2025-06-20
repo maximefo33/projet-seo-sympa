@@ -2,7 +2,6 @@
 
 // on récupère .gitignore la fonction express du package express
 
-
 import express from "express";
 
 // on importe le router
@@ -16,7 +15,7 @@ dotenv.config();
 
 // on choisit un port comme d'habitude
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 // on execute la fonction express pour récupérer un objet Application, notre serveur http
 // une version enrichie du serveur http qu'on créait avec le module http

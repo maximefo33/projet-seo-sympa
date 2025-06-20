@@ -1,6 +1,7 @@
 // on a besoin de récupérer le module express
 import express from "express";
 
+
 console.log("coucou");
 
 // on crée un objet router à l'aide de la méthode adaptée fournie par express
@@ -30,6 +31,9 @@ router.get("/legal", (req, res) => {
    console.log('route /legal');
   res.render('legal');
 });
+
+
+
 
 // on l'exporte
 export default router;
