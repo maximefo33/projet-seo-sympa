@@ -1,8 +1,12 @@
 <!-- view ejs - page A propos - /about -->
-<%- include('partials/header') %>
+<%- include('partials/header', {
+  title: 'A propos',
+  description: "Page A Propos du site SEO Sympa. Notre histoire, qu'est-ce que le SEO, des témoignages, FAQ",
+  bodyClass: 'about-page'
+}) %>
 
     <main class="about_main">
-        <!-- ceci sera dans la page A propos (/About) - c'est aussi un exemple de page statique -->
+
         <div class="presentation">
             <h1 id="history">A propos de SEO Sympa</h1>
             <h2>SEO Sympa, soyez en tête sans prise de tête !</h2>
