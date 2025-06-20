@@ -6,8 +6,51 @@
   bodyClass: 'search-page'
 }) %>
 
-    <main class="public-profile-main">
-        <aside> ici on liste tous les résultats d'une recherche, on reprend les cards de profile</aside>
-    </main>
+<!-- on liste ici tous les résultats de recherche (on duplique les cards créées dans Profile et dans components/_card.scss) -->
+
+<main class="public-profile-main">
+  <div class="card cards1">
+    <div class="card__image">
+      <img src="assets/img/profile-img.png" alt="Portrait de Mme Machintruc" />
+    </div>
+    <div class="card__info">
+      <h1 class="card__name">user.name </h1>
+      <p class="card__job">user.job</p>
+      <p class="card__location">user.location</p>
+      <p class="card__bio">user.bio</p>
+    </div>
+    <a href="/contact" class="button card__contact">Prendre contact</a>
+  </div>
+
+
+
+  <section class="card">
+    <div class="card__image cards2">
+      <img src="assets/img/profile-img.png" alt="Portrait de M. Bidulechouette" />
+    </div>
+     <div class="card__info">
+      <h1 class="card__name">user.name </h1>
+      <p class="card__job">user.job</p>
+      <p class="card__location">user.location</p>
+      <p class="card__bio">user.bio</p>
+    </div>
+    <a href="/contact" class="button card__contact">Prendre contact</a>
+  </section>
+
+
+
+  <section class="card">
+    <div class="card__image cards3">
+      <img src="assets/img/profile-img.png" alt="Portrait de M. Jamepasmonnom" />
+    </div>
+     <div class="card__info">
+      <h1 class="card__name">user.name </h1>
+      <p class="card__job">user.job</p>
+      <p class="card__location">user.location</p>
+      <p class="card__bio">user.bio</p>
+    </div>
+    <a href="/contact" class="button card__contact">Prendre contact</a>
+  </section>
+</main>
 
     <%- include('partials/footer') %>

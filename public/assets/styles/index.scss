@@ -1,10 +1,7 @@
 // index.scss de notre projet
 
-@use '/assets/styles/components/home.scss';
-
-
-
-@use '/public/integration/';
+@use './components/home';
+@use './auth';
 @use './global';
 @use './components/about';
 @use './components/commune_header';
