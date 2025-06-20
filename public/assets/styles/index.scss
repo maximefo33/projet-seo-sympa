@@ -1,15 +1,8 @@
 // index.scss de notre projet
 
-
-
-
-
-
-
-
 @use './components/home';
 @use './auth';
-@use './_global';
+@use './global';
 @use './components/about';
 @use './components/commune_header';
 @use './components/commune_footer';
@@ -18,15 +11,8 @@
 @use './components/conditions';
 @use './components/var';
 @use "./mixins";
-
-
 @use "./profile";
 @use "./components/button";
 @use "./components/card";
-
-
-
-
 @use "./contact";
 @use "./acessibility";
-

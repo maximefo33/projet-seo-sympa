@@ -42,4 +42,11 @@ Relation.init({
 
 export default Relation;
 
+
 // création des relations => dans le fichier index.js de la database
+
+
+// création des relations => dans le fichier index.js de la database
+
+
+// see @ https://sequelize.org/docs/v6/core-concepts/assocs/#basics-of-queries-involving-associations

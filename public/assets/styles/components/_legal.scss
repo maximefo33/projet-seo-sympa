@@ -1,5 +1,5 @@
 //styles de la page conditions.html correspondant à /terms-and-conditions
-@use "/src/assets/styles/components/var";
+@use "/public/assets/styles/components/var";
 
 
 
@@ -16,7 +16,7 @@
   
 }
 
-.main_bg_img{  background-image: url(/src/assets/img/img-seo4.jpg);
+.main_bg_img{  background-image: url(/public/assets/img/img-seo4.jpg);
        background-repeat: no-repeat;
        background-size: 35%;
        background-position: right;

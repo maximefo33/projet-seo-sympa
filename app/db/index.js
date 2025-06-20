@@ -3,6 +3,8 @@ import Profile from '../models/Profile.js';
 import Message from '../models/message.model.js';
 import Relation from '../models/Relation.js';
 
+
+
 // Un utilisateur a un profil
 User.hasOne(Profile, {
   foreignKey: 'user_id'
@@ -38,11 +40,10 @@ Relation.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-
-
 export {
   User,
   Profile,
   Message,
   Relation,
 };
+

@@ -1,0 +1,22 @@
+<%- include('partials/header', { 
+  title: user.name + ' - Profil public',
+  description: 'Découvrez le profil public de ' + user.name + ', ' + user.bio,
+  bodyClass: 'public-profile-page'
+}) %>
+
+<main class="public-profile-main">
+  <section class="card">
+    <div class="card__image">
+      <img src="<%= user.imagePath %>" alt="Portrait de <%= user.name %>" />
+    </div>
+    <div class="card__info">
+      <h1 class="card__name"><%= user.name %></h1>
+      <p class="card__job"><%= user.job %></p>
+      <p class="card__location"><%= user.location %></p>
+      <p class="card__bio"><%= user.bio %></p>
+    </div>
+    <a href="/contact" class="button card__contact">Prendre contact</a>
+  </section>
+</main>
+
+<%- include('partials/footer') %>

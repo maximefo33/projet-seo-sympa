@@ -1,0 +1,55 @@
+<%- include('partials/header', {
+  title: 'Inscription',
+  description: "Page d'inscription pour créer un compte sur SEO Sympa. Remplissez le formulaire pour vous enregistrer.",
+  bodyClass: 'auth-page'
+}) %>
+
+<main class="auth-main" id="main-content">
+  <h1 class="auth-title">S’inscrire</h1>
+  <h2 class="auth-subtitle">Créer un nouveau compte</h2>
+
+  <% if (typeof error !== 'undefined') { %>
+    <div class="error-message" role="alert"><%= error %></div>
+  <% } %>
+
+  <p id="form-desc" class="sr-only">Tous les champs marqués d’un astérisque sont obligatoires.</p>
+
+  <form method="POST" action="/signup" novalidate aria-describedby="form-desc">
+    <p class="required-note">Tous les champs marqués d’un <span>*</span> sont obligatoires.</p>
+    <fieldset>
+      <legend class="sr-only">Formulaire d'inscription</legend>
+
+      <label for="prenom">Prénom <span aria-hidden="true">*</span></label>
+      <input type="text" id="prenom" name="prenom" placeholder="Prénom" required aria-required="true" autocomplete="given-name" />
+
+      <label for="nom">Nom <span aria-hidden="true">*</span></label>
+      <input type="text" id="nom" name="nom" placeholder="Nom" required aria-required="true" autocomplete="family-name" />
+
+      <label for="role">Rôle <span aria-hidden="true">*</span></label>
+      <select id="role" name="role" required aria-required="true">
+        <option value="" disabled selected>Choisissez un rôle</option>
+        <option value="expert">Expert</option>
+        <option value="demandeur">Demandeur</option>
+      </select>
+
+      <label for="email">Email <span aria-hidden="true">*</span></label>
+      <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true" autocomplete="email" />
+
+      <label for="password">Mot de passe <span aria-hidden="true">*</span></label>
+      <input type="password" id="password" name="password" placeholder="Mot de passe" required aria-required="true" autocomplete="new-password" />
+
+      <label for="confirm-password">Confirmer le mot de passe <span aria-hidden="true">*</span></label>
+      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmer le mot de passe" required aria-required="true" autocomplete="new-password" />
+
+      <div class="checkbox-wrapper">
+        <input type="checkbox" id="cgu" name="cgu" required aria-required="true" />
+        <label for="cgu"> J’accepte les <a href="#" target="_blank" rel="noopener noreferrer">Conditions Générales d’Utilisation</a> <span aria-hidden="true">*</span></label>
+      </div>
+    </fieldset>
+
+    <button type="submit" class="button" aria-label="Créer un compte">S’inscrire</button>
+  </form>
+</main>
+
+<%- include('partials/footer') %>
+
