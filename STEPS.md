@@ -110,7 +110,9 @@ suite de code des pages html du 10/6
 - réorganisation de notre structure projet arborescence, pour différencier back et front
 - call avec Virginie pour nous aider sur notre archi 
 - doc Virginie pour structure aide : https://discordapp.com/channels/1291744704064524339/1291744705427542076/1386633192777191577
-- code review en équipe lors de la pull request suite refibte de structure
+- code review en équipe lors de la pull request suite restructuration arborescence
+
+
 
 
 ## A penser, à faire, suivi général
