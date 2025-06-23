@@ -1,6 +1,10 @@
 <!-- view ejs Mentions légales & RGPD - /legal -->
 
-<%- include('partials/header') %>
+<%- include('partials/header', {
+  title: 'legal-notices',
+  description: "Mentions légales - politique de confidentialité - RGPD",
+  bodyClass: 'legal-page'
+}) %>
 
 
     <main class="main_legal">
@@ -12,7 +16,7 @@
                 </ul>
 
             </nav>
-            <div class="main_nav2"><img src="/public/assets/img/legal2.png" alt="dessin d'un contrat"></div>
+            <div class="main_nav2"><img src="/assets/img/legal2.png" alt="dessin d'un contrat"></div>
             <aside class="main_legal_aside">Respect, confidentialité,sécurité, transparence : des valeurs qui nous sont
                 chères.</aside>
         </div>
@@ -27,7 +31,7 @@
             <h2>L'éditeur du site est :</h2>
 
             <address> SEO Sympa - 75 000 PARIS </address>
-            <p><a href="#">Cliquez ici pour contacter l'administrateur du site SEO Sympa</a></p>
+            <p><a href="mailto:seo_sympa@seo_sympa.com">Cliquez ici</a>pour contacter par mail l'administrateur du site SEO Sympa</p>
 
 
             <h2>L'association SEO Sympa</h2>
@@ -52,7 +56,7 @@
         <div class="property">
             <h2>Propriété intellectuelle</h2>
 
-            <img class="copyright" src="/public/assets/img/legal1.png" alt="image droits d'auteur">
+            <img class="copyright" src="/assets/img/legal1.png" alt="image droits d'auteur">
 
 
             <p>L'intégralité du site SEO Sympa est protégé par les législations Françaises et Internationales relatives
@@ -84,7 +88,7 @@
 
         <p>Le graphisme et le design du site a été réalisé par la team SEO Sympa - contact : teamseosympa@gmail.com</p>
 
-        <p>Des Questions ? <a href="/app/views/about.ejs">RDV sur notre FAQ</a></p>
+        <p>Des Questions ? <a href="/about">RDV sur notre FAQ</a></p>
 
 
         <h1 id="confidentiality">Politique de confidentialité de SEO Sympa</h1>

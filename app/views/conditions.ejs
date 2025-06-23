@@ -1,6 +1,10 @@
 <!-- view ejs de la page conditions générales - /terms-and-conditons -->
 
-<%- include('partials/header') %>
+<%- include('partials/header', {
+  title: 'Conditions générales',
+  description: "Conditions générales du site SEO Sympa",
+  bodyClass: 'terms-and-conditions-page'
+}) %>
 
     <main class="main_conditions">
 

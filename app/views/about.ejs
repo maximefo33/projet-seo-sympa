@@ -1,8 +1,12 @@
 <!-- view ejs - page A propos - /about -->
-<%- include('partials/header') %>
+<%- include('partials/header', {
+  title: 'A propos',
+  description: "Page A Propos du site SEO Sympa. Notre histoire, qu'est-ce que le SEO, des témoignages, FAQ",
+  bodyClass: 'about-page'
+}) %>
 
     <main class="about_main">
-        <!-- ceci sera dans la page A propos (/About) - c'est aussi un exemple de page statique -->
+
         <div class="presentation">
             <h1 id="history">A propos de SEO Sympa</h1>
             <h2>SEO Sympa, soyez en tête sans prise de tête !</h2>
@@ -34,8 +38,7 @@
                     Ces techniques cherchent à améliorer la compréhension et la prise en compte de la thématique et du
                     contenu d'une ou de l'ensemble des pages d'un site Web par l'algorithme de classement des moteurs de
                     recherche.</p>
-                <aside><a class="about_link_article"
-                        href="https://fr.wikipedia.org/wiki/Optimisation_pour_les_moteurs_de_recherche">d'après
+                <aside><a class="about_link_article" href="https://fr.wikipedia.org/wiki/Optimisation_pour_les_moteurs_de_recherche" target="_blank">d'après
                         Wikipédia - 06/2025</a></aside>
             </article>
         </div>
@@ -79,7 +82,7 @@
             </section>
         </div>
 
-        <section title="FAQ" class="faq">
+        <section title="FAQ" id="faq" class="faq">
             <h2 id="faq">Foire Aux Questions (FAQ)</h2>
             <!-- essai question ouvrante -->
             <!-- cf https://codepen.io/anon/pen/gvWVvj?editors=1100#0 -->
@@ -114,7 +117,7 @@
                 <h3>Je n'ai pas trouvé de réponse à ma question, comment puis-je vous contacter ? </h3> <a
                     href="#">[&uarr;]</a> <a href="#afficher5">[&darr;]</a>
                 <p id="afficher5">Nous sommes à votre service par email <a
-                        href="mailto:jim@example.com">jim@example.com</a>
+                        href="mailto:seo_sympa@seo_sympa.com">seo_sympa@seo_sympa.com</a>
                     (réponse sous 72h jours ouvrés) ou par
                     téléphone <a href="tel:+14155550132">+1 (415) 555‑0132</a> (de 9h à 17h les jours ouvrés) </p>
             </article>

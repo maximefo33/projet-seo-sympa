@@ -1,17 +1,14 @@
 //styles de la page conditions.html correspondant à /terms-and-conditions
-@use "/public/assets/styles/components/var";
+@use "./var";
 
-main {
+.main_conditions {
+
+    font-size: var.$text-fontsize;
+    font-family: var.$font-texte;
     background: linear-gradient(to right, var.$color-white, var.$color-lightblue);
     margin-bottom: 2rem;
     padding: 1.5rem;
     border-radius: 5%;
-}
-
-.main_conditions {
-    // background: var.$color-white;
-    font-size: var.$text-fontsize;
-    font-family: var.$font-texte;
 }
 
 .main_conditions h1 {
