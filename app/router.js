@@ -2,7 +2,6 @@
 import express from "express";
 import * as usercontroler  from "../app/controllers/usercontroler.js"
 
-
 console.log("coucou");
 
 // on crée un objet router à l'aide de la méthode adaptée fournie par express

@@ -59,7 +59,7 @@ suite de code des pages html du 10/6
 ## 13/6
 - débug pendant 2h, corrections sur github
 - pages statiques à finir de coder
-- valider header / footer + les intégrer sur toutes les pages SAUF page accueil (qui a son propre header footer)
+- valider en équipe header / footer + les intégrer sur toutes les pages SAUF page accueil /home (qui a son propre header footer)
 - OBJECTIF = page accueil OP
 - cahier des charges en md = fait sur branche "specifications"
 
@@ -75,7 +75,7 @@ suite de code des pages html du 10/6
 
 - suite scss Alexandre
 - call Guilhaume 30 min pour débug github Elise, pages conditions a pb, corrompue
-- recherches pour création bdd
+- recherches pour création bdd, comment bien les créer et les installer
 - essai avec fakerjs pour créer faux noms mails etc => finalement pas besoin car moins de 20 entités dans notre BDD
 - réflexion sur structure back
 
@@ -86,14 +86,31 @@ suite de code des pages html du 10/6
 - installation de sequelize
 - code des 4 tables de la bdd sur 4 branches différentes
 
+## jeudi 19/6/25
 
+- configuration du serveur Express
+- call pour faire le point avec Guilhaume
+- changer VARCHAR en 255 pour le password, pour le hash il faut beaucoup de caractères
+- installer dotenv sur nos branches où on a la BDD
+- 4 tables testées avec Postgresql & Sequelize => affichage des créations de tables OK
+- structure MVC faite mais à revoir
+- début des templates EJS
 
+## vendredi 20/6/25
 
+- suite templates EJS => Gulnur + Elise
+- Maxime => tests d'importer des données dans PostGreSQL via Sequelize => aide de Virginie 
+- réflexion sur notre structure MVC qui est pas pertinente
+- Elise + Gulnur = préparation présentation SPRINT 1
+- Gulnur = diapo de présentation du SPRINT 1
 
+## lundi 23/6/25
 
-commencer à installer serveur en groupe de 2
-
-
+- 1h en classe avec Virginie pour parler du sprint 2 + présenter notre sprint 1 + écouter Ciné délices et leur poser des Q
+- réorganisation de notre structure projet arborescence, pour différencier back et front
+- call avec Virginie pour nous aider sur notre archi 
+- doc Virginie pour structure aide : https://discordapp.com/channels/1291744704064524339/1291744705427542076/1386633192777191577
+- code review en équipe lors de la pull request suite restructuration arborescence
 
 
 
@@ -136,7 +153,7 @@ commencer à installer serveur en groupe de 2
 └─ package.json
 
 
-
+## exemples checkbox pour suivre nos objectifs
 - []  
 - []  
 - []  
@@ -144,30 +161,5 @@ commencer à installer serveur en groupe de 2
 - [x]  
 - [x]  
 - [x]  
-- [x]  
-- [x]  
-- [x]  
-- [x]  
-- [x]  
-- [x]  
-- [x]  
-- [x]  
-- [x]  
-- [x]  
-- [x]  
-- [x]  
-- [x]  
-- [x]  
 
 
-## ......
-
-- [x]  
-- [x]  
-- [x]  
-
-## .....
-
-- [ ]  
-- [ ]  
-- []  

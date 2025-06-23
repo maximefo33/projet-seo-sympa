@@ -9,7 +9,6 @@
     "build": "parcel build",
     "db:create": "node ./database/db/db.create.js",
     "dev": "nodemon index -e js,ejs,scss"
-
   },
   "repository": {
     "type": "git",
@@ -40,7 +39,7 @@
     "crypto-browserify": "^3.12.1",
     "events": "^3.3.0",
     "nodemon": "^3.1.10",
-    "parcel": "^2.15.2",
+    "parcel": "^2.15.4",
     "path-browserify": "^1.0.1",
     "process": "^0.11.10",
     "stream-browserify": "^3.0.0",
