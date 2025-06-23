@@ -1,0 +1,42 @@
+.main_conditions {
+  font-size: 18px;
+  font-family: "Verdana, Arial", sans-serif;
+  background: linear-gradient(to right, #ffffff, #3dbede);
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border-radius: 5%;
+}
+
+.main_conditions h1 {
+  color: rgb(59, 97, 230);
+  font-size: 32px;
+}
+
+.main_conditions h2 {
+  color: #833daf;
+  font-size: 24px;
+}
+
+.main_cgu {
+  font-weight: bold;
+}
+
+.main_cgu_checkbox {
+  display: block;
+  color: rgb(0, 0, 0);
+  border-color: #833daf;
+  border: solid;
+  border-style: inset;
+  height: auto;
+  width: auto;
+  text-align: left;
+  align-items: center;
+}
+
+.main_cgu_legend {
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(59, 97, 230);
+}
+
+/*# sourceMappingURL=conditions.css.map */

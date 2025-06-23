@@ -1,6 +1,6 @@
 import User from '../../app/models/User.js';
 import Profile from '../../app/models/Profile.js';
-import Message from '../../app/models/message.js';
+import Message from '../../app/models/Message.js';
 import Relation from '../../app/models/Relation.js';
 
 
