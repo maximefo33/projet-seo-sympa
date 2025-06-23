@@ -43,14 +43,7 @@ Profile.init(
       type: DataTypes.STRING(14),
       allowNull: true,
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.TEXT,
-      allowNull: true, 
-    },
+   
   },
   // Argument 2 : les options
   {
