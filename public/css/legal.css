@@ -1,0 +1,71 @@
+.main_legal {
+  background: linear-gradient(to top, #3dbede, #ffffff);
+  font-size: 18px;
+  font-family: "Verdana, Arial", sans-serif;
+  margin: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  text-align: justify;
+}
+
+.main_bg_img {
+  background-image: url(/public/assets/img/img-seo4.jpg);
+  background-repeat: no-repeat;
+  background-size: 35%;
+  background-position: right;
+}
+
+.main_legal h1 {
+  color: rgb(59, 97, 230);
+  font-size: 32px;
+  text-align: center;
+}
+
+.main_legal h2 {
+  color: #833daf;
+  font-size: 24px;
+  text-align: left;
+}
+
+.main_legal_aside {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 22px;
+  color: #833daf;
+  text-shadow: 1px 0 10px rgb(59, 97, 230);
+}
+
+.main_nav {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.main_nav img {
+  border-radius: 15%;
+  border: solid 1rem;
+  border-style: inset;
+  border-block-color: rgb(59, 97, 230);
+}
+
+.main_nav2 {
+  flex-wrap: nowrap;
+  justify-self: right;
+}
+
+.copyright {
+  float: left;
+  margin-bottom: 2rem;
+  width: 15%;
+  margin: auto;
+}
+
+.property {
+  display: flex;
+  margin-bottom: 1rem;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=legal.css.map */

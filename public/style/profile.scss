@@ -1,5 +1,5 @@
-@use './components/var' as *;
-@use './mixins' as *;
+@use './components/_var';
+@use 'mixins';
 
 
 //header integre via index.scss , profile.html

@@ -1,5 +1,5 @@
-@use "components/var" as *;
-@use "./mixins" as *;
+@use '../style/components/var' as *;
+@use '../style/components/mixins' as *;
 
 //  le header est importé via index.scss depuis commune_header.scss
 
