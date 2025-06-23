@@ -1,7 +1,6 @@
 // on a besoin de récupérer le module express
 import express from "express";
 
-
 console.log("coucou");
 
 // on crée un objet router à l'aide de la méthode adaptée fournie par express
