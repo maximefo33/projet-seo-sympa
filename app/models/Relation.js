@@ -1,7 +1,7 @@
 // database - table RELATION 
 // database - table RELATION 
 // traduire en langage sequelize pour communiquer avec la databse postgreSQL
-import sequelize from '../database.js';
+import sequelize from '../../config/database.js';
 import { Model, DataTypes } from 'sequelize';
 
 

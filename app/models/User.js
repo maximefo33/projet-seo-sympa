@@ -1,6 +1,7 @@
 // models/message.model.js
 import { Model, DataTypes } from 'sequelize';
-import sequelize from '../database.js';
+import sequelize from '../../config/database.js';
+
 
 class User extends Model { }
 User.init({
@@ -21,15 +22,9 @@ User.init({
   role: {
     type: DataTypes.STRING(40),
     allowNull: false
-  },
-  user_sender_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false
-  },
-  user_recipient_id: {
-    type: DataTypes.INTEGER,
-    allowNull: false
   }
+
+ 
 }, {
   sequelize,
   modelName: 'User',
@@ -37,4 +32,4 @@ User.init({
 
 });
 
-export default User;
+export default User

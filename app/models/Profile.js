@@ -1,4 +1,4 @@
-import sequelize from "../database.js";
+import sequelize from "../../config/database.js";
 
 // Besoin des classes Sequelize
 import { DataTypes, Model } from "sequelize";
