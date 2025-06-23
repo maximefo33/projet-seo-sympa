@@ -1,7 +1,7 @@
-import User from '../models/user.model.js';
-import Profile from '../models/Profile.js';
-import Message from '../models/message.model.js';
-import Relation from '../models/Relation.js';
+import User from '../../app/models/User.js';
+import Profile from '../../app/models/Profile.js';
+import Message from '../../app/models/message.js';
+import Relation from '../../app/models/Relation.js';
 
 
 
@@ -46,4 +46,6 @@ export {
   Message,
   Relation,
 };
+
+
 

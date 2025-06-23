@@ -1,5 +1,6 @@
 // on a besoin de récupérer le module express
 import express from "express";
+import * as usercontroler  from "../app/controllers/usercontroler.js"
 
 console.log("coucou");
 
@@ -18,6 +19,7 @@ router.get("/contact", (req, res) => {
   res.render('contact');
 });
 
+router.get("/users",usercontroler.getAll);
 
 router.get("/about", (req, res) => {
    console.log('route /about');

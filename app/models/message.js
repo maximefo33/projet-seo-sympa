@@ -1,5 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
-import sequelize from '../database.js';
+import sequelize from '../../config/database.js';
 
 class Message extends Model {}
 
@@ -23,14 +23,7 @@ class Message extends Model {}
       type: DataTypes.TEXT,
       defaultValue: false
    },
-    user_sender_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    user_recipient_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    }
+   
   }, {
     sequelize,
     modelName: 'Message',

@@ -15,7 +15,9 @@ import "dotenv/config";
 //  postgres://username:password@localhost:5432/seo_sympa
 const sequelize = new Sequelize(process.env.PG_URL, {
   define: {
-    underscored: true, // pour utiliser le snake_case côté SQL
+    underscored: true,
+    createdAt: "created_at",
+      updatedAt: "updated_at" // pour utiliser le snake_case côté SQL
   }
 });
 
