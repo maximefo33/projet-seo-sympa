@@ -7,8 +7,8 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "db:create": "node app/db/db.create.js",
-    "dev": "node --watch index.js"
+    "db:create": "node ./database/db/db.create.js",
+    "dev": "nodemon index -e js,ejs,scss"
 
   },
   "repository": {
