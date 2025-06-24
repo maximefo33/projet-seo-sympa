@@ -112,6 +112,11 @@ suite de code des pages html du 10/6
 - doc Virginie pour structure aide : https://discordapp.com/channels/1291744704064524339/1291744705427542076/1386633192777191577
 - code review en équipe lors de la pull request suite restructuration arborescence
 
+## mardi 24/6/25
+
+- Alexandre + Elise => création fichier authControllers pour page sign in
+
+
 
 
 
