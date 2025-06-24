@@ -1,10 +1,7 @@
-<<<<<<< HEAD:public/style/components/_commune_header.scss
-@use './var';
-@use '../components/mixins' as *; // pour les media queries @include small etc.
-=======
+
 @use '../vars';
 @use '../mixins' as *; // pour les media queries @include small etc.
->>>>>>> dev:src/assets/styles/components/_commune_header.scss
+
 
 // Conteneur de navigation principal
 .header_nav {
