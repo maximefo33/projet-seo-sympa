@@ -1,0 +1,11 @@
+@use './vars';
+
+// global style
+// verdana  ou arial ???
+
+body {
+  font-family: vars.$font-texte;
+  margin: 1rem;
+  line-height: 1.4;
+  background-color: vars.$color-white;
+}

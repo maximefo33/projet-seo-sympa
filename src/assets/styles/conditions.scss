@@ -1,0 +1,45 @@
+//styles de la page conditions.html correspondant à /terms-and-conditions
+@use './vars';
+
+.main_conditions {
+
+    font-size: vars.$text-fontsize;
+    font-family: vars.$font-texte;
+    background: linear-gradient(to right, vars.$color-white, vars.$color-lightblue);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 5%;
+}
+
+.main_conditions h1 {
+    color: vars.$color-blue;
+    font-size: vars.$title-fontsize;
+}
+
+.main_conditions h2 {
+    color: vars.$color-darkpurple;
+    font-size: vars.$subtitle-fontsize;
+}
+
+.main_cgu {
+    font-weight: bold;
+
+}
+
+.main_cgu_checkbox {
+    display: block;
+    color: vars.$color-black;
+    border-color: vars.$color-darkpurple;
+    border: solid;
+    border-style: inset;
+    height: auto;
+    width: auto;
+    text-align: left;
+    align-items: center;
+}
+
+.main_cgu_legend {
+    font-size: vars.$subtitle-fontsize;
+    font-weight: bold;
+    color: vars.$color-blue;
+}
