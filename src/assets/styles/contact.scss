@@ -1,4 +1,4 @@
-@use './components/_var';
+@use './vars';
 
 // .logo {
 //   vertical-align: middle;
@@ -13,17 +13,17 @@
 .main-content_contact {
   font-family: Verdana, Arial, sans-serif;
   line-height: 1.6;
-  color: var.$color-black;
+  color: vars.$color-black;
   background: linear-gradient(
     135deg,
-    var.$color-lightblue 0%,
-    var.$color-darkpurple 100%
+    vars.$color-lightblue 0%,
+    vars.$color-darkpurple 100%
   );
   min-height: 100vh;
 }
 
 .page-title {
-  color: var.$color-blue;
+  color: vars.$color-blue;
   font-size: 2.5rem;
   margin-bottom: 1rem;
   text-align: center;
@@ -33,20 +33,20 @@
   text-align: center;
   font-size: 1.1rem;
   margin-bottom: 2rem;
-  color: var.$color-white;
+  color: vars.$color-white;
 }
 
 .form-section {
-  background: var.$color-white;
-  border: 1px solid var.$color-black;
+  background: vars.$color-white;
+  border: 1px solid vars.$color-black;
   border-radius: 12px;
   padding: 2rem;
   margin-bottom: 2rem;
-  box-shadow: var.$color-black;
+  box-shadow: vars.$color-black;
   animation: fadeIn 0.8s ease-out;
 
   h2 {
-    color: var.$color-blue;
+    color: vars.$color-blue;
     margin-bottom: 1.5rem;
     font-size: 1.8rem;
   }
@@ -57,7 +57,7 @@
 }
 
 .form-label {
-  color: var.$color-blue;
+  color: vars.$color-blue;
   font-weight: 600;
   display: inline-block;
   margin-bottom: 0.5rem;
@@ -67,16 +67,16 @@
 .form-textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 2px solid var.$color-white;
+  border: 2px solid vars.$color-white;
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  background: var.$color-white;
+  background: vars.$color-white;
 
   &:focus {
     outline: none;
-    border-color: var.$color-blue;
-    box-shadow: var.$color-blue;
+    border-color: vars.$color-blue;
+    box-shadow: vars.$color-blue;
   }
 }
 
@@ -89,10 +89,10 @@
 .form-submit {
   background: linear-gradient(
     135deg,
-    var.$color-lightblue 0%,
-    var.$color-darkpurple 100%
+    vars.$color-lightblue 0%,
+    vars.$color-darkpurple 100%
   );
-  color: var.$color-white;
+  color: vars.$color-white;
   border: none;
   padding: 1rem 2rem;
   font-size: 1.1rem;
@@ -100,11 +100,11 @@
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px var.$color-blue;
+  box-shadow: 0 4px 15px vars.$color-blue;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px var.$color-blue;
+    box-shadow: 0 6px 20px vars.$color-blue;
   }
 
   &:active {

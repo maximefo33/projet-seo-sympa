@@ -1,24 +1,24 @@
 //styles de la page conditions.html correspondant à /terms-and-conditions
-@use './components/_var';
+@use './vars';
 
 .main_conditions {
 
-    font-size: var.$text-fontsize;
-    font-family: var.$font-texte;
-    background: linear-gradient(to right, var.$color-white, var.$color-lightblue);
+    font-size: vars.$text-fontsize;
+    font-family: vars.$font-texte;
+    background: linear-gradient(to right, vars.$color-white, vars.$color-lightblue);
     margin-bottom: 2rem;
     padding: 1.5rem;
     border-radius: 5%;
 }
 
 .main_conditions h1 {
-    color: var.$color-blue;
-    font-size: var.$title-fontsize;
+    color: vars.$color-blue;
+    font-size: vars.$title-fontsize;
 }
 
 .main_conditions h2 {
-    color: var.$color-darkpurple;
-    font-size: var.$subtitle-fontsize;
+    color: vars.$color-darkpurple;
+    font-size: vars.$subtitle-fontsize;
 }
 
 .main_cgu {
@@ -28,8 +28,8 @@
 
 .main_cgu_checkbox {
     display: block;
-    color: var.$color-black;
-    border-color: var.$color-darkpurple;
+    color: vars.$color-black;
+    border-color: vars.$color-darkpurple;
     border: solid;
     border-style: inset;
     height: auto;
@@ -39,7 +39,7 @@
 }
 
 .main_cgu_legend {
-    font-size: var.$subtitle-fontsize;
+    font-size: vars.$subtitle-fontsize;
     font-weight: bold;
-    color: var.$color-blue;
+    color: vars.$color-blue;
 }

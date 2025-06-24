@@ -1,13 +1,13 @@
-@use './var';
+@use '../vars';
 @use '../mixins' as *;
 
 .footer_nav {
   background: linear-gradient(
     to bottom right,
     transparent,
-    var.$color-purple,
-    var.$color-blue,
-    var.$color-lightblue
+    vars.$color-purple,
+    vars.$color-blue,
+    vars.$color-lightblue
   );
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@
   gap: 1.5rem;
   padding: 1.5rem;
   text-align: center;
-  font-size: var.$text-fontsize;
+  font-size: vars.$text-fontsize;
 
   @include small {
     flex-direction: row;
@@ -25,7 +25,7 @@
 
   a {
     text-decoration: none;
-    color: var.$color-white;
+    color: vars.$color-white;
 
     &:hover {
       text-decoration: underline;

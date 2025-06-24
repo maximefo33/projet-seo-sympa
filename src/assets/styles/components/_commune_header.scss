@@ -1,9 +1,14 @@
+<<<<<<< HEAD:public/style/components/_commune_header.scss
 @use './var';
 @use '../components/mixins' as *; // pour les media queries @include small etc.
+=======
+@use '../vars';
+@use '../mixins' as *; // pour les media queries @include small etc.
+>>>>>>> dev:src/assets/styles/components/_commune_header.scss
 
 // Conteneur de navigation principal
 .header_nav {
-  background: var.$color-white;
+  background: vars.$color-white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,7 +24,7 @@
   img {
     width: 120px;
     height: 120px;
-    background-color: var.$color-white;
+    background-color: vars.$color-white;
 
     @include small {
       width: 160px;
@@ -48,10 +53,10 @@
 // Styles des liens
 .header_nav_li a {
   text-decoration: none;
-  color: var.$color-darkpurple;
+  color: vars.$color-darkpurple;
   font-weight: bold;
-  text-shadow: 1px 1px 2px var.$color-lightblue;
-  font-size: var.$subtitle-fontsize;
+  text-shadow: 1px 1px 2px vars.$color-lightblue;
+  font-size: vars.$subtitle-fontsize;
 
   &:hover {
     text-decoration: underline;

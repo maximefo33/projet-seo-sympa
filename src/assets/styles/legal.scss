@@ -1,10 +1,10 @@
 //styles de la page conditions.html correspondant à /terms-and-conditions
-@use './components/_var';
+@use './vars';
 
 .main_legal {
-    background: linear-gradient(to top, var.$color-lightblue, var.$color-white);
-    font-size: var.$text-fontsize;
-    font-family: var.$font-texte;
+    background: linear-gradient(to top, vars.$color-lightblue, vars.$color-white);
+    font-size: vars.$text-fontsize;
+    font-family: vars.$font-texte;
     margin: 1.5rem;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -13,21 +13,21 @@
   
 }
 
-.main_bg_img{  background-image: url(/public/assets/img/img-seo4.jpg);
+.main_bg_img{  background-image: url(/src/assets/img/img-seo4.jpg);
        background-repeat: no-repeat;
        background-size: 35%;
        background-position: right;
 }
 
 .main_legal h1 {
-    color: var.$color-blue;
-    font-size: var.$title-fontsize;
+    color: vars.$color-blue;
+    font-size: vars.$title-fontsize;
     text-align: center;
 }
 
 .main_legal h2 {
-    color: var.$color-darkpurple;
-    font-size: var.$subtitle-fontsize;
+    color: vars.$color-darkpurple;
+    font-size: vars.$subtitle-fontsize;
     text-align: left;
 }
 
@@ -36,8 +36,8 @@
     text-transform:uppercase;
     text-align: center;
     font-size: 22px;
-    color: var.$color-darkpurple;
-    text-shadow: 1px 0 10px var.$color-blue;
+    color: vars.$color-darkpurple;
+    text-shadow: 1px 0 10px vars.$color-blue;
    
 
     
@@ -55,7 +55,7 @@
     border-radius: 15%;
     border: solid 1rem;
     border-style: inset;
-    border-block-color: var.$color-blue;
+    border-block-color: vars.$color-blue;
 
 }
 .main_nav2 {

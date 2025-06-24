@@ -1,4 +1,8 @@
+<<<<<<< HEAD:public/style/home.scss
 @use '../style/components/var';
+=======
+@use './vars';
+>>>>>>> dev:src/assets/styles/home.scss
 
 //header
 
@@ -35,8 +39,8 @@
 
 .main-nav__link {
   text-decoration: none;
-  color: var.$color-black;
-  font-size: var.$subtitle-fontsize;
+  color: vars.$color-black;
+  font-size: vars.$subtitle-fontsize;
 }
 
 .menu-search {
@@ -49,9 +53,9 @@
 .button__append {
   background: linear-gradient(to bottom right,
       transparent,
-      var.$color-purple,
-      var.$color-blue,
-      var.$color-lightblue);
+      vars.$color-purple,
+      vars.$color-blue,
+      vars.$color-lightblue);
   border-radius: 30px;
   width: 125px;
   padding: 0.5rem;
@@ -68,16 +72,16 @@
 .search-input {
   padding: 0.5rem 1rem;
   border-radius: 30px;
-  border: 1px solid var.$color-black;
+  border: 1px solid vars.$color-black;
   min-width: 200px;
 }
 
 .search-button {
   background: linear-gradient(to bottom right,
       transparent,
-      var.$color-purple,
-      var.$color-blue,
-      var.$color-lightblue);
+      vars.$color-purple,
+      vars.$color-blue,
+      vars.$color-lightblue);
   color: white;
   border: none;
   border-radius: 30px;
@@ -108,9 +112,9 @@
   flex-wrap: wrap; // pour le responsive
   background: linear-gradient(to bottom right,
       transparent,
-      var.$color-purple,
-      var.$color-blue,
-      var.$color-lightblue);
+      vars.$color-purple,
+      vars.$color-blue,
+      vars.$color-lightblue);
 }
 
 .img_main {
@@ -147,8 +151,8 @@
 }
 
 .titre {
-  font-size: var.$title-fontsize;
-  font-family: var.$font-texte;
+  font-size: vars.$title-fontsize;
+  font-family: vars.$font-texte;
   text-align: center;
   margin-bottom: 2rem;
 }
@@ -167,9 +171,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var.$font-texte;
-  font-size: var.$text-fontsize;
-  color: var.$color-black;
+  font-family: vars.$font-texte;
+  font-size: vars.$text-fontsize;
+  color: vars.$color-black;
 }
 
 .présentation {
@@ -179,7 +183,7 @@
   flex-direction: row-reverse;
   justify-content: space-around;
   align-items: center;
-  background-color: var.$color-blue;
+  background-color: vars.$color-blue;
   margin: 3%;
 
   &__img {
@@ -198,7 +202,7 @@
   &__titre {
     font-size: 3rem;
     color: rgb(0, 0, 0);
-    font-family: var.$font-texte;
+    font-family: vars.$font-texte;
   }
 
   .text_main2 {
@@ -212,9 +216,9 @@
     padding: 0.5rem 1.5rem;
     background: linear-gradient(to bottom right,
         transparent,
-        var.$color-purple,
-        var.$color-blue,
-        var.$color-lightblue);
+        vars.$color-purple,
+        vars.$color-blue,
+        vars.$color-lightblue);
     border: none;
     border-radius: 25px;
     color: white;
@@ -233,7 +237,7 @@
 
 
 .pied_de_page {
-  background: linear-gradient(to bottom right, var.$color-purple, var.$color-blue, var.$color-lightblue);
+  background: linear-gradient(to bottom right, vars.$color-purple, vars.$color-blue, vars.$color-lightblue);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -241,7 +245,7 @@
   padding: 2rem;
   row-gap: 2rem;
   column-gap: 4rem;
-  font-size: var.$text-fontsize;
+  font-size: vars.$text-fontsize;
   text-align: center;
 }
 
@@ -255,8 +259,8 @@
 
 .pied_de_page_a {
   text-decoration: none;
-  color: var.$color-white;
-  font-family: var.$font-texte;
+  color: vars.$color-white;
+  font-family: vars.$font-texte;
 }
 
 .pied_de_page_img {
@@ -280,6 +284,6 @@
   width: 100%;
   text-align: center;
   font-size: 0.9rem;
-  color: var.$color-white;
+  color: vars.$color-white;
   margin-top: 1rem;
 }
