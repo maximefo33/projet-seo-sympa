@@ -1,5 +1,5 @@
 @use './var';
-@use '../mixins' as *; // pour les media queries @include small etc.
+@use '../components/mixins' as *; // pour les media queries @include small etc.
 
 // Conteneur de navigation principal
 .header_nav {
