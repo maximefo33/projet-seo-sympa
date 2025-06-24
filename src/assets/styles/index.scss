@@ -1,0 +1,17 @@
+// index.scss de notre projet POUR LES VUES avec le port 3000 et pages en HTML
+
+@use './global';
+@use "./mixins";
+@use './home';
+@use './auth';
+@use './about';
+@use './components/_commune_header';
+@use './components/_commune_footer';
+@use './components/_commune_logo';
+@use './legal';
+@use './conditions';
+@use "./profile";
+@use "./components/_button";
+@use "./components/_card";
+@use "./contact";
+@use "./accessibility";

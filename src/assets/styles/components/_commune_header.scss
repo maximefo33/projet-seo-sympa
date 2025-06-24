@@ -1,0 +1,59 @@
+@use '../vars';
+@use '../mixins' as *; // pour les media queries @include small etc.
+
+// Conteneur de navigation principal
+.header_nav {
+  background: vars.$color-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+
+  @include small {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+
+  img {
+    width: 120px;
+    height: 120px;
+    background-color: vars.$color-white;
+
+    @include small {
+      width: 160px;
+      height: 160px;
+    }
+  }
+}
+
+// Liste de liens de navigation
+.header_nav_ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+
+  @include small {
+    flex-direction: row;
+    gap: 4rem;
+    text-align: left;
+  }
+}
+
+// Styles des liens
+.header_nav_li a {
+  text-decoration: none;
+  color: vars.$color-darkpurple;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px vars.$color-lightblue;
+  font-size: vars.$subtitle-fontsize;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

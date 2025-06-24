@@ -1,0 +1,161 @@
+// page about Elise scss
+@use './vars';
+
+
+// styles de la page about
+//test - css ok répond bien
+.presentation {
+  border: solid 0.4rem;
+  border-color: vars.$color-blue vars.$color-purple;
+  background: linear-gradient(to right, vars.$color-white, vars.$color-lightblue);
+  margin-left: 8rem;
+  margin-right: 8rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  border-radius: 15%;
+}
+
+.about_main {
+  // background: linear-gradient(to bottom right, transparent, #acacf3, pink);
+  padding: 1rem;
+
+}
+
+.about_article_seo_contain {
+  display: flex;
+  margin-left: 3rem;
+  margin-top: 4rem;
+}
+
+.about_article_seo {
+  background: linear-gradient(to left, vars.$color-white, vars.$color-purple);
+  color: vars.$color-black;
+  font-weight: 600;
+  margin-left: 3rem;
+  margin-right: 3rem;
+  border-radius: 15%;
+  text-align: left;
+  align-content: center;
+  padding: 2rem;
+  line-height: 2rem;
+  width: auto;
+  flex-wrap: wrap;
+  border: solid 0.4rem;
+  border-color: vars.$color-blue vars.$color-darkpurple;
+
+}
+
+.about_article_seo h2 {
+  text-align: center;
+}
+
+
+
+.about_article_seo_img {
+  height: auto;
+  width: auto;
+  
+}
+
+.about_link_article {
+  color: vars.$color-white;
+  text-decoration: none;
+  font-style: italic;
+  background-color: linear-gradient(to bottom right, #124d48, rgb(78, 112, 151));
+}
+
+.about_witness1 {
+  margin-right: 2rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(to bottom, vars.$color-white, vars.$color-lightblue);
+  border-radius: 8%;
+  text-align: center;
+  display: inline-block;
+  width: 20%;
+  column-gap: 3rem;
+  align-items: center;
+  padding: 1rem;
+  border: solid 0.4rem;
+  border-color: vars.$color-blue vars.$color-purple;
+  
+}
+
+.about_witness2 {
+  column-gap: 3rem;
+    background: linear-gradient(to bottom, vars.$color-purple, vars.$color-blue);
+  color: vars.$color-white;
+  border-radius: 8%;
+  text-align: center;
+  display: inline-block;
+  width: 20%;
+  align-items: center;
+  padding: 1rem;
+    border: solid 0.4rem;
+  border-color: vars.$color-lightblue vars.$color-blue;
+}
+
+// à revoir car l'image n'est pas responsive
+.about_witness_contain0 {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin-top: 5rem;
+
+}
+
+.about_witness_contain {
+  flex-wrap: wrap;
+  margin: 1rem;
+  text-align: center;
+  align-items: flex-start;
+  color: vars.$color-darkpurple;
+  font-weight: bold;
+  font-size: vars.$text-fontsize;
+
+}
+
+.about_witness img {
+
+  max-width: auto;
+}
+
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, vars.$color-white, vars.$color-lightblue);
+  margin-left: 8rem;
+  margin-right: 8rem;
+  border-radius: 15%;
+  padding: 2.5rem;
+  color: vars.$color-black;
+  border: solid 0.4rem;
+  border-color: vars.$color-blue vars.$color-purple;
+
+}
+
+.faq h2{
+  text-align: center;
+  font-size: vars.$subtitle-fontsize;
+}
+
+// ici css pour ouvrir fermer questions réponses
+// essai de faire dérouler la réponse en cliquant sur question entière, pas sur flèche
+.coucou a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.coucou h1 {
+  display: inline-block;
+}
+
+.coucou p {
+  display: none;
+}
+
+.coucou p:target {
+  display: block;
+}
+
