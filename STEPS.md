@@ -115,6 +115,8 @@ suite de code des pages html du 10/6
 ## mardi 24/6/25
 
 - Alexandre + Elise => création fichier authControllers pour page sign in
+- call de 2h avec Aurélie pour structure du projet
+
 
 
 

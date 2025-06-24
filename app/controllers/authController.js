@@ -5,4 +5,4 @@ import bcrypt from 'bcrypt';
 
 // importer le modele User
 
-// express session ?
+// express session installé => cf dans le middleware
