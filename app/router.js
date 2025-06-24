@@ -68,6 +68,12 @@ router.get("/accessibility-statement", (req, res) => {
   res.render('accessibility');
 });
 
+
+router.get("/profiles", (req, res) => {
+  console.log('route /profiles');
+  res.render('profiles');
+});
+
 // à ajouter route sitemap quand vue sitemap sera OK
 
 
