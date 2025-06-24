@@ -1,0 +1,78 @@
+//styles de la page conditions.html correspondant à /terms-and-conditions
+@use './vars';
+
+.main_legal {
+    background: linear-gradient(to top, vars.$color-lightblue, vars.$color-white);
+    font-size: vars.$text-fontsize;
+    font-family: vars.$font-texte;
+    margin: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    text-align: justify;
+  
+  
+}
+
+.main_bg_img{  background-image: url(/src/assets/img/img-seo4.jpg);
+       background-repeat: no-repeat;
+       background-size: 35%;
+       background-position: right;
+}
+
+.main_legal h1 {
+    color: vars.$color-blue;
+    font-size: vars.$title-fontsize;
+    text-align: center;
+}
+
+.main_legal h2 {
+    color: vars.$color-darkpurple;
+    font-size: vars.$subtitle-fontsize;
+    text-align: left;
+}
+
+
+.main_legal_aside {
+    text-transform:uppercase;
+    text-align: center;
+    font-size: 22px;
+    color: vars.$color-darkpurple;
+    text-shadow: 1px 0 10px vars.$color-blue;
+   
+
+    
+}
+
+.main_nav {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.main_nav img {
+    border-radius: 15%;
+    border: solid 1rem;
+    border-style: inset;
+    border-block-color: vars.$color-blue;
+
+}
+.main_nav2 {
+    flex-wrap: nowrap;
+    justify-self: right;
+}
+
+.copyright {
+    float: left;
+    margin-bottom: 2rem;
+    width: 15%;
+    margin: auto;
+}
+
+.property {
+    display: flex;
+    margin-bottom: 1rem;
+   justify-content: center;
+}
+

@@ -1,0 +1,87 @@
+
+ <!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page de connexion</title>
+  <link rel="stylesheet" href="../assets/styles/index.scss" />
+  <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
+</head>
+<body class="auth-page">
+    <header>
+        <nav class="header_nav">
+            <!-- ci-dessous logo SEO cliquable qui ramène à la page d'accueil / -->
+
+            <a href="/"><img alt="logo de SEO Sympa" src="../assets/img/logo.png">
+            </a>
+            <!-- sûrement liste déroulante pour cette nav -->
+
+            <ul class="header_nav_ul">
+                <li class="header_nav_li"><a href="../index.html">Page d'accueil</a></li>
+                <li class="header_nav_li"><a href="./contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <main class="auth-main">
+    <h1 class="auth-title">Se connecter</h1>
+    <p id="form-desc" class="sr-only">Veuillez entrer votre adresse email et votre mot de passe pour vous connecter.</p>
+
+    <form method="POST" action="/login" aria-describedby="form-desc" novalidate>
+      <div id="loginStatus" class="sr-only" role="alert" aria-live="assertive"></div>
+<fieldset>
+        <legend class="sr-only">Informations de connexion</legend>
+
+        <label for="email">Adresse email <span aria-hidden="true">*</span></label>
+        <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true" autocomplete="email" aria-describedby="emailHelp" />
+        <small id="emailHelp">Nous ne partagerons jamais votre email.</small>
+
+        <label for="loginPassword">Mot de passe <span aria-hidden="true">*</span></label>
+        <input type="password" id="loginPassword" name="password" placeholder="Mot de passe" required aria-required="true" autocomplete="current-password" />
+
+        <div class="forgot-password-link">
+          <a href="#" aria-label="Réinitialiser le mot de passe">Mot de passe oublié&nbsp;?</a>
+        </div>
+      </fieldset>
+
+      <button type="submit" class="button" aria-label="Se connecter au site">Se connecter</button>
+    </form>
+  </main>
+    <footer>
+        <div class="footer_nav">
+            <nav class="footer_nav_links">
+                <ul>
+                    <li><a href="/">Retour à l'accueil - SEO Sympa</a></li>
+                    <li><a href="">Mentions légales & RGPD</a></li>
+                    <li><a href="">Conditions générales</a></li>
+                    <li><a href="">Déclaration d'accessibilité</a></li>
+                    <li><a href="">Plan du site SEO Sympa</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="footer_nav_follow">
+                <a href="#"><img src="../assets/img/icones/youtube.png" alt="lien pour nous suivre sur YouTube"></a>
+                <a href="#"> <img src="../assets/img/icones/instagram.png"
+                        alt="lien pour nous suivre sur instagram"></a>
+                <a href="#"> <img src="../assets/img/icones/linkedin.png" alt="lien pour nous suivre sur Linkedin"></a>
+            </div>
+            <div class="footer_nav_contact">
+                <a href="./contact.html"><img src="../assets/img/icones/mail.png"
+                        alt="lien vers notre page contact pour voir notre mail"></a>
+                <a href="./contact.html"><img src="../assets/img/icones/phone.png"
+                        alt="lien vers notre page contact pour voir notre téléphone"></a>
+            </div>
+        </div>
+        <aside class="footer_aside">2025 © SEO Sympa</aside>
+        <!-- Pour insérer le symbole de copyright, appuyez sur Alt+0169 -->
+    </footer>
+
+  
+</body>
+</html> 
+
+
+
