@@ -7,6 +7,8 @@ import express from "express";
 // on importe le router
 import router from "./app/router.js";
 
+import session from "express-session";
+
 // on peut continuer à utiliser dotenv pour les variables d'environnement
 
 import * as dotenv from "dotenv";
@@ -26,6 +28,18 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.set("views", "./app/views");
+
+
+app.use(express.urlencoded({ extended: true }));
+
+//Session middleware
+
+app.use(session({
+  secret: "un_secret_ultra_safe", // put this in .env!
+  resave: false,
+  saveUninitialized: false
+}));
+
 
 // on l'associe au serveur via la méthode use
 app.use(router);
