@@ -7,37 +7,13 @@ import express from "express";
 import authController from "./controllers/authController.js";
 import isLogged from './middlewares/isLogged.js';
 
-
-//*********** */
-
 console.log("test affichage console");
 
 // on crée un objet router à l'aide de la méthode adaptée fournie par express
 const router = express.Router();
 
-// *************************** voir si dans l'url du nav vous voulez mettre les noms des routes en français ou en anglais ?
-
-// il faudra déplacer les routes front dans le mainController, 
-// importer ici le mainController 
-// notre api est une liste de endpoint (d'adresses) qui donneront lieu à un résultat
-// et ajouter les endpoints simplifiées telles que 
-// A REMETTRE sur nos fichiers /+ nom EN FRANCAIS AVANT !!!
-
-// ***********
-// exemples d'endpoints A VERIFIER ci dessous
-// router.get('/', mainController.home); 
-// router.get('/contact', mainController.home); 
-// router.get('/a-propos', mainController.about); 
-// router.get('/rechercher', mainController.search); 
-// router.get('/connexion', mainController.login); 
-// router.get('/inscription', mainController.signup); 
-// router.get('/tableau-de-bord', mainController.dashboard); 
-// router.get('/conditions-legales', mainController.conditions); 
-// router.get('/declaration-d-accessibilite', mainController.accessibility); 
-// router.get('/mentions-legales', mainController.legal); 
-// router.get('/profile', mainController.profile); 
- //************
-
+// ********* voir si dans l'url du nav vous voulez mettre les noms des routes en français ou en anglais ?
+// ******* à ajouter : route sitemap quand vue sitemap sera OK
 
 router.get("/", (req, res) => {
   console.log('route /');
@@ -105,7 +81,7 @@ router.get("/profiles", (req, res) => {
   res.render('profiles');
 });
 
-// à ajouter route sitemap quand vue sitemap sera OK
+
 
 // CODES DES ROUTES DU BACK
 
@@ -123,7 +99,28 @@ router.post('/sign-in', authController.signupAction);
 router.get('/', isLogged, authController.logout);
 
 
-
-
 // on l'exporte
 export default router;
+
+// PAR LA SUITE :
+
+// il faudra déplacer les routes front dans le mainController, 
+// importer ici le mainController 
+// notre api est une liste de endpoint (d'adresses) qui donneront lieu à un résultat
+// et ajouter les endpoints simplifiées telles que 
+// A REMETTRE sur nos fichiers /+ nom EN FRANCAIS AVANT !!!
+
+// ***********
+// exemples d'endpoints A VERIFIER ci dessous
+// router.get('/', mainController.home); 
+// router.get('/contact', mainController.home); 
+// router.get('/a-propos', mainController.about); 
+// router.get('/rechercher', mainController.search); 
+// router.get('/connexion', mainController.login); 
+// router.get('/inscription', mainController.signup); 
+// router.get('/tableau-de-bord', mainController.dashboard); 
+// router.get('/conditions-legales', mainController.conditions); 
+// router.get('/declaration-d-accessibilite', mainController.accessibility); 
+// router.get('/mentions-legales', mainController.legal); 
+// router.get('/profile', mainController.profile); 
+ //************
