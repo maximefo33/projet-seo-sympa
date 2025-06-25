@@ -16,7 +16,8 @@ const authController = {
       if (foundUser.rowCount > 0) {
         const user = foundUser.rows[0];
         // si on a trouvé on check le mot de passe, à noter qu'on a utilisé la syntaxe async await avec bcrypt, bien plus sympa
-        const result = await bcrypt.compare(req.body.password, user.hash);
+        //const result = await bcrypt.compare(req.body.password, user.hash);
+        const result = await bcrypt.compare(req.body.password, user.password);
         if (result) {
           // si c'est ok on est connecté
           req.session.isLogged = true;
@@ -57,7 +58,7 @@ const authController = {
       // pour que l'utilisateur reste connecté on le mémorise en session
       req.session.isLogged = true;
       req.session.userId = user.id;
-      res.redirect('/profil');
+      res.redirect('/profile');
     } catch (error) {
       console.error(error);
       res.render('register', { alert: error.message });
