@@ -35,7 +35,7 @@ app.use(express.urlencoded({ extended: true }));
 //Session middleware
 
 app.use(session({
-  secret: "un_secret_ultra_safe", // put this in .env!
+  secret: "un_secret_ultra_safe", // in .env!
   resave: false,
   saveUninitialized: false
 }));

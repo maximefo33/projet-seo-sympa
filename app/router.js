@@ -1,6 +1,7 @@
 // on a besoin de récupérer le module express
 import express from "express";
-import * as usercontroler  from "../app/controllers/userControler.js";
+import * as userControler  from "./app/controllers/userControler.js";
+import authController from './app/controllers/authController.js';
 import { isLoggedIn } from './middlewares/authMiddleware.js';
 
 console.log("coucou");
@@ -34,26 +35,25 @@ router.get("/search", (req, res) => {
 });
 
 // =================== Connexion / Déconnexion ===================
+router.post('/login', authController.loginAction);
+router.get('/login', authController.login);
 
 // Affiche le formulaire de connexion
-router.get("/login", (req, res) => {
-  res.render("login");
-});
+//router.get("/login", (req, res) => {
+//  res.render("login");
+//});
 
 // Soumission du formulaire de connexion
-router.post("/login", userController.login);  
+//router.post("/login", userController.login);  
 
 // Déconnexion
-router.get("/logout", userController.logout); 
+//router.get("/logout", userController.logout); 
 
-//============================================================
-router.get('/dashboard', isLoggedIn, (req, res) => {
-  res.render('dashboard');
-});
+//===================privee============================
+//router.get('/dashboard', isLoggedIn, (req, res) => {
+ // res.render('dashboard');
+//});
 
-router.get('/profile', isLoggedIn, (req, res) => {
-  res.render('profile');
-});
 
 
 router.get("/sign-in", (req, res) => {
@@ -61,12 +61,12 @@ router.get("/sign-in", (req, res) => {
   res.render('sign-in');
 });
 
-router.get("/dashboard", (req, res) => {
-   console.log('route /dashboard');
-  res.render('dashboard');
-});
+//router.get("/dashboard", (req, res) => {
+//   console.log('route /dashboard');
+ // res.render('dashboard');
+//});
 
-
+//public profile
 router.get("/profile", (req, res) => {
    console.log('route /profile');
   res.render('profile');

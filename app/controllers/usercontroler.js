@@ -8,7 +8,7 @@ export async function getAll(req, res) {
     res.status(200).json(users);
 };
 
-// Connexion
+/* Connexion
 export const login = async (req, res) => {
   const { email, password } = req.body;
 
