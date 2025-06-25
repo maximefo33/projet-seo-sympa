@@ -32,10 +32,20 @@ router.get("/search", (req, res) => {
   res.render('search');
 });
 
+// =================== Connexion / Déconnexion ===================
+
+// Affiche le formulaire de connexion
 router.get("/login", (req, res) => {
-   console.log('route /login');
-  res.render('login');
+  res.render("login");
 });
+
+// Soumission du formulaire de connexion
+router.post("/login", userController.login);  
+
+// Déconnexion
+router.get("/logout", userController.logout); 
+
+//============================================================
 
 router.get("/sign-in", (req, res) => {
    console.log('route /sign-in');
