@@ -1,34 +1,38 @@
 // ici fichier de notre mainController
 
-// à compléter avec toutes les routes front par la suite
+// à compléter avec toutes les endoints frontback par la suite
 
-// const mainController = {
+/* *********** JE COMMENTE CAR PAS UTILISE POUR L INSTANT
 
-//   home: async function(req, res) {
-//     try {
-//       const result = await client.query('SELECT * FROM "website" ORDER BY id DESC LIMIT 3');
-//       res.render('home', {
-//          websites: result.rows,
-//         })
-//     } catch (error) {
-//       console.log('erreur', error);
-//       res.status(500).render('error');
-//     }
-//   },
+const mainController = {
 
-//   contact: function(req, res) {
-//     res.render('contact', {
-//       title: 'Contact',
-//     });
-//   },
+  home: async function(req, res) {
+    try {
+      const result = await client.query('SELECT * FROM "website" ORDER BY id DESC LIMIT 3');
+      res.render('home', {
+         websites: result.rows,
+        })
+    } catch (error) {
+      console.log('erreur', error);
+      res.status(500).render('error');
+    }
+  },
+
+  contact: function(req, res) {
+    res.render('contact', {
+      title: 'Contact',
+    });
+  },
   
 
-//   notFound: function(req, res) {
-//     res.status(404).render('error', {
-//       message: 'La page demandée n\'a pas été trouvée.',
-//     });
-//   }
+  notFound: function(req, res) {
+    res.status(404).render('error', {
+      message: 'La page demandée n\'a pas été trouvée.',
+    });
+  }
 
-// };
+};
 
-// export default mainController;
+export default mainController;
+
+*****************************/

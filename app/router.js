@@ -7,6 +7,7 @@ import express from "express";
 import authController from "./controllers/authController.js";
 import isLogged from './middlewares/isLogged.js';
 
+
 //*********** */
 
 console.log("test affichage console");
@@ -18,11 +19,12 @@ const router = express.Router();
 
 // il faudra déplacer les routes front dans le mainController, 
 // importer ici le mainController 
-// et ajouter les routes simplifiées telles que 
+// notre api est une liste de endpoint (d'adresses) qui donneront lieu à un résultat
+// et ajouter les endpoints simplifiées telles que 
 // A REMETTRE sur nos fichiers /+ nom EN FRANCAIS AVANT !!!
 
 // ***********
-// exemples A VERIFIER ci dessous
+// exemples d'endpoints A VERIFIER ci dessous
 // router.get('/', mainController.home); 
 // router.get('/contact', mainController.home); 
 // router.get('/a-propos', mainController.about); 
@@ -65,10 +67,11 @@ router.get("/login", (req, res) => {
   res.render('login');
 });
 
-router.get("/sign-in", (req, res) => {
-  console.log('route /sign-in');
-  res.render('sign-in');
-});
+// je la commente car route refaite plus bas avec authController
+// router.get("/sign-in", (req, res) => {
+//   console.log('route /sign-in');
+//   res.render('sign-in');
+// });
 
 router.get("/dashboard", (req, res) => {
   console.log('route /dashboard');
@@ -110,11 +113,14 @@ router.get("/profiles", (req, res) => {
 // import des fonctions (cf haut du fichier)
 
 // création des routes pour l'inscription
-router.get('/sign-in', authController.signup);
-router.post('/sign-in', authController.signupAction);
-// si il se déconnecte, retour vers la page accueil
-router.get('/', isLogged, authController.logout);
 
+// route pour aller sur inscription
+router.get('/sign-in', authController.signup);
+// route inscription faite
+router.post('/sign-in', authController.signupAction);
+
+// s'il se déconnecte, route retour vers la page accueil
+router.get('/', isLogged, authController.logout);
 
 
 

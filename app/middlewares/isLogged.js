@@ -11,6 +11,7 @@
 // retrouver si possible les infos associées à cet id de session et enrichir la requête avec ces données.
 // si aucun id de session n'est présent, il est alors créé et renvoyé dans la réponse via l'entete Set-Cookie.
 
+// fonction : si l'utilisateur n'est pas connecté, alors lien vers page d'erreur
 
 function isLogged(req, res, next) {
   if (!req.session.isLogged) {
