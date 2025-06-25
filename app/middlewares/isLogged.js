@@ -1,4 +1,7 @@
 // ici le Middleware pour la page /sign-in
+// utilise la bibliothèqe express-session - installée avec npm install express-session le 24/6/25
+
+// see @https://www.npmjs.com/package/express-session 
 
 // see @ https://github.com/O-clock-Behemoth/Fiches-Objectifs/blob/main/saison5/e15.md
 

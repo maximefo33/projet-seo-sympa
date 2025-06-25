@@ -2,12 +2,11 @@
 
 import validator from 'validator';
 import bcrypt from 'bcrypt';
+import User from '../models/User.js';
 
 // express session installé => cf dans le middleware
 
-/////////// code inspiré depuis Pilori S06-Pilori-BDD
-
-import User from '../models/User.js';
+// code ci-dessous des fonctions signup et signupaction inspirés  de : Pilori S06-Pilori-BDD et S05E15-Atelier-la-Guilde
 
 
 const authController = 
