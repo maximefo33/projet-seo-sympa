@@ -1,4 +1,4 @@
-// page du controller pour sign-in - inscription - 24/6
+// page du controller pour signup - inscription - 24/6
 
 // validator vérifiera la conformité des infos saisies
 import validator from 'validator';
@@ -16,12 +16,12 @@ import User from '../models/User.js';
 
 const authController = 
 
-// pour page /sign-in, inscription
+// pour page /signup, inscription
 
-// quand je clique sur bouton "inscription" cela me rend la vue EJS sign-in
+// quand je clique sur bouton "inscription" cela me rend la vue EJS signup
 
 {signup: function(req, res) {
-    res.render('sign-in');
+    res.render('signup');
   },
 
 // sur la vue EJS : on a besoin de saisir nom, prénom, rôle (avec 2 choix possibles de réponse), email, confirmation email, mot de passe
@@ -75,15 +75,16 @@ const authController =
 
     catch (error) {
       // renvoyer message erreur dans la vue
-      res.render('sign-in', {
+      res.render('signup', {
         message: error.message
       });
 
     };
 
-    res.redirect('/'); // ou /sign-in
+    res.redirect('/'); // ou /signup
   },
 
+  // // ajouter bcrypt compare pour mdp + confirmation mdp
 
 
 //****** fin solution 1, 2eme solution ci-dessous
@@ -95,7 +96,6 @@ const authController =
 //       // on insère cette const hash dans req.body
 //       req.body.hash = hash;
 
-// // ajouter bcrypt compare pour mdp + confirmation mdp
 
 
 //       //************************************* */
@@ -111,7 +111,7 @@ const authController =
 //       res.redirect('/dashboard');
 //     } catch (error) {
 //       console.error(error);
-//       res.render('sign-in', { alert: error.message });
+//       res.render('signup', { alert: error.message });
 //     }
 //   },
   

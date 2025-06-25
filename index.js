@@ -45,3 +45,6 @@ app.use((req, res) => {
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}/`);
 });
+
+
+//Elise ajouter app use req urlencoded cf S5E12

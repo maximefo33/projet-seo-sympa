@@ -91,12 +91,12 @@ router.get("/profiles", (req, res) => {
 // création des routes pour l'inscription
 
 // route pour aller sur inscription
-router.get('/sign-in', authController.signup);
+router.get('/signup', authController.signup);
 // route inscription faite
-router.post('/sign-in', authController.signupAction);
+router.post('/signup', authController.signupAction);
 
 // s'il se déconnecte, route retour vers la page accueil
-router.get('/', isLogged, authController.logout);
+// router.get('/', isLogged, authController.logout);
 
 
 // on l'exporte
