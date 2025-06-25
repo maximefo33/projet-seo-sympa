@@ -1,6 +1,7 @@
 // on a besoin de récupérer le module express
 import express from "express";
-import * as usercontroler  from "../app/controllers/usercontroler.js"
+import * as usercontroler  from "../app/controllers/userControler.js";
+import { isLoggedIn } from './middlewares/authMiddleware.js';
 
 console.log("coucou");
 
@@ -46,6 +47,14 @@ router.post("/login", userController.login);
 router.get("/logout", userController.logout); 
 
 //============================================================
+router.get('/dashboard', isLoggedIn, (req, res) => {
+  res.render('dashboard');
+});
+
+router.get('/profile', isLoggedIn, (req, res) => {
+  res.render('profile');
+});
+
 
 router.get("/sign-in", (req, res) => {
    console.log('route /sign-in');
