@@ -1,41 +1,50 @@
 import validator from 'validator';
 import bcrypt from 'bcrypt';
 import User from "../models/User.js";
-import client from '../database.js';
+import sequelize from '../../config/database.js';
+
 
 const authController = {
   
+ // Affiche la page de connexion
   login: function(req, res) {
-    res.render('login');
+    res.render('login', { error: null });
   },
   
+  // Action de connexion
   loginAction: async function(req, res) {
     try {
-      // on cherche un user par son email
-      const foundUser = await client.query('SELECT * FROM "user" WHERE "email" = $1', [req.body.email]);
-      if (foundUser.rowCount > 0) {
-        const user = foundUser.rows[0];
-        // si on a trouvé on check le mot de passe, à noter qu'on a utilisé la syntaxe async await avec bcrypt, bien plus sympa
-        //const result = await bcrypt.compare(req.body.password, user.hash);
-        const result = await bcrypt.compare(req.body.password, user.password);
-        if (result) {
-          // si c'est ok on est connecté
-          req.session.isLogged = true;
-          req.session.userId = user.id; 
-          res.redirect('/profil');
-        }
-        else {
-          res.render('login', { alert: 'Mauvais couple identifiant/mot de passe' });
-        }
+      const { email, password } = req.body;
+        console.log("Email reçu:", email);
+        console.log("Password reçu:", password);
+
+      const user = await User.findOne({ where: { email } });
+       console.log("Utilisateur trouvé:", user);
+
+      if (!user) {
+         console.log("Utilisateur introuvable !");
+        return res.render('login', { error: 'Mauvais couple identifiant/mot de passe' });
       }
-      else {
-        throw new Error('Mauvais couple identifiant/mot de passe');
+
+      const result = await bcrypt.compare(password, user.password);
+        console.log("Résultat comparaison hash:", result);
+
+      if (result) {
+        req.session.isLogged = true;
+        req.session.userId = user.id_user;
+        req.session.userRole = user.role; //  gérer les rôles
+
+        return res.redirect('/dashboard');
+      } else {
+        return res.render('login', { error: 'Mauvais couple identifiant/mot de passe' });
       }
+
     } catch (error) {
-      console.error(error);
-      res.render('login', { alert: error.message });
+      console.error("Erreur attrapée :", error);
+      res.render('login', { error: 'Erreur lors de la tentative de connexion' });
     }
   },
+
   
   signup: function(req, res) {
     res.render('register');
@@ -65,7 +74,7 @@ const authController = {
     }
   },
   
-  logout: function(req, res) {
+   logout: function(req, res) {
     req.session.destroy();
     res.redirect('/');
   },

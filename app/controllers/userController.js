@@ -48,4 +48,4 @@ export const logout = (req, res) => {
 
     res.redirect("/login");
   });
-};
+};*/

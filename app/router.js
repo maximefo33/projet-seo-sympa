@@ -1,8 +1,9 @@
 // on a besoin de récupérer le module express
 import express from "express";
-import * as userControler  from "./app/controllers/userControler.js";
-import authController from './app/controllers/authController.js';
+import * as userController  from "./controllers/userController.js";
+import authController from './controllers/authController.js';
 import { isLoggedIn } from './middlewares/authMiddleware.js';
+
 
 console.log("coucou");
 
@@ -21,7 +22,7 @@ router.get("/contact", (req, res) => {
   res.render('contact');
 });
 
-router.get("/users",usercontroler.getAll);
+router.get("/users",userController.getAll);
 
 router.get("/about", (req, res) => {
    console.log('route /about');
@@ -61,10 +62,10 @@ router.get("/sign-in", (req, res) => {
   res.render('sign-in');
 });
 
-//router.get("/dashboard", (req, res) => {
-//   console.log('route /dashboard');
- // res.render('dashboard');
-//});
+router.get('/dashboard', isLoggedIn, (req, res) => {
+  res.render('dashboard');
+});
+
 
 //public profile
 router.get("/profile", (req, res) => {

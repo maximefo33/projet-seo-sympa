@@ -35,18 +35,18 @@ app.use(express.urlencoded({ extended: true }));
 //Session middleware
 
 app.use(session({
-  secret: "un_secret_ultra_safe", // in .env!
+  secret: process.env.SECRET || "un_secret_par_defaut",
   resave: false,
   saveUninitialized: false
 }));
 
 
-// on l'associe au serveur via la méthode use
-app.use(router);
-
 // on ajoute un middleware via .use à qui on passe la fonction retournée par express.static
 // on doit configurer en argument le chemin vers le dossier à servir
 app.use(express.static("./public"));
+
+// on l'associe au serveur via la méthode use
+app.use(router);
 
 //? ce middleware n'est donc pas appelé si le précédent est appelé,
 //? mais si ce n'est pas le cas il sera appelé
