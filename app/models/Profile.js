@@ -15,14 +15,7 @@ Profile.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    firstname: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-    },
-    lastname: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-    },
+   // on a déplacé firstname et lastname car ça va sur la page sign-in
     address: {
       type: DataTypes.STRING(120),
       allowNull: true,

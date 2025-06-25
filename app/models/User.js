@@ -10,6 +10,15 @@ User.init({
     primaryKey: true,
     autoIncrement: true
   },
+  firstname: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+  },
+  lastname: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+  },
+  
   email: {
     type: DataTypes.STRING(40),
     allowNull: false
@@ -24,7 +33,7 @@ User.init({
     allowNull: false
   }
 
- 
+
 }, {
   sequelize,
   modelName: 'User',

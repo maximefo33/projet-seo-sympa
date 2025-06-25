@@ -77,5 +77,16 @@ router.get("/profiles", (req, res) => {
 // à ajouter route sitemap quand vue sitemap sera OK
 
 
+// ici code ajouté par E - A - 25/6/25
+// les routes pour l'inscription
+router.get('/sign-in', authController.signup);
+router.post('/sign-in', authController.signupAction);
+// si il se déconnecte, retour vers la page accueil
+router.get('/', isLogged, authController.logout);
+
+
+
+
+
 // on l'exporte
 export default router;

@@ -3,13 +3,11 @@
 import validator from 'validator';
 import bcrypt from 'bcrypt';
 
-// importer le modele User
-
 // express session installé => cf dans le middleware
 
-// code inspiré depuis Pilori S06-Pilori-BDD
+/////////// code inspiré depuis Pilori S06-Pilori-BDD
 
-// import User from "../models/User.js";
+import User from '../models/User.js';
 
 
 const authController = 
@@ -40,13 +38,18 @@ const authController =
       const hash = await bcrypt.hash(req.body.password, 10);
       // 10 = nombre de tours de répétition pour le sallage pour rendre le mot de passe illisible, 10 = nombre préconisé
       req.body.hash = hash;
+
+// ajouter bcrypt compare pour mdp + confirmation mdp
+
+
+      //************************************* */
       // on crée un objet user
-      const user = new User(req.body);
+      const userNew = new User(req.body);
       // qu'on fait persister en bdd
-      await user.create();
+      await userNew.create();
       // pour que l'utilisateur reste connecté on le mémorise en session et on le dirige sur la page /dashboard
       req.session.isLogged = true;
-      req.session.userId = user.id;
+      req.session.userId = userNew.id;
       res.redirect('/dashboard');
     } catch (error) {
       console.error(error);
