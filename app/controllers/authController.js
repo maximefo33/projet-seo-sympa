@@ -33,8 +33,9 @@ const authController =
  
   signupAction: async function(req, res) {
     try {
-      // on valide le mot de passe
-      const options = { minLength: 14, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
+      // on valide le mot de passe 
+      // on a mis 8 caractères pour tester avec fakefiller, on repassera à 14 après
+      const options = { minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
       if (!validator.isStrongPassword(req.body.password, options)) {
         throw new Error('Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial parmi * / &');
       }
@@ -51,17 +52,17 @@ const authController =
             throw error;
           }
    
-          const userNew = new User({
+          const userRegistered = new User({
             email: req.body.email,
             // password: req.body.password,
             password : hash, // on stocke le mdp haché
             firstname: req.body.firstname,
             lastname : req.body.lastname
           });
-          console.log('utilisateur qui s\inscrit', userNew);
+          console.log('utilisateur qui s\inscrit', userRegistered);
 
           // on ajoute le nouvel utilisateur dans la liste des utilisateurs => Où se trouve cette liste ???? A revoir
-          users.push(userNew);
+          users.push(userRegistered); // ICI ASSOCIER LA BASE DE DONNEES LISTANT TOUS LES USERS
           console.log(users, 'utilisateur ajouté dans la liste des utilisateurs, dans un tableau USERS pour l\'instant');
 
           // on redirige vers la page de connexion, par exemple : 

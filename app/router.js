@@ -96,6 +96,7 @@ router.get('/signup', authController.signup);
 router.post('/signup', authController.signupAction);
 
 // s'il se déconnecte, route retour vers la page accueil
+// commenté car 2 routes / accueil pour l'instant
 // router.get('/', isLogged, authController.logout);
 
 
