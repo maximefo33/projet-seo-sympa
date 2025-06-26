@@ -1,32 +1,37 @@
 <html lang="fr">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/styles/index.scss">
-    <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
-    <title>modèle header- SEO Sympa</title>
-</head>
+<header class="menu">
+    <div class="menu-nav">
+      <a href="/src/index.html">
+        <img class="logo" src="../assets/img/logo.png" alt="logo seo sympa avec lien vers accueil">
+      </a>
 
-<body>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="/src/pages/about.html" class="main-nav__link">À propos</a></li>
+          <li class="main-nav__item"><a href="/src/pages/contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
 
-    <!-- copier header à partir d'ici-->
-    <header>
-        <nav class="header_nav">
-            <!-- ci-dessous logo SEO cliquable qui ramène à la page d'accueil / -->
+      <div class="menu-search">
+        <a href="/src/pages/login.html" >
+        <button  class="button__append">Connexion</button>
+        </a>
+        <a href="/src/pages/sign-in.html" >
+        <button class="button__append" >Inscription</button>
+        </a>
 
-            <a href="/"><img alt="logo de SEO Sympa" src="../assets/img/logo.png">
-            </a>
+        <form class="search-bar" role="search">
+          <input type="search" class="search-input" name="q" placeholder="Rechercher...">
+          <button type="submit" class="search-button">Rechercher</button>
+          <a class="icon" href="#"><span class="material-symbols-outlined" style="font-size: 60px; width:auto;">
+            person
+          </span></a>
+          
+        </form>
 
-            <ul class="header_nav_ul">
-                <li class="header_nav_li"><a href="../index.html">Page d'accueil</a></li>
-                <li class="header_nav_li"><a href="./contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <!-- copier jusqu'ici -->
 
-</body>
-
-</html>
+      </div>
+    </div>
+  </header>
+  </html>

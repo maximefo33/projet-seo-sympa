@@ -2,23 +2,13 @@
 @use './mixins';
 
 
+
 //header integre via index.scss , profile.html
 
-.public-profile-page {
-  display: flex;                 // CHANGEMENT
-  flex-direction: column;        // CHANGEMENT
-  background: linear-gradient(to bottom, vars.$color-blue, vars.$color-white);
-  min-height: 100vh;
-  padding: 0;
-  font-family: vars.$font-texte;
-  color: vars.$color-black;
 
-  @include mixins.small {
-    padding: 0;
-  }
-}
 
 .public-profile-main {
+  padding: 4%;
     flex: 1;                       // CHANGEMENT
   .card {
     margin-top: 2rem;

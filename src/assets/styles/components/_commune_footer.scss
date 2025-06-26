@@ -1,76 +1,55 @@
 @use '../vars';
 @use '../mixins' as *;
 
-.footer_nav {
-  background: linear-gradient(
-    to bottom right,
-    transparent,
-    vars.$color-purple,
-    vars.$color-blue,
-    vars.$color-lightblue
-  );
+.pied_de_page {
+  background: linear-gradient(to bottom right, vars.$color-purple, vars.$color-blue, vars.$color-lightblue);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 2rem;
+  row-gap: 2rem;
+  column-gap: 4rem;
+  font-size: vars.$text-fontsize;
+  text-align: center;
+}
+
+.pied_de_page_ul {
+  list-style: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  text-align: center;
-  font-size: vars.$text-fontsize;
-
-  @include small {
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: left;
-  }
-
-  a {
-    text-decoration: none;
-    color: vars.$color-white;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0;
-    margin: 0;
-
-    @include small {
-      flex-direction: row;
-      gap: 2rem;
-    }
-  }
+  gap: 0.5rem;
 }
 
-.footer_nav_follow {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-
-  @include small {
-    justify-content: flex-start;
-  }
-
-  img {
-    width: 35px;
-    height: 35px;
-  }
+.pied_de_page_a {
+  text-decoration: none;
+  color: vars.$color-white;
+  font-family: vars.$font-texte;
 }
 
-.footer_nav_contact {
+.pied_de_page_img {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+}
 
-  @include small {
-    align-items: flex-start;
-  }
+.pied_de_page_img2 {
+  height: 40px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.copy {
+  width: 100%;
+  text-align: center;
+  font-size: 0.9rem;
+  color: vars.$color-white;
+  margin-top: 1rem;
 }
 

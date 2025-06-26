@@ -1,11 +1,11 @@
 @use '../vars' as *;
 @use '../mixins' as *;
+@use 'sass:color';
 
 // Fonction lightener locale (sans modifier _vars.scss ni ajouter la fonction dans mixins)
 @function lighten($color, $percent) {
-  @return mix(white, $color, $percent);
+  @return color.mix(white, $color, $percent);
 }
-
 
 .card {
   display: flex;

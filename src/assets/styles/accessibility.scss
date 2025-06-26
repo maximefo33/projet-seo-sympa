@@ -1,14 +1,8 @@
 @use './vars';
 
-.logo-link img {
-  vertical-align: middle;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
 
-  &:hover {
-    transform: scale(1.05);
-  }
-}
+
+
 
 .main-content {
   font-family: Verdana, Arial, sans-serif;
@@ -33,7 +27,7 @@
 
 
 .accessibility-main {
-  padding: 2rem;
+  padding: 8%;
 
   .declaration-section {
     background: vars.$color-white;
