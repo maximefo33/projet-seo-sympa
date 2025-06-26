@@ -1,0 +1,101 @@
+
+
+@use './vars';
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+header.profil-header {
+  background: vars.$color-blue;
+  color: vars.$color-white;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.profil-main {
+  background: vars.$color-white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.profil-intro {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 10%;
+
+  .profil-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid vars.$color-blue;
+  }
+
+  .profil-info h2 {
+    margin: 0;
+    font-size: vars.$title-fontsize;
+  }
+
+  .specialite,
+  .localisation {
+    color: vars.$color-darkpurple;
+    font-size: vars.$text-fontsize;
+  }
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+h3 {
+  color: vars.$color-purple;
+  font-size: vars.$subtitle-fontsize;
+  margin-bottom: 0.5rem;
+}
+
+.profil-services ul {
+  list-style: none;
+  padding: 0;
+
+  li {
+    background: vars.$color-lightblue;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    color: vars.$color-white;
+    font-size: vars.$text-fontsize;
+  }
+}
+
+.profil-contact button {
+  background: vars.$color-darkpurple;
+  color: vars.$color-white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: vars.$text-fontsize;
+
+
+
+.profil-reseaux .reseaux-icons {
+ display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+footer.profil-footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: vars.$color-darkpurple;
+  padding: 1rem 0;
+}
+}

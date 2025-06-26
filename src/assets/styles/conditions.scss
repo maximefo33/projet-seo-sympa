@@ -2,13 +2,21 @@
 @use './vars';
 
 .main_conditions {
-
+   
     font-size: vars.$text-fontsize;
     font-family: vars.$font-texte;
-    background: linear-gradient(to right, vars.$color-white, vars.$color-lightblue);
     margin-bottom: 2rem;
-    padding: 1.5rem;
+    padding: 8%;
     border-radius: 5%;
+
+    h1,h2{
+        text-align: center; 
+    }
+    p{
+        white-space: pre;
+        text-align: center;
+    }
+    
 }
 
 .main_conditions h1 {
@@ -42,4 +50,8 @@
     font-size: vars.$subtitle-fontsize;
     font-weight: bold;
     color: vars.$color-blue;
+}
+
+.coucou{
+    text-align: center;
 }

@@ -1,18 +1,15 @@
-
- <!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page de connexion</title>
-  <link rel="stylesheet" href="../assets/styles/index.scss" />
-   <link rel="stylesheet"
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/assets/styles/index.scss">
+  <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
-  <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
+  <title>Profil Référenceur - SEO Sympa</title>
 </head>
-<body class="auth-page">
-  <header class="menu">
+<body>
+   <header class="menu">
     <div class="menu-nav">
       <a href="/src/index.html">
         <img class="logo" src="../assets/img/logo.png" alt="logo seo sympa avec lien vers accueil">
@@ -47,31 +44,49 @@
     </div>
   </header>
 
-  <main class="auth-main">
-    <h1 class="auth-title">Se connecter</h1>
-    <p id="form-desc" class="sr-only">Veuillez entrer votre adresse email et votre mot de passe pour vous connecter.</p>
+  <main class="profil-main container">
+    <section class="profil-intro">
+      <img src="https://via.placeholder.com/150" alt="Photo du profil" class="profil-photo">
+      <div class="profil-info">
+        <h2>Julie Martin</h2>
+        <p class="specialite">Spécialiste SEO Technique</p>
+        <p class="localisation">📍 Bordeaux, France</p>
+      </div>
+    </section>
 
-    <form method="POST" action="/login" aria-describedby="form-desc" novalidate>
-      <div id="loginStatus" class="sr-only" role="alert" aria-live="assertive"></div>
-<fieldset>
-        <legend class="sr-only">Informations de connexion</legend>
+    <section class="profil-a-propos">
+      <h3>À propos</h3>
+      <p>
+        Passionnée par le référencement depuis plus de 5 ans, j’aide les entreprises à gagner en visibilité grâce à des stratégies SEO techniques et sur mesure.
+      </p>
+    </section>
 
-        <label for="email">Adresse email <span aria-hidden="true">*</span></label>
-        <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true" autocomplete="email" aria-describedby="emailHelp" />
-        <small id="emailHelp">Nous ne partagerons jamais votre email.</small>
+    <section class="profil-services">
+      <h3>Services proposés</h3>
+      <ul>
+        <li>✅ Audit SEO complet</li>
+        <li>✅ Optimisation technique de site</li>
+        <li>✅ Accompagnement SEO mensuel</li>
+        <li>✅ Suivi et reporting personnalisé</li>
+      </ul>
+    </section>
 
-        <label for="loginPassword">Mot de passe <span aria-hidden="true">*</span></label>
-        <input type="password" id="loginPassword" name="password" placeholder="Mot de passe" required aria-required="true" autocomplete="current-password" />
+    <section class="profil-contact">
+      <h3>Me contacter</h3>
+      <button>Envoyer un message</button>
+    </section>
 
-        <div class="forgot-password-link">
-          <a href="#" aria-label="Réinitialiser le mot de passe">Mot de passe oublié&nbsp;?</a>
-        </div>
-      </fieldset>
-
-      <button type="submit" class="button" aria-label="Se connecter au site">Se connecter</button>
-    </form>
+    <section class="profil-reseaux">
+      <h3>Réseaux sociaux</h3>
+      <div class="reseaux-icons">
+        <a href="#"><img src="/src/assets/img/icones/linkedin.png" alt="LinkedIn"></a>
+        <a href="#"><img src="/src/assets/img/icones/instagram.png" alt="instagram"></a>
+        <a href="#"><img src="/src/assets/img/icones/mail.png" alt="Email"></a>
+      </div>
+    </section>
   </main>
-     <footer class="pied_de_page">
+
+  <footer class="pied_de_page">
 
     <nav>
       <ul class="pied_de_page_ul">
@@ -96,7 +111,7 @@
     </section>
 
 
-     <address class="contact">
+    <address class="contact">
       <p>Contactez-nous :</p>
       <a class="pied_de_page_a" href="mailto:jim@example.com">  <img src="/src/assets/img/icones/mail.png" alt="">jim@example.com</a>
       <a class="pied_de_page_a" href="tel:+14155550132"> <img src="/src/assets/img/icones/phone.png" alt=""> +1 (415) 555‑0132</a>
@@ -105,10 +120,5 @@
     <aside class="copy">2025 © SEO Sympa</aside>
     <!-- Pour insérer le symbole de copyright, appuyez sur Alt+0169 -->
   </footer>
-
-  
 </body>
-</html> 
-
-
-
+</html>

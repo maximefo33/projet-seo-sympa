@@ -12,28 +12,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/styles/index.scss">
     <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
     <title>Conditions générales - SEO Sympa</title>
 </head>
 
 <body>
 
-    <header>
-       
-     <nav class="header_nav">
-            <!-- ci-dessous logo SEO cliquable qui ramène à la page d'accueil / -->
+   <header class="menu">
+    <div class="menu-nav">
+      <a href="/src/index.html">
+        <img class="logo" src="../assets/img/logo.png" alt="logo seo sympa avec lien vers accueil">
+      </a>
 
-            <a href="/"><img alt="logo de SEO Sympa" src="../assets/img/logo.png">
-            </a>
-            <!-- sûrement liste déroulante pour cette nav -->
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="/src/pages/about.html" class="main-nav__link">À propos</a></li>
+          <li class="main-nav__item"><a href="/src/pages/contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
 
-            <ul class="header_nav_ul">
-                <li class="header_nav_li"><a href="../index.html">Page d'accueil</a></li>
-                <li class="header_nav_li"><a href="./contact.html">Contact</a></li>
-                
-            </ul>
-        </nav>
-    </header>
+      <div class="menu-search">
+        <a href="/src/pages/login.html" >
+        <button  class="button__append">Connexion</button>
+        </a>
+        <a href="/src/pages/sign-in.html" >
+        <button class="button__append" >Inscription</button>
+        </a>
 
+        <form class="search-bar" role="search">
+          <input type="search" class="search-input" name="q" placeholder="Rechercher...">
+          <button type="submit" class="search-button">Rechercher</button>
+          <a class="icon" href="#"><span class="material-symbols-outlined" style="font-size: 60px; width:auto;">
+            person
+          </span></a>
+          
+        </form>
+
+
+      </div>
+    </div>
+  </header>
     <main class="main_conditions">
 
         <h1>Conditions Générales d'Utilisation du site SEO Sympa</h1>
@@ -54,13 +73,17 @@
             et leur notoriété, de l'autre les seconds optimisent leur visibilité sur le web.</p>
 
         <h2>3. Comportement des utilisateurs</h2>
-        Les utilisateurs s'engagent à adopter un comportement respectueux et responsable vis-à-vis des autres membres de
-        la plateforme. Il est strictement interdit de :
-        <ul>
-            <li>tenir des propos injurieux, diffamatoires ou discriminatoires.</li>
-            <li>partager des informations mensongères ou trompeuses.</li>
-            <li>utiliser la plateforme à des fins illégales ou contraires aux bonnes mœurs.</li>
-        </ul>
+        <p>Les utilisateurs s'engagent à adopter un comportement respectueux et responsable vis-à-vis des autres membres
+            de
+            la plateforme. Il est strictement interdit de :
+        </p>
+
+
+        <p>tenir des propos injurieux, diffamatoires ou discriminatoires.</p>
+        <p> partager des informations mensongères ou trompeuses.</p>
+        <p>utiliser la plateforme à des fins illégales ou contraires aux bonnes mœurs.</p>
+
+
 
         <h2>4. Inscription et responsabilité</h2>
 
@@ -86,7 +109,8 @@
 
 
         <h2>8. Droit applicable</h2>
-        Les présentes CGU sont régies par le droit français. Tout litige sera soumis aux tribunaux compétents de XX.
+        <p>Les présentes CGU sont régies par le droit français. Tout litige sera soumis aux tribunaux compétents de XX.
+        </p>
 
         <h2>9. Acceptation des CGU</h2>
         <p class="main_cgu">En cochant la case ci-dessous, vous confirmez avoir lu et accepté les conditions générales
@@ -95,48 +119,45 @@
 
         <!-- ici case à cocher vide à l'affichage, puis valeur cochée renvoyée -->
         <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/input/checkbox -->
-        <fieldset class="main_cgu_checkbox">
-            <legend class="main_cgu_legend">CGU SEO Sympa</legend>
-
-            <div>
-                <input type="checkbox" id="cgu" name="cgu" value="terms-and-conditions accepted" required>
-                <label for="cgu">J'accepte les conditions générales d'utilisation (mises à jour 06/2025).</label>
-            </div>
-        </fieldset>
+      
 
     </main>
 
 
-    <footer>
-        <div class="footer_nav">
-            <nav class="footer_nav_links">
-                <ul>
-                    <li><a href="/">Retour à l'accueil - SEO Sympa</a></li>
-                    <li><a href="">Mentions légales & RGPD</a></li>
-                    <li><a href="">Conditions générales</a></li>
-                    <li><a href="">Déclaration d'accessibilité</a></li>
-                    <li><a href="">Plan du site SEO Sympa</a></li>
-                </ul>
-            </nav>
+    <footer class="pied_de_page">
+
+        <nav>
+            <ul class="pied_de_page_ul">
+                <li><a class="pied_de_page_a" href="/src/pages/legal.html">Mentions légales & RGPD</a></li>
+                <li><a class="pied_de_page_a" href="/src/pages/conditions.html">Conditions générales</a></li>
+                <li><a class="pied_de_page_a" href="/src/pages/accessiblity.html">Déclaration d'accessibilité</a></li>
+                <li><a class="pied_de_page_a" href="#">Plan du site SEO Sympa</a></li>
+            </ul>
+        </nav>
+
+        <section class="pied_de_page_img">
+            <p class="pied_de_page_text">suivez-nous sur les réseaux</p>
+            <a href="#">
+                <img class="pied_de_page_img2" src="../assets/img/icones/instagram.png" alt="">
+            </a>
+            <a href="#">
+                <img class="pied_de_page_img2" src="../assets/img/icones/linkedin.png" alt="">
+            </a>
+            <a href="#">
+                <img class="pied_de_page_img2" src="../assets/img/icones/youtube.png" alt="">
+            </a>
+        </section>
 
 
-            <div class="footer_nav_follow">
-                <a href="#"><img src="../assets/img/icones/youtube.png" alt="lien pour nous suivre sur YouTube"></a>
-                <a href="#"> <img src="../assets/img/icones/instagram.png"
-                        alt="lien pour nous suivre sur instagram"></a>
-                <a href="#"> <img src="../assets/img/icones/linkedin.png" alt="lien pour nous suivre sur Linkedin"></a>
-            </div>
-            <div class="footer_nav_contact">
-                <a href="./contact.html"><img src="../assets/img/icones/mail.png"
-                        alt="lien vers notre page contact pour voir notre mail"></a>
-                <a href="./contact.html"><img src="../assets/img/icones/phone.png"
-                        alt="lien vers notre page contact pour voir notre téléphone"></a>
-            </div>
-        </div>
-        <aside class="footer_aside">2025 © SEO Sympa</aside>
+         <address class="contact">
+      <p>Contactez-nous :</p>
+      <a class="pied_de_page_a" href="mailto:jim@example.com">  <img src="/src/assets/img/icones/mail.png" alt="">jim@example.com</a>
+      <a class="pied_de_page_a" href="tel:+14155550132"> <img src="/src/assets/img/icones/phone.png" alt=""> +1 (415) 555‑0132</a>
+    </address>
+
+        <aside class="copy">2025 © SEO Sympa</aside>
         <!-- Pour insérer le symbole de copyright, appuyez sur Alt+0169 -->
     </footer>
-
 </body>
 
 </html>
