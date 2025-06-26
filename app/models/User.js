@@ -22,10 +22,9 @@ User.init({
   role: {
     type: DataTypes.STRING(40),
     allowNull: false
-  }
-
- 
-}, {
+  },
+},
+ {
   sequelize,
   modelName: 'User',
   tableName: 'user',

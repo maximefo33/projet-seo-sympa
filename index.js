@@ -7,6 +7,8 @@ import express from "express";
 // on importe le router
 import router from "./app/router.js";
 
+import session from "express-session";
+
 // on peut continuer à utiliser dotenv pour les variables d'environnement
 
 import * as dotenv from "dotenv";
@@ -27,12 +29,25 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", "./app/views");
 
-// on l'associe au serveur via la méthode use
-app.use(router);
+
+app.use(express.urlencoded({ extended: true })); // middleware pour parser les données urlencoded
+
+
+//Configuration de session 
+
+app.use(session({
+  secret: process.env.SECRET || "un_secret_par_defaut",
+  resave: false,
+  saveUninitialized: false
+}));
+
 
 // on ajoute un middleware via .use à qui on passe la fonction retournée par express.static
 // on doit configurer en argument le chemin vers le dossier à servir
 app.use(express.static("./public"));
+
+// on l'associe au serveur via la méthode use
+app.use(router);
 
 //? ce middleware n'est donc pas appelé si le précédent est appelé,
 //? mais si ce n'est pas le cas il sera appelé

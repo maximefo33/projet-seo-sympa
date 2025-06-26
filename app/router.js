@@ -1,6 +1,9 @@
 // on a besoin de récupérer le module express
 import express from "express";
-import * as usercontroler  from "../app/controllers/usercontroler.js"
+import * as userController  from "./controllers/userController.js";
+import authController from './controllers/authController.js';
+import { isLoggedIn } from './middlewares/authMiddleware.js';
+
 
 console.log("coucou");
 
@@ -19,7 +22,7 @@ router.get("/contact", (req, res) => {
   res.render('contact');
 });
 
-router.get("/users",usercontroler.getAll);
+router.get("/users",userController.getAll);
 
 router.get("/about", (req, res) => {
    console.log('route /about');
@@ -32,22 +35,26 @@ router.get("/search", (req, res) => {
   res.render('search');
 });
 
-router.get("/login", (req, res) => {
-   console.log('route /login');
-  res.render('login');
-});
+// =================== Connexion /  ===================
+router.post('/login', authController.loginAction);
+router.get('/login', authController.login); //  GET pour afficher la page de connexion
+
+//==========================================// 
+
 
 router.get("/sign-in", (req, res) => {
    console.log('route /sign-in');
   res.render('sign-in');
 });
 
-router.get("/dashboard", (req, res) => {
-   console.log('route /dashboard');
+//Protection page prive 
+
+router.get('/dashboard', isLoggedIn, (req, res) => {
   res.render('dashboard');
 });
 
 
+//public profile
 router.get("/profile", (req, res) => {
    console.log('route /profile');
   res.render('profile');
