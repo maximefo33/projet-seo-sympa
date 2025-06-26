@@ -6,6 +6,10 @@
     <p id="form-desc" class="sr-only">
       Veuillez entrer votre adresse email et votre mot de passe pour vous connecter.
     </p>
+    <% if (typeof error !== 'undefined') { %>
+  <div class="error"><%= error %></div>
+<% } %>
+
 
     <form method="POST" action="/login" aria-describedby="form-desc" novalidate>
       <div id="loginStatus" class="sr-only" role="alert" aria-live="assertive"></div>

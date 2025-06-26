@@ -8,19 +8,17 @@ import bcrypt from 'bcrypt';
 // ici on importe les données saisies par l'utilisateur
 import User from '../models/User.js';
 
+import sequelize from '../../config/database.js';
+
 // express session installé => cf dans le middleware
 
-// code ci-dessous des fonctions signup et signupaction inspirés  de : Pilori S06-Pilori-BDD et S05E15-Atelier-la-Guilde
+const authController = {
 
-// on définit notre controller pour l'authentification de l'inscription
+  //-------------------------------------------- début code inscription ---------------------------------//
+  // pour page /signup, inscription
+  // quand je clique sur bouton "inscription" cela me rend la vue EJS signup
 
-const authController =
 
-//-------------------------------------------- début code inscription ---------------------------------//
-// pour page /signup, inscription
-// quand je clique sur bouton "inscription" cela me rend la vue EJS signup
-
-{
   signup: function (req, res) {
     res.render('signup');
   },
@@ -87,14 +85,69 @@ const authController =
 
     res.redirect('/'); // ou /signup
   },
+
+  //-----------------------------------------fin code inscription ---------------------------------------------//
+  //===========Connexion=======================//
+  // Affiche la page de connexion
+  login: function (req, res) {
+    res.render('login', { error: null }); //appel view 
+  },
+
+  // Action de connexion
+  loginAction: async function (req, res) {
+    try {
+      const { email, password } = req.body; //recuperer email, password
+      console.log("Email reçu:", email);
+      console.log("Password reçu:", password);
+
+      const user = await User.findOne({ where: { email } }); //recherche user avec Sequalize via email 
+      console.log("Utilisateur trouvé:", user);
+
+      //Gestion des errors avec try/catch et throw 
+      if (!user) {
+        console.log("Utilisateur introuvable !");
+        return res.render('login', { error: 'Mauvais couple identifiant/mot de passe' }); //dans loin ejs -error
+      }
+
+      const result = await bcrypt.compare(password, user.password); //verficiation du mote de passe avec bcrypt
+      console.log("Résultat comparaison hash:", result);
+
+      if (result) { //Mise en place de la session user
+        req.session.isLogged = true;
+        req.session.userId = user.id_user;
+        req.session.userRole = user.role; //  gérer les rôles
+
+        return res.redirect('/dashboard');
+      } else {
+        return res.render('login', { error: 'Mauvais couple identifiant/mot de passe' });
+      }
+
+    } catch (error) {
+      console.error("Erreur attrapée :", error);
+      res.render('login', { error: 'Erreur lors de la tentative de connexion' });
+    }
+  },
+
+  //=======================================fin de connexion==========================//
+
+  // code ci-dessous des fonctions signup et signupaction inspirés  de : Pilori S06-Pilori-BDD et S05E15-Atelier-la-Guilde
+
+  // on définit notre controller pour l'authentification de l'inscription
+
 };
 
-  //****fin solution 1, solution qui fonctionne en tous cas dans la console et le devtool */
 
-  
+//  logout: function(req, res) {
+//   req.session.destroy();
+//   res.redirect('/');
+// };
+
+
+//****fin solution 1, solution qui fonctionne en tous cas dans la console et le devtool */
+
 //****** fin solution 1, 2eme solution ci-dessous
 
-      // ******** solution 2
+// ******** solution 2
 //       // on crée le hash
 //       const hash = await bcrypt.hash(req.body.password, 10);
 //       // 10 = nombre de tours de répétition pour le sallage pour rendre le mot de passe illisible, 10 = nombre préconisé
@@ -129,8 +182,8 @@ const authController =
 
 ///*****************BCRYPT COMPARE ***************** */
 
-  // ici ajout 26/6 - bcrypt compare mot de passe donné à l'inscription et confirmation de ce mdp
-  // et bcrypt compare couple mail/ mdp => dans LOGIN je pense voir avec Gulnur
+// ici ajout 26/6 - bcrypt compare mot de passe donné à l'inscription et confirmation de ce mdp
+// et bcrypt compare couple mail/ mdp => dans LOGIN je pense voir avec Gulnur
 
 // !!!!!!!!!!!!!!!!!!!! je n'ai pas compris comment récupérer ma liste d'USERS (sûrement avec script suite seeds ?) !!!!!!!!!
 
@@ -191,7 +244,7 @@ const verifyPassword = async (plainPassword, hashedPassword) => {
 
 // on essaie d'appeler cette fonction :
 verifyPassword(plainPassword, hashedPassword);
-console.log('essai appel fonction verifyPassword',verifyPassword);
+console.log('essai appel fonction verifyPassword', verifyPassword);
 
 verifyPassword('ELISEelise2025//', '$2b$10$bhI25Sj5gTtJ/kPlK9/xEOmYTN8tprq0hW5VPnc9yp5uC9Ts1NpsS');
 console.log('2e essai verifyPassword', verifyPassword);
@@ -202,5 +255,5 @@ console.log('2e essai verifyPassword', verifyPassword);
 // surement appliquer cette fonction avec req.body.password et req.body.confirm-password
 
 
-//-----------------------------------------fin code inscription ---------------------------------------------//
 export default authController;
+

@@ -5,20 +5,20 @@
 
 const mainController = {
 
-// routes front
+  // routes front
   home: function (req, res) {
     res.render('home', {
       title: 'Page d\'accueil',
     });
   },
 
-    contact: function (req, res) {
+  contact: function (req, res) {
     res.render('contact', {
       title: 'Contact',
     });
   },
 
-    about: function (req, res) {
+  about: function (req, res) {
     res.render('about', {
       title: 'A propos',
     });
@@ -36,6 +36,19 @@ const mainController = {
   signupAction: function (req, res) {
     res.render('signup', {
       title: 'Formulaire d\'Inscription à compléter',
+    });
+  },
+
+
+  login: function (req, res) {
+    res.render('login', {
+      title: 'Connexion',
+    });
+  },
+
+  loginAction: function (req, res) {
+    res.render('login', {
+      title: 'Formulaire de connexion',
     });
   },
 

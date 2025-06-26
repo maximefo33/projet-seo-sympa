@@ -5,10 +5,11 @@
   "source": "src/index.html",
   "type": "module",
   "scripts": {
-    "start": "parcel",
+    "start": "parcel --port 3001",
     "build": "parcel build",
     "db:create": "node ./database/db/db.create.js",
-    "dev": "nodemon index -e js,ejs,scss"
+    "dev": "nodemon index -e js,ejs,scss",
+    "seed": "node database/seeds/seed.js"
   },
   "repository": {
     "type": "git",
