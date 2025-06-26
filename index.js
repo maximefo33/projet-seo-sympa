@@ -24,6 +24,12 @@ const port = process.env.PORT || 5000;
 
 const app = express();
 
+//  Pour récupérer les données du payload, on doit ajouter le middleware express.urlencoded
+// see @ https://github.com/O-clock-Behemoth/Fiches-Objectifs/blob/main/saison5/e12.md
+app.use(express.urlencoded({ extended: true })); 
+// l'option extended permet de passer aussi des objets et des tableaux
+
+
 //appeler les templates EJS
 
 app.set("view engine", "ejs");
@@ -60,3 +66,6 @@ app.use((req, res) => {
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}/`);
 });
+
+
+//Elise ajouter app use req urlencoded cf S5E12

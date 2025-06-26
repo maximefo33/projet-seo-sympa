@@ -13,17 +13,17 @@
   <% } %>
 
   <p id="form-desc" class="sr-only">Tous les champs marqués d’un astérisque sont obligatoires.</p>
-
-  <form method="POST" action="/signup" novalidate aria-describedby="form-desc">
+<!-- action="/signup" -->
+  <form method="POST" novalidate aria-describedby="form-desc">
     <p class="required-note">Tous les champs marqués d’un <span>*</span> sont obligatoires.</p>
     <fieldset>
       <legend class="sr-only">Formulaire d'inscription</legend>
-
+<!-- ci dessous name=prénom remplacé par name=firstname pour faire essais req.body dans authController.js  -->
       <label for="prenom">Prénom <span aria-hidden="true">*</span></label>
-      <input type="text" id="prenom" name="prenom" placeholder="Prénom" required aria-required="true" autocomplete="given-name" />
-
+      <input type="text" id="prenom" name="firstname" placeholder="Prénom" required aria-required="true" autocomplete="given-name" />
+<!-- ci dessous changer name=nom remplacé par name=lastname  -->
       <label for="nom">Nom <span aria-hidden="true">*</span></label>
-      <input type="text" id="nom" name="nom" placeholder="Nom" required aria-required="true" autocomplete="family-name" />
+      <input type="text" id="nom" name="lastname" placeholder="Nom" required aria-required="true" autocomplete="family-name" />
 
       <label for="role">Rôle <span aria-hidden="true">*</span></label>
       <select id="role" name="role" required aria-required="true">

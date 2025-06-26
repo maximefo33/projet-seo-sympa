@@ -10,6 +10,15 @@ User.init({
     primaryKey: true,
     autoIncrement: true
   },
+  firstname: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+  },
+  lastname: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+  },
+
   email: {
     type: DataTypes.STRING(40),
     allowNull: false
@@ -22,13 +31,16 @@ User.init({
   role: {
     type: DataTypes.STRING(40),
     allowNull: false
-  },
-},
- {
-  sequelize,
-  modelName: 'User',
-  tableName: 'user',
+  }
 
-});
+},
+
+  {
+
+    sequelize,
+    modelName: 'User',
+    tableName: 'user',
+
+  });
 
 export default User

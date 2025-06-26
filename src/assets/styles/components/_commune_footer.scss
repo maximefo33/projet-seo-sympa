@@ -33,7 +33,14 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+
+
+  @include small {
+    align-items: flex-start;
+  }
 }
+
+
 
 .pied_de_page_img2 {
   height: 40px;
@@ -52,4 +59,5 @@
   color: vars.$color-white;
   margin-top: 1rem;
 }
+
 

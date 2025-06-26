@@ -1,18 +1,13 @@
-
 @use '../vars';
 @use '../mixins' as *; // pour les media queries @include small etc.
 
-
 //header
-
 
 .menu {
   position: fixed;
   width: 100%;
   background-color: white;
   margin: -1%;
-
-
 
 }
 
@@ -93,7 +88,5 @@
   color: black;
 
 }
-
-
 
 //fin header
