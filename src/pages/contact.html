@@ -4,35 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/styles/index.scss" />
-    <link rel="icon" href="../assets/img/favicon-seo.ico" type="image/x-icon" />
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
     <title>Contact - SEO-Sympa | Nous contacter</title>
     <meta
       name="description"
       content="Contactez l'équipe SEO-Sympa pour toute question sur nos services"
     />
   </head>
-
-  <header>
-    <nav class="header_nav">
-      <!-- ci-dessous logo SEO cliquable qui ramène à la page d'accueil / -->
-
-      <a href="/"
-        ><img alt="logo de SEO Sympa" src="../assets/img/logo.png" />
+<header class="menu">
+    <div class="menu-nav">
+      <a href="/src/index.html">
+        <img class="logo" src="../assets/img/logo.png" alt="logo seo sympa avec lien vers accueil">
       </a>
-      <!-- sûrement liste déroulante pour cette nav -->
 
-      <ul class="header_nav_ul">
-        <li class="header_nav_li">
-          <a href="../index.html">Page d'accueil</a>
-        </li>
-        <li class="header_nav_li"><a href="./about.html">A Propos</a></li>
-      </ul>
-    </nav>
-    <h1 class="site-title">SEO-Sympa</h1>
-    <p class="site-subtitle">
-      <strong>Le référencement sans prise de tête</strong>
-    </p>
-  </header>
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="/src/pages/about.html" class="main-nav__link">À propos</a></li>
+          <li class="main-nav__item"><a href="/src/pages/contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="menu-search">
+         <a href="/src/pages/login.html"> <button class="button__append">connexion</button></a>
+        <a href="/src/pages/sign-in.html"><button  class="button__append">Inscription</button></a>
+
+        <form class="search-bar" role="search">
+          <input type="search" class="search-input" name="q" placeholder="Rechercher...">
+          <button type="submit" class="search-button">Rechercher</button>
+          <a class="icon" href="#"><span class="material-symbols-outlined" style="font-size: 60px; width:auto;">
+            person
+          </span></a>
+          
+        </form>
+
+
+      </div>
+    </div>
+    </header>
 
   <body class="main-content">
     <!-- Contenu principal -->
@@ -164,55 +173,41 @@ Veuillez saisir votre message ici...</textarea
         </form>
       </section>
     </main>
+    
 
-    <footer>
-      <div class="footer_nav">
-        <nav class="footer_nav_links">
-          <ul>
-            <li><a href="/">Retour à l'accueil - SEO Sympa</a></li>
-            <li><a href="">Mentions légales & RGPD</a></li>
-            <li><a href="">Conditions générales</a></li>
-            <li><a href="">Déclaration d'accessibilité</a></li>
-            <li><a href="">Plan du site SEO Sympa</a></li>
-          </ul>
-        </nav>
+   <footer class="pied_de_page">
 
-        <div class="footer_nav_follow">
-          <a href="#"
-            ><img
-              src="../assets/img/icones/youtube.png"
-              alt="lien pour nous suivre sur YouTube"
-          /></a>
-          <a href="#">
-            <img
-              src="../assets/img/icones/instagram.png"
-              alt="lien pour nous suivre sur instagram"
-          /></a>
-          <a href="#">
-            <img
-              src="../assets/img/icones/linkedin.png"
-              alt="lien pour nous suivre sur Linkedin"
-          /></a>
-        </div>
-        <div class="footer_nav_contact">
-          <a href="./contact.html"
-            ><img
-              src="../assets/img/icones/mail.png"
-              alt="lien vers notre page contact pour voir notre mail"
-          /></a>
-          <a href="./contact.html"
-            ><img
-              src="../assets/img/icones/phone.png"
-              alt="lien vers notre page contact pour voir notre téléphone"
-          /></a>
-        </div>
-        <a href="/faq" class="footer-link"
-          >Questions fréquemment posées - Trouvez rapidement des réponses</a
-        >
-      </div>
+    <nav>
+      <ul class="pied_de_page_ul">
+        <li><a class="pied_de_page_a" href="/src/pages/legal.html">Mentions légales & RGPD</a></li>
+        <li><a class="pied_de_page_a" href="/src/pages/conditions.html">Conditions générales</a></li>
+        <li><a class="pied_de_page_a" href="/src/pages/accessiblity.html">Déclaration d'accessibilité</a></li>
+        <li><a class="pied_de_page_a" href="#">Plan du site SEO Sympa</a></li>
+      </ul>
+    </nav>
 
-      <aside class="footer_aside">2025 © SEO Sympa</aside>
-      <!-- Pour insérer le symbole de copyright, appuyez sur Alt+0169 -->
-    </footer>
+    <section class="pied_de_page_img">
+      <p class="pied_de_page_text">suivez-nous sur les réseaux</p>
+      <a href="#">
+        <img class="pied_de_page_img2" src="../assets/img/icones/instagram.png" alt="">
+      </a>
+      <a href="#">
+        <img class="pied_de_page_img2" src="../assets/img/icones/linkedin.png" alt="">
+      </a>
+      <a href="#">
+        <img class="pied_de_page_img2" src="../assets/img/icones/youtube.png" alt="">
+      </a>
+    </section>
+
+
+     <address class="contact">
+      <p>Contactez-nous :</p>
+      <a class="pied_de_page_a" href="mailto:jim@example.com">  <img src="/src/assets/img/icones/mail.png" alt="">jim@example.com</a>
+      <a class="pied_de_page_a" href="tel:+14155550132"> <img src="/src/assets/img/icones/phone.png" alt=""> +1 (415) 555‑0132</a>
+    </address>
+
+    <aside class="copy">2025 © SEO Sympa</aside>
+    <!-- Pour insérer le symbole de copyright, appuyez sur Alt+0169 -->
+  </footer>
   </body>
 </html>

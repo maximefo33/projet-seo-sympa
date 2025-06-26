@@ -7,6 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
 
            <title><%= title || 'SEO-Sympa' %></title>
   <% if (description) { %>
@@ -20,21 +22,36 @@
 
 <body>
 
-    <header>
-        <nav class="header_nav">
-            <!-- ci-dessous logo SEO cliquable qui ramène à la page d'accueil / -->
+    <header class="menu">
+    <div class="menu-nav">
+      <a href="/src/index.html">
+        <img class="logo" src="./assets/img/logo.png" alt="logo seo sympa avec lien vers accueil">
+      </a>
 
-            <a href="/"><img alt="logo de SEO Sympa" src="/assets/img/logo.png">
-            </a>
-           
-            <!-- ajouter liens dans la nav ci dessous -->
+      <nav class="main-nav">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="../src/pages/about.html" class="main-nav__link">À propos</a></li>
+          <li class="main-nav__item"><a href="/src/pages/contact.html" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
 
-            <ul class="header_nav_ul">
-                <li class="header_nav_li"><a href="/">Page d'accueil</a></li>
-                <li class="header_nav_li"><a href="/contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+      <div class="menu-search">
+        <button href="/src/pages/login.html" class="button__append">Connexion</button>
+        <button href="/src/pages/sign-in.html" class="button__append">Inscription</button>
+
+        <form class="search-bar" role="search">
+          <input type="search" class="search-input" name="q" placeholder="Rechercher...">
+          <button type="submit" class="search-button">Rechercher</button>
+          <a class="icon" href="#"><span class="material-symbols-outlined" style="font-size: 60px; width:auto;">
+            person
+          </span></a>
+          
+        </form>
+
+
+      </div>
+    </div>
+  </header>
 
 
 </body>

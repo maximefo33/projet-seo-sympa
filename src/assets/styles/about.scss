@@ -4,158 +4,223 @@
 
 // styles de la page about
 //test - css ok répond bien
-.presentation {
-  border: solid 0.4rem;
-  border-color: vars.$color-blue vars.$color-purple;
-  background: linear-gradient(to right, vars.$color-white, vars.$color-lightblue);
-  margin-left: 8rem;
-  margin-right: 8rem;
+
+.contenu {
   display: flex;
-  flex-direction: column;
-  padding: 2.5rem;
-  border-radius: 15%;
-}
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5rem;
+  gap: 2rem;
+  flex-wrap: wrap; // pour le responsive
+  background: linear-gradient(to bottom right,
+      transparent,
+      vars.$color-purple,
+      vars.$color-blue,
+      vars.$color-lightblue);
 
-.about_main {
-  // background: linear-gradient(to bottom right, transparent, #acacf3, pink);
-  padding: 1rem;
+     
 
-}
-
-.about_article_seo_contain {
-  display: flex;
-  margin-left: 3rem;
-  margin-top: 4rem;
-}
-
-.about_article_seo {
-  background: linear-gradient(to left, vars.$color-white, vars.$color-purple);
-  color: vars.$color-black;
-  font-weight: 600;
-  margin-left: 3rem;
-  margin-right: 3rem;
-  border-radius: 15%;
-  text-align: left;
-  align-content: center;
-  padding: 2rem;
-  line-height: 2rem;
-  width: auto;
-  flex-wrap: wrap;
-  border: solid 0.4rem;
-  border-color: vars.$color-blue vars.$color-darkpurple;
-
-}
-
-.about_article_seo h2 {
-  text-align: center;
-}
-
-
-
-.about_article_seo_img {
+.img_main {
+  width: 20%;
   height: auto;
-  width: auto;
-  
+  border-radius: 20px;
 }
 
-.about_link_article {
-  color: vars.$color-white;
-  text-decoration: none;
-  font-style: italic;
-  background-color: linear-gradient(to bottom right, #124d48, rgb(78, 112, 151));
+.main__text {
+
+  p,
+  h1 {
+    color: white;
+    margin-bottom: 2rem;
+  }
+
+  p {
+    font-size: 3.5rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+  }
+}
 }
 
-.about_witness1 {
-  margin-right: 2rem;
-  margin-bottom: 3rem;
-  background: linear-gradient(to bottom, vars.$color-white, vars.$color-lightblue);
-  border-radius: 8%;
-  text-align: center;
-  display: inline-block;
-  width: 20%;
-  column-gap: 3rem;
-  align-items: center;
-  padding: 1rem;
-  border: solid 0.4rem;
-  border-color: vars.$color-blue vars.$color-purple;
-  
-}
-
-.about_witness2 {
-  column-gap: 3rem;
-    background: linear-gradient(to bottom, vars.$color-purple, vars.$color-blue);
-  color: vars.$color-white;
-  border-radius: 8%;
-  text-align: center;
-  display: inline-block;
-  width: 20%;
-  align-items: center;
-  padding: 1rem;
-    border: solid 0.4rem;
-  border-color: vars.$color-lightblue vars.$color-blue;
-}
-
-// à revoir car l'image n'est pas responsive
-.about_witness_contain0 {
+.présentation {
   display: flex;
-  align-items: center;
-  align-content: center;
-  margin-top: 5rem;
-
-}
-
-.about_witness_contain {
   flex-wrap: wrap;
-  margin: 1rem;
-  text-align: center;
-  align-items: flex-start;
-  color: vars.$color-darkpurple;
-  font-weight: bold;
-  font-size: vars.$text-fontsize;
+  gap: 2rem;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  background-color: vars.$color-blue;
+  margin: 10%;
 
+  &__img {
+    width: 1000px;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+
+  &__contenu {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__titre {
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+    font-family: vars.$font-texte;
+  }
+
+  .text_main2 {
+    font-size: 2.25rem;
+    line-height: 1.6;
+    color: white;
+  }
 }
 
-.about_witness img {
-
-  max-width: auto;
-}
-
-
-.faq {
+.about_witness_contain0 {
+  background-color: vars.$color-white;
+  padding: 3rem 1rem;
+  font-family: vars.$font-texte;
   display: flex;
-  flex-direction: column;
-  background: linear-gradient(to bottom, vars.$color-white, vars.$color-lightblue);
-  margin-left: 8rem;
-  margin-right: 8rem;
-  border-radius: 15%;
-  padding: 2.5rem;
-  color: vars.$color-black;
-  border: solid 0.4rem;
-  border-color: vars.$color-blue vars.$color-purple;
+  flex-direction: row;
+  gap: 2rem; // espace entre les sections
 
+
+  
+    h3 {
+      font-size: vars.$subtitle-fontsize;
+      color: vars.$color-blue;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: vars.$text-fontsize;
+      color: vars.$color-black;
+      margin-bottom: 2rem;
+    }
+
+    img {
+      max-width: 200px;
+      height: auto;
+    }
+  }
+
+  .about_witness1, .about_witness2{
+    background-color: vars.$color-white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    h3 {
+      color: vars.$color-darkpurple;
+      margin-bottom: 1.5rem;
+      font-size: vars.$subtitle-fontsize;
+    }
+
+    p {
+      color: vars.$color-black;
+      font-size: vars.$text-fontsize;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+
+      &::before {
+        
+        color: vars.$color-purple;
+        font-size: 1.2rem;
+        margin-right: 5px;
+      }
+
+      &::after {
+        
+        color: vars.$color-purple;
+        font-size: 1.2rem;
+        margin-left: 5px;
+      }
+    }
+  }
+  .about_witness1{
+    background: vars.$color-lightblue;
+  }
+  .about_witness2{
+    
+    background: vars.$color-lightblue;
+  }
+
+  .faq {
+  background-color: vars.$color-lightblue;
+  padding: 4rem 2rem;
+  font-family: vars.$font-texte;
+
+  h2 {
+    font-size: vars.$title-fontsize;
+    color: vars.$color-white;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  article.coucou {
+    background-color: vars.$color-white;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    h3 {
+      font-size: vars.$subtitle-fontsize;
+      color: vars.$color-blue;
+      margin-bottom: 0.5rem;
+    }
+
+    a {
+      color: vars.$color-darkpurple;
+      margin-right: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    p {
+      font-size: vars.$text-fontsize;
+      margin-top: 1rem;
+      color: vars.$color-black;
+
+      a {
+        color: vars.$color-purple;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  // Responsive pour petits écrans
+  @media (max-width: 600px) {
+    padding: 2rem 1rem;
+
+    article.coucou {
+      padding: 1rem 1.5rem;
+    }
+  }
 }
 
-.faq h2{
-  text-align: center;
-  font-size: vars.$subtitle-fontsize;
-}
 
-// ici css pour ouvrir fermer questions réponses
-// essai de faire dérouler la réponse en cliquant sur question entière, pas sur flèche
-.coucou a {
-  color: inherit;
-  text-decoration: none;
-}
 
-.coucou h1 {
-  display: inline-block;
-}
 
-.coucou p {
-  display: none;
-}
 
-.coucou p:target {
-  display: block;
-}
 
