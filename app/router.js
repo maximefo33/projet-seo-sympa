@@ -6,6 +6,7 @@ import express from "express";
 //imports ajoutés pour les routes backend 
 import authController from "./controllers/authController.js";
 import isLogged from './middlewares/isLogged.js';
+import mainController from "./controllers/mainController.js";
 
 console.log("test affichage console");
 
@@ -15,23 +16,7 @@ const router = express.Router();
 // ********* voir si dans l'url du nav vous voulez mettre les noms des routes en français ou en anglais ?
 // ******* à ajouter : route sitemap quand vue sitemap sera OK
 
-router.get("/", (req, res) => {
-  console.log('route /');
-  res.render('home');
-});
-
-router.get("/contact", (req, res) => {
-  console.log('route /contact');
-  res.render('contact');
-});
-
 // router.get("/users",usercontroler.getAll); => test avec Virginie
-
-router.get("/about", (req, res) => {
-  console.log('route /about');
-  res.render('about');
-});
-
 
 router.get("/search", (req, res) => {
   console.log('route /search');
@@ -81,7 +66,11 @@ router.get("/profiles", (req, res) => {
   res.render('profiles');
 });
 
+// code des routes avec le mainController en place
 
+router.get('/', mainController.home); 
+router.get('/contact', mainController.home); 
+router.get('/a-propos', mainController.about); 
 
 // CODES DES ROUTES DU BACK
 
@@ -113,9 +102,6 @@ export default router;
 
 // ***********
 // exemples d'endpoints A VERIFIER ci dessous
-// router.get('/', mainController.home); 
-// router.get('/contact', mainController.home); 
-// router.get('/a-propos', mainController.about); 
 // router.get('/rechercher', mainController.search); 
 // router.get('/connexion', mainController.login); 
 // router.get('/inscription', mainController.signup); 

@@ -16,8 +16,8 @@ import User from '../models/User.js';
 
 const authController =
 
+//-------------------------------------------- début code inscription ---------------------------------//
 // pour page /signup, inscription
-
 // quand je clique sur bouton "inscription" cela me rend la vue EJS signup
 
 {
@@ -62,8 +62,10 @@ const authController =
           });
           console.log('utilisateur qui s\inscrit', userRegistered);
 
+          //*********!!!!!!!!!!!!!! ici besoin  aide !!!!!!!!!!!!!!! */
           // on ajoute le nouvel utilisateur dans la liste des utilisateurs => Où se trouve cette liste ???? A revoir
           users.push(userRegistered); // ICI ASSOCIER LA BASE DE DONNEES LISTANT TOUS LES USERS
+          // lancer la création de la base de données
           console.log(users, 'utilisateur ajouté dans la liste des utilisateurs, dans un tableau USERS pour l\'instant');
 
           // on redirige vers la page de connexion, par exemple : 
@@ -191,6 +193,14 @@ const verifyPassword = async (plainPassword, hashedPassword) => {
 verifyPassword(plainPassword, hashedPassword);
 console.log('essai appel fonction verifyPassword',verifyPassword);
 
-// maintenant utiliser cette fonction avec éléments saisis récupérés dans le formulaire
+verifyPassword('ELISEelise2025//', '$2b$10$bhI25Sj5gTtJ/kPlK9/xEOmYTN8tprq0hW5VPnc9yp5uC9Ts1NpsS');
+console.log('2e essai verifyPassword', verifyPassword);
 
+
+// OK fonctionne, maintenant utiliser cette fonction avec éléments saisis récupérés dans le formulaire
+
+// surement appliquer cette fonction avec req.body.password et req.body.confirm-password
+
+
+//-----------------------------------------fin code inscription ---------------------------------------------//
 export default authController;
