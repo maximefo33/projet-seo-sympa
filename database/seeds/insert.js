@@ -38,8 +38,8 @@ const insertUsers = async () => {
   try {
     const users = [
       { email: 'alice@exemple.com', password: 'Vg9!rLu@3wQz', role: 'professionnel' },
-      { email: 'bob@exemple.com', password: 'Mf#72Tp!xaKL', role: 'professionnel' },
-      { email: 'chloe@exemple.com', password: 'Xe&4pQs9!Bjd', role: 'professionnel' },
+      { email: 'bob@exemple.com', password: 'Mf#72Tp!xaKL', role: 'professionnel'  },
+      { email: 'chloe@exemple.com', password: 'Xe&4pQs9!Bjd', role: 'professionnel'},
     ];
 
     for (const user of users) {

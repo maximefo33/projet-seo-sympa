@@ -5,31 +5,32 @@ import sequelize from '../../config/database.js';
 
 
 const authController = {
-  
+  //===========Connexion=======================//
  // Affiche la page de connexion
   login: function(req, res) {
-    res.render('login', { error: null });
+    res.render('login', { error: null }); //appel view 
   },
   
   // Action de connexion
   loginAction: async function(req, res) {
     try {
-      const { email, password } = req.body;
+      const { email, password } = req.body; //recuperer email, password
         console.log("Email reçu:", email);
         console.log("Password reçu:", password);
 
-      const user = await User.findOne({ where: { email } });
+      const user = await User.findOne({ where: { email } }); //recherche user avec Sequalize via email 
        console.log("Utilisateur trouvé:", user);
 
+//Gestion des errors avec try/catch et throw 
       if (!user) {
          console.log("Utilisateur introuvable !");
-        return res.render('login', { error: 'Mauvais couple identifiant/mot de passe' });
+        return res.render('login', { error: 'Mauvais couple identifiant/mot de passe' }); //dans loin ejs -error
       }
 
-      const result = await bcrypt.compare(password, user.password);
+      const result = await bcrypt.compare(password, user.password); //verficiation du mote de passe avec bcrypt
         console.log("Résultat comparaison hash:", result);
 
-      if (result) {
+      if (result) { //Mise en place de la session user
         req.session.isLogged = true;
         req.session.userId = user.id_user;
         req.session.userRole = user.role; //  gérer les rôles
@@ -45,6 +46,7 @@ const authController = {
     }
   },
 
+  //=======================================fin de connexion==========================//
   
   signup: function(req, res) {
     res.render('register');

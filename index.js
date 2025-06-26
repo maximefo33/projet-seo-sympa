@@ -30,9 +30,10 @@ app.set("view engine", "ejs");
 app.set("views", "./app/views");
 
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); // middleware pour parser les données urlencoded
 
-//Session middleware
+
+//Configuration de session 
 
 app.use(session({
   secret: process.env.SECRET || "un_secret_par_defaut",

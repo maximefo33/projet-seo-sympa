@@ -7,6 +7,8 @@
  // }
 //}
 
+//Protection la route /dashboard
+
 export function isLoggedIn(req, res, next) {
   if (req.session && req.session.isLogged) {
     next();

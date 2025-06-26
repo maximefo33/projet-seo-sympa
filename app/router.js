@@ -35,32 +35,19 @@ router.get("/search", (req, res) => {
   res.render('search');
 });
 
-// =================== Connexion / Déconnexion ===================
+// =================== Connexion /  ===================
 router.post('/login', authController.loginAction);
-router.get('/login', authController.login);
+router.get('/login', authController.login); //  GET pour afficher la page de connexion
 
-// Affiche le formulaire de connexion
-//router.get("/login", (req, res) => {
-//  res.render("login");
-//});
-
-// Soumission du formulaire de connexion
-//router.post("/login", userController.login);  
-
-// Déconnexion
-//router.get("/logout", userController.logout); 
-
-//===================privee============================
-//router.get('/dashboard', isLoggedIn, (req, res) => {
- // res.render('dashboard');
-//});
-
+//==========================================// 
 
 
 router.get("/sign-in", (req, res) => {
    console.log('route /sign-in');
   res.render('sign-in');
 });
+
+//Protection page prive 
 
 router.get('/dashboard', isLoggedIn, (req, res) => {
   res.render('dashboard');
