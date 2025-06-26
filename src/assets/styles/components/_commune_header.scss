@@ -1,59 +1,92 @@
 @use '../vars';
 @use '../mixins' as *; // pour les media queries @include small etc.
 
-// Conteneur de navigation principal
-.header_nav {
-  background: vars.$color-white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  padding: 1rem;
+//header
 
-  @include small {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 2rem;
-  }
+.menu {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  margin: -1%;
 
-  img {
-    width: 120px;
-    height: 120px;
-    background-color: vars.$color-white;
-
-    @include small {
-      width: 160px;
-      height: 160px;
-    }
-  }
 }
 
-// Liste de liens de navigation
-.header_nav_ul {
+.menu-nav {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 1rem;
+}
+
+.logo {
+  height: 120px;
+}
+
+.main-nav__list {
   list-style: none;
+  display: flex;
+  gap: 2rem;
   padding: 0;
   margin: 0;
-  text-align: center;
-
-  @include small {
-    flex-direction: row;
-    gap: 4rem;
-    text-align: left;
-  }
 }
 
-// Styles des liens
-.header_nav_li a {
+.main-nav__link {
   text-decoration: none;
-  color: vars.$color-darkpurple;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px vars.$color-lightblue;
+  color: vars.$color-black;
   font-size: vars.$subtitle-fontsize;
-
-  &:hover {
-    text-decoration: underline;
-  }
 }
+
+.menu-search {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.button__append {
+  background: linear-gradient(to bottom right,
+      transparent,
+      vars.$color-purple,
+      vars.$color-blue,
+      vars.$color-lightblue);
+  border-radius: 30px;
+  width: 125px;
+  padding: 0.5rem;
+  color: white;
+  border: none;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-input {
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  border: 1px solid vars.$color-black;
+  min-width: 200px;
+}
+
+.search-button {
+  background: linear-gradient(to bottom right,
+      transparent,
+      vars.$color-purple,
+      vars.$color-blue,
+      vars.$color-lightblue);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+}
+
+.icon {
+  color: black;
+
+}
+
+//fin header
