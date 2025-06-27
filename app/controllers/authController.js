@@ -41,49 +41,39 @@ const authController = {
         throw new Error('Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial parmi * / &');
       }
 
+      // *********************************ajout code E 27/6
       // hachage du mot de passe
-      bcrypt.hash(req.body.password, 10, (error, hash) => {
-        // console.log('req body password :', req.body.password);
-        // console.log('mdp haché :', hash);
-        // le mdp haché est dans <hash>
-        try {
-          if (error) {
-            throw error;
-          }
+      const hash = await bcrypt.hash(req.body.password, 10);
+      // console.log('req body password :', req.body.password);
+      // console.log('mdp haché :', hash);
+      // le mdp haché est dans <hash>
 
-          // *********************************ajout code E 27/6
-          // création nouvel utilisateur inscrit
-          const userRegistered = new User({
-            email: req.body.email,
-            // password: req.body.password,
-            password: hash, // on stocke le mdp haché
-            firstname: req.body.firstname,
-            lastname: req.body.lastname
-          });
-          console.log('utilisateur qui s\inscrit', userRegistered);
-
-          // on fait persister ce nouvel utilisateur inscrit en base de données
-          // see @ https://johackim.com/sequelize?utm_source=rss&utm_medium=rss
-          // see @ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/ 
-
-          const utilisateurNouvel = userRegistered.create();
-          console.log('utilisateur créé :', utilisateurNouvel);
-
-          //       // pour que l'utilisateur reste connecté, on le mémorise en session et on le dirige sur la page /dashboard
-          req.session.isLogged = true;
-          req.session.userId = userNew.id;
-          res.redirect('/dashboard');
-        }
-        catch (error) {
-          console.error(error);
-          res.render('signup', { alert: error.message });
-        }
+      // création nouvel utilisateur inscrit
+      const userRegistered = new User({
+        email: req.body.email,
+        // password: req.body.password,
+        password: hash, // on stocke le mdp haché
+        firstname: req.body.firstname,
+        lastname: req.body.lastname
       });
+      console.log('utilisateur qui s\inscrit', userRegistered);
+
+      // on fait persister ce nouvel utilisateur inscrit en base de données
+      // see @ https://johackim.com/sequelize?utm_source=rss&utm_medium=rss
+      // see @ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/ 
+
+      const userNeo = userRegistered.save(); // j'avais mis .create au début mais a priori plutot save pour enregistrer l'instance
+      console.log('utilisateur créé :', userNeo);
+
+      // pour que l'utilisateur reste connecté, on le mémorise en session et on le dirige sur la page /dashboard
+      req.session.isLogged = true;
+      req.session.userId = userNeo.id;
+      res.redirect('/dashboard');
+    } catch (error) {     // renvoyer message erreur dans la vue
+      console.error(error);
+      res.render('signup', { alert: error.message });
     }
   },
-
-
-
 
   // *********************** fin ajout code E 27/6
 
@@ -131,21 +121,16 @@ const authController = {
   },
 };
 
-  //=======================================fin de connexion==========================//
+//=======================================fin de connexion==========================//
 
 //   // pour se déconnecter, la session est terminée, les données sont supprimées, et l'utilisateur est redigiré vers la page d'accueil /
 
-//************* */ à voir où on insère LOGOUT
-
+//************* */ à voir où on insère la fonction LOGOUT ci-dessous
 //  logout: function(req, res) {
 // req.session.destroy();
 //  res.redirect('/');
 //   },
 //*************** */
-
-
-};
-
 
 
 
