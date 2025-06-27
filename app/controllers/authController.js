@@ -15,7 +15,9 @@ import sequelize from '../../config/database.js';
 const authController = {
 
   //-------------------------------------------- début code inscription ---------------------------------//
-  // pour page /signup, inscription
+  // code ci-dessous des fonctions signup et signupaction inspirés  de : Pilori S06-Pilori-BDD et S05E15-Atelier-la-Guilde
+  // on définit notre controller pour l'authentification de l'inscription
+  // pour page /signup, inscription 
   // quand je clique sur bouton "inscription" cela me rend la vue EJS signup
 
 
@@ -39,9 +41,7 @@ const authController = {
         throw new Error('Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial parmi * / &');
       }
 
-      // ***** solution 1 - atelier S05E15-Atelier-la-Guilde
-
-      // 1.B hachage du mot de passe
+      // hachage du mot de passe
       bcrypt.hash(req.body.password, 10, (error, hash) => {
         // console.log('req body password :', req.body.password);
         // console.log('mdp haché :', hash);
@@ -51,6 +51,8 @@ const authController = {
             throw error;
           }
 
+          // *********************************ajout code E 27/6
+          // création nouvel utilisateur inscrit
           const userRegistered = new User({
             email: req.body.email,
             // password: req.body.password,
@@ -60,33 +62,33 @@ const authController = {
           });
           console.log('utilisateur qui s\inscrit', userRegistered);
 
-          //*********!!!!!!!!!!!!!! ici besoin  aide !!!!!!!!!!!!!!! */
-          // on ajoute le nouvel utilisateur dans la liste des utilisateurs => Où se trouve cette liste ???? A revoir
-          users.push(userRegistered); // ICI ASSOCIER LA BASE DE DONNEES LISTANT TOUS LES USERS
-          // lancer la création de la base de données
-          console.log(users, 'utilisateur ajouté dans la liste des utilisateurs, dans un tableau USERS pour l\'instant');
+          // on fait persister ce nouvel utilisateur inscrit en base de données
+          // see @ https://johackim.com/sequelize?utm_source=rss&utm_medium=rss
+          // see @ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/ 
 
-          // on redirige vers la page de connexion, par exemple : 
-          res.redirect('/login');
+          const utilisateurNouvel = userRegistered.create();
+          console.log('utilisateur créé :', utilisateurNouvel);
+
+          //       // pour que l'utilisateur reste connecté, on le mémorise en session et on le dirige sur la page /dashboard
+          req.session.isLogged = true;
+          req.session.userId = userNew.id;
+          res.redirect('/dashboard');
         }
         catch (error) {
-          // on affiche l erreur pour l utilisateur
+          console.error(error);
+          res.render('signup', { alert: error.message });
         }
       });
     }
-
-    catch (error) {
-      // renvoyer message erreur dans la vue
-      res.render('signup', {
-        message: error.message
-      });
-
-    };
-
-    res.redirect('/'); // ou /signup
   },
 
+
+
+
+  // *********************** fin ajout code E 27/6
+
   //-----------------------------------------fin code inscription ---------------------------------------------//
+
   //===========Connexion=======================//
   // Affiche la page de connexion
   login: function (req, res) {
@@ -127,58 +129,23 @@ const authController = {
       res.render('login', { error: 'Erreur lors de la tentative de connexion' });
     }
   },
+};
 
   //=======================================fin de connexion==========================//
 
-  // code ci-dessous des fonctions signup et signupaction inspirés  de : Pilori S06-Pilori-BDD et S05E15-Atelier-la-Guilde
+//   // pour se déconnecter, la session est terminée, les données sont supprimées, et l'utilisateur est redigiré vers la page d'accueil /
 
-  // on définit notre controller pour l'authentification de l'inscription
+//************* */ à voir où on insère LOGOUT
+
+//  logout: function(req, res) {
+// req.session.destroy();
+//  res.redirect('/');
+//   },
+//*************** */
+
 
 };
 
-
-//  logout: function(req, res) {
-//   req.session.destroy();
-//   res.redirect('/');
-// };
-
-
-//****fin solution 1, solution qui fonctionne en tous cas dans la console et le devtool */
-
-//****** fin solution 1, 2eme solution ci-dessous
-
-// ******** solution 2
-//       // on crée le hash
-//       const hash = await bcrypt.hash(req.body.password, 10);
-//       // 10 = nombre de tours de répétition pour le sallage pour rendre le mot de passe illisible, 10 = nombre préconisé
-//       // on insère cette const hash dans req.body
-//       req.body.hash = hash;
-
-
-
-//       //************************************* */
-//       // on crée un objet user
-//       const userNew = new User(req.body);
-//       // qu'on fait persister en bdd
-//       await userNew.create();
-//       console.log('utilisateur créé', userNew);
-
-//       // pour que l'utilisateur reste connecté on le mémorise en session et on le dirige sur la page /dashboard
-//       req.session.isLogged = true;
-//       req.session.userId = userNew.id;
-//       res.redirect('/dashboard');
-//     } catch (error) {
-//       console.error(error);
-//       res.render('signup', { alert: error.message });
-//     }
-//   },
-
-//   // pour se déconnecter, la session est terminée, les données sont supprimées, et l'utilisateur est redigiré vers la page d'accueil /
-//   logout: function(req, res) {
-//     req.session.destroy();
-//     res.redirect('/');
-//   },
-// ******fin solution 2
 
 
 
@@ -198,25 +165,25 @@ const confirmPassword = 'monMotDePasseSuperSecret';
 const verifyPassword = async (plainPassword, confirmPassword) => {
   try {
     if (plainPassword !== confirmPassword) {
-console.log('❌ les mots de passe saisis ne sont pas identiques');
-return false;
+      console.log('❌ les mots de passe saisis ne sont pas identiques');
+      return false;
     }
     // on hashe le mot de passe
-const hashedPassword = await bcrypt.hash(plainPassword, 10);
-console.log('Mot de passe passé au hash :', hashedPassword);
+    const hashedPassword = await bcrypt.hash(plainPassword, 10);
+    console.log('Mot de passe passé au hash :', hashedPassword);
 
-// on vérifie si le mot de passe en clair correspond au hash
-const same = await bcrypt.compare(plainPassword, hashedPassword);
-if (same) {
-  console.log('✅ Mot de passe valide');
-  } else {
-    console.log('❌ Mot de passe invalide');    
+    // on vérifie si le mot de passe en clair correspond au hash
+    const same = await bcrypt.compare(plainPassword, hashedPassword);
+    if (same) {
+      console.log('✅ Mot de passe valide');
+    } else {
+      console.log('❌ Mot de passe invalide');
+    }
+    return same;
+  } catch (error) {
+    console.error('Erreur lors de la vérification du mot de passe', error);
+    throw error;
   }
-  return same;
-} catch (error) {
-  console.error('Erreur lors de la vérification du mot de passe', error);
-  throw error;
-}
 };
 
 // test de la fonction
@@ -228,10 +195,6 @@ console.log('test de la fonction verifyPassword', verifyPassword);
 
 // dans la vue ejs signup, les champs NAME pour mots de passe sont password et confirm-password
 // surement appliquer cette fonction avec req.body.password et req.body.confirm-password
-
-
-
-
 
 export default authController;
 
