@@ -1,7 +1,7 @@
 // on a besoin de récupérer le module express
 import express from "express";
 
-//imports ajoutés pour les routes backend 
+//imports ajoutés pour les ENDPOINTS
 import mainController from "./controllers/mainController.js";
 import authController from "./controllers/authController.js";
 import * as userController  from "./controllers/userController.js";
@@ -14,128 +14,46 @@ console.log("test affichage console");
 // on crée un objet router à l'aide de la méthode adaptée fournie par express
 const router = express.Router();
 
-router.get("/", (req, res) => {
-   console.log('route /');
-  res.render('home');
-});
+// notre api est une liste de endpoint (d'adresses) qui donneront lieu à un résultat
 
-router.get("/contact", (req, res) => {
-   console.log('route /contact');
-  res.render('contact');
-});
-
-router.get("/users",userController.getAll);
-
-router.get("/about", (req, res) => {
-   console.log('route /about');
-  res.render('about');
-});
-
-
-// router.get("/users",usercontroler.getAll); => test avec Virginie
-
-router.get("/search", (req, res) => {
-  console.log('route /search');
-  res.render('search');
-});
-
-
-
-
-
-// je la commente car route refaite plus bas avec authController
-// router.get("/sign-in", (req, res) => {
-//   console.log('route /sign-in');
-//   res.render('sign-in');
-// });
-
-
-router.get("/dashboard", (req, res) => {
-  console.log('route /dashboard');
-});
-
-//Protection page privée
-
-router.get('/dashboard', isLoggedIn, (req, res) => {
-
-  res.render('dashboard');
-});
-
-
-//public profile
-router.get("/profile", (req, res) => {
-  console.log('route /profile');
-  res.render('profile');
-});
-
-router.get("/terms-and-conditions", (req, res) => {
-  console.log('route /terms-and-conditions');
-  res.render('conditions');
-});
-
-router.get("/legal", (req, res) => {
-  console.log('route /legal-notices');
-  res.render('legal');
-});
-
-router.get("/accessibility-statement", (req, res) => {
-  console.log('route /accessibility');
-  res.render('accessibility');
-});
-
-
-router.get("/profiles", (req, res) => {
-  console.log('route /profiles');
-  res.render('profiles');
-});
-
-// code des routes avec le mainController en place
+// CODE DES ROUTES DU FRONT
 
 router.get('/', mainController.home); 
-router.get('/contact', mainController.home); 
+router.get('/contact', mainController.contact); 
 router.get('/a-propos', mainController.about); 
+router.get('/rechercher', mainController.search); 
+router.get('/tableau-de-bord-prive', mainController.dashboard); 
+router.get('/profil', mainController.profile); // route marche pas mais à cause du code dedans pb avec user
+router.get('/propositions-services', mainController.profiles); // à renommer ?
+router.get('/conditions-generales', mainController.conditions); 
+router.get('/mentions-legales', mainController.legal); 
+router.get('/declaration-d-accessibilite', mainController.accessibility); 
+router.get('/page-d-erreur', mainController.error);
+ 
+
+
+// CODES DES ENDPOINTS DU BACK
+
 // =================== Connexion /  ===================
 router.post('/login', authController.loginAction);
 router.get('/login', authController.login); //  GET pour afficher la page de connexion
 
-//==========================================// 
-
-// CODES DES ROUTES DU BACK
-
-// ici code ajouté par E - A le 25/6/25
-// import des fonctions (cf haut du fichier)
-
-// création des routes pour l'inscription
+//============ Inscription ====================// 
 
 // route pour aller sur inscription
 router.get('/signup', authController.signup);
 // route inscription faite
 router.post('/signup', authController.signupAction);
 
-// s'il se déconnecte, route retour vers la page accueil
+// si l'user déconnecte, route retour vers la page accueil
 // commenté car 2 routes / accueil pour l'instant
 // router.get('/', isLogged, authController.logout);
+// ------------ fin routes inscription -------
+
 
 
 // on l'exporte
 export default router;
 
-// PAR LA SUITE :
 
-// il faudra déplacer les routes front dans le mainController, 
-// importer ici le mainController 
-// notre api est une liste de endpoint (d'adresses) qui donneront lieu à un résultat
-// et ajouter les endpoints simplifiées telles que 
-// A REMETTRE sur nos fichiers /+ nom EN FRANCAIS AVANT !!!
 
-// ***********
-// exemples d'endpoints A VERIFIER ci dessous
-// router.get('/rechercher', mainController.search); 
-// router.get('/connexion', mainController.login); 
-// router.get('/inscription', mainController.signup); 
-// router.get('/tableau-de-bord', mainController.dashboard); 
-// router.get('/conditions-legales', mainController.conditions); 
-// router.get('/declaration-d-accessibilite', mainController.accessibility); 
-// router.get('/mentions-legales', mainController.legal); 
-// router.get('/profile', mainController.profile); 
- //************
