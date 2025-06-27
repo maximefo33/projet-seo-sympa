@@ -22,7 +22,7 @@ router.get('/', mainController.home);
 router.get('/contact', mainController.contact); 
 router.get('/a-propos', mainController.about); 
 router.get('/rechercher', mainController.search); 
-router.get('/tableau-de-bord-prive', mainController.dashboard); 
+// router.get('/tableau-de-bord-prive', mainController.dashboard); 
 router.get('/profil', mainController.profile); // route marche pas mais à cause du code dedans pb avec user
 router.get('/propositions-services', mainController.profiles); // à renommer ?
 router.get('/conditions-generales', mainController.conditions); 

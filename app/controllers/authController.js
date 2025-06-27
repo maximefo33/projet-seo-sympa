@@ -54,7 +54,8 @@ const authController = {
         // password: req.body.password,
         password: hash, // on stocke le mdp haché
         firstname: req.body.firstname,
-        lastname: req.body.lastname
+        lastname: req.body.lastname,
+        role: req.body.role,
       });
       console.log('utilisateur qui s\inscrit', userRegistered);
 
@@ -62,13 +63,11 @@ const authController = {
       // see @ https://johackim.com/sequelize?utm_source=rss&utm_medium=rss
       // see @ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/ 
 
-      const userNeo = userRegistered.save(); // j'avais mis .create au début mais a priori plutot save pour enregistrer l'instance
+      const userNeo = userRegistered.save(); // j'avais mis .create au début mais a priori plutot save pour enregistrer l'instance 
+      // // utiliser plutôt create - avec CREATE = échec, avec SAVE = on arrive sur la page login
       console.log('utilisateur créé :', userNeo);
 
-      // pour que l'utilisateur reste connecté, on le mémorise en session et on le dirige sur la page /dashboard
-      req.session.isLogged = true;
-      req.session.userId = userNeo.id;
-      res.redirect('/dashboard');
+      res.redirect('/login');
     } catch (error) {     // renvoyer message erreur dans la vue
       console.error(error);
       res.render('signup', { alert: error.message });
@@ -138,7 +137,6 @@ const authController = {
 
 // BCRYPT Compare essai 3 
 // bcrypt compare : comparer mot de passe donné à l'inscription et confirmation de ce mdp
-
 
 // see @ https://laconsole.dev/blog/hacher-mot-de-passe-js-bcrypt 
 

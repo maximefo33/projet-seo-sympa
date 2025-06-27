@@ -30,44 +30,52 @@ const mainController = {
     });
   },
 
+  //*************A ENLEVER AVANT FUSION CAR MAXIME A FAIT CE ENDPOINT */
   // endpoint dashboard sera en accès protégé car page privée, uniquement si connexion OK
   dashboard: function (req, res) {
     res.render('dashboard', {
       title: 'mon tableau de bord privé', //voir si on garde ce titre ?
     });
   },
+  //***************************************************** */
 
-    profile: function (req, res) {
+  profile: function (req, res) {
     res.render('profile', {
       title: 'profil public', // voir si on renomme ?
+      user: {
+        name: 'PIF', //ensuite on dynamisera ces infos
+        job: "berger",
+        location: 'Drôme',
+        bio: 'depuis 2010',
+      }
     });
   },
 
-   profiles: function (req, res) {
+  profiles: function (req, res) {
     res.render('profiles', {
       title: 'propositions de services', //à renommer
     });
   },
 
-conditions : function (req, res) {
+  conditions: function (req, res) {
     res.render('conditions', {
-      title: 'conditions générales', 
+      title: 'conditions générales',
     });
   },
 
-legal: function (req, res) {
+  legal: function (req, res) {
     res.render('legal', {
       title: 'mentions légales et politique de confidentialité',
     });
   },
 
-accessibility: function (req, res) {
+  accessibility: function (req, res) {
     res.render('accessibility', {
       title: 'déclaration d\'accessibilité',
     });
   },
 
-error: function (req, res) {
+  error: function (req, res) {
     res.render('error', {
       title: 'page d\'erreur',
     });
