@@ -180,79 +180,57 @@ const authController = {
 //   },
 // ******fin solution 2
 
-///*****************BCRYPT COMPARE ***************** */
-
-// ici ajout 26/6 - bcrypt compare mot de passe donné à l'inscription et confirmation de ce mdp
-// et bcrypt compare couple mail/ mdp => dans LOGIN je pense voir avec Gulnur
-
-// !!!!!!!!!!!!!!!!!!!! je n'ai pas compris comment récupérer ma liste d'USERS (sûrement avec script suite seeds ?) !!!!!!!!!
-
-// dans la vue ejs signup, les champs NAME pour mots de passe sont password et confirm-password
 
 
-// essai 1 bcrypt compare password *****************
-// async function signupUser(password, confirm-password) {
-//   if (password !== confirm-password) {
-//     throw : new Error ('Les 2 mots de passe saisis ne sont pas identiques');
-//   }
+///*****************FONCTION BCRYPT COMPARE ***************** */
 
-//   const saltRounds = 10; // nb de tours pour le hash
-//   const hashedPassword = await bcrypt.hash(password, saltRounds);
-// console.log('Mot de passe passé au hash', hashedPassword);
-// return hashedPassword;
-// console.log(signupUser, 'fonction inscription User');
+// BCRYPT Compare essai 3 
+// bcrypt compare : comparer mot de passe donné à l'inscription et confirmation de ce mdp
 
-// };
-// }
-// const verifyPassword = async (hash, passwordConfirm) => {
-//   try {
-//     const match = await bcrypt.compare(hash, req.body.password);
-//     if (match) {
-//       console.log('✅ Mot de passe valide');
-//     } else {
-//       console.log('❌ Mot de passe invalide');
-//     }
-//     return match;
-//   } catch (error) {
-//     console.error('Erreur lors de la vérification du mot de passe :', error);
-//     throw error;
-//   }
-// };
-
-
-// essai 2 bcrypt compare password *****************
 
 // see @ https://laconsole.dev/blog/hacher-mot-de-passe-js-bcrypt 
 
-const plainPassword = 'monMotDePasseSuperSecret';
-const hashedPassword = '$2b$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36YzTQ0iP/hxt8PxyeKnVSS';
 
-const verifyPassword = async (plainPassword, hashedPassword) => {
+const plainPassword = 'monMotDePasseSuperSecret';
+const confirmPassword = 'monMotDePasseSuperSecret';
+
+// avant d'utiliser bcrypt.hash, on vérifie si mot de passe saisi et sa confirmation sont les mêmes
+const verifyPassword = async (plainPassword, confirmPassword) => {
   try {
-    const match = await bcrypt.compare(plainPassword, hashedPassword);
-    if (match) {
-      console.log('✅ Mot de passe valide');
-    } else {
-      console.log('❌ Mot de passe invalide');
+    if (plainPassword !== confirmPassword) {
+console.log('❌ les mots de passe saisis ne sont pas identiques');
+return false;
     }
-    return match;
-  } catch (error) {
-    console.error('Erreur lors de la vérification du mot de passe :', error);
-    throw error;
+    // on hashe le mot de passe
+const hashedPassword = await bcrypt.hash(plainPassword, 10);
+console.log('Mot de passe passé au hash :', hashedPassword);
+
+// on vérifie si le mot de passe en clair correspond au hash
+const same = await bcrypt.compare(plainPassword, hashedPassword);
+if (same) {
+  console.log('✅ Mot de passe valide');
+  } else {
+    console.log('❌ Mot de passe invalide');    
   }
+  return same;
+} catch (error) {
+  console.error('Erreur lors de la vérification du mot de passe', error);
+  throw error;
+}
 };
 
-// on essaie d'appeler cette fonction :
-verifyPassword(plainPassword, hashedPassword);
-console.log('essai appel fonction verifyPassword', verifyPassword);
-
-verifyPassword('ELISEelise2025//', '$2b$10$bhI25Sj5gTtJ/kPlK9/xEOmYTN8tprq0hW5VPnc9yp5uC9Ts1NpsS');
-console.log('2e essai verifyPassword', verifyPassword);
+// test de la fonction
+verifyPassword(plainPassword, confirmPassword);
+console.log('test de la fonction verifyPassword', verifyPassword);
 
 
 // OK fonctionne, maintenant utiliser cette fonction avec éléments saisis récupérés dans le formulaire
 
+// dans la vue ejs signup, les champs NAME pour mots de passe sont password et confirm-password
 // surement appliquer cette fonction avec req.body.password et req.body.confirm-password
+
+
+
 
 
 export default authController;
