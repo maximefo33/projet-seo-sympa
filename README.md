@@ -57,15 +57,20 @@ table PROFILE
 table MESSAGE
 table RELATION
 
-## essais compléter pages signup login
+## 30/6/25 - essais : compléter pages signup puis login
 
 avec ce faux utilisateur je remplis les champs dans /signup dans le navigateur
 
 prénom : Leo
 nom : MAT
 rôle : expert
-email leo@gmail.com
+email | leo@gamil.com     
 mdp LEOleo2025//**
 
-**idées**
-mettre un oeil à côté des champs de mot de passe saisis pour les rendre visible (accessibilité !!)
+puis je vais sur /login et saisis le mail + mdp = ça marche
+puis je regarde sur psql avec  : SELECT * FROM "user";
+
+l'utilisateur Léo est bien créé !
+
+ => ça fonctionne et réoriente sur la vue dashboard.ejs (pour l'instant page en erreur)
+
