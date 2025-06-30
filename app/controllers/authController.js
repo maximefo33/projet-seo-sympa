@@ -32,7 +32,7 @@ const authController = {
   // - confirmation email à coder avec bcrypt compare
   // - nom et prénom : limiter à 50 caractères
 
-  // *********************************ajout code 30/6 E
+  // *********************************début inscription /signup ******************
   signupAction: async function (req, res) {
     try {
 
@@ -98,11 +98,9 @@ const authController = {
     }
   },
 
-  // *********************** fin ajout code E
-
   //-----------------------------------------fin code inscription ---------------------------------------------//
 
-  //===========Connexion=======================//
+  //===========Connexion    page /login=======================//
   // Affiche la page de connexion
   login: function (req, res) {
     res.render('login', { error: null }); //appel view 
@@ -154,56 +152,6 @@ const authController = {
 //  res.redirect('/');
 //   },
 //*************** */
-
-
-
-//*************************** */ 30/6 : j'insère cette fonction dans signupAction, donc je commente tout ci-dessous
-///*****************FONCTION BCRYPT COMPARE ***************** */
-
-
-// bcrypt compare : comparer mot de passe donné à l'inscription et confirmation de ce mdp
-// see @ https://laconsole.dev/blog/hacher-mot-de-passe-js-bcrypt 
-
-
-// const plainPassword = 'monMotDePasseSuperSecret';
-// const confirmPassword = 'monMotDePasseSuperSecret';
-
-// // avant d'utiliser bcrypt.hash, on vérifie si mot de passe saisi et sa confirmation sont les mêmes
-// const verifyPassword = async (plainPassword, confirmPassword) => {
-//   try {
-//     if (plainPassword !== confirmPassword) {
-//       console.log('❌ les mots de passe saisis ne sont pas identiques');
-//       return false;
-//     }
-//     // on hashe le mot de passe
-//     const hashedPassword = await bcrypt.hash(plainPassword, 10);
-//     console.log('Mot de passe passé au hash :', hashedPassword);
-
-//     // on vérifie si le mot de passe en clair correspond au hash
-//     const same = await bcrypt.compare(plainPassword, hashedPassword);
-//     if (same) {
-//       console.log('✅ Mot de passe valide');
-//     } else {
-//       console.log('❌ Mot de passe invalide');
-//     }
-//     return same;
-//   } catch (error) {
-//     console.error('Erreur lors de la vérification du mot de passe', error);
-//     throw error;
-//   }
-// };
-
-// test de la fonction
-// verifyPassword(plainPassword, confirmPassword);
-// console.log('test de la fonction verifyPassword', verifyPassword);
-
-// OK fonctionne, maintenant utiliser cette fonction avec éléments saisis récupérés dans le formulaire
-
-// dans la vue ejs signup, les champs NAME pour mots de passe sont password et confirm-password
-// surement appliquer cette fonction avec req.body.password et req.body.confirm-password
-// **********************fin fonction commentée 30/6
-
-
 
 export default authController;
 

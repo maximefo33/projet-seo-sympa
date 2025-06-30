@@ -57,3 +57,15 @@ table PROFILE
 table MESSAGE
 table RELATION
 
+## essais compléter pages signup login
+
+avec ce faux utilisateur je remplis les champs dans /signup dans le navigateur
+
+prénom : Leo
+nom : MAT
+rôle : expert
+email leo@gmail.com
+mdp LEOleo2025//**
+
+**idées**
+mettre un oeil à côté des champs de mot de passe saisis pour les rendre visible (accessibilité !!)
