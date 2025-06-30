@@ -32,16 +32,37 @@ const authController = {
   // - confirmation email à coder avec bcrypt compare
   // - nom et prénom : limiter à 50 caractères
 
+  // *********************************ajout code 30/6 E
   signupAction: async function (req, res) {
     try {
+
+      const plainPassword = req.body.password; // 1er mot de passe saisi
+      const confirmPassword = req.body.confirmPassword; // confirmation du mot de passe
+
+      // fonction de vérification entre le mot de passe saisi + la confirmation du mot de passe saisi
+      const verifyPassword = async (plainPassword, confirmPassword) => {
+        if (plainPassword !== confirmPassword) {
+          console.log('les mots de passe saisis ne sont pas identiques');
+          return false;
+        }
+        return true; // retourne vrai si les mots de passe sont identiques
+      }
+
+      // vérification des password
+
+      const passwordsSame = await verifyPassword(plainPassword, confirmPassword);
+      if (!passwordsSame) {
+        throw new Error('Les mots de passe ne correspondent pas.');
+      }
+      console.log(passwordsSame, 'mdp identiques ?');
+
       // on valide le mot de passe 
       // on a mis 8 caractères pour tester avec fakefiller, on repassera à 14 après
       const options = { minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
-      if (!validator.isStrongPassword(req.body.password, options)) {
+      if (!validator.isStrongPassword(plainPassword, options)) {
         throw new Error('Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial parmi * / &');
       }
 
-      // *********************************ajout code
       // hachage du mot de passe
       const hash = await bcrypt.hash(req.body.password, 10);
       // console.log('req body password :', req.body.password);
@@ -51,11 +72,12 @@ const authController = {
       // création nouvel utilisateur inscrit
       const userRegistered = {
         email: req.body.email,
-        // password: req.body.password,
+        // password: req.body.password, = const plainPassword
         password: hash, // on stocke le mdp haché
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         role: req.body.role,
+        // user_sender_id : 1,
       };
       console.log('utilisateur qui s\inscrit', userRegistered);
 
@@ -63,8 +85,7 @@ const authController = {
       // see @ https://johackim.com/sequelize?utm_source=rss&utm_medium=rss
       // see @ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/ 
 
-
-      // je n'appelais pas la fonction correctement, il faut faire User.create(userRegistered)
+      // 30/6 - je n'appelais pas la fonction correctement, il faut faire User.create(userRegistered)
 
       const userNeo = await User.create(userRegistered);
       console.log('utilisateur créé :', userNeo);
@@ -135,51 +156,53 @@ const authController = {
 
 
 
+//*************************** */ 30/6 : j'insère cette fonction dans signupAction, donc je commente tout ci-dessous
 ///*****************FONCTION BCRYPT COMPARE ***************** */
 
-// BCRYPT Compare essai 3 
-// bcrypt compare : comparer mot de passe donné à l'inscription et confirmation de ce mdp
 
+// bcrypt compare : comparer mot de passe donné à l'inscription et confirmation de ce mdp
 // see @ https://laconsole.dev/blog/hacher-mot-de-passe-js-bcrypt 
 
 
-const plainPassword = 'monMotDePasseSuperSecret';
-const confirmPassword = 'monMotDePasseSuperSecret';
+// const plainPassword = 'monMotDePasseSuperSecret';
+// const confirmPassword = 'monMotDePasseSuperSecret';
 
-// avant d'utiliser bcrypt.hash, on vérifie si mot de passe saisi et sa confirmation sont les mêmes
-const verifyPassword = async (plainPassword, confirmPassword) => {
-  try {
-    if (plainPassword !== confirmPassword) {
-      console.log('❌ les mots de passe saisis ne sont pas identiques');
-      return false;
-    }
-    // on hashe le mot de passe
-    const hashedPassword = await bcrypt.hash(plainPassword, 10);
-    console.log('Mot de passe passé au hash :', hashedPassword);
+// // avant d'utiliser bcrypt.hash, on vérifie si mot de passe saisi et sa confirmation sont les mêmes
+// const verifyPassword = async (plainPassword, confirmPassword) => {
+//   try {
+//     if (plainPassword !== confirmPassword) {
+//       console.log('❌ les mots de passe saisis ne sont pas identiques');
+//       return false;
+//     }
+//     // on hashe le mot de passe
+//     const hashedPassword = await bcrypt.hash(plainPassword, 10);
+//     console.log('Mot de passe passé au hash :', hashedPassword);
 
-    // on vérifie si le mot de passe en clair correspond au hash
-    const same = await bcrypt.compare(plainPassword, hashedPassword);
-    if (same) {
-      console.log('✅ Mot de passe valide');
-    } else {
-      console.log('❌ Mot de passe invalide');
-    }
-    return same;
-  } catch (error) {
-    console.error('Erreur lors de la vérification du mot de passe', error);
-    throw error;
-  }
-};
+//     // on vérifie si le mot de passe en clair correspond au hash
+//     const same = await bcrypt.compare(plainPassword, hashedPassword);
+//     if (same) {
+//       console.log('✅ Mot de passe valide');
+//     } else {
+//       console.log('❌ Mot de passe invalide');
+//     }
+//     return same;
+//   } catch (error) {
+//     console.error('Erreur lors de la vérification du mot de passe', error);
+//     throw error;
+//   }
+// };
 
 // test de la fonction
-verifyPassword(plainPassword, confirmPassword);
-console.log('test de la fonction verifyPassword', verifyPassword);
-
+// verifyPassword(plainPassword, confirmPassword);
+// console.log('test de la fonction verifyPassword', verifyPassword);
 
 // OK fonctionne, maintenant utiliser cette fonction avec éléments saisis récupérés dans le formulaire
 
 // dans la vue ejs signup, les champs NAME pour mots de passe sont password et confirm-password
 // surement appliquer cette fonction avec req.body.password et req.body.confirm-password
+// **********************fin fonction commentée 30/6
+
+
 
 export default authController;
 
