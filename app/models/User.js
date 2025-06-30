@@ -25,10 +25,10 @@ User.init({
   },
 
   // essai debug erro
-  user_sender_id: {
-    type: DataTypes.INTEGER,
-    allowNull: true
-  }
+  // user_sender_id: {
+  //   type: DataTypes.INTEGER,
+  //   allowNull: true
+  // }
 
 },
 

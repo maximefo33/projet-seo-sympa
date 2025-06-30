@@ -77,7 +77,8 @@ const authController = {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         role: req.body.role,
-        // user_sender_id : 1,
+        // on ne demande pas d'ID dans notre formulaire donc pas besoin de ce champ ci-dessous qui pourtant arrive en erreur
+        // user_sender_id : req.user.id,
       };
       console.log('utilisateur qui s\inscrit', userRegistered);
 
