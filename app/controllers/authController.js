@@ -41,7 +41,7 @@ const authController = {
         throw new Error('Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial parmi * / &');
       }
 
-      // *********************************ajout code E 27/6
+      // *********************************ajout code
       // hachage du mot de passe
       const hash = await bcrypt.hash(req.body.password, 10);
       // console.log('req body password :', req.body.password);
@@ -49,24 +49,26 @@ const authController = {
       // le mdp haché est dans <hash>
 
       // création nouvel utilisateur inscrit
-      const userRegistered = new User({
+      const userRegistered = {
         email: req.body.email,
         // password: req.body.password,
         password: hash, // on stocke le mdp haché
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         role: req.body.role,
-      });
+      };
       console.log('utilisateur qui s\inscrit', userRegistered);
 
       // on fait persister ce nouvel utilisateur inscrit en base de données
       // see @ https://johackim.com/sequelize?utm_source=rss&utm_medium=rss
       // see @ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/ 
 
-      const userNeo = userRegistered.save(); // j'avais mis .create au début mais a priori plutot save pour enregistrer l'instance 
-      // // utiliser plutôt create - avec CREATE = échec, avec SAVE = on arrive sur la page login
-      console.log('utilisateur créé :', userNeo);
 
+      // je n'appelais pas la fonction correctement, il faut faire User.create(userRegistered)
+
+      const userNeo = await User.create(userRegistered);
+      console.log('utilisateur créé :', userNeo);
+      console.log('redirection vers login');
       res.redirect('/login');
     } catch (error) {     // renvoyer message erreur dans la vue
       console.error(error);
@@ -74,7 +76,7 @@ const authController = {
     }
   },
 
-  // *********************** fin ajout code E 27/6
+  // *********************** fin ajout code E
 
   //-----------------------------------------fin code inscription ---------------------------------------------//
 
