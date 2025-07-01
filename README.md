@@ -28,6 +28,8 @@ cf : https://kourou.oclock.io/ressources/fiche-recap/postgresql/
 \dt = liste les tables de la base de données sur laquelle on est connectée
 \d student = décrit la table student
 
+q : sortir d'un résultat psql
+
 ### avec WSL/UBUNTU (config comme Elise)
 
 * aller sur postGreSQL pour voir les bases de données existantes :
@@ -39,7 +41,10 @@ psql -d seo_sympa -U seo_sympa
 OU
 psql -d seo_sympa -U seo_sympa -h localhost 
 
-notre mot de passe :
+* relancer si besoin postGreSQL après des changements
+sudo service postgresql restart
+
+notre mot de passe : **(A EFFACER ensuite quand site déployé !!)**
 **aegm_mgea_2025**
 
 notre USER : seo_sympa
@@ -48,6 +53,8 @@ notre OWNER : seo_sympa
 
 * lancer la création de la base de données - Sequelize communiquera avec postGreSQL :
 
+npm run db:create
+PUIS
 npm run seed
 
 ### nos 4 tables créées à chaque démarrage :
@@ -57,6 +64,16 @@ table PROFILE
 table MESSAGE
 table RELATION
 
+
+### nos scripts de création de tables => A EFFACER ENSUITE
+
+CREATE USER seo_sympa WITH PASSWORD 'aegm_mgea_2025'; 
+CREATE DATABASE seo_sympa WITH OWNER seo_sympa;
+
+## si problème, supprimer les database ou les tables et recommencer les scripts de création de table
+exemple :
+DROP DATABASE seo_sympa;
+
 ## 30/6/25 - essais : compléter pages signup puis login
 
 avec ce faux utilisateur je remplis les champs dans /signup dans le navigateur
@@ -64,8 +81,16 @@ avec ce faux utilisateur je remplis les champs dans /signup dans le navigateur
 prénom : Leo
 nom : MAT
 rôle : expert
-email | leo@gamil.com     
+email | leo@gmail.com     
 mdp LEOleo2025//**
+
+
+prénom : Laura
+nom : Ingalls
+rôle : demandeur
+email : petitemaison@aol.com
+mdp : PRAIRIEprairie80*
+
 
 puis je vais sur /login et saisis le mail + mdp = ça marche
 puis je regarde sur psql avec  : SELECT * FROM "user";
