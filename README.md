@@ -74,9 +74,9 @@ CREATE DATABASE seo_sympa WITH OWNER seo_sympa;
 exemple :
 DROP DATABASE seo_sympa;
 
-## 30/6/25 - essais : compléter pages signup puis login
+## Elise 30/6/25 et 1/7/25 - essais : compléter pages signup puis login
 
-avec ce faux utilisateur je remplis les champs dans /signup dans le navigateur
+avec ces faux utilisateurs, je remplis les champs dans /signup dans le navigateur
 
 prénom : Leo
 nom : MAT
@@ -90,6 +90,21 @@ nom : Ingalls
 rôle : demandeur
 email : petitemaison@aol.com
 mdp : PRAIRIEprairie80*
+
+prénom : Lara
+nom : CROFT
+rôle : expert
+email : tombraider@yahoo.com
+mdp : LARAdeschamps00/
+
+lili
+rose
+expert  
+lilirose@aol.com
+LILIlili2025...
+
+
+
 
 
 puis je vais sur /login et saisis le mail + mdp = ça marche

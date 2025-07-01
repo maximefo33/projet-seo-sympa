@@ -38,6 +38,16 @@ const authController = {
 
       const plainPassword = req.body.password; // 1er mot de passe saisi
       const confirmPassword = req.body.confirmPassword; // confirmation du mot de passe
+      const email = req.body.email; // Récupération de l'email
+
+      // vérification du format email
+      // see@ https://www.npmjs.com/package/validator
+
+      if (!validator.isEmail(email)) {
+        console.log('adresse mail invalide');
+        // throw new Error('L\'adresse e-mail fournie est invalide.');
+        return res.render('signup', { error: 'L\'adresse email fournie est invalide.' });
+      }
 
       // fonction de vérification entre le mot de passe saisi + la confirmation du mot de passe saisi
       const verifyPassword = async (plainPassword, confirmPassword) => {
@@ -52,7 +62,8 @@ const authController = {
 
       const passwordsSame = await verifyPassword(plainPassword, confirmPassword);
       if (!passwordsSame) {
-        throw new Error('Les mots de passe ne correspondent pas.');
+        // throw new Error('Les mots de passe ne correspondent pas.');
+        return res.render('signup', { error: 'les mots de passe saisis sont différents' });
       }
       console.log(passwordsSame, 'mdp identiques ?');
 
@@ -60,7 +71,7 @@ const authController = {
       // on a mis 8 caractères pour tester avec fakefiller, on repassera à 14 après
       const options = { minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
       if (!validator.isStrongPassword(plainPassword, options)) {
-        throw new Error('Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial parmi * / &');
+        throw new Error('Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
       }
 
       // hachage du mot de passe
