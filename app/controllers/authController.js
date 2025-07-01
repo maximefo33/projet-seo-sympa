@@ -46,13 +46,13 @@ const authController = {
       if (!validator.isEmail(email)) {
         console.log('adresse mail invalide');
         // throw new Error('L\'adresse e-mail fournie est invalide.');
-        return res.render('signup', { error: 'L\'adresse email fournie est invalide.' });
+        return res.render('signup', { error: 'L\'adresse email fournie est invalide, merci d\en saisir une au bon format.' });
       }
 
       // fonction de vérification entre le mot de passe saisi + la confirmation du mot de passe saisi
       const verifyPassword = async (plainPassword, confirmPassword) => {
         if (plainPassword !== confirmPassword) {
-          console.log('les mots de passe saisis ne sont pas identiques');
+          console.log('Les mots de passe saisis ne sont pas identiques, merci de recommencer votre inscription.');
           return false;
         }
         return true; // retourne vrai si les mots de passe sont identiques
@@ -63,7 +63,7 @@ const authController = {
       const passwordsSame = await verifyPassword(plainPassword, confirmPassword);
       if (!passwordsSame) {
         // throw new Error('Les mots de passe ne correspondent pas.');
-        return res.render('signup', { error: 'les mots de passe saisis sont différents' });
+        return res.render('signup', { error: 'Les mots de passe saisis sont différents, merci de recommencer votre inscription.' });
       }
       console.log(passwordsSame, 'mdp identiques ?');
 
