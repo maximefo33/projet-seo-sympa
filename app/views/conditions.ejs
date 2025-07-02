@@ -1,12 +1,9 @@
 <!-- view ejs de la page conditions générales - /terms-and-conditons -->
 
-<%- include('partials/header', {
-  title: 'Conditions générales',
-  description: "Conditions générales du site SEO Sympa",
-  page: 'conditions'
-}) %>
-<!-- Lien CSS spécifique pour la page about -->
- <main class="main_conditions">
+<%- include('partials/header', { title: 'Conditions générales' , description: "Conditions générales du site SEO Sympa" ,
+    page: 'conditions' }) %>
+    <!-- Lien CSS spécifique pour la page about -->
+    <main class="main_conditions">
 
         <h1>Conditions Générales d'Utilisation du site SEO Sympa</h1>
 
@@ -66,14 +63,9 @@
         </p>
 
         <h2>9. Acceptation des CGU</h2>
-        <p class="main_cgu">En cochant la case ci-dessous, vous confirmez avoir lu et accepté les conditions générales
-            d'utilisation de
-            SEO Sympa.</p>
-
-        <!-- ici case à cocher vide à l'affichage, puis valeur cochée renvoyée -->
-        <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/input/checkbox -->
-      
+        <p class="main_cgu">En cochant la case lors de votre inscription sur le site, vous confirmez avoir lu et accepté
+            les conditions générales d'utilisation de SEO Sympa.</p>
 
     </main>
 
-     <%- include('partials/footer') %>
+    <%- include('partials/footer') %>

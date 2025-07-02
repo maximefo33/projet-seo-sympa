@@ -141,7 +141,7 @@ const authController = {
         req.session.userId = user.id_user;
         req.session.userRole = user.role; //  gérer les rôles
 
-        return res.redirect('/dashboard');
+        return res.redirect('/tableau-de-bord-prive');
       } else {
         return res.render('login', { error: 'Mauvais couple identifiant/mot de passe' });
       }
