@@ -1,33 +1,24 @@
-<%- include('partials/header', { title: 'Page de connexion' , description: "Page de connexion du site SEO Sympa." ,
-  bodyClass: 'login-page',  page: 'login' }) %>
- 
-<link rel="stylesheet" href="/assets/styles/auth.css">
-<link rel="stylesheet" href="/assets/styles/button.css">
+
+ <%- include('partials/header', { title: 'Page de connexion' , description: "Page de connexion du site SEO Sympa." ,
+  bodyClass: 'auth-page', }) %>
 
 
+  
   <main class="auth-main">
     <h1 class="auth-title">Se connecter</h1>
-    <p id="form-desc" class="sr-only">
-      Veuillez entrer votre adresse email et votre mot de passe pour vous connecter.
-    </p>
-    <% if (typeof error !== 'undefined') { %>
-  <div class="error"><%= error %></div>
-<% } %>
-
+    <p id="form-desc" class="sr-only">Veuillez entrer votre adresse email et votre mot de passe pour vous connecter.</p>
 
     <form method="POST" action="/login" aria-describedby="form-desc" novalidate>
       <div id="loginStatus" class="sr-only" role="alert" aria-live="assertive"></div>
-      <fieldset>
+<fieldset>
         <legend class="sr-only">Informations de connexion</legend>
 
         <label for="email">Adresse email <span aria-hidden="true">*</span></label>
-        <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true"
-          autocomplete="email" aria-describedby="emailHelp" />
+        <input type="email" id="email" name="email" placeholder="exemple@domaine.com" required aria-required="true" autocomplete="email" aria-describedby="emailHelp" />
         <small id="emailHelp">Nous ne partagerons jamais votre email.</small>
 
         <label for="loginPassword">Mot de passe <span aria-hidden="true">*</span></label>
-        <input type="password" id="loginPassword" name="password" placeholder="Mot de passe" required
-          aria-required="true" autocomplete="current-password" />
+        <input type="password" id="loginPassword" name="password" placeholder="Mot de passe" required aria-required="true" autocomplete="current-password" />
 
         <div class="forgot-password-link">
           <a href="#" aria-label="Réinitialiser le mot de passe">Mot de passe oublié&nbsp;?</a>

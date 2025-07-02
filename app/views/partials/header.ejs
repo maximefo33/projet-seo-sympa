@@ -1,50 +1,35 @@
 <!DOCTYPE html>
-
-<!-- view header.ejs - header commun à toutes nos pages sauf /home -->
-
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/styles/header.css">
-     <link rel="stylesheet" href="/assets/styles/footer.css">
- 
-
-    <link rel="stylesheet"
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/styles/project.css">
+  <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
- 
 
-
-
-           <title><%= title || 'SEO-Sympa' %></title>
+   <title><%= title || 'SEO-Sympa' %></title>
   <% if (description) { %>
     <meta name="description" content="<%= description %>" />
-    
- 
-  <% } %>
-  <% if (page === 'error') { %>
-  <link rel="stylesheet" href="/assets/styles/error-handler.css">
-<% } %>
+  <% } %> 
 
 
-
-   
+  
     <link rel="icon" href="/assets/img/favicon-seo.ico" type="image/x-icon" />
 
 </head>
 
 
-  <body class="<%= typeof bodyClass !== 'undefined' ? bodyClass : '' %>">
 
 
+<body <%= typeof bodyClass !== 'undefined' && bodyClass ? ` class=${bodyClass}` : '' %>>
 
-    <header class="menu">
+
+  <header class="menu">
     <div class="menu-nav">
-     <a href="/">
-      <img class="logo" src="/assets/img/logo.png" alt="logo seo sympa avec lien vers accueil">
-    </a>
+      <a href="/">
+        <img class="logo" src="./assets/img/logo.png" alt="logo seo sympa avec lien vers accueil">
+      </a>
 
       <nav class="main-nav">
         <ul class="main-nav__list">
@@ -54,25 +39,24 @@
       </nav>
 
       <div class="menu-search">
-       <a href="/login" class="button__append">Connexion</a>
-      <a href="/signup" class="button__append">Inscription</a>
-
+        <a href="/login">
+          <button class="button__append">Connexion</button>
+        </a>
+        <a href="/signup">
+          <button class="button__append">Inscription</button>
+        </a>
 
         <form class="search-bar" role="search">
           <input type="search" class="search-input" name="q" placeholder="Rechercher...">
           <button type="submit" class="search-button">Rechercher</button>
-          <a class="icon" href="#"><span class="material-symbols-outlined" style="font-size: 60px; width:auto;">
-            person
-          </span></a>
-          
+          <a class="icon" href="/dashboard"><span class="material-symbols-outlined"
+              style="font-size: 60px; width:auto;">
+              person
+            </span></a>
+
         </form>
 
 
       </div>
     </div>
   </header>
-
-
-</body>
-
-

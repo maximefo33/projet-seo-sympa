@@ -15,10 +15,7 @@ console.log("test affichage console");
 // on crée un objet router à l'aide de la méthode adaptée fournie par express
 const router = express.Router();
 
-router.get("/", (req, res) => {
-   console.log('route /');
-  res.render('home');
-});
+
 
 router.get("/contact", (req, res) => {
    console.log('route /contact');
@@ -40,10 +37,6 @@ router.get("/search", (req, res) => {
   res.render('search');
 });
 
-
-
-
-
 // je la commente car route refaite plus bas avec authController
 // router.get("/sign-in", (req, res) => {
 //   console.log('route /sign-in');
@@ -62,13 +55,6 @@ router.get('/dashboard', isLoggedIn, (req, res) => {
   res.render('dashboard');
 });
 
-
-//public profile
-//router.get("/profile", (req, res) => { 
-// console.log('route /profile');
-// res.render('profile');
-//});
-
   
 router.get("/profile", (req, res) => { 
   console.log('route /profile');
@@ -81,11 +67,6 @@ router.get("/profile", (req, res) => {
   };
   res.render('profile', { user });
 });
-
-
-
-
-
 
 router.get("/terms-and-conditions", (req, res) => {
   console.log('route /terms-and-conditions');
@@ -102,11 +83,6 @@ router.get("/accessibility-statement", (req, res) => {
   res.render('accessibility');
 });
 
-
-router.get("/profiles", (req, res) => {
-  console.log('route /profiles');
-  res.render('profiles');
-});
 
 // code des routes avec le mainController en place
 
