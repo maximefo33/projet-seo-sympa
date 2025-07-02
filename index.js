@@ -36,7 +36,6 @@ app.set("view engine", "ejs");
 app.set("views", "./app/views");
 
 
-app.use(express.urlencoded({ extended: true })); // middleware pour parser les données urlencoded
 
 
 //Configuration de session 
@@ -50,7 +49,7 @@ app.use(session({
 
 // on ajoute un middleware via .use à qui on passe la fonction retournée par express.static
 // on doit configurer en argument le chemin vers le dossier à servir
-app.use(express.static("./public"));
+app.use(express.static("public"));
 
 // on l'associe au serveur via la méthode use
 app.use(router);
@@ -58,10 +57,21 @@ app.use(router);
 //? ce middleware n'est donc pas appelé si le précédent est appelé,
 //? mais si ce n'est pas le cas il sera appelé
 // réponse pour toutes les autres requêtes :
-app.use((req, res) => {
+//app.use((req, res) => {
   // https://expressjs.com/fr/4x/api.html#res.status
-  res.status(404).send("<h1>Page non trouvée</h1>");
+ // res.status(404).send("<h1>Page non trouvée</h1>");
+//});
+
+//ERROR HANDLER 
+app.use((req, res) => {
+  res.status(404).render('error', {
+    status: 404,
+    message: "Désolé, la page que vous cherchez n'existe pas."
+  });
 });
+
+
+
 
 app.listen(port, () => {
   console.log(`Listening on http://localhost:${port}/`);

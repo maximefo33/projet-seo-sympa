@@ -1,58 +1,54 @@
 <!-- view ejs - page A propos - /about -->
 <%- include('partials/header', {
   title: 'A propos',
-  description: "Page A Propos du site SEO Sympa. Notre histoire, qu'est-ce que le SEO, des témoignages, FAQ",
-  bodyClass: 'about-page'
-  
+  description: "Page A Propos du site SEO Sympa. Notre histoire, qu'est-ce que le SEO, des témoignages, FAQ"
 }) %>
 
-    <main class="about_main">
+ <main>
+        <article class="contenu">
+            <img class="img_main" src="/assets/img/img-seo3.jpg">
+            <div class="main__text">
+                <h1 id="history">A propos de SEO Sympa</h1>
+                <p class="__titre"> SEO Sympa, soyez en tête sans prise de tête !</p>
+                <p>Avec notre site, ne vous compliquez-pas la vie ! Sérénité garantie. </p>
+            </div>
+        </article>
+        <article class="présentation">
+            <img class="présentation__img" src="/assets/img/soe.png" alt="">
+            <div class="présentation__contenu">
+                <h2 class="présentation__titre">Histoire de notre plateforme</h2>
+                <p class="text_main2">Prenez 4 amis développeurs formés dans la même école (<a href="https://oclock.io/"
+                        target="_blank">O'clock</a>) et passionnés de référencement.
+                    En juin 2025 leur est venue
+                    l'idée d'aider les structures, entreprises, associations..., petites ou grandes, à mieux se faire
+                    connaître.
+                    La plateforme
+                    SEO Sympa est née !</p>
+            </div>
+        </article>
 
-        <div class="presentation">
-            <h1 id="history">A propos de SEO Sympa</h1>
-            <h2>SEO Sympa, soyez en tête sans prise de tête !</h2>
-
-            <p>Avec notre site, ne vous compliquez-pas la vie ! Sérénité garantie. </p>
-
-            <h2>Histoire de notre plateforme</h2>
-
-            <p>Prenez 4 amis développeurs formés dans la même école (<a href="https://oclock.io/"
-                    target="_blank">O'clock</a>) et passionnés de référencement. </p>
-            <p>En juin 2025 leur est venue
-                l'idée d'aider les structures, entreprises, associations..., petites ou grandes, à mieux se faire
-                connaître.
-                La plateforme
-                SEO Sympa est née !</p>
-        </div>
 
 
-        <div class="about_article_seo_contain">
-            <div class="about_article_seo_img"><img src="../assets/img/img-seo3.jpg"
-                    alt="ordinateur avec plein de post-its avec des mots clefs accrochés sur le mur derrière"></div>
-            <article class="about_article_seo">
-                <h2 id="seo_kezako">SEO, Kézako ?</h2>
-                <p>L'optimisation pour les moteurs de recherche, aussi connue sous le nom de référencement naturel et
+
+        <article class="présentation">
+            <img class="présentation__img" src="/assets/img/seo2.jpg" alt="">
+            <div class="présentation__contenu">
+                <h2 class="présentation__titre">SEO, Kézako ?</h2>
+                <p class="text_main2">L'optimisation pour les moteurs de recherche, aussi connue sous le nom de
+                    référencement naturel et
                     le sigle SEO (de l'anglais « Search Engine Optimization »), inclut l'ensemble des techniques qui
                     visent à améliorer le positionnement d'une page, d'un site ou d'une application web dans la page de
-                    résultats d'un moteur de recherche.</p>
-                <p>
+                    résultats d'un moteur de recherche.
+
                     Ces techniques cherchent à améliorer la compréhension et la prise en compte de la thématique et du
                     contenu d'une ou de l'ensemble des pages d'un site Web par l'algorithme de classement des moteurs de
                     recherche.</p>
-                <aside><a class="about_link_article" href="https://fr.wikipedia.org/wiki/Optimisation_pour_les_moteurs_de_recherche" target="_blank">d'après
-                        Wikipédia - 06/2025</a></aside>
-            </article>
-        </div>
+            </div>
+        </article>
+
 
         <div class="about_witness_contain0">
-            <div class="about_witness_contain">
-                <h3>Gagnant-Gagnant</h3>
-
-                <p>Sur notre plateforme, tout le monde y trouve son compte.</p>
-
-                <img src="../assets/img/about2.png" alt="bulle de témoignages">
-            </div>
-
+            
 
             <section class="about_witness1"
                 aria-label="témoignages d'utilisateurs de notre site et propriétaires de pages web">
@@ -83,7 +79,7 @@
             </section>
         </div>
 
-        <section title="FAQ" id="faq" class="faq">
+        <section title="FAQ" class="faq">
             <h2 id="faq">Foire Aux Questions (FAQ)</h2>
             <!-- essai question ouvrante -->
             <!-- cf https://codepen.io/anon/pen/gvWVvj?editors=1100#0 -->
@@ -118,11 +114,16 @@
                 <h3>Je n'ai pas trouvé de réponse à ma question, comment puis-je vous contacter ? </h3> <a
                     href="#">[&uarr;]</a> <a href="#afficher5">[&darr;]</a>
                 <p id="afficher5">Nous sommes à votre service par email <a
-                        href="mailto:seo_sympa@seo_sympa.com">seo_sympa@seo_sympa.com</a>
+                        href="mailto:jim@example.com">jim@example.com</a>
                     (réponse sous 72h jours ouvrés) ou par
                     téléphone <a href="tel:+14155550132">+1 (415) 555‑0132</a> (de 9h à 17h les jours ouvrés) </p>
             </article>
         </section>
 
     </main>
+    <!-- fin découpage pour viex ajs about -->
+
+    <!-- ceci sera notre modèle de footer pour toutes les pages -->
     <%- include('partials/footer') %>
+   
+ 

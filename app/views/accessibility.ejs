@@ -1,58 +1,60 @@
 <%- include('partials/header', { 
   title: "Déclaration d'Accessibilité - SEO-Sympa",
-  description: "Déclaration d'accessibilité du site SEO-Sympa"
+  description: "Déclaration d'accessibilité du site SEO-Sympa", 
+  bodyClass:'main-content',
+  page: 'accessibility' 
 }) %>
+<!-- Lien CSS spécifique pour la page about -->
+   <main id="main-content" class="accessibility-main">
+      <section id="declaration-accessibilite" class="declaration-section">
+        <h1 class="section-title">Déclaration d'Accessibilité</h1>
+        <p class="section-description">
+          <strong>SEO-Sympa</strong> s'engage à rendre son site web accessible à
+          tous les utilisateurs, conformément aux standards d'accessibilité.
+        </p>
 
-<main id="main-content" class="accessibility-main">
-  <section id="declaration-accessibilite" class="declaration-section">
-    <h2 class="section-title">Déclaration d'Accessibilité</h2>
-    <p class="section-description">
-      <strong>SEO-Sympa</strong> s'engage à rendre son site web accessible à
-      tous les utilisateurs, conformément aux standards d'accessibilité.
-    </p>
+        <h2 class="subsection-title">État de conformité</h2>
+        <p class="subsection-description">
+          Ce site web est <strong>partiellement conforme</strong> aux règles
+          pour l'accessibilité des contenus Web
+        </p>
 
-    <h3 class="subsection-title">État de conformité</h3>
-    <p class="subsection-description">
-      Ce site web est <strong>partiellement conforme</strong> aux règles
-      pour l'accessibilité des contenus Web
-    </p>
+        <h2 class="subsection-title">
+          Préparation de cette déclaration d'accessibilité
+        </h2>
+        <p class="subsection-description">
+          Cette déclaration a été préparée le
+          <time datetime="2025-06-12">12 Juin 2025</time>. Elle est basée sur :
+        </p>
+        <ul class="custom-list">
+          <li>
+            Une auto-évaluation réalisée par l'équipe de développement de
+            SEO-Sympa
+          </li>
+          <li>
+            Des tests utilisateurs avec des personnes en situation de handicap
+          </li>
+        </ul>
 
-    <h3 class="subsection-title">
-      Préparation de cette déclaration d'accessibilité
-    </h3>
-    <p class="subsection-description">
-      Cette déclaration a été préparée le
-      <time datetime="2025-06-12">12 Juin 2025</time>. Elle est basée sur :
-    </p>
-    <ul class="custom-list">
-      <li>
-        Une auto-évaluation réalisée par l'équipe de développement de
-        SEO-Sympa
-      </li>
-      <li>
-        Des tests utilisateurs avec des personnes en situation de handicap
-      </li>
-    </ul>
+        <h3 class="sub-subsection-title">Outils utilisés pour l'évaluation</h3>
+        <ul class="custom-list">
+          <li>Lecteurs d'écran : NVDA, VoiceOver</li>
+          <li>Tests de navigation clavier</li>
+          <li>Vérification du contraste des couleurs</li>
+        </ul>
 
-    <h4 class="sub-subsection-title">Outils utilisés pour l'évaluation</h4>
-    <ul class="custom-list">
-      <li>Lecteurs d'écran : NVDA, VoiceOver</li>
-      <li>Tests de navigation clavier</li>
-      <li>Vérification du contraste des couleurs</li>
-    </ul>
-
-    <h3 class="subsection-title">Technologies utilisées</h3>
-    <p class="subsection-description">
-      L'accessibilité de ce site web s'appuie sur les technologies suivantes
-      :
-    </p>
-    <ul class="custom-list">
-      <li>HyperText Markup Language - HTML</li>
-      <li>Cascading Style Sheets - CSS</li>
-      <li>JavaScript</li>
-      <li>ARIA (Accessible Rich Internet Applications)</li>
-    </ul>
-  </section>
-</main>
+        <h2 class="subsection-title">Technologies utilisées</h2>
+        <p class="subsection-description">
+          L'accessibilité de ce site web s'appuie sur les technologies suivantes
+          :
+        </p>
+        <ul class="custom-list">
+          <li>HyperText Markup Language - HTML</li>
+          <li>Cascading Style Sheets - CSS</li>
+          <li>JavaScript</li>
+          <li>ARIA (Accessible Rich Internet Applications)</li>
+        </ul>
+      </section>
+    </main>
 
 <%- include('partials/footer') %>

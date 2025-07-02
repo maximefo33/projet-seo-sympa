@@ -9,18 +9,21 @@ const mainController = {
   home: function (req, res) {
     res.render('home', {
       title: 'Page d\'accueil',
+       css: 'home' // ← fichier public/css/home.css
     });
   },
 
   contact: function (req, res) {
     res.render('contact', {
       title: 'Contact',
+       css: 'contact'
     });
   },
 
   about: function (req, res) {
     res.render('about', {
-      title: 'à propos',
+      title: 'A propos',
+        css: 'about'
     });
   },
 
@@ -98,6 +101,7 @@ const mainController = {
   signup: function (req, res) {
     res.render('signup', {
       title: 'Formulaire d\'Inscription',
+       css: 'auth'
     });
   },
 
@@ -108,8 +112,23 @@ const mainController = {
   },
 
 
-  /* *********** JE COMMENTE CAR EXEMPLE ci-dessous PAS UTILISE POUR L INSTANT
-  // à voir si besoin de compléter nos fonctions ?
+  login: function (req, res) {
+    res.render('login', {
+      title: 'Connexion',
+      css: 'auth'
+    });
+  },
+
+  loginAction: function (req, res) {
+    res.render('login', {
+      title: 'Formulaire de connexion',
+      css: 'auth'
+    });
+  },
+
+
+
+  /* *********** JE COMMENTE CAR ci-dessous PAS UTILISE POUR L INSTANT
 
 // ci dessous juste un exemple avec query
 home: async function(req, res) {

@@ -1,4 +1,5 @@
 // on a besoin de récupérer le module express
+
 import express from "express";
 
 //imports ajoutés pour les ENDPOINTS
@@ -54,6 +55,3 @@ router.post('/signup', authController.signupAction);
 
 // on l'exporte
 export default router;
-
-
-

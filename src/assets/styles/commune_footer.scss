@@ -1,5 +1,5 @@
-@use '../vars';
-@use '../mixins' as *;
+@use '/src/assets/styles/vars';
+@use '/src/assets/styles/mixins' as *;
 
 .pied_de_page {
   background: linear-gradient(to bottom right, vars.$color-purple, vars.$color-blue, vars.$color-lightblue);

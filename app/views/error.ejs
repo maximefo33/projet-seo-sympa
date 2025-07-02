@@ -1,11 +1,14 @@
-<%- include('partials/header', {
-  title: "404 - Page non trouvée | SEO-Sympa",
-  description: "Page 404 - SEO-Sympa, page non trouvée"
+
+<%- include('partials/header', { 
+  title: (status || 404) + " - Page non trouvée | SEO-Sympa",
+  description: (status || 404) + " - SEO-Sympa, page non trouvée",
+  page: 'error'   
 }) %>
 
-<main role="main" class="error-404">
-  <h1>404 - Page non trouvée</h1>
-  <p>Désolé, la page que vous cherchez n'existe pas ou a été déplacée.</p>
+
+<main role="main" class="error-404" aria-labelledby="error-title" aria-describedby="error-desc">
+  <h1 id="error-title"><%= status || 404 %> - Page non trouvée</h1>
+  <p id="error-desc"><%= message || "Désolé, la page que vous cherchez n'existe pas ou a été déplacée." %></p>
   <p><a href="/">Retour à la page d'accueil</a></p>
 </main>
 

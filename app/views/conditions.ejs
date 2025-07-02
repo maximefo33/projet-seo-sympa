@@ -3,10 +3,10 @@
 <%- include('partials/header', {
   title: 'Conditions générales',
   description: "Conditions générales du site SEO Sympa",
-  bodyClass: 'terms-and-conditions-page'
+  page: 'conditions'
 }) %>
-
-    <main class="main_conditions">
+<!-- Lien CSS spécifique pour la page about -->
+ <main class="main_conditions">
 
         <h1>Conditions Générales d'Utilisation du site SEO Sympa</h1>
 
@@ -26,13 +26,17 @@
             et leur notoriété, de l'autre les seconds optimisent leur visibilité sur le web.</p>
 
         <h2>3. Comportement des utilisateurs</h2>
-        Les utilisateurs s'engagent à adopter un comportement respectueux et responsable vis-à-vis des autres membres de
-        la plateforme. Il est strictement interdit de :
-        <ul>
-            <li>tenir des propos injurieux, diffamatoires ou discriminatoires.</li>
-            <li>partager des informations mensongères ou trompeuses.</li>
-            <li>utiliser la plateforme à des fins illégales ou contraires aux bonnes mœurs.</li>
-        </ul>
+        <p>Les utilisateurs s'engagent à adopter un comportement respectueux et responsable vis-à-vis des autres membres
+            de
+            la plateforme. Il est strictement interdit de :
+        </p>
+
+
+        <p>tenir des propos injurieux, diffamatoires ou discriminatoires.</p>
+        <p> partager des informations mensongères ou trompeuses.</p>
+        <p>utiliser la plateforme à des fins illégales ou contraires aux bonnes mœurs.</p>
+
+
 
         <h2>4. Inscription et responsabilité</h2>
 
@@ -58,7 +62,8 @@
 
 
         <h2>8. Droit applicable</h2>
-        Les présentes CGU sont régies par le droit français. Tout litige sera soumis aux tribunaux compétents de XX.
+        <p>Les présentes CGU sont régies par le droit français. Tout litige sera soumis aux tribunaux compétents de XX.
+        </p>
 
         <h2>9. Acceptation des CGU</h2>
         <p class="main_cgu">En cochant la case ci-dessous, vous confirmez avoir lu et accepté les conditions générales
@@ -67,15 +72,8 @@
 
         <!-- ici case à cocher vide à l'affichage, puis valeur cochée renvoyée -->
         <!-- https://developer.mozilla.org/fr/docs/Web/HTML/Reference/Elements/input/checkbox -->
-        <fieldset class="main_cgu_checkbox">
-            <legend class="main_cgu_legend">CGU SEO Sympa</legend>
-
-            <div>
-                <input type="checkbox" id="cgu" name="cgu" value="terms-and-conditions accepted" required>
-                <label for="cgu">J'accepte les conditions générales d'utilisation (mises à jour 06/2025).</label>
-            </div>
-        </fieldset>
+      
 
     </main>
 
-    <%- include('partials/footer') %>
+     <%- include('partials/footer') %>
