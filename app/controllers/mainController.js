@@ -8,22 +8,19 @@ const mainController = {
   // routes front
   home: function (req, res) {
     res.render('home', {
-      title: 'Page d\'accueil',
-       css: 'home' // ← fichier public/css/home.css
+      title: 'Page d\'accueil'
     });
   },
 
   contact: function (req, res) {
     res.render('contact', {
-      title: 'Contact',
-       css: 'contact'
+      title: 'Contact'
     });
   },
 
   about: function (req, res) {
     res.render('about', {
-      title: 'A propos',
-        css: 'about'
+      title: 'A propos'
     });
   },
 
@@ -33,7 +30,6 @@ const mainController = {
     });
   },
 
-  //*************A ENLEVER AVANT FUSION CAR MAXIME A FAIT CE ENDPOINT */
   // endpoint dashboard sera en accès protégé car page privée, uniquement si connexion OK
   dashboard: function (req, res) {
     res.render('dashboard', {
@@ -46,17 +42,11 @@ const mainController = {
     res.render('profile', {
       title: 'profil public', // voir si on renomme ?
       user: {
-        name: 'PIF', //ensuite on dynamisera ces infos
-        job: "berger",
+        name: 'Elfé', //ensuite on dynamisera ces infos
+        job: "du rugby",
         location: 'Drôme',
         bio: 'depuis 2010',
       }
-    });
-  },
-
-  profiles: function (req, res) {
-    res.render('profiles', {
-      title: 'propositions de services', //à renommer
     });
   },
 
@@ -80,7 +70,7 @@ const mainController = {
 
   error: function (req, res) {
     res.render('error', {
-      title: 'page d\'erreur',
+      title: 'page d\'erreur', 
     });
   },
 
@@ -110,22 +100,6 @@ const mainController = {
       title: 'Formulaire d\'Inscription à compléter',
     });
   },
-
-
-  login: function (req, res) {
-    res.render('login', {
-      title: 'Connexion',
-      css: 'auth'
-    });
-  },
-
-  loginAction: function (req, res) {
-    res.render('login', {
-      title: 'Formulaire de connexion',
-      css: 'auth'
-    });
-  },
-
 
 
   /* *********** JE COMMENTE CAR ci-dessous PAS UTILISE POUR L INSTANT
