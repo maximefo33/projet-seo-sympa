@@ -4,7 +4,7 @@ import sequelize from "../../config/database.js";
 import { DataTypes, Model } from "sequelize";
 
 // Notre modèle hérite de Model
-class Profile extends Model {}
+class Profile extends Model { }
 
 // Définition du modèle
 Profile.init(
@@ -15,7 +15,14 @@ Profile.init(
       primaryKey: true,
       autoIncrement: true,
     },
-   // on a déplacé firstname et lastname car ça va sur la page sign-in
+    firstname: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
+    lastname: {
+      type: DataTypes.STRING(50),
+      allowNull: false,
+    },
     address: {
       type: DataTypes.STRING(120),
       allowNull: true,
@@ -36,13 +43,13 @@ Profile.init(
       type: DataTypes.STRING(14),
       allowNull: true,
     },
-   
+
   },
   // Argument 2 : les options
   {
     sequelize,
-    tableName: "profile", 
-    timestamps: false,    
+    tableName: "profile",
+    timestamps: false,
   }
 );
 

@@ -27,8 +27,76 @@ const mainController = {
     });
   },
 
+  search: function (req, res) {
+    res.render('search', {
+      title: 'rechercher',
+    });
+  },
 
-  // routes back
+  //*************A ENLEVER AVANT FUSION CAR MAXIME A FAIT CE ENDPOINT */
+  // endpoint dashboard sera en accès protégé car page privée, uniquement si connexion OK
+  dashboard: function (req, res) {
+    res.render('dashboard', {
+      title: 'mon tableau de bord privé', //voir si on garde ce titre ?
+    });
+  },
+  //***************************************************** */
+
+  profile: function (req, res) {
+    res.render('profile', {
+      title: 'profil public', // voir si on renomme ?
+      user: {
+        name: 'PIF', //ensuite on dynamisera ces infos
+        job: "berger",
+        location: 'Drôme',
+        bio: 'depuis 2010',
+      }
+    });
+  },
+
+  profiles: function (req, res) {
+    res.render('profiles', {
+      title: 'propositions de services', //à renommer
+    });
+  },
+
+  conditions: function (req, res) {
+    res.render('conditions', {
+      title: 'conditions générales',
+    });
+  },
+
+  legal: function (req, res) {
+    res.render('legal', {
+      title: 'mentions légales et politique de confidentialité',
+    });
+  },
+
+  accessibility: function (req, res) {
+    res.render('accessibility', {
+      title: 'déclaration d\'accessibilité',
+    });
+  },
+
+  error: function (req, res) {
+    res.render('error', {
+      title: 'page d\'erreur',
+    });
+  },
+
+  // endpoints back
+
+  login: function (req, res) {
+    res.render('login', {
+      title: 'Connexion',
+    });
+  },
+
+  loginAction: function (req, res) {
+    res.render('login', {
+      title: 'Formulaire de connexion',
+    });
+  },
 
   signup: function (req, res) {
     res.render('signup', {
@@ -74,13 +142,6 @@ try {
   res.status(500).render('error');
 }
 },
-
-// ci dessous ex page non trouvée
-notFound: function(req, res) {
-res.status(404).render('error', {
-  message: 'La page demandée n\'a pas été trouvée.',
-});
-}
 
 *****************************/
 

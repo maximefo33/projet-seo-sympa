@@ -10,15 +10,6 @@ User.init({
     primaryKey: true,
     autoIncrement: true
   },
-  firstname: {
-    type: DataTypes.STRING(50),
-    allowNull: false,
-  },
-  lastname: {
-    type: DataTypes.STRING(50),
-    allowNull: false,
-  },
-
   email: {
     type: DataTypes.STRING(40),
     allowNull: false
@@ -31,7 +22,13 @@ User.init({
   role: {
     type: DataTypes.STRING(40),
     allowNull: false
-  }
+  },
+
+  // essai debug erro
+  // user_sender_id: {
+  //   type: DataTypes.INTEGER,
+  //   allowNull: true
+  // }
 
 },
 

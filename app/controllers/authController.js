@@ -15,7 +15,9 @@ import sequelize from '../../config/database.js';
 const authController = {
 
   //-------------------------------------------- début code inscription ---------------------------------//
-  // pour page /signup, inscription
+  // code ci-dessous des fonctions signup et signupaction inspirés  de : Pilori S06-Pilori-BDD et S05E15-Atelier-la-Guilde
+  // on définit notre controller pour l'authentification de l'inscription
+  // pour page /signup, inscription 
   // quand je clique sur bouton "inscription" cela me rend la vue EJS signup
 
 
@@ -30,64 +32,86 @@ const authController = {
   // - confirmation email à coder avec bcrypt compare
   // - nom et prénom : limiter à 50 caractères
 
+  // *********************************début inscription /signup ******************
   signupAction: async function (req, res) {
     try {
+
+      const plainPassword = req.body.password; // 1er mot de passe saisi
+      const confirmPassword = req.body.confirmPassword; // confirmation du mot de passe
+      const email = req.body.email; // Récupération de l'email
+
+      // vérification du format email
+      // see@ https://www.npmjs.com/package/validator
+
+      if (!validator.isEmail(email)) {
+        console.log('adresse mail invalide');
+        // throw new Error('L\'adresse e-mail fournie est invalide.');
+        return res.render('signup', { error: 'L\'adresse email fournie est invalide, merci d\en saisir une au bon format.' });
+      }
+
+      // fonction de vérification entre le mot de passe saisi + la confirmation du mot de passe saisi
+      const verifyPassword = async (plainPassword, confirmPassword) => {
+        if (plainPassword !== confirmPassword) {
+          console.log('Les mots de passe saisis ne sont pas identiques, merci de recommencer votre inscription.');
+          return false;
+        }
+        return true; // retourne vrai si les mots de passe sont identiques
+      }
+
+      // vérification des password
+
+      const passwordsSame = await verifyPassword(plainPassword, confirmPassword);
+      if (!passwordsSame) {
+        // throw new Error('Les mots de passe ne correspondent pas.');
+        return res.render('signup', { error: 'Les mots de passe saisis sont différents, merci de recommencer votre inscription.' });
+      }
+      console.log(passwordsSame, 'mdp identiques ?');
+
       // on valide le mot de passe 
       // on a mis 8 caractères pour tester avec fakefiller, on repassera à 14 après
       const options = { minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
-      if (!validator.isStrongPassword(req.body.password, options)) {
-        throw new Error('Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial parmi * / &');
+      if (!validator.isStrongPassword(plainPassword, options)) {
+        throw new Error('Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
       }
 
-      // ***** solution 1 - atelier S05E15-Atelier-la-Guilde
+      // hachage du mot de passe
+      const hash = await bcrypt.hash(req.body.password, 10);
+      // console.log('req body password :', req.body.password);
+      // console.log('mdp haché :', hash);
+      // le mdp haché est dans <hash>
 
-      // 1.B hachage du mot de passe
-      bcrypt.hash(req.body.password, 10, (error, hash) => {
-        // console.log('req body password :', req.body.password);
-        // console.log('mdp haché :', hash);
-        // le mdp haché est dans <hash>
-        try {
-          if (error) {
-            throw error;
-          }
+      // création nouvel utilisateur inscrit
+      const userRegistered = {
+        email: req.body.email,
+        // password: req.body.password, = const plainPassword
+        password: hash, // on stocke le mdp haché
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        role: req.body.role,
+        // on ne demande pas d'ID dans notre formulaire donc pas besoin de ce champ ci-dessous qui pourtant arrive en erreur
+        // user_sender_id : req.user.id,
+      };
+      console.log('utilisateur qui s\inscrit', userRegistered);
 
-          const userRegistered = new User({
-            email: req.body.email,
-            // password: req.body.password,
-            password: hash, // on stocke le mdp haché
-            firstname: req.body.firstname,
-            lastname: req.body.lastname
-          });
-          console.log('utilisateur qui s\inscrit', userRegistered);
+      // on fait persister ce nouvel utilisateur inscrit en base de données
+      // see @ https://johackim.com/sequelize?utm_source=rss&utm_medium=rss
+      // see @ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/ 
 
-          //*********!!!!!!!!!!!!!! ici besoin  aide !!!!!!!!!!!!!!! */
-          // on ajoute le nouvel utilisateur dans la liste des utilisateurs => Où se trouve cette liste ???? A revoir
-          users.push(userRegistered); // ICI ASSOCIER LA BASE DE DONNEES LISTANT TOUS LES USERS
-          // lancer la création de la base de données
-          console.log(users, 'utilisateur ajouté dans la liste des utilisateurs, dans un tableau USERS pour l\'instant');
+      // 30/6 - je n'appelais pas la fonction correctement, il faut faire User.create(userRegistered)
 
-          // on redirige vers la page de connexion, par exemple : 
-          res.redirect('/login');
-        }
-        catch (error) {
-          // on affiche l erreur pour l utilisateur
-        }
-      });
+      const userNeo = await User.create(userRegistered);
+      console.log('utilisateur créé :', userNeo);
+      console.log('redirection vers login');
+      res.redirect('/login');
+    } catch (error) {     // renvoyer message erreur dans la vue
+      console.error(error);
+      res.render('signup', { alert: error.message });
     }
-
-    catch (error) {
-      // renvoyer message erreur dans la vue
-      res.render('signup', {
-        message: error.message
-      });
-
-    };
-
-    res.redirect('/'); // ou /signup
   },
 
   //-----------------------------------------fin code inscription ---------------------------------------------//
-  //===========Connexion=======================//
+
+  //===========Connexion    page /login=======================//
   // Affiche la page de connexion
   login: function (req, res) {
     res.render('login', { error: null }); //appel view 
@@ -127,133 +151,18 @@ const authController = {
       res.render('login', { error: 'Erreur lors de la tentative de connexion' });
     }
   },
-
-  //=======================================fin de connexion==========================//
-
-  // code ci-dessous des fonctions signup et signupaction inspirés  de : Pilori S06-Pilori-BDD et S05E15-Atelier-la-Guilde
-
-  // on définit notre controller pour l'authentification de l'inscription
-
 };
 
-
-//  logout: function(req, res) {
-//   req.session.destroy();
-//   res.redirect('/');
-// };
-
-
-//****fin solution 1, solution qui fonctionne en tous cas dans la console et le devtool */
-
-//****** fin solution 1, 2eme solution ci-dessous
-
-// ******** solution 2
-//       // on crée le hash
-//       const hash = await bcrypt.hash(req.body.password, 10);
-//       // 10 = nombre de tours de répétition pour le sallage pour rendre le mot de passe illisible, 10 = nombre préconisé
-//       // on insère cette const hash dans req.body
-//       req.body.hash = hash;
-
-
-
-//       //************************************* */
-//       // on crée un objet user
-//       const userNew = new User(req.body);
-//       // qu'on fait persister en bdd
-//       await userNew.create();
-//       console.log('utilisateur créé', userNew);
-
-//       // pour que l'utilisateur reste connecté on le mémorise en session et on le dirige sur la page /dashboard
-//       req.session.isLogged = true;
-//       req.session.userId = userNew.id;
-//       res.redirect('/dashboard');
-//     } catch (error) {
-//       console.error(error);
-//       res.render('signup', { alert: error.message });
-//     }
-//   },
+//=======================================fin de connexion==========================//
 
 //   // pour se déconnecter, la session est terminée, les données sont supprimées, et l'utilisateur est redigiré vers la page d'accueil /
-//   logout: function(req, res) {
-//     req.session.destroy();
-//     res.redirect('/');
+
+//************* */ à voir où on insère la fonction LOGOUT ci-dessous
+//  logout: function(req, res) {
+// req.session.destroy();
+//  res.redirect('/');
 //   },
-// ******fin solution 2
-
-///*****************BCRYPT COMPARE ***************** */
-
-// ici ajout 26/6 - bcrypt compare mot de passe donné à l'inscription et confirmation de ce mdp
-// et bcrypt compare couple mail/ mdp => dans LOGIN je pense voir avec Gulnur
-
-// !!!!!!!!!!!!!!!!!!!! je n'ai pas compris comment récupérer ma liste d'USERS (sûrement avec script suite seeds ?) !!!!!!!!!
-
-// dans la vue ejs signup, les champs NAME pour mots de passe sont password et confirm-password
-
-
-// essai 1 bcrypt compare password *****************
-// async function signupUser(password, confirm-password) {
-//   if (password !== confirm-password) {
-//     throw : new Error ('Les 2 mots de passe saisis ne sont pas identiques');
-//   }
-
-//   const saltRounds = 10; // nb de tours pour le hash
-//   const hashedPassword = await bcrypt.hash(password, saltRounds);
-// console.log('Mot de passe passé au hash', hashedPassword);
-// return hashedPassword;
-// console.log(signupUser, 'fonction inscription User');
-
-// };
-// }
-// const verifyPassword = async (hash, passwordConfirm) => {
-//   try {
-//     const match = await bcrypt.compare(hash, req.body.password);
-//     if (match) {
-//       console.log('✅ Mot de passe valide');
-//     } else {
-//       console.log('❌ Mot de passe invalide');
-//     }
-//     return match;
-//   } catch (error) {
-//     console.error('Erreur lors de la vérification du mot de passe :', error);
-//     throw error;
-//   }
-// };
-
-
-// essai 2 bcrypt compare password *****************
-
-// see @ https://laconsole.dev/blog/hacher-mot-de-passe-js-bcrypt 
-
-const plainPassword = 'monMotDePasseSuperSecret';
-const hashedPassword = '$2b$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36YzTQ0iP/hxt8PxyeKnVSS';
-
-const verifyPassword = async (plainPassword, hashedPassword) => {
-  try {
-    const match = await bcrypt.compare(plainPassword, hashedPassword);
-    if (match) {
-      console.log('✅ Mot de passe valide');
-    } else {
-      console.log('❌ Mot de passe invalide');
-    }
-    return match;
-  } catch (error) {
-    console.error('Erreur lors de la vérification du mot de passe :', error);
-    throw error;
-  }
-};
-
-// on essaie d'appeler cette fonction :
-verifyPassword(plainPassword, hashedPassword);
-console.log('essai appel fonction verifyPassword', verifyPassword);
-
-verifyPassword('ELISEelise2025//', '$2b$10$bhI25Sj5gTtJ/kPlK9/xEOmYTN8tprq0hW5VPnc9yp5uC9Ts1NpsS');
-console.log('2e essai verifyPassword', verifyPassword);
-
-
-// OK fonctionne, maintenant utiliser cette fonction avec éléments saisis récupérés dans le formulaire
-
-// surement appliquer cette fonction avec req.body.password et req.body.confirm-password
-
+//*************** */
 
 export default authController;
 
