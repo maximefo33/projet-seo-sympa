@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="/css/home.css">
+  <!-- <link rel="stylesheet" href="../../public/assets/styles/home.css"> -->
+   <link rel="stylesheet" href="./assets/styles/home.css">
+    <link rel="icon" href="/assets/img/favicon-seo.ico" type="image/x-icon" />
+
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
     <title>Seo-Sympa</title>
@@ -14,7 +17,7 @@
     <header class="menu">
         <div class="menu-nav">
             <a href="/">
-                <img class="logo" src="/assets/img/logo.png" alt="logo seo sympa avec lien vers accueil">
+                <img class="logo" src="./assets/img/logo.png" alt="logo seo sympa avec lien vers accueil">
             </a>
 
             <nav class="main-nav">
@@ -25,8 +28,9 @@
             </nav>
 
             <div class="menu-search">
-                <button class="button__append">Connexion</button>
-                <button class="button__append">Inscription</button>
+                <a href="/login" class="button__append">Connexion</a>
+                <a href="/signup" class="button__append">Inscription</a>
+
 
                 <form class="search-bar" role="search">
                     <input type="search" class="search-input" name="q" placeholder="Rechercher...">

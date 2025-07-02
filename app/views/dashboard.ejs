@@ -1,8 +1,9 @@
 <!-- vues ejs de dashboard (une fois inscrit/e on arrive sur tableau de bord "Bienvenue") -->
 
-<%- include('partials/header', { title: "Tableau de bord - SEO-Sympa" ,
+<%- include('partials/header', { title: "Tableau de bord - SEO-Sympa" , page: 'dashboard'
     description: "Tableau de bord d'un utilisateur inscrit sur le site SEO-Sympa" }) %>
-
+<!-- Lien CSS spécifique pour la page about -->
+<link rel="stylesheet" href="/assets/styles/dashboard.css">
 <!-- il y aura le scss à mettre en place sur cette page -->
     <main>
 

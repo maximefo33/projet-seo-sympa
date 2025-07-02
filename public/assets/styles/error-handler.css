@@ -1,0 +1,51 @@
+.error-404 {
+  font-family: Verdana, Arial, sans-serif;
+  color: rgb(0, 0, 0);
+  background: linear-gradient(#3b61e6, #fff);
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.error-404 h1 {
+  font-size: 32px;
+  color: rgb(180, 9, 123);
+  margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 50rem) {
+  .error-404 h1 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 60rem) {
+  .error-404 h1 {
+    font-size: 4rem;
+  }
+}
+
+.error-404 p {
+  font-size: 18px;
+  margin-bottom: 1.5rem;
+  max-width: 600px;
+}
+
+.error-404 a {
+  font-size: 24px;
+  color: rgb(94, 11, 66);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.error-404 a:hover,
+.error-404 a:focus {
+  color: #833daf;
+  border-color: #833daf;
+  outline: none;
+}

@@ -1,4 +1,5 @@
 // on a besoin de récupérer le module express
+
 import express from "express";
 
 //imports ajoutés pour les routes backend 
@@ -63,10 +64,28 @@ router.get('/dashboard', isLoggedIn, (req, res) => {
 
 
 //public profile
-router.get("/profile", (req, res) => {
+//router.get("/profile", (req, res) => { 
+// console.log('route /profile');
+// res.render('profile');
+//});
+
+  
+router.get("/profile", (req, res) => { 
   console.log('route /profile');
-  res.render('profile');
+  const user = {
+    name: "Marie Dupont",
+    bio: "Passionnée par le référencement naturel, l'accessibilité numérique et la performance web.",
+    job: "Expert SEO",
+    location: "Paris",
+    imagePath: "/assets/img/profile-img.png"
+  };
+  res.render('profile', { user });
 });
+
+
+
+
+
 
 router.get("/terms-and-conditions", (req, res) => {
   console.log('route /terms-and-conditions');
@@ -119,6 +138,19 @@ router.post('/signup', authController.signupAction);
 
 // on l'exporte
 export default router;
+
+ 
+
+
+
+
+
+
+
+
+
+
+
 
 // PAR LA SUITE :
 

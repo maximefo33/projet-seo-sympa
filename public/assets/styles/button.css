@@ -1,0 +1,29 @@
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 18px;                  /* $text-fontsize */
+  font-family: "Verdana, Arial", sans-serif;  /* $font-texte */
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;                   /* $color-white */
+  background-color: rgb(187, 41, 139); /* $color-purple */
+  border: none;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: scale(1.02);
+}
+
+.button:focus-visible {
+  outline: 3px solid rgb(59, 97, 230); /* $color-blue */
+  outline-offset: 3px;
+}
+
+.button:active {
+  transform: scale(0.98);
+}

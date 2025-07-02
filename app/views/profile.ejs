@@ -1,8 +1,14 @@
 <%- include('partials/header', { 
   title: user.name + ' - Profil public',
   description: 'Découvrez le profil public de ' + user.name + ', ' + user.bio,
-  bodyClass: 'public-profile-page'
+  bodyClass: 'public-profile-page',
+   page: 'profile'
 }) %>
+<!-- Lien CSS spécifique pour la page about -->
+<link rel="stylesheet" href="/assets/styles/profile.css">
+
+<link rel="stylesheet" href="/assets/styles/card.css">
+
 
 <main class="public-profile-main">
   <section class="card">

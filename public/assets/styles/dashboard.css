@@ -1,0 +1,97 @@
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 2rem 1rem
+}
+
+header.profil-header {
+    color: #fff;
+    text-align: center;
+    background: #3b61e6;
+    padding: 2rem 0
+}
+
+.profil-main {
+    background: #fff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 0 15px #0000001a
+}
+
+.profil-intro {
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 10%;
+    display: flex
+}
+
+.profil-intro .profil-photo {
+    object-fit: cover;
+    border: 3px solid #3b61e6;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px
+}
+
+.profil-intro .profil-info h2 {
+    margin: 0;
+    font-size: 32px
+}
+
+.profil-intro .specialite,
+.profil-intro .localisation {
+    color: #833daf;
+    font-size: 18px
+}
+
+section {
+    margin-bottom: 2rem
+}
+
+h3 {
+    color: #bb298b;
+    margin-bottom: .5rem;
+    font-size: 24px
+}
+
+.profil-services ul {
+    padding: 0;
+    list-style: none
+}
+
+.profil-services ul li {
+    color: #fff;
+    background: #3dbede;
+    border-radius: 8px;
+    margin-bottom: .5rem;
+    padding: .5rem 1rem;
+    font-size: 18px
+}
+
+.profil-contact button {
+    color: #fff;
+    cursor: pointer;
+    background: #833daf;
+    border: none;
+    border-radius: 8px;
+    padding: .8rem 1.5rem;
+    font-size: 18px
+}
+
+.profil-contact button .profil-reseaux .reseaux-icons {
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    display: flex
+}
+
+.profil-contact button footer.profil-footer {
+    text-align: center;
+    color: #833daf;
+    padding: 1rem 0;
+    font-size: .9rem
+}
+
+/*# sourceMappingURL=projet-seo-sympa.fa1c87d8.css.map */
