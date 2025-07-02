@@ -1,60 +1,62 @@
 <!DOCTYPE html>
-
-<!-- view header.ejs - header commun à toutes nos pages sauf /home -->
-
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/styles/project.css">
+  <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=person" />
 
-           <title><%= title || 'SEO-Sympa' %></title>
+   <title><%= title || 'SEO-Sympa' %></title>
   <% if (description) { %>
     <meta name="description" content="<%= description %>" />
-  <% } %>
+  <% } %> 
 
-   
+
+  
     <link rel="icon" href="/assets/img/favicon-seo.ico" type="image/x-icon" />
 
 </head>
 
-<body>
 
-    <header class="menu">
+
+
+<body <%= typeof bodyClass !== 'undefined' && bodyClass ? ` class=${bodyClass}` : '' %>>
+
+
+  <header class="menu">
     <div class="menu-nav">
-      <a href="/src/index.html">
+      <a href="/">
         <img class="logo" src="./assets/img/logo.png" alt="logo seo sympa avec lien vers accueil">
       </a>
 
       <nav class="main-nav">
         <ul class="main-nav__list">
-          <li class="main-nav__item"><a href="../src/pages/about.html" class="main-nav__link">À propos</a></li>
-          <li class="main-nav__item"><a href="/src/pages/contact.html" class="main-nav__link">Contact</a></li>
+          <li class="main-nav__item"><a href="/about" class="main-nav__link">À propos</a></li>
+          <li class="main-nav__item"><a href="/contact" class="main-nav__link">Contact</a></li>
         </ul>
       </nav>
 
       <div class="menu-search">
-        <button href="/src/pages/login.html" class="button__append">Connexion</button>
-        <button href="/src/pages/sign-in.html" class="button__append">Inscription</button>
+        <a href="/login">
+          <button class="button__append">Connexion</button>
+        </a>
+        <a href="/signup">
+          <button class="button__append">Inscription</button>
+        </a>
 
         <form class="search-bar" role="search">
           <input type="search" class="search-input" name="q" placeholder="Rechercher...">
           <button type="submit" class="search-button">Rechercher</button>
-          <a class="icon" href="#"><span class="material-symbols-outlined" style="font-size: 60px; width:auto;">
-            person
-          </span></a>
-          
+          <a class="icon" href="/dashboard"><span class="material-symbols-outlined"
+              style="font-size: 60px; width:auto;">
+              person
+            </span></a>
+
         </form>
 
 
       </div>
     </div>
   </header>
-
-
-</body>
-
-

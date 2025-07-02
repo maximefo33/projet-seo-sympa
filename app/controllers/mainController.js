@@ -9,18 +9,21 @@ const mainController = {
   home: function (req, res) {
     res.render('home', {
       title: 'Page d\'accueil',
+       css: 'home' // ← fichier public/css/home.css
     });
   },
 
   contact: function (req, res) {
     res.render('contact', {
       title: 'Contact',
+       css: 'contact'
     });
   },
 
   about: function (req, res) {
     res.render('about', {
       title: 'A propos',
+        css: 'about'
     });
   },
 
@@ -30,6 +33,7 @@ const mainController = {
   signup: function (req, res) {
     res.render('signup', {
       title: 'Formulaire d\'Inscription',
+       css: 'auth'
     });
   },
 
@@ -43,12 +47,14 @@ const mainController = {
   login: function (req, res) {
     res.render('login', {
       title: 'Connexion',
+      css: 'auth'
     });
   },
 
   loginAction: function (req, res) {
     res.render('login', {
       title: 'Formulaire de connexion',
+      css: 'auth'
     });
   },
 

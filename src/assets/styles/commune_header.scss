@@ -1,5 +1,5 @@
-@use '../vars';
-@use '../mixins' as *; // pour les media queries @include small etc.
+@use '/src/assets/styles/vars';
+@use '/src/assets/styles/mixins' as *; // pour les media queries @include small etc.
 
 //header
 
