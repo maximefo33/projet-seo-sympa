@@ -46,7 +46,7 @@ const authController = {
       if (!validator.isEmail(email)) {
         console.log('adresse mail invalide');
         // throw new Error('L\'adresse e-mail fournie est invalide.');
-        return res.render('inscription', { error: 'L\'adresse email fournie est invalide, merci d\en saisir une au bon format.' });
+        return res.render('inscription', { error: 'L\'adresse email fournie est invalide, merci d\'en saisir une au bon format.' });
       }
 
       // fonction de vérification entre le mot de passe saisi + la confirmation du mot de passe saisi
@@ -79,6 +79,11 @@ const authController = {
       // console.log('req body password :', req.body.password);
       // console.log('mdp haché :', hash);
       // le mdp haché est dans <hash>
+
+      if(!req.body.firstname || !req.body.lastname) {
+        return res.render('inscription', { error: 'Le prénom et le nom sont obligatoires.' });
+      }
+
 
       // création nouvel utilisateur inscrit
       const userRegistered = {
