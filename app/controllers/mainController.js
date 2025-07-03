@@ -89,14 +89,14 @@ const mainController = {
   },
 
   signup: function (req, res) {
-    res.render('signup', {
+    res.render('inscription', {
       title: 'Formulaire d\'Inscription',
        css: 'auth'
     });
   },
 
   signupAction: function (req, res) {
-    res.render('signup', {
+    res.render('inscription', {
       title: 'Formulaire d\'Inscription à compléter',
     });
   },

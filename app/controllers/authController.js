@@ -1,4 +1,4 @@
-// page du controller pour signup - inscription - 24/6
+// page du controller pour inscription - 24/6
 
 // validator vérifiera la conformité des infos saisies
 import validator from 'validator';
@@ -17,12 +17,12 @@ const authController = {
   //-------------------------------------------- début code inscription ---------------------------------//
   // code ci-dessous des fonctions signup et signupaction inspirés  de : Pilori S06-Pilori-BDD et S05E15-Atelier-la-Guilde
   // on définit notre controller pour l'authentification de l'inscription
-  // pour page /signup, inscription 
-  // quand je clique sur bouton "inscription" cela me rend la vue EJS signup
+  // pour page /inscription 
+  // quand je clique sur bouton "inscription" cela me rend la vue EJS inscription
 
 
   signup: function (req, res) {
-    res.render('signup');
+    res.render('inscription');
   },
 
   // sur la vue EJS : on a besoin de saisir nom, prénom, rôle (avec 2 choix possibles de réponse), email, confirmation email, mot de passe
@@ -32,7 +32,7 @@ const authController = {
   // - confirmation email à coder avec bcrypt compare
   // - nom et prénom : limiter à 50 caractères
 
-  // *********************************début inscription /signup ******************
+  // *********************************début /inscription ******************
   signupAction: async function (req, res) {
     try {
 
@@ -46,7 +46,7 @@ const authController = {
       if (!validator.isEmail(email)) {
         console.log('adresse mail invalide');
         // throw new Error('L\'adresse e-mail fournie est invalide.');
-        return res.render('signup', { error: 'L\'adresse email fournie est invalide, merci d\en saisir une au bon format.' });
+        return res.render('inscription', { error: 'L\'adresse email fournie est invalide, merci d\en saisir une au bon format.' });
       }
 
       // fonction de vérification entre le mot de passe saisi + la confirmation du mot de passe saisi
@@ -63,7 +63,7 @@ const authController = {
       const passwordsSame = await verifyPassword(plainPassword, confirmPassword);
       if (!passwordsSame) {
         // throw new Error('Les mots de passe ne correspondent pas.');
-        return res.render('signup', { error: 'Les mots de passe saisis sont différents, merci de recommencer votre inscription.' });
+        return res.render('inscription', { error: 'Les mots de passe saisis sont différents, merci de recommencer votre inscription.' });
       }
       console.log(passwordsSame, 'mdp identiques ?');
 
@@ -101,11 +101,11 @@ const authController = {
 
       const userNeo = await User.create(userRegistered);
       console.log('utilisateur créé :', userNeo);
-      console.log('redirection vers login');
-      res.redirect('/login');
+      console.log('redirection vers connexion');
+      res.redirect('/connexion');
     } catch (error) {     // renvoyer message erreur dans la vue
       console.error(error);
-      res.render('signup', { alert: error.message });
+      res.render('inscription', { alert: error.message });
     }
   },
 
@@ -114,7 +114,7 @@ const authController = {
   //===========Connexion    page /login=======================//
   // Affiche la page de connexion
   login: function (req, res) {
-    res.render('login', { error: null }); //appel view 
+    res.render('connexion', { error: null }); //appel view 
   },
 
   // Action de connexion
@@ -130,7 +130,7 @@ const authController = {
       //Gestion des errors avec try/catch et throw 
       if (!user) {
         console.log("Utilisateur introuvable !");
-        return res.render('login', { error: 'Mauvais couple identifiant/mot de passe' }); //dans loin ejs -error
+        return res.render('connexion', { error: 'Mauvais couple identifiant/mot de passe' }); //dans loin ejs -error
       }
 
       const result = await bcrypt.compare(password, user.password); //verficiation du mote de passe avec bcrypt
@@ -143,12 +143,12 @@ const authController = {
 
         return res.redirect('/tableau-de-bord-prive');
       } else {
-        return res.render('login', { error: 'Mauvais couple identifiant/mot de passe' });
+        return res.render('connexion', { error: 'Mauvais couple identifiant/mot de passe' });
       }
 
     } catch (error) {
       console.error("Erreur attrapée :", error);
-      res.render('login', { error: 'Erreur lors de la tentative de connexion' });
+      res.render('connexion', { error: 'Erreur lors de la tentative de connexion' });
     }
   },
 };

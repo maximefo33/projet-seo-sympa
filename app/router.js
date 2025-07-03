@@ -35,15 +35,15 @@ router.get('/page-d-erreur', mainController.error);
 // CODES DES ENDPOINTS DU BACK
 
 // =================== Connexion /  ===================
-router.post('/login', authController.loginAction);
-router.get('/login', authController.login); //  GET pour afficher la page de connexion
+router.post('/connexion', authController.loginAction);
+router.get('/connexion', authController.login); //  GET pour afficher la page de connexion
 
 //============ Inscription ====================// 
 
 // route pour aller sur inscription
-router.get('/signup', authController.signup);
+router.get('/inscription', authController.signup);
 // route inscription faite
-router.post('/signup', authController.signupAction);
+router.post('/inscription', authController.signupAction);
 
 // si l'user déconnecte, route retour vers la page accueil
 // commenté car 2 routes / accueil pour l'instant
