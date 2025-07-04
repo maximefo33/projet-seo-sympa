@@ -1,0 +1,43 @@
+<%- include('partials/header', { 
+  title: 'Résultats de recherche',
+  description: `Résultats pour "${query}"${selectedCity ? ' à ' + selectedCity : ''}` 
+}) %>
+
+
+<main class="search-results-page">
+  <h1>Résultats pour « <%= query %> »</h1>
+
+  <form method="GET" action="/rechercher" class="filter-form">
+    <label for="city">Ville :</label>
+    <select name="ville" id="city">
+      <option value="">-- Choisissez une ville --</option>
+      <% cities.forEach(city => { %>
+        <option value="<%= city %>" <%= selectedCity === city ? 'selected' : '' %>><%= city %></option>
+      <% }) %>
+      <option value="autre">Autre (saisir manuellement)</option>
+    </select>
+
+    <% if (selectedCity === 'autre') { %>
+      <input type="text" name="villeLibre" placeholder="Saisissez votre ville">
+    <% } %>
+
+    <button type="submit">Filtrer</button>
+  </form>
+
+  <% if (results.length > 0) { %>
+    <ul class="results-list">
+      <% results.forEach(profil => { %>
+        <li class="profil-item">
+          <h2><a href="/profil/<%= profil.id %>"><%= profil.nom %></a></h2>
+          <p><%= profil.ville %></p>
+          <p><%= profil.expertise %></p>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>Aucun résultat trouvé pour ces critères.</p>
+  <% } %>
+</main>
+
+<%- include('partials/footer') %>
+

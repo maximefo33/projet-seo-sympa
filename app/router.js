@@ -7,6 +7,8 @@ import mainController from "./controllers/mainController.js";
 import authController from "./controllers/authController.js";
 import * as userController  from "./controllers/userController.js";
 
+
+
 import isLogged from './middlewares/isLogged.js';
 import { isLoggedIn } from './middlewares/authMiddleware.js';
 
@@ -29,8 +31,10 @@ router.get('/conditions-generales', mainController.conditions);
 router.get('/mentions-legales', mainController.legal); 
 router.get('/declaration-d-accessibilite', mainController.accessibility); 
 router.get('/page-d-erreur', mainController.error);
- 
 
+// nouvelle route recherche profils
+//router.get('/profiles/search', profileController.search);
+ 
 
 // CODES DES ENDPOINTS DU BACK
 
