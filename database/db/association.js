@@ -39,13 +39,30 @@ User.hasMany(Relation, {
 Relation.belongsTo(User, {
   foreignKey: 'user_id'
 });
+User.hasMany(Relation, {
+  foreignKey: 'user_sender_id',
+  as: 'sentRelations'
+});
+Relation.belongsTo(User, {
+  foreignKey: 'user_sender_id',
+  as: 'sender'
+});
 
+User.hasMany(Relation, {
+  foreignKey: 'user_recipient_id',
+  as: 'receivedRelations'
+});
+Relation.belongsTo(User, {
+  foreignKey: 'user_recipient_id',
+  as: 'recipient'
+});
 export {
   User,
   Profile,
   Message,
   Relation,
 };
+
 
 
 

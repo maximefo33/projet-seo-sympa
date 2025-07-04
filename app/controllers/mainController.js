@@ -31,11 +31,11 @@ const mainController = {
   },
 
   // endpoint dashboard sera en accès protégé car page privée, uniquement si connexion OK
-  dashboard: function (req, res) {
-    res.render('dashboard', {
-      title: 'mon tableau de bord privé', //voir si on garde ce titre ?
-    });
-  },
+  // dashboard: function (req, res) {
+  //   res.render('dashboard', {
+  //     title: 'mon tableau de bord privé', //voir si on garde ce titre ?
+  //   });
+  // },
   //***************************************************** */
 
   profile: function (req, res) {
@@ -77,26 +77,26 @@ const mainController = {
   // endpoints back
 
   login: function (req, res) {
-    res.render('login', {
+    res.render('connexion', {
       title: 'Connexion',
     });
   },
 
   loginAction: function (req, res) {
-    res.render('login', {
+    res.render('connexion', {
       title: 'Formulaire de connexion',
     });
   },
 
   signup: function (req, res) {
-    res.render('signup', {
+    res.render('inscription', {
       title: 'Formulaire d\'Inscription',
        css: 'auth'
     });
   },
 
   signupAction: function (req, res) {
-    res.render('signup', {
+    res.render('inscription', {
       title: 'Formulaire d\'Inscription à compléter',
     });
   },

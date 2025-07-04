@@ -2,7 +2,9 @@
 
 import express from "express";
 
+
 //imports ajoutés pour les ENDPOINTS
+import dashboardController from "./controllers/dashboardController.js";
 import mainController from "./controllers/mainController.js";
 import authController from "./controllers/authController.js";
 import * as userController  from "./controllers/userController.js";
@@ -25,7 +27,7 @@ router.get('/', mainController.home);
 router.get('/contact', mainController.contact); 
 router.get('/a-propos', mainController.about); 
 router.get('/rechercher', mainController.search); 
-router.get('/tableau-de-bord-prive', mainController.dashboard); 
+router.get('/tableau-de-bord-prive', isLoggedIn, dashboardController.dashboard);
 router.get('/profil', mainController.profile); 
 router.get('/conditions-generales', mainController.conditions); 
 router.get('/mentions-legales', mainController.legal); 
@@ -39,15 +41,15 @@ router.get('/page-d-erreur', mainController.error);
 // CODES DES ENDPOINTS DU BACK
 
 // =================== Connexion /  ===================
-router.post('/login', authController.loginAction);
-router.get('/login', authController.login); //  GET pour afficher la page de connexion
+router.post('/connexion', authController.loginAction);
+router.get('/connexion', authController.login); //  GET pour afficher la page de connexion
 
 //============ Inscription ====================// 
 
 // route pour aller sur inscription
-router.get('/signup', authController.signup);
+router.get('/inscription', authController.signup);
 // route inscription faite
-router.post('/signup', authController.signupAction);
+router.post('/inscription', authController.signupAction);
 
 // si l'user déconnecte, route retour vers la page accueil
 // commenté car 2 routes / accueil pour l'instant

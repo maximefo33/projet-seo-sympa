@@ -31,7 +31,7 @@ const insertUsers = async () => {
 
  export default insertUsers;*/
 
- import User from '../../app/models/User.js';
+import { Profile, User } from '../db/association.js';
 import bcrypt from 'bcrypt';
 
 const insertUsers = async () => {
@@ -59,4 +59,34 @@ const insertUsers = async () => {
   }
 };
 
-export default insertUsers;
+
+
+const insertProfile = async () => {
+  try {
+    const profiles = [
+      { firstname: 'alice', lastname: 'mex',address: '5 rue de bob',city: 'bordeaux', user_id: 1 },
+      { firstname: 'bob', lastname: 'max' ,address: '5 rue de bob',city: 'bordeaux', user_id: 2 },
+      { firstname: 'chloe', lastname: 'bbe',address: '5 rue de bob',city: 'bordeaux', user_id: 3 },
+    ];
+
+    for (const profile of profiles) {
+      await Profile.create({
+        firstname: profile.firstname,
+          lastname: profile.lastname,
+          address: profile.address,
+          city: profile.city,
+          user_id: profile.user_id,
+        
+      });
+    }
+
+    console.log("Profils insérés avec succès.");
+  } catch (error) {
+    console.error("Erreur lors de l'insertion :", error);
+  }
+};
+
+export {
+  insertProfile,
+  insertUsers,
+};
