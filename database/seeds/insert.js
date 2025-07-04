@@ -1,4 +1,7 @@
+import {insertUsers,insertProfile} from '../seeds/insert.js';
+
 /*import User from '../../app/models/User.js'; 
+
 
 const insertUsers = async () => {
   try {

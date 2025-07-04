@@ -17,6 +17,8 @@ try {
  console.log("👉 Lancement de insertUsers");
 await insertUsers();
 console.log("✅ Données insérées");
+await insertProfile();
+console.log("✅ Données insérées");
 
 } catch (error) {
   console.error(error);
