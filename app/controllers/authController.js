@@ -49,6 +49,20 @@ const authController = {
         return res.render('inscription', { error: 'L\'adresse email fournie est invalide, merci d\'en saisir une au bon format.' });
       }
 
+      //** début ajout code 3/7 E pour vérifier si email déjà dans bdd */
+      // je vérifie si mail saisi dans le formulaire déjà enregistré dans la base de données
+      console.log('vérif du mail :', email);
+
+      const mailAlreadyUse = await User.findOne({ where: { email: req.body.email } });
+      if (mailAlreadyUse) {
+        console.log('mail déjà connu dans bdd :', mailAlreadyUse);
+        // si mail existe, on redirige sur page inscription
+        return res.render('inscription', { error: 'Inscription impossible car l\'adresse mail existe déjà, veuillez vous connecter directement sur l\'onglet connexion OU vous inscrire avec un autre mail.' });
+      }
+
+      // autrement l'inscription peut continuer
+      //**************************fin ajout code 3/7 E */
+
       // fonction de vérification entre le mot de passe saisi + la confirmation du mot de passe saisi
       const verifyPassword = async (plainPassword, confirmPassword) => {
         if (plainPassword !== confirmPassword) {
@@ -68,10 +82,9 @@ const authController = {
       console.log(passwordsSame, 'mdp identiques ?');
 
       // on valide le mot de passe 
-      // on a mis 8 caractères pour tester avec fakefiller, on repassera à 14 après
-      const options = { minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
+      const options = { minLength: 14, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
       if (!validator.isStrongPassword(plainPassword, options)) {
-        throw new Error('Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial');
+        return res.render('inscription', { error: 'Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial' });
       }
 
       // hachage du mot de passe
@@ -80,7 +93,7 @@ const authController = {
       // console.log('mdp haché :', hash);
       // le mdp haché est dans <hash>
 
-      if(!req.body.firstname || !req.body.lastname) {
+      if (!req.body.firstname || !req.body.lastname) {
         return res.render('inscription', { error: 'Le prénom et le nom sont obligatoires.' });
       }
 

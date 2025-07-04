@@ -77,13 +77,13 @@ const mainController = {
   // endpoints back
 
   login: function (req, res) {
-    res.render('login', {
+    res.render('connexion', {
       title: 'Connexion',
     });
   },
 
   loginAction: function (req, res) {
-    res.render('login', {
+    res.render('connexion', {
       title: 'Formulaire de connexion',
     });
   },
