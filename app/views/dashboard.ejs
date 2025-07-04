@@ -1,22 +1,32 @@
-<!-- vues ejs de dashboard (une fois inscrit/e on arrive sur tableau de bord "Bienvenue") -->
-
-<%- include('partials/header', { title: "Tableau de bord - SEO-Sympa",
+<%- include('partials/header', { title: 'Page de connexion' , description: "Page de connexion du site SEO Sympa." ,
  page: 'dashboard',
 description: "Tableau de bord d'un utilisateur inscrit sur le site SEO-Sympa" }) %>
-<!-- Lien CSS spécifique pour la page about -->
 
-<!-- il y aura le scss à mettre en place sur cette page -->
-    <main>
+    <main class="profil-main container">
+        <h1> Mon profile  </h1>
+        <section class="profil-intro">
+            <img src="https://via.placeholder.com/150" alt="Photo du profil" class="profil-photo">
+            <div class="profil-info">
+                <h2>
+                    <%= profile.firstname %>
+                        
+                </h2>
+              
+             
+            </div>
+        </section>
+        <div>
+            <h3>localistion</h3>
+            <p> <%= profile.address  %> </p>
+            <p><%= profile.city  %></p>
+        </div>
 
-        <h1>Bienvenue chez SEO Sympa + user.name !</h1>
+        <div>
+            <h3>Nom de la société</h3>
+            <p><%= profile.company_identification_system  %></p>
+        </div>
 
-        <p>Vous voilà maintenant inscrit(e).</p>
-        <p> Nous vous invitons à compléter votre profil. Ainsi, les utilisateurs
-            souhaitant vous contacter en sauront plus sur votre activité et les services que vous proposez. </p>
-
-<button><a href="/profil">Je complète mon profil</a></button>
-
-<!-- ici ajouter adresse, ville siret... -->
+        <label for="description">a propo</label>
+        <textarea class="profil-a-propos" id="story" name="story" rows="5" cols="33"></textarea>
     </main>
-
     <%- include('partials/footer') %>

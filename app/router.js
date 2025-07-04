@@ -2,7 +2,9 @@
 
 import express from "express";
 
+
 //imports ajoutés pour les ENDPOINTS
+import dashboardController from "./controllers/dashboardController.js";
 import mainController from "./controllers/mainController.js";
 import authController from "./controllers/authController.js";
 import * as userController  from "./controllers/userController.js";
@@ -23,7 +25,7 @@ router.get('/', mainController.home);
 router.get('/contact', mainController.contact); 
 router.get('/a-propos', mainController.about); 
 router.get('/rechercher', mainController.search); 
-router.get('/tableau-de-bord-prive', mainController.dashboard); 
+router.get('/tableau-de-bord-prive', isLoggedIn, dashboardController.dashboard);
 router.get('/profil', mainController.profile); 
 router.get('/conditions-generales', mainController.conditions); 
 router.get('/mentions-legales', mainController.legal); 

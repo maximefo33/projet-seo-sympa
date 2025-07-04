@@ -7,6 +7,7 @@ import bcrypt from 'bcrypt';
 
 // ici on importe les données saisies par l'utilisateur
 import User from '../models/User.js';
+import Profile from '../models/Profile.js';
 
 import sequelize from '../../config/database.js';
 
@@ -80,23 +81,34 @@ const authController = {
       // console.log('mdp haché :', hash);
       // le mdp haché est dans <hash>
 
-      if(!req.body.firstname || !req.body.lastname) {
+      if (!req.body.firstname || !req.body.lastname) {
         return res.render('inscription', { error: 'Le prénom et le nom sont obligatoires.' });
       }
 
+      // ajouter CODE EMPECHER METTRE 2 FOIS MEME MAIL
 
-      // création nouvel utilisateur inscrit
+      // création nouvel utilisateur (données qui vont dans table USER) inscrit
       const userRegistered = {
         email: req.body.email,
         // password: req.body.password, = const plainPassword
         password: hash, // on stocke le mdp haché
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
         role: req.body.role,
         // on ne demande pas d'ID dans notre formulaire donc pas besoin de ce champ ci-dessous qui pourtant arrive en erreur
         // user_sender_id : req.user.id,
       };
-      console.log('utilisateur qui s\inscrit', userRegistered);
+      const userNeo = await User.create(userRegistered);
+      // création nouvel utilisateur (données qui vont dans la table PROFILE) inscrit
+      const profileRegistered = {
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
+        user_id: userNeo.id_user,
+
+      };
+
+
+
+      console.log('utilisateur qui s\inscrit infos table USER', userRegistered);
+      console.log('utilisateur qui s\inscrit info table PROFILE', profileRegistered);
 
       // on fait persister ce nouvel utilisateur inscrit en base de données
       // see @ https://johackim.com/sequelize?utm_source=rss&utm_medium=rss
@@ -104,8 +116,10 @@ const authController = {
 
       // 30/6 - je n'appelais pas la fonction correctement, il faut faire User.create(userRegistered)
 
-      const userNeo = await User.create(userRegistered);
+
+      const profileNeo = await Profile.create(profileRegistered);
       console.log('utilisateur créé :', userNeo);
+      console.log('utilisateur créé :', profileNeo);
       console.log('redirection vers connexion');
       res.redirect('/connexion');
     } catch (error) {     // renvoyer message erreur dans la vue
@@ -138,7 +152,7 @@ const authController = {
         return res.render('connexion', { error: 'Mauvais couple identifiant/mot de passe' }); //dans loin ejs -error
       }
 
-      const result = await bcrypt.compare(password, user.password); //verficiation du mote de passe avec bcrypt
+      const result = await bcrypt.compare(password, user.password); //verification du mote de passe avec bcrypt
       console.log("Résultat comparaison hash:", result);
 
       if (result) { //Mise en place de la session user
@@ -169,5 +183,5 @@ const authController = {
 //   },
 //*************** */
 
-export default authController;
 
+export default authController;
