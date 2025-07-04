@@ -31,11 +31,11 @@ const mainController = {
   },
 
   // endpoint dashboard sera en accès protégé car page privée, uniquement si connexion OK
-  dashboard: function (req, res) {
-    res.render('dashboard', {
-      title: 'mon tableau de bord privé', //voir si on garde ce titre ?
-    });
-  },
+  // dashboard: function (req, res) {
+  //   res.render('dashboard', {
+  //     title: 'mon tableau de bord privé', //voir si on garde ce titre ?
+  //   });
+  // },
   //***************************************************** */
 
   profile: function (req, res) {

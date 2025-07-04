@@ -10,6 +10,7 @@
 //Protection la route /dashboard
 
 export function isLoggedIn(req, res, next) {
+  console.log('isLoggedIn middleware, session.user:', req.session.user);
   if (req.session && req.session.isLogged) {
     next();
   } else {
