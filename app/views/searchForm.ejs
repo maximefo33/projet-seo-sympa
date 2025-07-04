@@ -1,0 +1,67 @@
+<%- include('partials/header', { 
+  title: 'Recherche expert SEO',
+  description: 'Formulaire de recherche d\'experts SEO',
+  bodyClass: 'auth-page'
+}) %>
+
+<main class="auth-main" role="main">
+  <h1 class="auth-title">Recherche expert SEO</h1>
+  <h2 class="auth-subtitle">Trouvez un expert SEO</h2>
+
+  <% if (typeof error !== 'undefined') { %>
+    <div class="error-message" role="alert"><%= error %></div>
+  <% } %>
+
+  <form method="GET" action="/rechercher/resultats" novalidate>
+    <fieldset>
+      <legend class="sr-only">Formulaire de recherche d'expert SEO</legend>
+
+      <label for="q">Mot-clé</label>
+      <input 
+        type="text" 
+        id="q" 
+        name="q" 
+        placeholder="ex: audit, référencement" 
+        value="<%= query || '' %>" 
+        autocomplete="off"
+      >
+
+      <label for="ville">Ville</label>
+      <select id="ville" name="ville" onchange="handleVilleChange(this)" required>
+        <option value="" disabled <%= !selectedCity ? 'selected' : '' %>>Choisissez une ville</option>
+        <% cities.forEach(city => { %>
+          <option value="<%= city %>" <%= selectedCity === city ? 'selected' : '' %>><%= city %></option>
+        <% }) %>
+        <option value="autre" <%= selectedCity === 'autre' ? 'selected' : '' %>>Autre (saisir manuellement)</option>
+      </select>
+
+      <div id="ville-libre-container" style="<%= selectedCity === 'autre' ? '' : 'display:none;' %>">
+        <label for="villeLibre">Votre ville</label>
+        <input 
+          type="text" 
+          id="villeLibre" 
+          name="villeLibre" 
+          placeholder="Entrez votre ville" 
+          value="<%= villeLibre || '' %>"
+        >
+      </div>
+
+    </fieldset>
+
+    <button type="submit" class="button" aria-label="Rechercher un expert SEO">Rechercher</button>
+  </form>
+</main>
+
+<script>
+  function handleVilleChange(select) {
+    const villeLibreContainer = document.getElementById('ville-libre-container');
+    if (select.value === 'autre') {
+      villeLibreContainer.style.display = '';
+    } else {
+      villeLibreContainer.style.display = 'none';
+    }
+  }
+</script>
+
+<%- include('partials/footer') %>
+
