@@ -82,8 +82,7 @@ const authController = {
       console.log(passwordsSame, 'mdp identiques ?');
 
       // on valide le mot de passe 
-      // on a mis 8 caractères pour tester avec fakefiller, on repassera à 14 après
-      const options = { minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
+      const options = { minLength: 14, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
       if (!validator.isStrongPassword(plainPassword, options)) {
         return res.render('inscription', { error: 'Le mot de passe doit comporter au moins 14 caractères et au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial' });
       }
