@@ -28,10 +28,14 @@ const router = express.Router();
 router.get('/', mainController.home); 
 router.get('/contact', mainController.contact); 
 router.get('/a-propos', mainController.about); 
+
+//Page formulaire + results 
+router.get('/rechercher', searchController.searchPage);
+
 // Page formulaire de recherche
-router.get('/rechercher', searchController.showSearchForm);
+//router.get('/rechercher', searchController.showSearchForm);
 // Page résultats de recherche (GET avec query params)
-router.get('/rechercher/resultats', searchController.searchResults);
+//router.get('/rechercher/resultats', searchController.searchResults);
 
 //router.get('/rechercher', mainController.search); 
 

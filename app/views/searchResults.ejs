@@ -14,8 +14,8 @@
         <li class="profil-item">
           <h2><a href="/profil/<%= profil.id_profile %>"><%= profil.firstname %> <%= profil.lastname %></a></h2>
           <p>Ville : <%= profil.city || 'Non renseignée' %></p>
-          <% if (profil.expertise) { %>
-            <p>Expertise : <%= profil.expertise %></p>
+          <% if (profil.description) { %>
+            <p>Description : <%= profil.description %></p>
           <% } %>
         </li>
       <% }) %>

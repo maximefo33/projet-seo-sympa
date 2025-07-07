@@ -12,7 +12,8 @@
     <div class="error-message" role="alert"><%= error %></div>
   <% } %>
 
-  <form method="GET" action="/rechercher/resultats" novalidate>
+    <form method="GET" action="/rechercher" novalidate>
+
     <fieldset>
       <legend class="sr-only">Formulaire de recherche d'expert SEO</legend>
 
@@ -50,6 +51,32 @@
 
     <button type="submit" class="button" aria-label="Rechercher un expert SEO">Rechercher</button>
   </form>
+
+  <% if (typeof results !== 'undefined') { %>
+    <section class="results-section">
+      <h2>Résultats pour « <%= query %> » <%= selectedCity ? `à ${selectedCity}` : '' %></h2>
+
+      <% if (results.length > 0) { %>
+        <ul class="results-list">
+          <% results.forEach(profil => { %>
+            <li class="profil-item">
+              <h2><a href="/profil/<%= profil.id_profile %>"><%= profil.firstname %> <%= profil.lastname %></a></h2>
+              <p>Ville : <%= profil.city || 'Non renseignée' %></p>
+             
+              <% if (profil.description) { %>
+  <p>Description : <%= profil.description %></p>
+<% } %>
+
+            </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <p>Aucun résultat trouvé pour ces critères.</p>
+      <% } %>
+    </section>
+  <% } %>
+
+
 </main>
 
 <script>
