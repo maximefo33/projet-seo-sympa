@@ -5,8 +5,45 @@
 }) %>
 
 <main class="auth-main" role="main">
-  <h1 class="auth-title">Recherche expert SEO</h1>
-  <h2 class="auth-subtitle">Trouvez un expert SEO</h2>
+
+<!-- ici le résultat de la recherche avec les mots-clefs employés par l'utilisateur -->
+
+  <h1 class="auth-title">Résultats de votre recherche</h1>
+
+
+  </form>
+
+  <% if (typeof results !== 'undefined') { %>
+    <section class="results-section">
+      <h2>Résultats pour « <%= query %> » <%= selectedCity ? `à ${selectedCity}` : '' %></h2>
+
+      <% if (results.length > 0) { %>
+        <ul class="results-list">
+          <% results.forEach(profil => { %>
+            <li class="profil-item">
+              <h2><a href="/profil/<%= profil.id_profile %>"><%= profil.firstname %> <%= profil.lastname %></a></h2>
+              <p>Ville : <%= profil.city || 'Non renseignée' %></p>
+             
+              <% if (profil.description) { %>
+  <p>Description : <%= profil.description %></p>
+<% } %>
+
+            </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <p>Aucun résultat trouvé pour ces critères.</p>
+      <% } %>
+    </section>
+  <% } %>
+
+<!-- fin des Résultats -->
+
+
+<!-- ici possibilité de filtrer davantage les résultats avec une recherche avancée -->
+
+  <h1 class="auth-title">Je souhaite faite une recherche plus précise :</h1>
+  <h2 class="auth-subtitle">Merci de choisir vos critères:</h2>
 
   <% if (typeof error !== 'undefined') { %>
     <div class="error-message" role="alert"><%= error %></div>
@@ -47,34 +84,10 @@
         >
       </div>
 
+       <button type="submit" class="button" aria-label="Rechercher un expert SEO">Recherche avancée</button>
     </fieldset>
 
-    <button type="submit" class="button" aria-label="Rechercher un expert SEO">Rechercher</button>
-  </form>
-
-  <% if (typeof results !== 'undefined') { %>
-    <section class="results-section">
-      <h2>Résultats pour « <%= query %> » <%= selectedCity ? `à ${selectedCity}` : '' %></h2>
-
-      <% if (results.length > 0) { %>
-        <ul class="results-list">
-          <% results.forEach(profil => { %>
-            <li class="profil-item">
-              <h2><a href="/profil/<%= profil.id_profile %>"><%= profil.firstname %> <%= profil.lastname %></a></h2>
-              <p>Ville : <%= profil.city || 'Non renseignée' %></p>
-             
-              <% if (profil.description) { %>
-  <p>Description : <%= profil.description %></p>
-<% } %>
-
-            </li>
-          <% }) %>
-        </ul>
-      <% } else { %>
-        <p>Aucun résultat trouvé pour ces critères.</p>
-      <% } %>
-    </section>
-  <% } %>
+   
 
 
 </main>

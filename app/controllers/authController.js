@@ -174,6 +174,7 @@ const authController = {
         req.session.userRole = user.role; //  gérer les rôles
 
         return res.redirect('/tableau-de-bord-prive');
+
       } else {
         return res.render('connexion', { error: 'Mauvais couple identifiant/mot de passe' });
       }

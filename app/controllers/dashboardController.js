@@ -32,7 +32,7 @@ dashboard: async (req, res) => {
       }
         // Si tout va bien, j'affiche la page dashboard
       res.render('dashboard', {
-        title: 'Mon tableau de bord Mon profile',
+        title: 'Mon tableau de bord Mon profil',
         profile: {
           firstname: profile.firstname,
           lastname: profile.lastname,
@@ -44,7 +44,7 @@ dashboard: async (req, res) => {
       });
     } catch (error) {
       console.error("Erreur attrapée :", error);
-      res.render('login', { error: 'Erreur lors de la tentative de connexion' });
+      res.render('connexion', { error: 'Erreur lors de la tentative de connexion' });
     }
   }
 };
