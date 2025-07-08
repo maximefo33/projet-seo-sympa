@@ -323,6 +323,7 @@ body {
 .contenu {
     background: linear-gradient(to bottom right, #0000, #bb298b, #3b61e6, #3dbede);
     flex-flow: row-reverse wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
@@ -332,7 +333,7 @@ body {
 
 .contenu .img_main {
     border-radius: 20px;
-    width: 20%;
+    width: 40%;
     height: auto
 }
 
