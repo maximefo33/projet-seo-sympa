@@ -29,7 +29,7 @@ router.get('/', mainController.home);
 router.get('/contact', mainController.contact); 
 router.get('/a-propos', mainController.about); 
 
-router.get('/rechercher', mainController.search); 
+
 router.get('/tableau-de-bord-prive', isLoggedIn, dashboardController.dashboard);
 
 router.get('/dashboard-edite', isLoggedIn, dashboardController.editProfile);

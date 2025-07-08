@@ -1,107 +1,118 @@
-<%- include('partials/header', { 
-  title: 'Recherche expert SEO',
-  description: 'Formulaire de recherche d\'experts SEO',
-  bodyClass: 'auth-page'
-}) %>
+<%- include('partials/header', { title: 'Recherche expert SEO' , description: 'Formulaire de recherche d\' experts SEO',
+  bodyClass: 'auth-page' }) %>
 
-<main class="auth-main" role="main">
+  <main class="auth-main" role="main">
 
-<!-- ici le résultat de la recherche avec les mots-clefs employés par l'utilisateur -->
+    <!-- ici le résultat de la recherche avec les mots-clefs employés par l'utilisateur -->
 
-  <h1 class="auth-title">Résultats de votre recherche</h1>
+    <h1 class="auth-title">Résultats de votre recherche</h1>
 
-
-  </form>
-
-  <% if (typeof results !== 'undefined') { %>
-    <section class="results-section">
-      <h2>Résultats pour « <%= query %> » <%= selectedCity ? `à ${selectedCity}` : '' %></h2>
-
-      <% if (results.length > 0) { %>
-        <ul class="results-list">
-          <% results.forEach(profil => { %>
-            <li class="profil-item">
-              <h2><a href="/profil/<%= profil.id_profile %>"><%= profil.firstname %> <%= profil.lastname %></a></h2>
-              <p>Ville : <%= profil.city || 'Non renseignée' %></p>
-             
-              <% if (profil.description) { %>
-  <p>Description : <%= profil.description %></p>
-<% } %>
-
-            </li>
-          <% }) %>
-        </ul>
-      <% } else { %>
-        <p>Aucun résultat trouvé pour ces critères.</p>
-      <% } %>
-    </section>
-  <% } %>
-
-<!-- fin des Résultats -->
+    <!-- ici essai - puis on dynamisera une seule carte avec une boucle -->
 
 
-<!-- ici possibilité de filtrer davantage les résultats avec une recherche avancée -->
 
-  <h1 class="auth-title">Je souhaite faite une recherche plus précise :</h1>
-  <h2 class="auth-subtitle">Merci de choisir vos critères:</h2>
+    <section class="public-profile-main">
+      <h2>Résultats pour « <%= query %> » <%= selectedCity ? `à ${selectedCity}` : '' %>
+      </h2>
+      <div class="card cards1">
 
-  <% if (typeof error !== 'undefined') { %>
-    <div class="error-message" role="alert"><%= error %></div>
-  <% } %>
+        <% if (typeof results !=='undefined' ) { %>
+          <section class="results-section">
 
-    <form method="GET" action="/rechercher" novalidate>
+            <% if (results.length> 0) { %>
+              <ul class="results-list">
+                <% results.forEach(profil=> { %>
+                  <li class="profil-item">
+                    <h2><a href="/profil/<%= profil.id_profile %>">
+                        <%= profil.firstname %>
+                          <%= profil.lastname %>
+                      </a></h2>
+                    <p>Ville : <%= profil.city || 'Non renseignée' %>
+                    </p>
 
-    <fieldset>
-      <legend class="sr-only">Formulaire de recherche d'expert SEO</legend>
+                    <% if (profil.description) { %>
+                      <p>Description : <%= profil.description %>
+                      </p>
+                      <a href="#" class="button card__contact">En savoir + sur <%= profil.description %></a>
+                      <!-- lier en savoir + au profil:id pour avoir le profil complet -->
 
-      <label for="q">Mot-clé</label>
-      <input 
-        type="text" 
-        id="q" 
-        name="q" 
-        placeholder="ex: audit, référencement" 
-        value="<%= query || '' %>" 
-        autocomplete="off"
-      >
 
-      <label for="ville">Ville</label>
-      <select id="ville" name="ville" onchange="handleVilleChange(this)" required>
-        <option value="" disabled <%= !selectedCity ? 'selected' : '' %>>Choisissez une ville</option>
-        <% cities.forEach(city => { %>
-          <option value="<%= city %>" <%= selectedCity === city ? 'selected' : '' %>><%= city %></option>
-        <% }) %>
-        <option value="autre" <%= selectedCity === 'autre' ? 'selected' : '' %>>Autre (saisir manuellement)</option>
-      </select>
+                      <a href="/contact" class="button card__contact">Prendre contact avec <%= profil.firstname %> <%= profil.lastname %></a>
+                      <% } %>
 
-      <div id="ville-libre-container" style="<%= selectedCity === 'autre' ? '' : 'display:none;' %>">
-        <label for="villeLibre">Votre ville</label>
-        <input 
-          type="text" 
-          id="villeLibre" 
-          name="villeLibre" 
-          placeholder="Entrez votre ville" 
-          value="<%= villeLibre || '' %>"
-        >
+                  </li>
+                  <% }) %>
+              </ul>
+              <% } else { %>
+                <p>Aucun résultat trouvé pour ces critères.</p>
+                <% } %>
+          </section>
+          <% } %>
+
       </div>
 
-       <button type="submit" class="button" aria-label="Rechercher un expert SEO">Recherche avancée</button>
-    </fieldset>
 
-   
+    </section>
 
 
-</main>
 
-<script>
-  function handleVilleChange(select) {
-    const villeLibreContainer = document.getElementById('ville-libre-container');
-    if (select.value === 'autre') {
-      villeLibreContainer.style.display = '';
-    } else {
-      villeLibreContainer.style.display = 'none';
+    <!-- fin des Résultats -->
+
+
+    <!-- ici possibilité de filtrer davantage les résultats avec une recherche avancée -->
+
+    <h1 class="auth-title">Je souhaite faite une recherche plus précise :</h1>
+    <h2 class="auth-subtitle">Merci de choisir vos critères:</h2>
+
+    <% if (typeof error !=='undefined' ) { %>
+      <div class="error-message" role="alert">
+        <%= error %>
+      </div>
+      <% } %>
+
+        <form method="GET" action="/rechercher" novalidate>
+
+          <fieldset>
+            <legend class="sr-only">Formulaire de recherche d'expert SEO</legend>
+
+            <label for="q">Mot-clé</label>
+            <input type="text" id="q" name="q" placeholder="ex: audit, référencement" value="<%= query || '' %>"
+              autocomplete="off">
+
+            <label for="ville">Ville</label>
+            <select id="ville" name="ville" onchange="handleVilleChange(this)" required>
+              <option value="" disabled <%=!selectedCity ? 'selected' : '' %>>Choisissez une ville</option>
+              <% cities.forEach(city=> { %>
+                <option value="<%= city %>" <%=selectedCity===city ? 'selected' : '' %>><%= city %>
+                </option>
+                <% }) %>
+                  <option value="autre" <%=selectedCity==='autre' ? 'selected' : '' %>>Autre (saisir manuellement)
+                  </option>
+            </select>
+
+            <div id="ville-libre-container" style="<%= selectedCity === 'autre' ? '' : 'display:none;' %>">
+              <label for="villeLibre">Votre ville</label>
+              <input type="text" id="villeLibre" name="villeLibre" placeholder="Entrez votre ville"
+                value="<%= villeLibre || '' %>">
+            </div>
+
+            <button type="submit" class="button" aria-label="Rechercher un expert SEO">Recherche avancée</button>
+          </fieldset>
+
+
+
+
+  </main>
+
+  <script>
+    function handleVilleChange(select) {
+      const villeLibreContainer = document.getElementById('ville-libre-container');
+      if (select.value === 'autre') {
+        villeLibreContainer.style.display = '';
+      } else {
+        villeLibreContainer.style.display = 'none';
+      }
     }
-  }
-</script>
+  </script>
 
-<%- include('partials/footer') %>
-
+  <%- include('partials/footer') %>
