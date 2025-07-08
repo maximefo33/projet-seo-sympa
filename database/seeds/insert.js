@@ -1,3 +1,4 @@
+
 import { Profile, User } from '../db/association.js';
 import bcrypt from 'bcrypt';
 
