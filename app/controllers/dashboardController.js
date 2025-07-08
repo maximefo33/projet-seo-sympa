@@ -2,35 +2,21 @@ import { Profile, User } from '../../database/db/association.js';
 
 
 
-
 const dashboardController = {
 
-dashboard: async (req, res) => {
-  try {
-      //  Je récupère l'identifiant de l'utilisateur connecté depuis la session
-    const userId = req.session.userId
-   ;
-    
+  //  1. Dashboard
+  dashboard: async (req, res) => {
+    try {
+      const userId = req.session.userId;
+      if (!userId) return res.redirect('/connexion');
 
-              // Si aucun utilisateur connecté (pas de session ou d’ID), je redirige vers la page de login
-    if (!userId) {
-      return res.redirect('/connexion');
-       
-    }
-    
-      // Je cherche dans la base de données le profil qui correspond à cet utilisateur
-    const profile = await Profile.findOne({
-      where: { user_id: userId }, // je filtre pour obtenir le bon profil
-       include: User // j'inclus aussi les infos de l'utilisateur (par ex. son email)
-    });
-    
-    
-       // Si aucun profil trouvé, je redirige vers la page de création de profil
-    if (!profile) {
-      return res.redirect('/inscription');
-        
-      }
-        // Si tout va bien, j'affiche la page dashboard
+      const profile = await Profile.findOne({
+        where: { user_id: userId },
+        include: User
+      });
+
+      if (!profile) return res.redirect('/inscription');
+
       res.render('dashboard', {
         title: 'Mon tableau de bord Mon profile',
         profile: {
@@ -38,15 +24,72 @@ dashboard: async (req, res) => {
           lastname: profile.lastname,
           address: profile.address,
           city: profile.city,
-          // company_identification_system:Profile.company_identification_system,
-          // email: profile.User.email,
+          zipcode: profile.zipcode,
+          display_name: profile.display_name,
+          company_identification_system: profile.company_identification_system,
+          description: profile.description,
         },
       });
+
     } catch (error) {
       console.error("Erreur attrapée :", error);
-      res.render('login', { error: 'Erreur lors de la tentative de connexion' });
+      res.render('connexion', { error: 'Erreur lors de la tentative de connexion' });
     }
-  }
+  },
+
+  //  2. Page formulaire de modification
+  editProfile: async (req, res) => {
+    try {
+      const userId = req.session.userId;
+      if (!userId) return res.redirect('/connexion');
+
+      const profile = await Profile.findOne({ where: { user_id: userId } });
+      if (!profile) return res.redirect('/inscription');
+
+      res.render('dashboard-edite', {
+        title: 'Modifier mon profil',
+        profile
+      });
+
+    } catch (error) {
+      console.error("Erreur attrapée :", error);
+      res.redirect('/dashboard');
+    }
+  },
+
+  //  3. Enregistrer la modification
+  updateProfile: async (req, res) => {
+    try {
+      const userId = req.session.userId;
+      if (!userId) return res.redirect('/connexion');
+
+      const profile = await Profile.findOne({ where: { user_id: userId } });
+      if (!profile) return res.redirect('/inscription');
+
+      // Mise à jour des champs
+      profile.firstname = req.body.firstname;
+      profile.lastname = req.body.lastname;
+      profile.address = req.body.address;
+      profile.city = req.body.city;
+      profile.zipcode = req.body.zipcode;
+      profile.display_name = req.body.display_name;
+      profile.company_identification_system = req.body.company_identification_system;
+      profile.description = req.body.description;
+
+      await profile.save();
+
+      res.redirect('/tableau-de-bord-prive');
+
+    } catch (error) {
+      console.error("Erreur attrapée :", error);
+      res.render('dashboard-edite', {
+        title: 'Modifier mon profil',
+        error: 'Erreur lors de la modification',
+        profile: req.body
+      });
+    }
+  },
+
 };
 
 export default dashboardController;
