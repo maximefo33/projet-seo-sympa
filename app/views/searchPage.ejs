@@ -23,7 +23,7 @@
               <ul class="results-list">
                 <% results.forEach(profil=> { %>
                   <li class="profil-item">
-                    <h2><a href="/profil/<%= profil.id_profile %>">
+                    <h2><a href="/profile/<%= profil.id_profile %>">
                         <%= profil.firstname %>
                           <%= profil.lastname %>
                       </a></h2>
@@ -33,11 +33,11 @@
                     <% if (profil.description) { %>
                       <p>Description : <%= profil.description %>
                       </p>
-                      <a href="#" class="button card__contact">En savoir + sur <%= profil.description %></a>
+                      <a href="/profile/<%= profil.id_profile %>" class="button card__contact">En savoir + sur <%= profil.firstname %> <%= profil.lastname %></a>
                       <!-- lier en savoir + au profil:id pour avoir le profil complet -->
 
 
-                      <a href="/contact" class="button card__contact">Prendre contact avec <%= profil.firstname %> <%= profil.lastname %></a>
+                      <a href="/profile/<%= profil.id_profile %>" class="button card__contact">Prendre contact avec <%= profil.firstname %> <%= profil.lastname %></a>
                       <% } %>
 
                   </li>

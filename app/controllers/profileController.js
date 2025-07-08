@@ -3,8 +3,8 @@ import User from '../models/User.js';
 import { Op } from 'sequelize';
 import validator from 'validator';
 
-const searchController = {
-  async searchPage(req, res) {
+const profileController = {
+  async profilePage(req, res) {
     try {
       // Récupération des villes
       const citiesData = await Profile.findAll({
@@ -63,3 +63,22 @@ const searchController = {
 
 
   export default searchController;
+
+
+// insérer profile dans la const ci-desous
+     profile: function (req, res) {
+        res.render('profile', {
+          title: 'profile.display_name',
+          profile: {
+            id: 'profile.id_profile', // id user ou id profil ?
+            firstname: 'profile.firstname',
+            lastname: 'profile.lastname',
+            address: 'profile.address',
+            city: 'profile.city',
+            zipcode: 'profile.zipcode',
+            cis: 'profile.company_identification_system',
+            description: 'profile.description',
+          }
+        });
+      }
+    // fin profile
