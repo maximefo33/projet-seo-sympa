@@ -1,4 +1,3 @@
-// page du controller pour inscription - 24/6
 
 // validator vérifiera la conformité des infos saisies
 import validator from 'validator';

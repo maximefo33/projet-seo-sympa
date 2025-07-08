@@ -8,6 +8,10 @@ import dashboardController from "./controllers/dashboardController.js";
 import mainController from "./controllers/mainController.js";
 import authController from "./controllers/authController.js";
 import * as userController  from "./controllers/userController.js";
+import searchController from "./controllers/searchController.js";
+
+
+
 
 import isLogged from './middlewares/isLogged.js';
 import { isLoggedIn } from './middlewares/authMiddleware.js';
@@ -24,8 +28,10 @@ const router = express.Router();
 router.get('/', mainController.home); 
 router.get('/contact', mainController.contact); 
 router.get('/a-propos', mainController.about); 
+
 router.get('/rechercher', mainController.search); 
 router.get('/tableau-de-bord-prive', isLoggedIn, dashboardController.dashboard);
+
 router.get('/dashboard-edite', isLoggedIn, dashboardController.editProfile);
 router.post('/dashboard-edite', isLoggedIn, dashboardController.updateProfile);
 router.get('/profil', mainController.profile); 
@@ -33,8 +39,19 @@ router.get('/conditions-generales', mainController.conditions);
 router.get('/mentions-legales', mainController.legal); 
 router.get('/declaration-d-accessibilite', mainController.accessibility); 
 router.get('/page-d-erreur', mainController.error);
- 
 
+
+// Page formulaire de recherche
+//router.get('/rechercher', searchController.showSearchForm);
+// Page résultats de recherche (GET avec query params)
+//router.get('/rechercher/resultats', searchController.searchResults);
+
+//router.get('/rechercher', mainController.search); 
+
+
+// nouvelle route recherche profils
+//router.get('/profiles/search', profileController.search);
+ 
 
 // CODES DES ENDPOINTS DU BACK
 
@@ -54,7 +71,11 @@ router.post('/inscription', authController.signupAction);
 // router.get('/', isLogged, authController.logout);
 // ------------ fin routes inscription -------
 
-
+//Page formulaire + results 
+router.get('/rechercher', searchController.searchPage);
 
 // on l'exporte
 export default router;
+
+
+

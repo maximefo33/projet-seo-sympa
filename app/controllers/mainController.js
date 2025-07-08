@@ -24,19 +24,14 @@ const mainController = {
     });
   },
 
-  search: function (req, res) {
-    res.render('search', {
-      title: 'rechercher',
-    });
-  },
+  //search: function (req, res) {
+   // res.render('search', {
+   //   title: 'rechercher',
+  //  });
+  //},
 
-  // endpoint dashboard sera en accès protégé car page privée, uniquement si connexion OK
-  // dashboard: function (req, res) {
-  //   res.render('dashboard', {
-  //     title: 'mon tableau de bord privé', //voir si on garde ce titre ?
-  //   });
-  // },
-  //***************************************************** */
+  // endpoint dashboard => voir dashboardcontroller
+
 
   profile: function (req, res) {
     res.render('profile', {
