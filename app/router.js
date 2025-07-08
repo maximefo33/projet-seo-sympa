@@ -29,6 +29,8 @@ router.get('/', mainController.home);
 router.get('/contact', mainController.contact); 
 router.get('/a-propos', mainController.about); 
 router.get('/tableau-de-bord-prive', isLoggedIn, dashboardController.dashboard); 
+router.get('/dashboard-edite', isLoggedIn, dashboardController.editProfile);
+router.post('/dashboard-edite', isLoggedIn, dashboardController.updateProfile);
 router.get('/profil', mainController.profile); 
 router.get('/conditions-generales', mainController.conditions); 
 router.get('/mentions-legales', mainController.legal); 
