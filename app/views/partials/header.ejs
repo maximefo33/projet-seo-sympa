@@ -13,12 +13,10 @@
     <meta name="description" content="<%= description %>" />
   <% } %> 
 
-
   
     <link rel="icon" href="/assets/img/favicon-seo.ico" type="image/x-icon" />
 
 </head>
-
 
 
 
@@ -33,7 +31,7 @@
 
       <nav class="main-nav">
         <ul class="main-nav__list">
-          <li class="main-nav__item"><a href="/a-propos" class="main-nav__link">À propos</a></li>
+          <li class="main-nav__item"><a href="/about" class="main-nav__link">À propos</a></li>
           <li class="main-nav__item"><a href="/contact" class="main-nav__link">Contact</a></li>
         </ul>
       </nav>
@@ -45,19 +43,27 @@
         <a href="/inscription">
           <button class="button__append">Inscription</button>
         </a>
-<!-- il faudra mettre le lien vers /rechercher quand le code page search sera actif -->
-        <form class="search-bar" role="search">
-          <input type="search" class="search-input" name="q" placeholder="Rechercher...">
-          <button type="submit" class="search-button">Rechercher</button>
-          
-          <a class="icon" href="/tableau-de-bord-prive"><span class="material-symbols-outlined"
-              style="font-size: 60px; width:auto;">
-              person
-            </span></a>
 
-        </form>
+        <form class="search-bar" role="search" action="/rechercher" method="get">
+  <input 
+    type="search" 
+    class="search-input" 
+    name="q" 
+    placeholder="Recherchez un Expert SEO..." 
+    required
+  >
+  <button type="submit" class="search-button">Rechercher</button>
+</form>
+
+<a class="icon" href="/dashboard">
+  <span class="material-symbols-outlined" style="font-size: 60px; width:auto;">
+    person
+  </span>
+</a>
+
 
 
       </div>
     </div>
   </header>
+
