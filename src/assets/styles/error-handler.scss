@@ -1,10 +1,10 @@
 
-@import './var.scss';
-@import './mixins.scss';
+@use './vars.scss';
+@use './mixins.scss';
 
 .error-404,
 .error-500 {
-  font-family: $font-texte;
+  font-family: vars.$font-texte;
   min-height: 100vh;
   padding: 2rem;
   display: flex;
@@ -14,26 +14,26 @@
   text-align: center;
   
   h1 {
-    font-size: $title-fontsize;
+    font-size: vars.$title-fontsize;
     margin-bottom: 1rem;
 
-    @include small {
+    @include mixins.small {
       font-size: 3rem;
     }
 
-    @include medium {
+    @include mixins.medium {
       font-size: 4rem;
     }
   }
 
   p {
-    font-size: $text-fontsize;
+    font-size: vars.$text-fontsize;
     margin-bottom: 1.5rem;
     max-width: 600px;
   }
 
   a {
-    font-size: $subtitle-fontsize;
+    font-size: vars.$subtitle-fontsize;
     text-decoration: none;
     border-bottom: 2px solid transparent;
     transition: border-color 0.3s ease, color 0.3s ease;
@@ -46,39 +46,39 @@
 }
 
 .error-404 {
-  color: $color-black;
-  background-color: $color-lightblue;
+  color: vars.$color-black;
+  background-color: vars.$color-lightblue;
 
   h1 {
-    color: $color-purple;
+    color: vars.$color-purple;
   }
 
   a {
-    color: $color-blue;
+    color: vars.$color-blue;
     
     &:hover,
     &:focus {
-      color: $color-darkpurple;
-      border-color: $color-darkpurple;
+      color: vars.$color-darkpurple;
+      border-color: vars.$color-darkpurple;
     }
   }
 }
 
 .error-500 {
-  color: $color-white;
-  background-color: $color-darkpurple;
+  color: vars.$color-white;
+  background-color: vars.$color-darkpurple;
 
   h1 {
-    color: $color-lightblue;
+    color: vars.$color-lightblue;
   }
 
   a {
-    color: $color-blue;
+    color: vars.$color-blue;
 
     &:hover,
     &:focus {
-      color: $color-purple;
-      border-color: $color-purple;
+      color: vars.$color-purple;
+      border-color: vars.$color-purple;
     }
   }
 }
@@ -88,53 +88,53 @@
 
 
 
-/*@import './var.scss';
-@import './mixins.scss';
+// @import './var.scss';
+// @import './mixins.scss';
 
-.error-404 {
-  font-family: $font-texte;
-  color: $color-black;
-  background-color: $color-lightblue;
-  min-height: 100vh;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+// .error-404 {
+//   font-family: $font-texte;
+//   color: $color-black;
+//   background-color: $color-lightblue;
+//   min-height: 100vh;
+//   padding: 2rem;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   text-align: center;
 
-  h1 {
-    font-size: $title-fontsize;
-    color: $color-purple;
-    margin-bottom: 1rem;
+//   h1 {
+//     font-size: $title-fontsize;
+//     color: $color-purple;
+//     margin-bottom: 1rem;
 
-    @include small {
-      font-size: 3rem;
-    }
+//     @include small {
+//       font-size: 3rem;
+//     }
 
-    @include medium {
-      font-size: 4rem;
-    }
-  }
+//     @include medium {
+//       font-size: 4rem;
+//     }
+//   }
 
-  p {
-    font-size: $text-fontsize;
-    margin-bottom: 1.5rem;
-    max-width: 600px;
-  }
+//   p {
+//     font-size: $text-fontsize;
+//     margin-bottom: 1.5rem;
+//     max-width: 600px;
+//   }
 
-  a {
-    font-size: $subtitle-fontsize;
-    color: $color-blue;
-    text-decoration: none;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.3s ease, color 0.3s ease;
+//   a {
+//     font-size: $subtitle-fontsize;
+//     color: $color-blue;
+//     text-decoration: none;
+//     border-bottom: 2px solid transparent;
+//     transition: border-color 0.3s ease, color 0.3s ease;
 
-    &:hover,
-    &:focus {
-      color: $color-darkpurple;
-      border-color: $color-darkpurple;
-      outline: none;
-    }
-  }
-}
+//     &:hover,
+//     &:focus {
+//       color: $color-darkpurple;
+//       border-color: $color-darkpurple;
+//       outline: none;
+//     }
+//   }
+// }
