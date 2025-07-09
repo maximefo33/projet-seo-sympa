@@ -25,13 +25,25 @@ const searchController = {
 
       const searchConditions = [];
 
-      if (query) {
-        searchConditions.push({
-          [Op.or]: [
-            { description: { [Op.iLike]: `%${query}%` } }
-          ]
-        });
-      }
+     if (query) {
+
+  const normalizedKeywords = query
+    .toLowerCase()
+    .replace(/,/g, ' ')        
+    .split(/\s+/)            
+    .filter(Boolean);          
+
+  
+  const keywordConditions = normalizedKeywords.map(word => ({
+    description: { [Op.iLike]: `%${word}%` }
+  }));
+
+  
+  searchConditions.push({
+    [Op.or]: keywordConditions
+  });
+}
+
 
       if (cityToUse) {
         searchConditions.push({
