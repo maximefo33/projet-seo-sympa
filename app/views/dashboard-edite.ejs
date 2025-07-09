@@ -1,69 +1,74 @@
-<%- include('partials/header', {
-  title: 'Modifier votre profil',
-  description: "Page pour modifier les informations de votre profil sur SEO Sympa.",
-  bodyClass: 'auth-page'
-}) %>
+<%- include('partials/header', { title: 'Modifier votre profil' ,
+  description: "Page pour modifier les informations de votre profil sur SEO Sympa." , bodyClass: 'auth-page' }) %>
 
-<main class="auth-main" id="main-content">
-  <h1 class="auth-title">Modifier votre profil</h1>
-  <h2 class="auth-subtitle">Mettez à jour vos informations personnelles</h2>
+  <main class="auth-main" id="main-content">
+    <h1 class="auth-title">Modifier votre profil</h1>
+    <h2 class="auth-subtitle">Mettez à jour vos informations personnelles</h2>
+    <script defer  src="/assets/js/api-ville.js"></script>
 
-  <% if (typeof error !== 'undefined') { %>
-    <div class="error-message" role="alert">
-      <%= error %>
-    </div>
-  <% } %>
+    <% if (typeof error !=='undefined' ) { %>
+      <div class="error-message" role="alert">
+        <%= error %>
+      </div>
+      <% } %>
+      
+        <form method="POST" action="/dashboard-edite" novalidate>
+          <fieldset>
+            <legend class="sr-only">Informations personnelles</legend>
 
-  <form method="POST" action="/dashboard-edite" novalidate>
-    <fieldset>
-      <legend class="sr-only">Informations personnelles</legend>
+            <!-- Prénom -->
+            <label for="firstname">Prénom <span aria-hidden="true">*</span></label>
+            <input type="text" id="firstname" name="firstname" placeholder="Votre prénom"
+              value="<%= profile.firstname %>" required aria-required="true" />
 
-      <!-- Prénom -->
-      <label for="firstname">Prénom <span aria-hidden="true">*</span></label>
-      <input type="text" id="firstname" name="firstname" placeholder="Votre prénom"
-        value="<%= profile.firstname %>" required aria-required="true" />
+            <!-- Nom -->
+            <label for="lastname">Nom <span aria-hidden="true">*</span></label>
+            <input type="text" id="lastname" name="lastname" placeholder="Votre nom" value="<%= profile.lastname %>"
+              required aria-required="true" />
 
-      <!-- Nom -->
-      <label for="lastname">Nom <span aria-hidden="true">*</span></label>
-      <input type="text" id="lastname" name="lastname" placeholder="Votre nom"
-        value="<%= profile.lastname %>" required aria-required="true" />
+            <!-- Nom affiché -->
+            <label for="display_name">Nom affiché (public)</label>
+            <input type="text" id="display_name" name="display_name" placeholder="Nom visible par les autres"
+              value="<%= profile.display_name || '' %>" />
 
-      <!-- Nom affiché -->
-      <label for="display_name">Nom affiché (public)</label>
-      <input type="text" id="display_name" name="display_name" placeholder="Nom visible par les autres"
-        value="<%= profile.display_name || '' %>" />
+            <!-- Adresse -->
+            <label for="address">Adresse</label>
+            <input type="text" id="address" name="address" placeholder="Adresse complète"
+              value="<%= profile.address || '' %>" />
 
-      <!-- Adresse -->
-      <label for="address">Adresse</label>
-      <input type="text" id="address" name="address" placeholder="Adresse complète"
-        value="<%= profile.address || '' %>" />
+            <!-- code postal -->
+            <label for="zipcode">Code postal</label>
+            <input type="text" id="zipcode" name="zipcode" value="<%= profile.zipcode %>" required>
 
-      <!-- Ville -->
-      <label for="city">Ville</label>
-      <input type="text" id="city" name="city" placeholder="Votre ville"
-        value="<%= profile.city || '' %>" />
-
-      <!-- Code postal -->
-      <label for="zipcode">Code postal</label>
-      <input type="text" id="zipcode" name="zipcode" placeholder="Ex : 75000"
-        pattern="\\d{5}" maxlength="5" value="<%= profile.zipcode || '' %>" />
-
-      <!-- Numéro d'identification entreprise -->
-      <label for="company_identification_system">Numéro SIRET (ou autre identifiant entreprise)</label>
-      <input type="text" id="company_identification_system" name="company_identification_system"
-        placeholder="Ex : 12345678901234" pattern="\\d{14}" maxlength="14"
-        value="<%= profile.company_identification_system || '' %>" />
-
-      <!-- Description -->
-      <label for="description">Description <span aria-hidden="true">*</span></label>
-      <textarea id="description" name="description" rows="5" placeholder="Décrivez votre activité ou profil"
-        required aria-required="true"><%= profile.description %></textarea>
-
-    </fieldset>
-
-    <button type="submit" class="button" aria-label="Enregistrer les modifications">Enregistrer</button>
-  </form>
-</main>
+            <!-- Ville -->
+            <label for="city">Ville</label>
+            <select id="city" name="city">
+              <option value="<%= profile.city %>">
+                <%= profile.city %>
+              </option>
+            </select>
 
 
-<%- include('partials/footer') %>
+            <!-- Numéro d'identification entreprise -->
+            <label for="company_identification_system">Numéro SIRET (ou autre identifiant entreprise)</label>
+            <input type="text" id="company_identification_system" name="company_identification_system"
+              placeholder="Ex : 12345678901234" pattern="\\d{14}" maxlength="14"
+              value="<%= profile.company_identification_system || '' %>" />
+
+            <!-- Description -->
+            <label for="description">Description <span aria-hidden="true">*</span></label>
+            <textarea id="description" name="description" rows="5" placeholder="Décrivez votre activité ou profil"
+              required aria-required="true"><%= profile.description %></textarea>
+
+          </fieldset>
+
+          <button type="submit" class="button" aria-label="Enregistrer les modifications">Enregistrer</button>
+        </form>
+  </main>
+  
+
+
+ 
+
+
+  <%- include('partials/footer') %>
