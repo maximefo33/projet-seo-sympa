@@ -28,10 +28,10 @@ const searchController = {
      if (query) {
 
   const normalizedKeywords = query
-    .toLowerCase()
-    .replace(/,/g, ' ')        
-    .split(/\s+/)            
-    .filter(Boolean);          
+    .toLowerCase()  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
+    .replace(/,/g, ' ')   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace     
+    .split(/\s+/)      //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split      
+    .filter(Boolean);      //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter    
 
   
   const keywordConditions = normalizedKeywords.map(word => ({
