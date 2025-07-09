@@ -43,10 +43,6 @@ Profile.init(
       type: DataTypes.STRING(14),
       allowNull: true,
     },
-       description: {
-     type: DataTypes.STRING(255),
-     allowNull: false,
-   },
 
     description: {
       type: DataTypes.STRING(255),
