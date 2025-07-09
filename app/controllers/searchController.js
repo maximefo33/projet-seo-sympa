@@ -53,6 +53,14 @@ const searchController = {
         });
       }
 
+      res.render('searchPage', {
+        title: 'Recherche expert SEO',
+        cities,
+        query,
+        selectedCity,
+        villeLibre,
+        results
+      });
       } catch (error) {
         console.error(error);
         res.status(500).send('Erreur lors du chargement de la page de recherche');

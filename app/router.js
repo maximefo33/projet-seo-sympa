@@ -9,6 +9,7 @@ import mainController from "./controllers/mainController.js";
 import authController from "./controllers/authController.js";
 import * as userController  from "./controllers/userController.js";
 import searchController from "./controllers/searchController.js";
+import profileController from './controllers/profileController.js';
 
 import isLogged from './middlewares/isLogged.js';
 import { isLoggedIn } from './middlewares/authMiddleware.js';
@@ -28,7 +29,7 @@ router.get('/a-propos', mainController.about);
 router.get('/tableau-de-bord-prive', isLoggedIn, dashboardController.dashboard); 
 
 router.post('/dashboard-edite', isLoggedIn, dashboardController.updateProfile);
-router.get('/profil/:id', mainController.profile);
+router.get('/profil/:id', profileController.profile);
 router.get('/conditions-generales', mainController.conditions); 
 router.get('/mentions-legales', mainController.legal); 
 router.get('/declaration-d-accessibilite', mainController.accessibility); 
