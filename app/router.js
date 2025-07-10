@@ -65,7 +65,7 @@ router.post('/inscription', authController.signupAction);
 
 // si l'user déconnecte, route retour vers la page accueil
 // commenté car 2 routes / accueil pour l'instant
-// router.get('/', isLogged, authController.logout);
+// router.get('/logout', isLogged, authController.logout);
 // ------------ fin routes inscription -------
 
 //Page formulaire + results 

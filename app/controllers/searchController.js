@@ -27,6 +27,8 @@ const searchController = {
 
      if (query) {
 
+// commenter ci dessous ce que font les .to
+
   const normalizedKeywords = query
     .toLowerCase()  //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
     .replace(/,/g, ' ')   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace     

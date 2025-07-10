@@ -1,5 +1,4 @@
 // database - table RELATION 
-// database - table RELATION 
 // traduire en langage sequelize pour communiquer avec la databse postgreSQL
 import sequelize from '../../config/database.js';
 import { Model, DataTypes } from 'sequelize';
@@ -12,6 +11,8 @@ import { Model, DataTypes } from 'sequelize';
 
 // pas besoin de mettre les id, sequelize les gère automatiquement
 // XXXXX
+
+// A REPRENDRE 10.7. avec des champs non obligatoires pour date acceptation et suppression
 
 class Relation extends Model { }
 
