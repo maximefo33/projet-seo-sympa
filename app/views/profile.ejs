@@ -1,28 +1,29 @@
 <%- include('partials/header', { 
-  title: user.name + ' - Profil public',
-  description: 'Découvrez le profil public de ' + user.name + ', ' + user.bio,
+  title:  'Page profil public de ' + profile.display_name,
+  description: 'Découvrez le profil public de ' + profile.display_name,
  bodyClass:'public-profile-page'
   
 }) %>
-<!-- Lien CSS spécifique pour la page about -->
 
-
+<!-- ici c'est la page profil public d'un expert en détail (lien : /profil/:id) -->
 
 <main class="public-profile-main">
     <section class="card">
-      <div class="card__image">
+      <!-- <div class="card__image">
         <img src="/assets/img/profile-img.png" alt="Portrait de Marie Dupont" />
-      </div>
+      </div> -->
       <div class="card__info">
-           <h1 class="card__name"><%= user.name %></h1>
-      <p class="card__job"><%= user.job %></p>
-      <p class="card__location"><%= user.location %></p>
-      <p class="card__bio"><%= user.bio %></p>
-
-      
+           <h1 class="card__name"><%= profile.firstname %></h1>
+           <h1 class="card__name"><%= profile.lastname %></h1>
+            <p class="card__location"><%= profile.address %></p>
+      <p class="card__location"><%= profile.city %></p>
+      <p class="card__location"><%= profile.zipcode %></p>
+      <p class="card__location"><%= profile.company_identification_system %></p>
+      <p class="card__bio"><%= profile.description %></p>
       </div>
       <a href="/#" class="button card__contact">Prendre contact</a>
     </section>
   </main>
 
 <%- include('partials/footer') %>
+

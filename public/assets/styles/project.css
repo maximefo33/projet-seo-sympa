@@ -2,6 +2,7 @@ body {
     background-color: #fff;
     margin: 1rem;
     font-family: Verdana\, Arial, sans-serif;
+    font-size: 18px;
     line-height: 1.4
 }
 
@@ -77,7 +78,8 @@ body {
     background: linear-gradient(#3b61e6, #fff);
     flex-direction: column;
     align-items: stretch;
-    display: flex
+    display: flex;
+ 
 }
 
 .auth-main {
@@ -327,12 +329,13 @@ body {
     align-items: center;
     gap: 2rem;
     padding: 5rem;
-    display: flex
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .contenu .img_main {
     border-radius: 20px;
-    width: 20%;
+    width: 35%;
     height: auto
 }
 
@@ -386,6 +389,8 @@ body {
     font-size: 2.25rem;
     line-height: 1.6
 }
+
+/* styles de la page à propos à réutiliser pour les résultats de la search dans searchPage */
 
 .about_witness_contain0 {
     background-color: #fff;
@@ -453,8 +458,11 @@ body {
 
 .about_witness1,
 .about_witness2 {
-    background: #3dbede
+    background: #3dbede;
+    margin-top: 4rem;
 }
+
+/* fin des styles */
 
 .faq {
     background-color: #3dbede;
@@ -748,6 +756,22 @@ body {
     font-weight: 700
 }
 
+.main_cgu_checkbox {
+    color: #000;
+    text-align: left;
+    border: inset;
+    align-items: center;
+    width: auto;
+    height: auto;
+    display: block
+}
+
+.main_cgu_legend {
+    color: #3b61e6;
+    font-size: 24px;
+    font-weight: 700
+}
+
 .coucou {
     text-align: center
 }
@@ -819,7 +843,8 @@ body {
     font-weight: 700;
     text-decoration: none;
     transition: background-color .3s, transform .2s;
-    display: inline-block
+    display: inline-block;
+    margin-top: 2rem;
 }
 
 .button:hover,
@@ -1198,4 +1223,98 @@ h3 {
     font-size: .9rem
 }
 
-/*# sourceMappingURL=projet-seo-sympa.852f3ff9.css.map */
+.error-404,
+.error-500 {
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    font-family: Verdana\, Arial, sans-serif;
+    display: flex
+}
+
+.error-404 h1,
+.error-500 h1 {
+    margin-bottom: 1rem;
+    font-size: 32px
+}
+
+@media screen and (width>=50rem) {
+
+    .error-404 h1,
+    .error-500 h1 {
+        font-size: 3rem
+    }
+}
+
+@media screen and (width>=60rem) {
+
+    .error-404 h1,
+    .error-500 h1 {
+        font-size: 4rem
+    }
+}
+
+.error-404 p,
+.error-500 p {
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+    font-size: 18px
+}
+
+.error-404 a,
+.error-500 a {
+    border-bottom: 2px solid #0000;
+    font-size: 24px;
+    text-decoration: none;
+    transition: border-color .3s, color .3s
+}
+
+.error-404 a:hover,
+.error-404 a:focus,
+.error-500 a:hover,
+.error-500 a:focus {
+    outline: none
+}
+
+.error-404 {
+    color: #000;
+    background-color: #3dbede
+}
+
+.error-404 h1 {
+    color: #bb298b
+}
+
+.error-404 a {
+    color: #3b61e6
+}
+
+.error-404 a:hover,
+.error-404 a:focus {
+    color: #833daf;
+    border-color: #833daf
+}
+
+.error-500 {
+    color: #fff;
+    background-color: #833daf
+}
+
+.error-500 h1 {
+    color: #3dbede
+}
+
+.error-500 a {
+    color: #3b61e6
+}
+
+.error-500 a:hover,
+.error-500 a:focus {
+    color: #bb298b;
+    border-color: #bb298b
+}
+
+/*# sourceMappingURL=about.b1873ae5.css.map */

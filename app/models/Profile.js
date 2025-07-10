@@ -44,6 +44,11 @@ Profile.init(
       allowNull: true,
     },
 
+    description: {
+      type: DataTypes.STRING(255),
+      allowNull: false,
+    },
+
   },
   // Argument 2 : les options
   {

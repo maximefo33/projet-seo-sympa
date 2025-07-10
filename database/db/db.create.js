@@ -3,9 +3,12 @@
 // fait le lien avec sequelize - le lancer avec la commande npm run db:create
 // je prends mes modèles
 
+
+
 import '../db/association.js';
 import sequelize from '../../config/database.js';
-import insertUsers from '../seeds/insert.js';
+import {insertUsers,insertProfile} from '../seeds/insert.js';
+
 
 try {
   await sequelize.authenticate();
@@ -16,6 +19,8 @@ try {
 
  console.log("👉 Lancement de insertUsers");
 await insertUsers();
+console.log("✅ Données insérées");
+await insertProfile();
 console.log("✅ Données insérées");
 
 } catch (error) {

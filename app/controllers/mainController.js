@@ -24,31 +24,15 @@ const mainController = {
     });
   },
 
-  search: function (req, res) {
-    res.render('search', {
-      title: 'rechercher',
-    });
-  },
+  //search: function (req, res) {
+  // res.render('search', {
+  //   title: 'rechercher',
+  //  });
+  //},
 
-  // endpoint dashboard sera en accès protégé car page privée, uniquement si connexion OK
-  // dashboard: function (req, res) {
-  //   res.render('dashboard', {
-  //     title: 'mon tableau de bord privé', //voir si on garde ce titre ?
-  //   });
-  // },
-  //***************************************************** */
+  // endpoint dashboard => voir dashboardcontroller
 
-  profile: function (req, res) {
-    res.render('profile', {
-      title: 'profil public', // voir si on renomme ?
-      user: {
-        name: 'Elfé', //ensuite on dynamisera ces infos
-        job: "du rugby",
-        location: 'Drôme',
-        bio: 'depuis 2010',
-      }
-    });
-  },
+// endpoint profile : voir searchController
 
   conditions: function (req, res) {
     res.render('conditions', {
@@ -70,7 +54,7 @@ const mainController = {
 
   error: function (req, res) {
     res.render('error', {
-      title: 'page d\'erreur', 
+      title: 'page d\'erreur',
     });
   },
 
@@ -91,7 +75,7 @@ const mainController = {
   signup: function (req, res) {
     res.render('inscription', {
       title: 'Formulaire d\'Inscription',
-       css: 'auth'
+      css: 'auth'
     });
   },
 

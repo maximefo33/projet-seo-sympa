@@ -1,4 +1,3 @@
-// page du controller pour inscription - 24/6
 
 // validator vérifiera la conformité des infos saisies
 import validator from 'validator';
@@ -114,7 +113,9 @@ const authController = {
       const profileRegistered = {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
+        description: "",
         user_id: userNeo.id_user,
+          
 
       };
 
@@ -171,7 +172,8 @@ const authController = {
       if (result) { //Mise en place de la session user
         req.session.isLogged = true;
         req.session.userId = user.id_user;
-        req.session.userRole = user.role; //  gérer les rôles
+        req.session.userRole = user.role;  //gérer les rôles
+        req.session.userDescription = user.description 
 
         return res.redirect('/tableau-de-bord-prive');
       } else {
