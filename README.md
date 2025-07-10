@@ -54,12 +54,16 @@ npm run db:create
 PUIS
 npm run seed
 
+
+
 ### nos 4 tables créées à chaque démarrage :
 
 table USER
 table PROFILE
 table MESSAGE
 table RELATION
+
+
 
 essai avec
 
@@ -68,3 +72,5 @@ ETJERRY
 demandeur
 tom@aol.com
 TOMtom2025//..
+
+puis je regarde sur psql avec  : SELECT * FROM "user";
