@@ -14,7 +14,7 @@
 
         <p id="form-desc" class="sr-only">Tous les champs marqués d’un astérisque sont obligatoires.</p>
 
-        <form method="POST" action="/inscription" novalidate aria-describedby="form-desc">
+        <form method="POST" action="/inscription" aria-describedby="form-desc">
           <p class="required-note">Tous les champs marqués d’un <span>*</span> sont obligatoires.</p>
           <fieldset>
             <legend class="sr-only">Formulaire d'inscription</legend>
@@ -40,18 +40,22 @@
               autocomplete="email" />
 
             <label for="password">Mot de passe <span aria-hidden="true">*</span></label>
-             <p class="required-note">Le mot de passe doit comporter 14 caractères minimum, dont une majuscule, une minuscule, un chiffre et un symbole.</p>
+            <p class="required-note">Le mot de passe doit comporter 14 caractères minimum, dont une majuscule, une
+              minuscule, un chiffre et un symbole.</p>
             <input type="password" id="password" name="password" placeholder="Mot de passe" required
               aria-required="true" autocomplete="new-password" />
             <label for="confirm-password">Confirmer le mot de passe <span aria-hidden="true">*</span></label>
             <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirmer le mot de passe"
               required aria-required="true" autocomplete="new-password" />
 
+
+              <!-- case à cocher (conditions générales acceptées) obligatoirement pour s'inscrire : cf règle 141 opquast https://checklists.opquast.com/fr/assurance-qualite-web/lutilisateur-est-averti-des-ouvertures-de-nouvelles-fenetres#:~:text=R%C3%A8gle%20n%C2%B0%20141%20%2D%20L,faut%20absolument%20pr%C3%A9venir%20les%20utilisateurs. -->
             <div class="checkbox-wrapper">
               <input type="checkbox" id="cgu" name="cgu" required aria-required="true" />
               <label for="cgu"> J’accepte les <a href="/conditions-generales" target="_blank">Conditions Générales
-                  d’Utilisation</a>
-                <span aria-hidden="true">*</span>
+                  d’Utilisation*.</a> <p> (Quand vous cliquerez sur "conditions générales", cela vous ouvrira un autre onglet de
+                  navigation. Vous pourrez lire les conditions puis refermer l'onglet et revenir sur cette page).</p>
+                <span aria-hidden="true"></span>
               </label>
             </div>
 
