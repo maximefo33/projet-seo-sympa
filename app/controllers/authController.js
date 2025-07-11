@@ -115,7 +115,7 @@ const authController = {
         lastname: req.body.lastname,
         description: "",
         user_id: userNeo.id_user,
-          
+
 
       };
 
@@ -173,7 +173,7 @@ const authController = {
         req.session.isLogged = true;
         req.session.userId = user.id_user;
         req.session.userRole = user.role;  //gérer les rôles
-        req.session.userDescription = user.description 
+        req.session.userDescription = Profile.description
 
         return res.redirect('/tableau-de-bord-prive');
       } else {
@@ -184,8 +184,12 @@ const authController = {
       console.error("Erreur attrapée :", error);
       res.render('connexion', { error: 'Erreur lors de la tentative de connexion' });
     }
-  },
+  }
 };
+   
+
+//=======================================fin de connexion==========================//
+
 
 //=======================================fin de connexion==========================//
 

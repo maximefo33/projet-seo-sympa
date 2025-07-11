@@ -15,7 +15,7 @@
 
 function isLogged(req, res, next) {
   if (!req.session.isLogged) {
-    res.status(401).render('error', {
+    res.status(404).render('error', {
       message: 'Vous n\'êtes pas autorisé à accéder à la page demandée.',
     });
   }

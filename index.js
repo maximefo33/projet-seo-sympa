@@ -28,7 +28,7 @@ const app = express();
 // see @ https://github.com/O-clock-Behemoth/Fiches-Objectifs/blob/main/saison5/e12.md
 app.use(express.urlencoded({ extended: true })); 
 // l'option extended permet de passer aussi des objets et des tableaux
-
+app.use(express.json());
 
 //appeler les templates EJS
 
@@ -70,6 +70,7 @@ app.use((req, res) => {
   });
 });
 
+// Ta route POST DELETE ACCOUNT
 
 
 

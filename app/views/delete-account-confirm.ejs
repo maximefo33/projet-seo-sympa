@@ -1,0 +1,36 @@
+<%- include('partials/header', { title: 'Page de connexion' , description: "Page de connexion du site SEO Sympa." ,
+  bodyClass: 'auth-page' , }) %>
+  <!-- Cette vue est utilisée pour confirmer la suppression du compte utilisateur -->
+  <main class="auth-main">
+    <h1 class="auth-title">Se reconnecter</h1>
+    <p id="form-desc">Par mesure de sécurité, veuillez saisir votre mot de passe et confirmer la demande de suppression.
+      Attention, toute suppression est définitive et irréversible. Si tout se passe bien, vous serez redirigé vers la page d'accueil.</p>
+
+    <form method="post" action="/delete-account-final" aria-describedby="form-desc">
+      <div id="loginStatus" class="sr-only" role="alert" aria-live="assertive"></div>
+      <fieldset>
+        <label>
+          <input id="delete" type="checkbox" name="confirm" required>
+          Je confirme que je veux supprimer mon compte de façon irréversible.
+        </label>
+        <label for="loginPassword">Mot de passe <span aria-hidden="true">*</span></label>
+        <input type="password" id="loginPassword" name="password" placeholder="Mot de passe" required
+          aria-required="true" autocomplete="current-password" />
+        <% if (typeof error !=='undefined' ) { %>
+          <div class="error-message" role="alert">
+            <p>
+              <%= error %>
+            </p>
+          </div>
+          <% } %>
+
+      </fieldset>
+
+      <button type="submit" class="button" aria-label="Supprimer définitivement mon compte">Supprimer définitivement mon
+        compte</button>
+
+
+    </form>
+  </main>
+
+  <%- include('partials/footer') %>
