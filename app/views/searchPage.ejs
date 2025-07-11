@@ -1,107 +1,129 @@
-<%- include('partials/header', { 
-  title: 'Recherche expert SEO',
-  description: 'Formulaire de recherche d\'experts SEO',
-  bodyClass: 'auth-page'
-}) %>
+<%- include('partials/header', { title: 'Recherche expert SEO' , description: 'Formulaire de recherche d\' experts SEO',
+  bodyClass: 'auth-page' }) %>
 
-<main class="auth-main" role="main">
-
-<!-- ici le résultat de la recherche avec les mots-clefs employés par l'utilisateur -->
-
-  <h1 class="auth-title">Résultats de votre recherche</h1>
+  <!-- début code avec ajout style -->
 
 
-  </form>
-
-  <% if (typeof results !== 'undefined') { %>
-    <section class="results-section">
-      <h2>Résultats pour « <%= query %> » <%= selectedCity ? `à ${selectedCity}` : '' %></h2>
-
-      <% if (results.length > 0) { %>
-        <ul class="results-list">
-          <% results.forEach(profil => { %>
-            <li class="profil-item">
-              <h2><a href="/profil/<%= profil.id_profile %>"><%= profil.firstname %> <%= profil.lastname %></a></h2>
-              <p>Ville : <%= profil.city || 'Non renseignée' %></p>
-             
-              <% if (profil.description) { %>
-  <p>Description : <%= profil.description %></p>
-<% } %>
-
-            </li>
-          <% }) %>
-        </ul>
-      <% } else { %>
-        <p>Aucun résultat trouvé pour ces critères.</p>
-      <% } %>
-    </section>
-  <% } %>
-
-<!-- fin des Résultats -->
+  <div class="about_witness_contain0">
 
 
-<!-- ici possibilité de filtrer davantage les résultats avec une recherche avancée -->
-
-  <h1 class="auth-title">Je souhaite faite une recherche plus précise :</h1>
-  <h2 class="auth-subtitle">Merci de choisir vos critères:</h2>
-
-  <% if (typeof error !== 'undefined') { %>
-    <div class="error-message" role="alert"><%= error %></div>
-  <% } %>
-
-    <form method="GET" action="/rechercher" novalidate>
-
-    <fieldset>
-      <legend class="sr-only">Formulaire de recherche d'expert SEO</legend>
-
-      <label for="q">Mot-clé</label>
-      <input 
-        type="text" 
-        id="q" 
-        name="q" 
-        placeholder="ex: audit, référencement" 
-        value="<%= query || '' %>" 
-        autocomplete="off"
-      >
-
-      <label for="ville">Ville</label>
-      <select id="ville" name="ville" onchange="handleVilleChange(this)" required>
-        <option value="" disabled <%= !selectedCity ? 'selected' : '' %>>Choisissez une ville</option>
-        <% cities.forEach(city => { %>
-          <option value="<%= city %>" <%= selectedCity === city ? 'selected' : '' %>><%= city %></option>
-        <% }) %>
-        <option value="autre" <%= selectedCity === 'autre' ? 'selected' : '' %>>Autre (saisir manuellement)</option>
-      </select>
-
-      <div id="ville-libre-container" style="<%= selectedCity === 'autre' ? '' : 'display:none;' %>">
-        <label for="villeLibre">Votre ville</label>
-        <input 
-          type="text" 
-          id="villeLibre" 
-          name="villeLibre" 
-          placeholder="Entrez votre ville" 
-          value="<%= villeLibre || '' %>"
-        >
-      </div>
-
-       <button type="submit" class="button" aria-label="Rechercher un expert SEO">Recherche avancée</button>
-    </fieldset>
-
-   
+    <!-- début de la 1ère card qu'on veut placer à gauche  -->
+    <div class="about_witness1">
+      <main class="auth-main" role="main">
+        <h1 class="auth-title">Résultats de votre recherche</h1>
 
 
-</main>
+        <section class="public-profile-main">
+          <% if (typeof results !=='undefined' ) { %>
+            <h2>Résultats pour « <%= query %> » <%= selectedCity ? `à ${selectedCity}` : '' %>
+            </h2>
 
-<script>
-  function handleVilleChange(select) {
-    const villeLibreContainer = document.getElementById('ville-libre-container');
-    if (select.value === 'autre') {
-      villeLibreContainer.style.display = '';
-    } else {
-      villeLibreContainer.style.display = 'none';
+            <% if (results.length> 0) { %>
+              <ul class="results-list">
+                <% results.forEach(profil=> { %>
+                  <li class="profil-item">
+                    <article class="profil-card">
+                      <header>
+                        <h3>
+                          <a href="/profil/<%= profil.id_profile %>">
+                            <%= profil.firstname %>
+                              <%= profil.lastname %>
+                          </a>
+                        </h3>
+                      </header>
+                      <p><strong>Ville :</strong>
+                        <%= profil.city || 'Non renseignée' %>
+                      </p>
+
+                      <% if (profil.description) { %>
+                        <p><strong>Description :</strong>
+                          <%= profil.description %>
+                        </p>
+                        <% } %>
+
+                          <footer class="profil-actions">
+                            <a href="/profil/<%= profil.id_profile %>" class="button">En savoir +</a>
+                            <a href="/profil/<%= profil.id_profile %>" class="button">Prendre contact</a>
+                          </footer>
+                    </article>
+                  </li>
+                  <% }) %>
+              </ul>
+              <% } else { %>
+                <p>Aucun résultat trouvé pour ces critères.</p>
+                <% } %>
+                  <% } else { %>
+                    <p>Veuillez effectuer une recherche pour voir les résultats.</p>
+                    <% } %>
+        </section>
+    </div>
+    <!-- fin de la 1ère card qu'on veut placer à gauche -->
+
+
+
+    <!-- début de la 2ème card qu'on veut placer à droite  -->
+    <!-- Formulaire de recherche avancée -->
+
+
+    <div class="about_witness2">
+      <section class="advanced-search">
+        <h2>Je souhaite faire une recherche plus précise :</h2>
+        <p>Merci de choisir vos critères :</p>
+
+        <% if (typeof error !=='undefined' ) { %>
+          <div class="error-message" role="alert">
+            <%= error %>
+          </div>
+          <% } %>
+
+            <form method="GET" action="/rechercher" novalidate>
+              <fieldset>
+                <legend class="sr-only">Formulaire de recherche d'expert SEO</legend>
+
+                <label for="q">Mot-clé</label>
+                <input type="text" id="q" name="q" placeholder="ex: audit, référencement" value="<%= query || '' %>"
+                  autocomplete="off">
+
+                <label for="ville">Ville</label>
+                <select id="ville" name="ville" onchange="handleVilleChange(this)" required>
+                  <option value="" disabled <%=!selectedCity ? 'selected' : '' %>>Choisissez une ville</option>
+                  <% if (Array.isArray(cities)) { %>
+                    <% cities.forEach(city=> { %>
+                      <option value="<%= city %>" <%=selectedCity===city ? 'selected' : '' %>><%= city %>
+                      </option>
+                      <% }) %>
+                        <% } %>
+                          <option value="autre" <%=selectedCity==='autre' ? 'selected' : '' %>>Autre (saisir
+                            manuellement)</option>
+                </select>
+
+                <div id="ville-libre-container" style="<%= selectedCity === 'autre' ? '' : 'display:none;' %>">
+                  <label for="villeLibre">Votre ville</label>
+                  <input type="text" id="villeLibre" name="villeLibre" placeholder="Entrez votre ville"
+                    value="<%= villeLibre || '' %>">
+                </div>
+
+                <button type="submit" class="button" aria-label="Rechercher un expert SEO">Recherche avancée</button>
+              </fieldset>
+            </form>
+      </section>
+    </div>
+    <!-- fin de la 2eme card qu'on veut placer à droite  -->
+
+  </div>
+  </main>
+
+
+
+  <script>
+    function handleVilleChange(select) {
+      const villeLibreContainer = document.getElementById('ville-libre-container');
+      if (select.value === 'autre') {
+        villeLibreContainer.style.display = '';
+      } else {
+        villeLibreContainer.style.display = 'none';
+      }
     }
-  }
-</script>
+  </script>
 
-<%- include('partials/footer') %>
-
+  <%- include('partials/footer') %>

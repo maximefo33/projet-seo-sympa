@@ -3,8 +3,6 @@ import Profile from '../../app/models/Profile.js';
 import Message from '../../app/models/Message.js';
 import Relation from '../../app/models/Relation.js';
 
-
-
 // Un utilisateur a un profil
 User.hasOne(Profile, {
   foreignKey: 'user_id'
