@@ -33,6 +33,8 @@
       </div>
 
 
+      <!-- penser à écrire que pour faire une demande de connexion, l'utilisateur doit d'abord être inscrit et connecté sur seo sympa -->
+
       <!-- si l'utilisateur connecté est le même que l'utilisateur dont le profil est visité, alors demande de connexion impossible  -->
 
       <% if (session?.userId && profile.user_id !==session.userId) { %>
@@ -40,18 +42,19 @@
           <form action="/relation" method="POST" class="relation-form">
             <button type="submit" class="button card__contact">Vous souhaitez rejoindre mon réseau ?</button>
           </form>
-          <!-- demande de relation en attente -->
-          <% } else if (relation.status==pending) { %>
-
-            <p> Demande de connexion déjà en attente, merci de patienter pour la réponse.</p>
-
-            <!-- demande de relation déjà acceptée, on montre le profil entier avec le mail -->
-            <% } else if (relation.status===accepted) { %>
-              <p> Vous êtes déjà en relation avec ce profil </p>
-              <p class="card__info">
-                <%= user.email %>
-              </p>
-
+          
+          <!-- demande de relation déjà acceptée, on montre le profil entier avec le mail -->
+          <% } else if (relation.status===accepted) { %>
+            <p> Vous êtes déjà en relation avec ce profil </p>
+            <p class="card__info">
+              <%= user.email %>
+            </p>
+            
+            <!-- demande de relation en attente -->
+            <% } else if (relation.status==pending) { %>
+  
+              <p> Demande de connexion déjà en attente, merci de patienter pour la réponse.</p>
+              <!--https://icons8.com/preloaders/en/circular-->
               <!-- demande de relation refusée, on affiche à nouveau le bouton de demande -->
               <% } else if (relation.status===rejected) { %>
                 <form action="/relation" method="POST" class="relation-form">

@@ -14,22 +14,33 @@ Relation.init({
   },
 
   approval_date: {
-  type: DataTypes.DATE,  //ou DATE(6)?
-  allowNull: true,
-},
+    type: DataTypes.DATE,  //ou DATE(6)?
+    allowNull: true,
+  },
 
   removal_date: {
-  type: DataTypes.DATE,
-  allowNull: true,
-},
-  status:{
+    type: DataTypes.DATE,
+    allowNull: true,
+  },
+  status: {
     type: DataTypes.STRING(50),
-  }
-  }, {
-    sequelize,
-    modelName: 'Relation',
-    tableName: 'relation',
-  }
+  },
+
+  user_sender_id: {
+    type: DataTypes.INTEGER,
+      allowNull: false,
+  },
+
+  user_recipient_id: {
+    type: DataTypes.INTEGER,
+      allowNull: false,
+  },
+
+}, {
+  sequelize,
+  modelName: 'Relation',
+  tableName: 'relation',
+}
 );
 
 export default Relation;

@@ -18,7 +18,7 @@ const dashboardController = {
       if (!profile) return res.redirect('/inscription');
 
       res.render('dashboard', {
-        title: 'Mon tableau de bord Mon profile',
+        title: 'Mon tableau de bord Mon profil',
         profile: {
           firstname: profile.firstname,
           lastname: profile.lastname,
