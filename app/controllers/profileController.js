@@ -1,3 +1,4 @@
+import sequelize from '../../config/database.js';
 import { Profile, User, Relation } from '../../database/db/association.js';
 import { Op } from 'sequelize';
 
@@ -19,6 +20,50 @@ const profileController = {
           title: 'Profil non trouvé'
         });
       }
+
+// exemple avec op *************************
+let relation = []; 
+ if relation (sessionUserId)= Relation.findAll({  where: {
+    [Op.or]: { user_sender_id, user_recipient_id},
+  },
+});
+// S
+
+let results = [];
+
+ });
+
+
+// *********************************
+
+ const relationSearch = normalizedKeywords.map(word => ({
+    description: { [Op.iLike]: `%${word}%` }
+  }));
+
+  
+  searchConditions.push({
+    [Op.or]: keywordConditions
+  });
+// exemple sequelize ******************************************
+
+
+
+// This is shorter, and less error prone because it still works if you add / remove attributes from your model later
+Model.findAll({
+  attributes: {
+    include: [[sequelize.fn('COUNT', sequelize.col('hats')), 'n_hats']],
+  },
+});
+
+const { Op } = require('sequelize');
+Post.findAll({
+  where: {
+    [Op.or]: [{ authorId: 12 }, { authorId: 13 }],
+  },
+});
+// SELECT * FROM post WHERE authorId = 12 OR authorId = 13;
+
+// fin exemple ***********************************************************
 
       res.render('profile', {
         title: `Profil de ${profile.display_name}`,
