@@ -46,7 +46,10 @@ app.use(session({
   saveUninitialized: false
 }));
 
-
+app.use(function(req, res, next) {
+ res.locals.userId = req.session.userId || null; // on ajoute l'id de l'utilisateur à la réponse
+  next();
+});
 // on ajoute un middleware via .use à qui on passe la fonction retournée par express.static
 // on doit configurer en argument le chemin vers le dossier à servir
 app.use(express.static("public"));
