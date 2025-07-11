@@ -184,8 +184,9 @@ const authController = {
       console.error("Erreur attrapée :", error);
       res.render('connexion', { error: 'Erreur lors de la tentative de connexion' });
     }
-  }
-};
+  },
+  
+
    
 
 //=======================================fin de connexion==========================//
@@ -193,14 +194,22 @@ const authController = {
 
 //=======================================fin de connexion==========================//
 
-//   // pour se déconnecter, la session est terminée, les données sont supprimées, et l'utilisateur est redigiré vers la page d'accueil /
+//   // pour se déconnecter, la session est terminée, les données sont supprimées, et l'utilisateur est redigiré vers la page d'accueil / à voir où on insère la fonction LOGOUT ci-dessous
+  logout: function (req, res) {
+    // on détruit la session
+    req.session.destroy((err) => {
+      if (err) {
+        console.error('Erreur lors de la destruction de la session:', err);
+        return res.redirect('/connexion'); // redirige vers la page de connexion en cas d'erreur
+      }
+      // redirection vers la page d'accueil
+      res.redirect('/');
+    });
+  }
 
-//************* */ à voir où on insère la fonction LOGOUT ci-dessous
-//  logout: function(req, res) {
-// req.session.destroy();
-//  res.redirect('/');
-//   },
-//*************** */
+};
+
+
 
 
 export default authController;
