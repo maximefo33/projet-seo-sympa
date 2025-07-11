@@ -1,29 +1,52 @@
-<%- include('partials/header', { 
-  title:  'Page profil public de ' + profile.display_name,
-  description: 'Découvrez le profil public de ' + profile.display_name,
- bodyClass:'public-profile-page'
-  
-}) %>
+<%- include('partials/header', { title: 'Page profil public de ' + profile.display_name,
+  description: 'Découvrez le profil public de ' + profile.display_name, bodyClass:'public-profile-page' }) %>
 
-<!-- ici c'est la page profil public d'un expert en détail (lien : /profil/:id) -->
+  <!-- ici c'est la page profil public d'un expert en détail (lien : /profil/:id) -->
 
-<main class="public-profile-main">
+  <main class="public-profile-main">
     <section class="card">
       <!-- <div class="card__image">
         <img src="/assets/img/profile-img.png" alt="Portrait de Marie Dupont" />
       </div> -->
       <div class="card__info">
-           <h1 class="card__name"><%= profile.firstname %></h1>
-           <h1 class="card__name"><%= profile.lastname %></h1>
-            <p class="card__location"><%= profile.address %></p>
-      <p class="card__location"><%= profile.city %></p>
-      <p class="card__location"><%= profile.zipcode %></p>
-      <p class="card__location"><%= profile.company_identification_system %></p>
-      <p class="card__bio"><%= profile.description %></p>
+        <h1 class="card__name">
+          <%= profile.firstname %>
+        </h1>
+        <h1 class="card__name">
+          <%= profile.lastname %>
+        </h1>
+        <p class="card__location">
+          <%= profile.address %>
+        </p>
+        <p class="card__location">
+          <%= profile.city %>
+        </p>
+        <p class="card__location">
+          <%= profile.zipcode %>
+        </p>
+        <p class="card__location">
+          <%= profile.company_identification_system %>
+        </p>
+        <p class="card__bio">
+          <%= profile.description %>
+        </p>
       </div>
-      <a href="/#" class="button card__contact">Demande de relation A RENOMMER</a>
+
+      <!--  <%if (session?.userId §§ profile.user_id !==session.userId) %> {<%(!relation)%> 
+        form action class="button card__contact">Vous souhaitez rejoindre mon réseau ?</a> -->
+        
+
+
+        
+        
+      
+      
+
+
+  
+
+          <a href="/#" class="button card__contact">Vous souhaitez rejoindre mon réseau ?</a>
     </section>
   </main>
 
-<%- include('partials/footer') %>
-
+  <%- include('partials/footer') %>
