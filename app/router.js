@@ -9,6 +9,7 @@ import mainController from "./controllers/mainController.js";
 import authController from "./controllers/authController.js";
 import * as userController  from "./controllers/userController.js";
 import searchController from "./controllers/searchController.js";
+import deletController from "../app/controllers/deletController.js";
 
 
 
@@ -16,7 +17,8 @@ import searchController from "./controllers/searchController.js";
 import isLogged from './middlewares/isLogged.js';
 import { isLoggedIn } from './middlewares/authMiddleware.js';
 
-console.log("test affichage console");
+
+// console.log("test affichage console");
 
 // on crée un objet router à l'aide de la méthode adaptée fournie par express
 const router = express.Router();
@@ -54,6 +56,13 @@ router.get('/page-d-erreur', mainController.error);
 
 // CODES DES ENDPOINTS DU BACK
 
+// Suppression compte (confirmation, action)
+router.get('/delete-account-confirm', (req, res) => {
+  res.render('delete-account-confirm');
+});
+
+//router.get('/delete-account-final', isLoggedIn, deletController.loginForDelete);
+router.post('/delete-account-final', isLoggedIn, deletController.deleteAccount);
 // =================== Connexion /  ===================
 router.post('/connexion', authController.loginAction);
 router.get('/connexion', authController.login); //  GET pour afficher la page de connexion
