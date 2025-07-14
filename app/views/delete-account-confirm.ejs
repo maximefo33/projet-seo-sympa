@@ -2,6 +2,7 @@
   bodyClass: 'auth-page' , }) %>
   <!-- Cette vue est utilisée pour confirmer la suppression du compte utilisateur -->
   <main class="auth-main">
+     <script defer  src="/assets/js/password-display.js"></script>
     <h1 class="auth-title">Se reconnecter</h1>
     <p id="form-desc">Par mesure de sécurité, veuillez saisir votre mot de passe et confirmer la demande de suppression.
       Attention, toute suppression est définitive et irréversible. Si tout se passe bien, vous serez redirigé vers la page d'accueil.</p>
@@ -15,7 +16,10 @@
         </label>
         <label for="loginPassword">Mot de passe <span aria-hidden="true">*</span></label>
         <input type="password" id="loginPassword" name="password" placeholder="Mot de passe" required
-          aria-required="true" autocomplete="current-password" />
+          aria-required="true" autocomplete="current-password" minlength="14" />
+           <img src="/assets/img/icones/eye.png" alt="pour rendre visible le mot de passe saisi" id="eye3" onclick="displayLoginPassword()">
+
+
         <% if (typeof error !=='undefined' ) { %>
           <div class="error-message" role="alert">
             <p>
