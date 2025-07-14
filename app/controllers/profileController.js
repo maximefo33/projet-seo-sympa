@@ -22,16 +22,16 @@ const profileController = {
       }
 
 // exemple avec op *************************
-let relation = []; 
- if relation (sessionUserId)= Relation.findAll({  where: {
-    [Op.or]: { user_sender_id, user_recipient_id},
-  },
-});
+// let relation = []; 
+//  if relation (sessionUserId)= Relation.findAll({  where: {
+//     [Op.or]: { user_sender_id, user_recipient_id},
+//   },
+// });
 // S
 
-let results = [];
+// let results = [];
 
- });
+//  });
 
 
 // *********************************
