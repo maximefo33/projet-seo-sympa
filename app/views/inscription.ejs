@@ -44,9 +44,12 @@
               minuscule, un chiffre et un symbole.</p>
             <input type="password" id="password" name="password" placeholder="Mot de passe" required
               aria-required="true" autocomplete="new-password" minlength="14" />
+              <img src="/assets/img/icones/eye.png" alt="pour rendre visible le mot de passe saisi" id="eye" onclick="displayPassword()">
             <label for="confirm-password">Confirmer le mot de passe <span aria-hidden="true">*</span></label>
             <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirmer le mot de passe"
               required aria-required="true" autocomplete="new-password" minlength="14" />
+               <img src="/assets/img/icones/eye.png" alt="pour rendre visible le mot de passe saisi" id="eye2" onclick="displayConfirmPassword()">
+               
 
 
               <!-- case à cocher (conditions générales acceptées) obligatoirement pour s'inscrire : cf règle 141 opquast https://checklists.opquast.com/fr/assurance-qualite-web/lutilisateur-est-averti-des-ouvertures-de-nouvelles-fenetres#:~:text=R%C3%A8gle%20n%C2%B0%20141%20%2D%20L,faut%20absolument%20pr%C3%A9venir%20les%20utilisateurs. -->
@@ -63,6 +66,46 @@
 
           <button type="submit" class="button" aria-label="Créer un compte">S’inscrire</button>
         </form>
+
+<!-- essai script afficher cacher le mdp -->
+
+<!--  ajouter images yeux  -->
+<script>
+
+el=true;
+function displayPassword() {
+  if(el) {
+    document.getElementById("password").setAttribute("type", "text");
+    document.getElementById('eye').src="/assets/img/icones/eye.png";
+    el=false;
+  }
+  else{
+    document.getElementById("password").setAttribute("type", "password");
+    document.getElementById("eye").src="/assets/img/icones/eye2.png";
+    el=true;
+  }
+}
+
+
+el2=true;
+function displayConfirmPassword() {
+  if(el2) {
+    document.getElementById("confirm-password").setAttribute("type", "text");
+    document.getElementById('eye').src="assets/img/icones/eye.png";
+    el2=false;
+  }
+  else{
+    document.getElementById("confirm-password").setAttribute("type", "password");
+    document.getElementById("eye2").src="assets/img/icones/eye2.png";
+    el2=true;
+  }
+}
+
+
+</script>
+
+<!-- fin test -->
+
   </main>
 
   <%- include('partials/footer') %>
