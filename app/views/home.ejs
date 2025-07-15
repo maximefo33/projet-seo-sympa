@@ -1,47 +1,42 @@
-<%- include('partials/header', {
-  title: 'accueil',
-  description: "Page d'accueil",
-  page: 'home'
-}) %>
-
-    
-
-   <main>
-    <article class="contenu">
-      <img class="img_main" src="./assets/img/home.jpg" alt="">
-      <div class="main__text">
-        <p>le référencement sans prise de tête</p>
-        <h1>SEO Sympa</h1>
-        <p>+ de visibilité</p>
-        <p>= plus d’opportunités clients</p>
-      </div>
-    </article>
-
-    <section class="carousel">
-      <h2 class="titre">il ont trouvé des clients grâce à notre plateforme</h2>
-      <ul class="cardes">
-        <li class="carde">pier</li>
-        <li class="carde">paule</li>
-        <li class="carde">jack</li>
-      </ul>
-    </section>
+<%- include('partials/header', { title: 'accueil' , description: "Page d'accueil" , page: 'home' }) %>
 
 
-    <article class="présentation">
-      <img class="présentation__img" src="./assets/img/graph2.jpg" alt="Graphique SEO">
+  
+      <main>
+        <article class="contenu">
+          <img class="img_main" src="./assets/img/home.jpg" alt="">
+          <div class="main__text">
+            <p>le référencement sans prise de tête</p>
+            <h1>SEO Sympa</h1>
+            <p>+ de visibilité</p>
+            <p>= plus d’opportunités clients</p>
+          </div>
+        </article>
 
-      <div class="présentation__contenu">
-        <h3 class="présentation__titre">À quoi me sert le SEO ? Les avantages d’être mieux référencé...</h3>
-        <p class="text_main2">
-          Le référencement (SEO) désigne l’ensemble des techniques visant à améliorer la visibilité d’un site web
-          sur les moteurs de recherche comme Google. Il repose sur trois piliers : le contenu, la technique
-          (structure du site) et la popularité (liens entrants). Un bon référencement permet d’attirer plus de
-          visiteurs de façon naturelle.
-        </p>
-        <button  class="présentation__btn">En savoir + <a href="/a-propos"></a></button>
-      </div>
-    </article>
+        <section class="carousel">
+          <h2 class="titre">il ont trouvé des clients grâce à notre plateforme</h2>
+          <ul class="cardes">
+            <li class="carde">pier</li>
+            <li class="carde">paule</li>
+            <li class="carde">jack</li>
+          </ul>
+        </section>
 
-  </main>
-   <%- include('partials/footer') %>
 
+        <article class="présentation">
+          <img class="présentation__img" src="./assets/img/graph2.jpg" alt="Graphique SEO">
+
+          <div class="présentation__contenu">
+            <h3 class="présentation__titre">À quoi me sert le SEO ? Les avantages d’être mieux référencé...</h3>
+            <p class="text_main2">
+              Le référencement (SEO) désigne l’ensemble des techniques visant à améliorer la visibilité d’un site web
+              sur les moteurs de recherche comme Google. Il repose sur trois piliers : le contenu, la technique
+              (structure du site) et la popularité (liens entrants). Un bon référencement permet d’attirer plus de
+              visiteurs de façon naturelle.
+            </p>
+            <button class="présentation__btn">En savoir + <a href="/a-propos"></a></button>
+          </div>
+        </article>
+
+      </main>
+      <%- include('partials/footer') %>

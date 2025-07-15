@@ -28,7 +28,7 @@ const app = express();
 // see @ https://github.com/O-clock-Behemoth/Fiches-Objectifs/blob/main/saison5/e12.md
 app.use(express.urlencoded({ extended: true })); 
 // l'option extended permet de passer aussi des objets et des tableaux
-
+app.use(express.json());
 
 //appeler les templates EJS
 
@@ -46,7 +46,10 @@ app.use(session({
   saveUninitialized: false
 }));
 
-
+app.use(function(req, res, next) {
+ res.locals.userId = req.session.userId || null; // on ajoute l'id de l'utilisateur à la réponse
+  next();
+});
 // on ajoute un middleware via .use à qui on passe la fonction retournée par express.static
 // on doit configurer en argument le chemin vers le dossier à servir
 app.use(express.static("public"));
@@ -70,6 +73,7 @@ app.use((req, res) => {
   });
 });
 
+// Ta route POST DELETE ACCOUNT
 
 
 

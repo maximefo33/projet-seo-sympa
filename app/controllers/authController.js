@@ -115,7 +115,7 @@ const authController = {
         lastname: req.body.lastname,
         description: "",
         user_id: userNeo.id_user,
-          
+
 
       };
 
@@ -173,7 +173,7 @@ const authController = {
         req.session.isLogged = true;
         req.session.userId = user.id_user;
         req.session.userRole = user.role;  //gérer les rôles
-        req.session.userDescription = user.description 
+        req.session.userDescription = Profile.description
 
         return res.redirect('/tableau-de-bord-prive');
       } else {
@@ -185,18 +185,31 @@ const authController = {
       res.render('connexion', { error: 'Erreur lors de la tentative de connexion' });
     }
   },
-};
+  
+
+   
 
 //=======================================fin de connexion==========================//
 
-//   // pour se déconnecter, la session est terminée, les données sont supprimées, et l'utilisateur est redigiré vers la page d'accueil /
 
-//************* */ à voir où on insère la fonction LOGOUT ci-dessous
-//  logout: function(req, res) {
-// req.session.destroy();
-//  res.redirect('/');
-//   },
-//*************** */
+//=======================================fin de connexion==========================//
+
+//   // pour se déconnecter, la session est terminée, les données sont supprimées, et l'utilisateur est redigiré vers la page d'accueil / à voir où on insère la fonction LOGOUT ci-dessous
+  logout: function (req, res) {
+    // on détruit la session
+    req.session.destroy((err) => {
+      if (err) {
+        console.error('Erreur lors de la destruction de la session:', err);
+        return res.redirect('/connexion'); // redirige vers la page de connexion en cas d'erreur
+      }
+      // redirection vers la page d'accueil
+      res.redirect('/');
+    });
+  }
+
+};
+
+
 
 
 export default authController;

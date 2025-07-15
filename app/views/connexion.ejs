@@ -5,6 +5,7 @@
 
   
   <main class="auth-main">
+    <script defer  src="/assets/js/password-display.js"></script>
     <h1 class="auth-title">Se connecter</h1>
     <p id="form-desc" class="sr-only">Veuillez entrer votre adresse email et votre mot de passe pour vous connecter.</p>
 
@@ -18,7 +19,8 @@
         <small id="emailHelp">Nous ne partagerons jamais votre email.</small>
 
         <label for="loginPassword">Mot de passe <span aria-hidden="true">*</span></label>
-        <input type="password" id="loginPassword" name="password" placeholder="Mot de passe" required aria-required="true" autocomplete="current-password" />
+        <input type="password" id="loginPassword" name="password" placeholder="Mot de passe" required aria-required="true" autocomplete="current-password" minlength="14" />
+         <img src="/assets/img/icones/eye.png" alt="pour rendre visible le mot de passe saisi" id="eye3" onclick="displayLoginPassword()">
 
         <div class="forgot-password-link">
           <a href="#" aria-label="Réinitialiser le mot de passe">Mot de passe oublié&nbsp;?</a>
