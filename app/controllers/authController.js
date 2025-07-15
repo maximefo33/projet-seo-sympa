@@ -44,18 +44,18 @@ const authController = {
       // see@ https://www.npmjs.com/package/validator
 
       if (!validator.isEmail(email)) {
-        console.log('adresse mail invalide');
+        //console.log('adresse mail invalide');
         // throw new Error('L\'adresse e-mail fournie est invalide.');
         return res.render('inscription', { error: 'L\'adresse email fournie est invalide, merci d\'en saisir une au bon format.' });
       }
 
       //** début ajout code 3/7 E pour vérifier si email déjà dans bdd */
       // je vérifie si mail saisi dans le formulaire déjà enregistré dans la base de données
-      console.log('vérif du mail :', email);
+      //console.log('vérif du mail :', email);
 
       const mailAlreadyUse = await User.findOne({ where: { email: req.body.email } });
       if (mailAlreadyUse) {
-        console.log('mail déjà connu dans bdd :', mailAlreadyUse);
+        //('mail déjà connu dans bdd :', mailAlreadyUse);
         // si mail existe, on redirige sur page inscription
         return res.render('inscription', { error: 'Inscription impossible car l\'adresse mail existe déjà, veuillez vous connecter directement sur l\'onglet connexion OU vous inscrire avec un autre mail.' });
       }
@@ -66,7 +66,7 @@ const authController = {
       // fonction de vérification entre le mot de passe saisi + la confirmation du mot de passe saisi
       const verifyPassword = async (plainPassword, confirmPassword) => {
         if (plainPassword !== confirmPassword) {
-          console.log('Les mots de passe saisis ne sont pas identiques, merci de recommencer votre inscription.');
+          //console.log('Les mots de passe saisis ne sont pas identiques, merci de recommencer votre inscription.');
           return false;
         }
         return true; // retourne vrai si les mots de passe sont identiques
@@ -79,7 +79,7 @@ const authController = {
         // throw new Error('Les mots de passe ne correspondent pas.');
         return res.render('inscription', { error: 'Les mots de passe saisis sont différents, merci de recommencer votre inscription.' });
       }
-      console.log(passwordsSame, 'mdp identiques ?');
+      //console.log(passwordsSame, 'mdp identiques ?');
 
       // on valide le mot de passe 
       const options = { minLength: 14, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1 };
@@ -121,8 +121,8 @@ const authController = {
 
 
 
-      console.log('utilisateur qui s\inscrit infos table USER', userRegistered);
-      console.log('utilisateur qui s\inscrit info table PROFILE', profileRegistered);
+      //console.log('utilisateur qui s\inscrit infos table USER', userRegistered);
+      //console.log('utilisateur qui s\inscrit info table PROFILE', profileRegistered);
 
       // on fait persister ce nouvel utilisateur inscrit en base de données
       // see @ https://johackim.com/sequelize?utm_source=rss&utm_medium=rss
@@ -132,9 +132,9 @@ const authController = {
 
 
       const profileNeo = await Profile.create(profileRegistered);
-      console.log('utilisateur créé :', userNeo);
-      console.log('utilisateur créé :', profileNeo);
-      console.log('redirection vers connexion');
+      //console.log('utilisateur créé :', userNeo);
+      //console.log('utilisateur créé :', profileNeo);
+      //console.log('redirection vers connexion');
       res.redirect('/connexion');
     } catch (error) {     // renvoyer message erreur dans la vue
       console.error(error);
@@ -154,20 +154,20 @@ const authController = {
   loginAction: async function (req, res) {
     try {
       const { email, password } = req.body; //recuperer email, password
-      console.log("Email reçu:", email);
-      console.log("Password reçu:", password);
+      //console.log("Email reçu:", email);
+      //console.log("Password reçu:", password);
 
       const user = await User.findOne({ where: { email } }); //recherche user avec Sequalize via email 
-      console.log("Utilisateur trouvé:", user);
+      //console.log("Utilisateur trouvé:", user);
 
       //Gestion des errors avec try/catch et throw 
       if (!user) {
-        console.log("Utilisateur introuvable !");
+        //console.log("Utilisateur introuvable !");
         return res.render('connexion', { error: 'Mauvais couple identifiant/mot de passe' }); //dans loin ejs -error
       }
 
       const result = await bcrypt.compare(password, user.password); //verification du mote de passe avec bcrypt
-      console.log("Résultat comparaison hash:", result);
+      //console.log("Résultat comparaison hash:", result);
 
       if (result) { //Mise en place de la session user
         req.session.isLogged = true;

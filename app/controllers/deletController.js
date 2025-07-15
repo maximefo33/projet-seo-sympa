@@ -16,7 +16,7 @@ const deletController = {
     try {
       // Si l'utilisateur n'est pas connecté, on redirige vers la page de confirmation
       const user = await User.findOne({ where: { id_user: req.session.userId } });
-      console.log('[DELETE] user:', user); // Log pour vérifier si user existe
+      //console.log('[DELETE] user:', user); // Log pour vérifier si user existe
 
       // Si l'utilisateur n'existe pas, on renvoie une erreur à la vue
       if (!user) {
@@ -34,12 +34,12 @@ const deletController = {
           error: 'Mot de passe incorrect. Veuillez réessayer.'
         });
       }
-       console.log('[DELETE] Mot de passe incorrect pour l\'utilisateur:', isMatch); // Log pour vérifier le mot de passe
+       //console.log('[DELETE] Mot de passe incorrect pour l\'utilisateur:', isMatch); // Log pour vérifier le mot de passe
 
       // Authentification réussie : on stocke des infos dans la session
       req.session.deletionValidated = true; // Permet de sécuriser l'accès à la suppression finale
       req.session.userToDeleteId = user.id_user; // Stocke l'ID de l'utilisateur à supprimer (à adapter si id ≠ id_user)
-      console.log('[DELETE] ID utilisateur à supprimer:', req.session.userToDeleteId); // Log pour vérifier l'ID stocké
+      //console.log('[DELETE] ID utilisateur à supprimer:', req.session.userToDeleteId); // Log pour vérifier l'ID stocké
 
 
       // Redirection vers la page de suppression définitive du compte
@@ -54,7 +54,7 @@ const deletController = {
 
       // Récupération de l'ID utilisateur à supprimer depuis la session
       const userId = req.session.userToDeleteId;
-      console.log('[DELETE] userId:', userId); // Affiche l’ID récupéré pour vérification
+      //console.log('[DELETE] userId:', userId); // Affiche l’ID récupéré pour vérification
 
       try {
         // Suppression du profil associé à l'utilisateur

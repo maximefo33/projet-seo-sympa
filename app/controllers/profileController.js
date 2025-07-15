@@ -14,6 +14,8 @@ const profileController = {
       const profile = await Profile.findByPk(profileId, {
         include: User
       });
+console.log("Session userId:", req.session.userId);
+console.log("Profile id:", profile.id);
 
       if (!profile) {
         return res.status(404).render('error', {
@@ -69,7 +71,7 @@ const profileController = {
           company_identification_system: profile.company_identification_system,
           description: profile.description,
         },
-          relation, 
+          relation, // à garder ou non ? on ne se souvient +
          session: req.session
       });
 

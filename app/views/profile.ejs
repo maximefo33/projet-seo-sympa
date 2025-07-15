@@ -43,14 +43,14 @@
 
         <p>Vous devez être connecté pour envoyer une demande de connexion.</p>
 
-        <% } else if (profile.id_profile ===session.userId) { %>
+        <% } else if (profile.id ===session.userId) { %>
 
           <p>Vous ne pouvez pas demander à vous connecter à votre propre réseau.</p>
 
           <% } else { %>
             <!-- L'utilisateur est connecté et regarde un autre profil -->
             <% if (!relation || relation.length===0) { %>
-              <form action="/relation/demander" method="POST" class="relation-form">
+              <form action="/relation/demander/<%= profile.id %>" method="POST" class="relation-form">
                 <button type="submit" class="button cardcontact">Vous souhaitez rejoindre mon réseau ?</button>
               </form>
 

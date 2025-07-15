@@ -40,6 +40,8 @@ Relation.init({
   sequelize,
   modelName: 'Relation',
   tableName: 'relation',
+  timestamps: true, // si on ne veut pas de createdAt et updatedAt
+  underscored: true, // pour utiliser snake_case dans la base de données
 }
 );
 

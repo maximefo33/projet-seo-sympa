@@ -1,62 +1,113 @@
 <%- include('partials/header', { title: 'Page de connexion' , description: "Page de connexion du site SEO Sympa." ,
     page: 'dashboard' , description: "Tableau de bord d'un utilisateur inscrit sur le site SEO-Sympa" }) %>
-    
-            <main class="accessibility-main">
-                <h1> Mon profil </h1>
-                <section class="declaration-section">
-                    <img src="https://via.placeholder.com/150" alt="Photo du profil" class="profil-photo">
-                    <div class="profil-info">
-                        <h2>
-                            <%= profile.firstname %>
-                                <%= profile.lastname %>
 
-                        </h2>
+    <main class="accessibility-main">
+        <h1> Mon profil </h1>
+        <section class="declaration-section">
+            <img src="https://via.placeholder.com/150" alt="Photo du profil" class="profil-photo">
+            <div class="profil-info">
+                <h2>
+                    <%= profile.firstname %>
+                        <%= profile.lastname %>
+
+                </h2>
 
 
 
-                    </div>
+            </div>
 
-                    <div>
-                        <h3>localisation</h3>
-                        <p>
-                            <%= profile.address %>
-                        </p>
-                        <p>
-                            <%= profile.city %>
-                        </p>
-                        <h3>Code postal</h3>
-                        <p>
-                            <%= profile.zipcode %>
-                        </p>
+            <div>
+                <h3>localisation</h3>
+                <p>
+                    <%= profile.address %>
+                </p>
+                <p>
+                    <%= profile.city %>
+                </p>
+                <h3>Code postal</h3>
+                <p>
+                    <%= profile.zipcode %>
+                </p>
 
-                    </div>
+            </div>
 
-                    <div>
-                        <h3>Nom de la société</h3>
-                        <p>
-                            <%= profile.display_name %>
-                        </p>
-                    </div>
+            <div>
+                <h3>Nom de la société</h3>
+                <p>
+                    <%= profile.display_name %>
+                </p>
+            </div>
 
-                    <div>
-                        <h3>Numéro d'identification de l'entreprise</h3>
-                        <p>
-                            <%= profile.company_identification_system %>
-                        </p>
-                    </div>
-                    <div>
-                        <h3>Description</h3>
-                        <p>
-                            <%= profile.description %>
-                        </p>
-                    </div>
-                    <a href="/dashboard-edite">
-                        <button class="button__append">modifier votre profil </button>
-                    </a>
-                    <form action="/delete-account-confirm" method="GET">
-                        <button class="button__append" type="submit">Supprimer mon compte</button>
-                    </form>
+            <div>
+                <h3>Numéro d'identification de l'entreprise</h3>
+                <p>
+                    <%= profile.company_identification_system %>
+                </p>
+            </div>
+            <div>
+                <h3>Description</h3>
+                <p>
+                    <%= profile.description %>
+                </p>
+            </div>
+            <a href="/dashboard-edite">
+                <button class="button__append">modifier votre profil </button>
+            </a>
+            <form action="/delete-account-confirm" method="GET">
+                <button class="button__append" type="submit">Supprimer mon compte</button>
+            </form>
 
-                </section>
-            </main>
-            <%- include('partials/footer') %>
+        </section>
+
+        <!-- // ajout 15/7/25 -->
+        <section>
+            <h2>Mes relations</h2>
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Date</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+                <% relations.forEach(relation=> { 
+                    console.log('relation', relation);
+                    %>
+                    <tr>
+                        <td>
+                            <%= relation.nom %>
+                        </td>
+                        <td>
+                            <%= relation.date %>
+                        </td>
+                        <td>
+                            <%= relation.status %>
+                        </td>
+                        <td>
+                            <% if (relation.isSender && relation.statut==='en attente' ) { %>
+                                <form method="POST" action="/relation/supprimer">
+                                    <input type="hidden" name="id" value="<%= relation.id %>">
+                                    <button>❌</button>
+                                </form>
+                                <% } else if (!relation.isSender && relation.statut==='en attente' ) { %>
+                                    <form method="POST" action="/relation/accepter">
+                                        <input type="hidden" name="id" value="<%= relation.id %>">
+                                        <button>✅</button>
+                                    </form>
+                                    <form method="POST" action="/relation/refuser">
+                                        <input type="hidden" name="id" value="<%= relation.id %>">
+                                        <button>❌</button>
+                                    </form>
+                                    <% } else { %>
+                                        <form method="POST" action="/relation/supprimer">
+                                            <input type="hidden" name="id" value="<%= relation.id %>">
+                                            <button>❌</button>
+                                        </form>
+                                        <% } %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </table>
+        </section>
+        <!-- fin ajout 15/7 -->
+    </main>
+    <%- include('partials/footer') %>

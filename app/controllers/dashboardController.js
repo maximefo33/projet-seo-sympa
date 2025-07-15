@@ -1,5 +1,6 @@
-import { Profile, User } from '../../database/db/association.js';
-
+import session from 'express-session';
+import { Profile, User, Relation } from '../../database/db/association.js';
+import { Op } from 'sequelize';
 
 
 const dashboardController = {
@@ -17,6 +18,41 @@ const dashboardController = {
 
       if (!profile) return res.redirect('/inscription');
 
+// ajout du 15/7
+
+const relations = await Relation.findAll({
+
+      where: {
+          [Op.or]: [
+            { user_sender_id: res.locals.userId },
+            { user_recipient_id: res.locals.userId }
+          ]
+        },
+        /* include: [
+          {
+            model: User,
+            as: 'sender'
+          },
+          {
+            model: User,
+            as: 'recipient'
+          }
+        ], */
+        include: [
+          { association: 'sender',
+            include: [Profile]
+          },
+          { association: 'recipient',
+            include: [{ model: Profile }]
+          }
+        ],
+        order: [['created_at', 'DESC']]
+      });
+
+      console.log('[RELATIONS]',relations);
+     
+// fin ajout
+
       res.render('dashboard', {
         title: 'Mon tableau de bord Mon profil',
         profile: {
@@ -29,7 +65,8 @@ const dashboardController = {
           company_identification_system: profile.company_identification_system,
           description: profile.description,
         },
-      });
+        relations,
+        });
 
     } catch (error) {
       console.error("Erreur attrapée :", error);

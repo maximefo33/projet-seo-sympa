@@ -70,7 +70,7 @@ router.post('/delete-account-final', isLoggedIn, deletController.deleteAccount);
 
 // ================================== établir une demande de relation avec un autre user ============================
 
-router.post('/relation/demander', isLogged, relationController.demander);
+router.post('/relation/demander/:id', isLogged, relationController.demander);
 // router.post('/relation/accepter', isLogged, relationController.accepter);
 // router.post('/relation/refuser', isLogged, relationController.refuser);
 // router.post('/relation/supprimer', isLogged, relationController.supprimer);
