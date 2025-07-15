@@ -32,7 +32,7 @@ const mainController = {
 
   // endpoint dashboard => voir dashboardcontroller
 
-// endpoint profile : voir searchController
+// endpoint profile : voir profileController
 
   conditions: function (req, res) {
     res.render('conditions', {

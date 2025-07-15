@@ -1,8 +1,8 @@
-import { Relation } from '../../database/db/association.js';
+import { Relation, User, Profile } from '../../database/db/association.js';
 
 const relationController = {
 
- demande: async (req, res) => {
+ demander: async (req, res) => {
     try {
       const relationId = req.params.id_relation;
       const user_sender_id = req.session.userId;
@@ -29,7 +29,7 @@ return res.status(404).render('error', {
           title: 'votre demande de relation est en attente de réponse'
         });
       } else if (relationExisting.status=== 'rejected') {
-
+return res.render('profile'); // rendre vue profile avec id user
 
 // pas besoin du res render puisque dans la vue profile.ejs 
 // on a déjà un affichage conditionnel si déjà en lien alors affichage profil avec mail

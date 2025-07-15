@@ -21,52 +21,43 @@ const profileController = {
         });
       }
 
-// exemple avec op *************************
-// let relation = []; 
-//  if relation (sessionUserId)= Relation.findAll({  where: {
-//     [Op.or]: { user_sender_id, user_recipient_id},
-//   },
-// });
-// S
+      // on a trouvé le profil, on va chercher les relations
 
-// let results = [];
+      const relation = await Relation.findAll({
+        /* where: {
+          [Op.or]: [
+            { user_sender_id: profileId },
+            { user_recipient_id: profileId }
+          ]
+        }, */
+        where: {
+          [Op.or]: [
+            {
+              user_sender_id: profileId,
+              user_recipient_id: res.locals.userId
+            },
+            {
+              user_sender_id: res.locals.userId,
+              user_recipient_id: profileId
+            }
+          ]
+        },
+        /* include: [
+          { model: Profile,
+            as: 'profile',
+            attributes: ['id_profile', 'display_name']
+          },
+          { model: User,
+            as: 'user',
+            attributes: ['id_user', 'username']
+          }
+        ] */
+      });
 
-//  });
-
-
-// *********************************
-
- const relationSearch = normalizedKeywords.map(word => ({
-    description: { [Op.iLike]: `%${word}%` }
-  }));
-
-  
-  searchConditions.push({
-    [Op.or]: keywordConditions
-  });
-// exemple sequelize ******************************************
-
-
-
-// This is shorter, and less error prone because it still works if you add / remove attributes from your model later
-Model.findAll({
-  attributes: {
-    include: [[sequelize.fn('COUNT', sequelize.col('hats')), 'n_hats']],
-  },
-});
-
-const { Op } = require('sequelize');
-Post.findAll({
-  where: {
-    [Op.or]: [{ authorId: 12 }, { authorId: 13 }],
-  },
-});
-// SELECT * FROM post WHERE authorId = 12 OR authorId = 13;
-
-// fin exemple ***********************************************************
+    console.log('relation', relation);
 
       res.render('profile', {
-        title: `Profil de ${profile.display_name}`,
+        title: `Profil de ${profile.display_name}`, // ce n'est pas utilisé en l'état dans le template
         profile: {
           id: profile.id_profile,
           firstname: profile.firstname,
@@ -77,7 +68,9 @@ Post.findAll({
           display_name: profile.display_name,
           company_identification_system: profile.company_identification_system,
           description: profile.description,
-        }
+        },
+          relation, 
+         session: req.session
       });
 
     } catch (error) {

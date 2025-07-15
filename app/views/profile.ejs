@@ -37,41 +37,41 @@
 
       <!-- si l'utilisateur connecté est le même que l'utilisateur dont le profil est visité, alors demande de connexion impossible  -->
 
-      <% if (session?.userId && profile.user_id !==session.userId) { %>
-        <% if (!relation) { %>
-          <form action="/relation" method="POST" class="relation-form">
-            <button type="submit" class="button card__contact">Vous souhaitez rejoindre mon réseau ?</button>
-          </form>
-          
-          <!-- demande de relation déjà acceptée, on montre le profil entier avec le mail -->
-          <% } else if (relation.status===accepted) { %>
-            <p> Vous êtes déjà en relation avec ce profil </p>
-            <p class="card__info">
-              <%= user.email %>
-            </p>
-            
-            <!-- demande de relation en attente -->
-            <% } else if (relation.status==pending) { %>
-  
-              <p> Demande de connexion déjà en attente, merci de patienter pour la réponse.</p>
-              <!--https://icons8.com/preloaders/en/circular-->
-              <!-- demande de relation refusée, on affiche à nouveau le bouton de demande -->
-              <% } else if (relation.status===rejected) { %>
-                <form action="/relation" method="POST" class="relation-form">
-                  <button type="submit" class="button card__contact">Vous souhaitez rejoindre mon réseau ?</button>
-                </form>
-                <% } %>
-                  <% } else { %>
+      <!-- // ici essai pour séparer les if -->
 
+      <% if (!session?.userId) { %>
 
-                    <p> Vous ne pouvez pas demander à vous connecter à votre propre réseau. </p>
+        <p>Vous devez être connecté pour envoyer une demande de connexion.</p>
 
+        <% } else if (profile.id_profile ===session.userId) { %>
+
+          <p>Vous ne pouvez pas demander à vous connecter à votre propre réseau.</p>
+
+          <% } else { %>
+            <!-- L'utilisateur est connecté et regarde un autre profil -->
+            <% if (!relation || relation.length===0) { %>
+              <form action="/relation/demander" method="POST" class="relation-form">
+                <button type="submit" class="button cardcontact">Vous souhaitez rejoindre mon réseau ?</button>
+              </form>
+
+              <% } else if (relation.status==='accepted' ) { %>
+                <p>Vous êtes déjà en relation avec ce profil.</p>
+                <p class="cardinfo">
+                  <%= user.email %>
+                </p>
+
+                <% } else if (relation.status==='pending' ) { %>
+                  <p>Demande de connexion déjà en attente, merci de patienter pour la réponse.</p>
+
+                  <% } else if (relation.status==='rejected' ) { %>
+                    <form action="/relation/demander" method="POST" class="relation-form">
+                      <button type="submit" class="button cardcontact">Vous souhaitez rejoindre mon réseau ?</button>
+                    </form>
                     <% } %>
+                      <% } %>
 
 
 
-                      <!-- 
-                    <a href="/#" class="button card__contact">Vous souhaitez rejoindre mon réseau ?</a> -->
     </section>
   </main>
 

@@ -1,5 +1,6 @@
 import Profile from '../models/Profile.js';
 import User from '../models/User.js';
+import Relation from '../models/Relation.js';
 import { Op } from 'sequelize';
 import validator from 'validator';
 

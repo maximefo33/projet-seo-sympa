@@ -32,12 +32,6 @@ Message.belongsTo(User, {
 
 // // Un utilisateur peut avoir plusieurs relations
 User.hasMany(Relation, {
-  foreignKey: 'user_id'
-});
-Relation.belongsTo(User, {
-  foreignKey: 'user_id'
-});
-User.hasMany(Relation, {
   foreignKey: 'user_sender_id',
   as: 'sentRelations'
 });
