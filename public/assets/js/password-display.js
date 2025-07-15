@@ -1,4 +1,3 @@
-
 el=true;
 function displayPassword() {
   if(el) {
@@ -12,7 +11,6 @@ function displayPassword() {
     el=true;
   }
 }
-
 
 el2=true;
 function displayConfirmPassword() {
