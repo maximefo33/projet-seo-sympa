@@ -53,21 +53,9 @@ const profileController = {
       });
 
       res.render('profile', {
-        /* profile: {
-          id: profile.id_profile,
-          firstname: profile.firstname,
-          lastname: profile.lastname,
-          address: profile.address,
-          city: profile.city,
-          zipcode: profile.zipcode,
-          display_name: profile.display_name,
-          company_identification_system: profile.company_identification_system,
-          description: profile.description,
-        }, */
         profile,
-        relations, // à garder ou non ? on ne se souvient +
-
-        session: req.session
+        relations, 
+        // session: req.session
       });
 
     } catch (error) {

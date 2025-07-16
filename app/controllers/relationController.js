@@ -74,4 +74,3 @@ const relationController = {
 //    try {
 
 export default relationController;
-

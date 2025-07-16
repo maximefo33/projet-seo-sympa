@@ -12,8 +12,6 @@
 
                 </h2>
 
-
-
             </div>
 
             <div>
@@ -59,7 +57,6 @@
 
         </section>
 
-        <!-- // ajout 15/7/25 -->
         <section>
             <h2>Mes relations</h2>
             <table>
@@ -104,16 +101,16 @@
                             <% if (isSender && relation.dataValues.status ==='en attente de réponse' ) { %>
                                 <form method="POST" action="/relation/supprimer">
                                     <input type="hidden" name="id" value="<%= relation.id %>">
-                                    <button>❌ pour supprimer ce contact</button>
+                                    <button>❌ pour supprimer cette demande</button>
                                 </form>
                                 <% } else if (!isSender && relation.dataValues.status ==='en attente de réponse' ) { %>
                                     <form method="POST" action="/relation/accepter">
                                         <input type="hidden" name="id" value="<%= relation.id %>">
-                                        <button>✅ pour accepter ce contact</button>
+                                        <button>✅ pour accepter cette demande</button>
                                     </form>
                                     <form method="POST" action="/relation/refuser">
                                         <input type="hidden" name="id" value="<%= relation.id %>">
-                                        <button>❌ pour refuser ce contact</button>
+                                        <button>❌ pour refuser cette demande</button>
                                     </form>
                                     <% } else { %>
                                         <form method="POST" action="/relation/supprimer">
@@ -126,6 +123,6 @@
                     <% }); %>
             </table>
         </section>
-        <!-- fin ajout 15/7 -->
+
     </main>
     <%- include('partials/footer') %>
