@@ -29,10 +29,10 @@ const profileController = {
           [Op.or]: [
             {
               user_sender_id: profileId,
-              user_recipient_id: res.locals.userId
+              user_recipient_id: req.session.userId
             },
             {
-              user_sender_id: res.locals.userId,
+              user_sender_id: req.session.userId,
               user_recipient_id: profileId
             }
           ]
@@ -50,8 +50,7 @@ const profileController = {
       });
 
       res.render('profile', {
-        // title: `Profil de ${profile.display_name}`, // ce n'est pas utilisé en l'état dans le template
-        profile: {
+          profile: {
           id: profile.id_profile,
           firstname: profile.firstname,
           lastname: profile.lastname,

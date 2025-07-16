@@ -26,15 +26,15 @@ Relation.init({
     type: DataTypes.STRING(50),
   },
 
-  /* user_sender_id: {
-    type: DataTypes.INTEGER,
-      allowNull: false,
-  },
+  // user_sender_id: {
+  //   type: DataTypes.INTEGER,
+  //     allowNull: false,
+  // },
 
-  user_recipient_id: {
-    type: DataTypes.INTEGER,
-      allowNull: false,
-  }, */
+  // user_recipient_id: {
+  //   type: DataTypes.INTEGER,
+  //     allowNull: false,
+  // }, 
 
 }, {
   sequelize,

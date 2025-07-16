@@ -15,6 +15,11 @@ const relationController = {
       //todo ici, on pourrait faire un premier test pour vérifier qu'il n'y a pas de demande de relation déjà existante entre ces deux utilisateurs
       // ce serait pour éviter que quelqu'un accède à cette méthode directement en tapant la route
       
+
+
+
+
+
       // ce que doit faire la méthode ici, c'est ajouter la demande à la base de données
 
       const relation = await Relation.create({
@@ -28,11 +33,11 @@ const relationController = {
       return res.redirect('/tableau-de-bord-prive');
 
       // On va chercher la relation par son id
-      /* const relationExisting = await Relation.findByPk(relationId, {
+      const relationExisting = await Relation.findByPk(relationId, {
         include: [user_sender_id, user_recipient_id],
-      }); */
+      }); 
 
-      /* if (user_sender_id === user_recipient_id)
+     if (user_sender_id === user_recipient_id)
           {
             return res.status(404).render('error', {
               title: 'demande impossible'
@@ -58,7 +63,7 @@ const relationController = {
         //       user.email,
         //     }
           // });
-      } */
+      }
 
     } catch (error) {
       console.error("Erreur, demande non valide :", error);

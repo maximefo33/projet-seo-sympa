@@ -71,13 +71,28 @@
                 </tr>
                 <% relations.forEach(relation=> { 
                     console.log('--------------------------------------- relation', relation);
-                    // console.log('profile', relation.sender);
+                    console.log('****************************profile sender : ', relation.sender); // contient une instance de User
+                    console.log('****************************profile recipient', relation.recipient); // contient une instance de User
                     // essayer de voir ce qu'il y a dans Profile (qui semble contenu dans relation.sender / relation.recipient)
+                    console.log('[DASHBOARD] profil du sender : ', relation.sender.Profile);
+                    const senderProfile = relation.sender.Profile;
+                    console.log('[DASHBOARD] profil du recipient : ', relation.recipient.Profile);
+                    const recipientProfile = relation.recipient.Profile;
+                    console.log('[DASHBOARD] profil du sender - firstname :', senderProfile.dataValues.firstname);
+                    console.log('[DASHBOARD] profil du recipient - firstname :', recipientProfile.dataValues.firstname);
+                    
                     
                     %>
                     <tr>
-                        <td>
-                            <%= relation.nom %>
+                        <td> 
+                            <% /* ici, on est dans le cas où on doit afficher le destinaire si on est à l'origine de la demande, ou l'expéditeur si on est le destinataire 
+                            Si senderProfile.dataValues.user_id = mon id à moi (res.locals.userId) => j'affiche recipientProfile.dataValues.display_name 
+                            Sinon j'affiche senderProfile.dataValues.display_name */ %>
+                            <% if (senderProfile.dataValues.user_id === locals.userId) { %>
+                                <%= recipientProfile.dataValues.display_name %>
+                            <% } else { %>
+                                <%= senderProfile.dataValues.display_name %>
+                            <% } %>
                         </td>
                         <td>
                             <%= relation.date %>

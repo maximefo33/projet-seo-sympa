@@ -24,26 +24,16 @@ const relations = await Relation.findAll({
 
       where: {
           [Op.or]: [
-            { user_sender_id: res.locals.userId },
-            { user_recipient_id: res.locals.userId }
+            { user_sender_id: req.session.userId },
+            { user_recipient_id: req.session.userId }
           ]
         },
-        /* include: [
-          {
-            model: User,
-            as: 'sender'
-          },
-          {
-            model: User,
-            as: 'recipient'
-          }
-        ], */
         include: [
           { association: 'sender',
             include: [Profile]
           },
           { association: 'recipient',
-            include: [{ model: Profile }]
+            include: [Profile]
           }
         ],
         order: [['created_at', 'DESC']]
@@ -65,7 +55,7 @@ const relations = await Relation.findAll({
           company_identification_system: profile.company_identification_system,
           description: profile.description,
         },
-        relations,
+        relations, // pluriel alors que dans profileController c'est au singulier
         });
 
     } catch (error) {

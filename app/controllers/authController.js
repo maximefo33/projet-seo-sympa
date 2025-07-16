@@ -110,15 +110,11 @@ const authController = {
         lastname: req.body.lastname,
         description: "",
         user_id: userNeo.id_user,
-
-
       };
 
       // on fait persister ce nouvel utilisateur inscrit en base de données
       // see @ https://johackim.com/sequelize?utm_source=rss&utm_medium=rss
       // see @ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/ 
-
-      // 30/6 - je n'appelais pas la fonction correctement, il faut faire User.create(userRegistered)
 
 
       const profileNeo = await Profile.create(profileRegistered);
