@@ -8,8 +8,8 @@ const relationController = {
       const user_sender_id = req.session.userId;
       const user_recipient_id = req.params.id;
 
-      console.log("ID de l'utilisateur qui envoie la demande :", user_sender_id);
-      console.log("ID de l'utilisateur destinataire de la demande :", user_recipient_id);
+      console.log("ID de l'utilisateur qui envoie la demande :", user_sender_id); //16.7 - enlever consoles log + tard après tests
+      console.log("ID de l'utilisateur destinataire de la demande :", user_recipient_id); //16.7 - enlever consoles log + tard après tests
       
 
       //todo ici, on pourrait faire un premier test pour vérifier qu'il n'y a pas de demande de relation déjà existante entre ces deux utilisateurs
@@ -23,7 +23,6 @@ const relationController = {
         status: 'pending' // ou 'accepted' si on veut accepter directement la relation
       });
 
-      //console.log("Nouvelle relation créée :", relation);
       
       // une fois l'enregistrement fait, on redirige vers le dashboard, qui se chargera d'afficher les demandes et relations
       return res.redirect('/tableau-de-bord-prive');

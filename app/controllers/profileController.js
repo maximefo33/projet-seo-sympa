@@ -14,8 +14,6 @@ const profileController = {
       const profile = await Profile.findByPk(profileId, {
         include: User
       });
-//console.log("Session userId:", req.session.userId);
-//console.log("Profile id:", profile.id);
 
       if (!profile) {
         return res.status(404).render('error', {
@@ -26,12 +24,7 @@ const profileController = {
       // on a trouvé le profil, on va chercher les relations
 
       const relation = await Relation.findAll({
-        /* where: {
-          [Op.or]: [
-            { user_sender_id: profileId },
-            { user_recipient_id: profileId }
-          ]
-        }, */
+
         where: {
           [Op.or]: [
             {
@@ -56,10 +49,8 @@ const profileController = {
         ] */
       });
 
-    //console.log('relation', relation);
-
       res.render('profile', {
-        title: `Profil de ${profile.display_name}`, // ce n'est pas utilisé en l'état dans le template
+        // title: `Profil de ${profile.display_name}`, // ce n'est pas utilisé en l'état dans le template
         profile: {
           id: profile.id_profile,
           firstname: profile.firstname,

@@ -85,24 +85,6 @@ const mainController = {
     });
   },
 
-
-  /* *********** JE COMMENTE CAR ci-dessous PAS UTILISE POUR L INSTANT
-
-// ci dessous juste un exemple avec query
-home: async function(req, res) {
-try {
-  const result = await client.query('SELECT * FROM "website" ORDER BY id DESC LIMIT 3');
-  res.render('home', {
-     websites: result.rows,
-    })
-} catch (error) {
-  console.log('erreur', error);
-  res.status(500).render('error');
-}
-},
-
-*****************************/
-
 };
 
 export default mainController;

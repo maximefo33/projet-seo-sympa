@@ -1,8 +1,7 @@
 
-//Protection de la route /dashboard
+//Protection de la route /dashboard => on peut aller sur /tableau-de-bord-privé que SI on est connecté à son compte
 
 export function isLoggedIn(req, res, next) {
-  //console.log('isLoggedIn middleware, session.isLogged:', req.session.isLogged);
   if (req.session && req.session.isLogged) {
     next();
   } else {

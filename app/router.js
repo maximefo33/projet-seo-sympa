@@ -16,9 +16,6 @@ import * as userController  from "./controllers/userController.js";
 import isLogged from './middlewares/isLogged.js';
 import { isLoggedIn } from './middlewares/authMiddleware.js';
 
-
-// console.log("test affichage console");
-
 // on crée un objet router à l'aide de la méthode adaptée fournie par express
 const router = express.Router();
 
