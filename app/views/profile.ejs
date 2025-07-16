@@ -42,7 +42,7 @@
       <% if (!session?.userId) { %>
 
         <p>Vous devez être connecté pour envoyer une demande de connexion.</p>
-
+<!-- // ligne 46 voir pour débuguer -->
         <% } else if (profile.id ===session.userId) { %>
 
           <p>Vous ne pouvez pas demander à vous connecter à votre propre réseau.</p>

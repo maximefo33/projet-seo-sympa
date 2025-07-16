@@ -64,9 +64,9 @@
             <h2>Mes relations</h2>
             <table>
                 <tr>
-                    <th>Nom</th>
-                    <th>Date</th>
-                    <th>Statut</th>
+                    <th>Nom d'affichage</th>
+                    <th>Date de la demande</th>
+                    <th>Statut de la relation</th>
                     <th>Actions</th>
                 </tr>
                 <% relations.forEach(relation=> { 
@@ -80,7 +80,7 @@
                     const recipientProfile = relation.recipient.Profile;
                     console.log('[DASHBOARD] profil du sender - firstname :', senderProfile.dataValues.firstname);
                     console.log('[DASHBOARD] profil du recipient - firstname :', recipientProfile.dataValues.firstname);
-                    
+                    const isSender = senderProfile.dataValues.user_id === locals.userId;
                     
                     %>
                     <tr>
@@ -95,30 +95,30 @@
                             <% } %>
                         </td>
                         <td>
-                            <%= relation.date %>
+                            <%= relation.dataValues.created_at %>
                         </td>
                         <td>
-                            <%= relation.status %>
+                            <%= relation.dataValues.status %>
                         </td>
                         <td>
-                            <% if (relation.isSender && relation.statut==='en attente' ) { %>
+                            <% if (isSender && relation.dataValues.status ==='pending' ) { %>
                                 <form method="POST" action="/relation/supprimer">
                                     <input type="hidden" name="id" value="<%= relation.id %>">
-                                    <button>❌</button>
+                                    <button>❌ pour supprimer ce contact</button>
                                 </form>
-                                <% } else if (!relation.isSender && relation.statut==='en attente' ) { %>
+                                <% } else if (!isSender && relation.dataValues.status ==='pending' ) { %>
                                     <form method="POST" action="/relation/accepter">
                                         <input type="hidden" name="id" value="<%= relation.id %>">
-                                        <button>✅</button>
+                                        <button>✅ pour accepter ce contact</button>
                                     </form>
                                     <form method="POST" action="/relation/refuser">
                                         <input type="hidden" name="id" value="<%= relation.id %>">
-                                        <button>❌</button>
+                                        <button>❌ pour refuser ce contact</button>
                                     </form>
                                     <% } else { %>
                                         <form method="POST" action="/relation/supprimer">
                                             <input type="hidden" name="id" value="<%= relation.id %>">
-                                            <button>❌</button>
+                                            <button>❌ pour supprimer ce contact</button>
                                         </form>
                                         <% } %>
                         </td>
