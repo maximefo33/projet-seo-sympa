@@ -49,22 +49,40 @@
 
           <% } else { %>
             <!-- L'utilisateur est connecté et regarde un autre profil -->
-            <% if (!relation || relation.length===0) { %>
+             <!-- relations existe toujours et est toujours un tableau. Il sera vide s'il n'y a pas de relation entre les deux utilisateurs -->
+            <% if (relations.length === 0) { %> 
               <form action="/relation/demander/<%= profile.id %>" method="POST" class="relation-form">
-                <button type="submit" class="button cardcontact">Vous souhaitez rejoindre mon réseau ?</button>
-              </form>
+                <button type="submit" class="button cardcontact">Vous souhaitez rejoindre mon réseau ? 
+                 </button>
+                </form>
 
-              <% } else if (relation.status==='accepted' ) { %>
-                <p>Vous êtes déjà en relation avec ce profil.</p>
+              <% } 
+              // ici, je force la récupération du premier élément de relations, car il n'est censé y en avoir qu'un seul
+              else if (relations[0].status === 'relation en cours') { %>
+                <p>Vous avez déjà envoyé une demande de connexion à ce profil.</p>
+                <p class="cardinfo">
+                  <%= profile.User.dataValues.email %>
+                  // ! warning : ici on doit afficher le mail de l'autre utilisateur, à récupérer dans User, pas transmis actuellement 
+                  %> 
+                </p>
+
+                <% } else if (relations[0].status === 'relation refusée') { %>
+                  <form action="/relation/demander/<%= profile.id %>" method="POST" class="relation-form">
+                    <button type="submit" class="button cardcontact">Vous souhaitez rejoindre mon réseau ?</button>
+                  </form>
+
+                <% }
+              else if (relations[0].status==='relation acceptée' ) { %>
+                  <p>Vous êtes déjà en relation avec ce profil.</p>
                 <p class="cardinfo">
                   <%= user.email %>
                 </p>
 
-                <% } else if (relation.status==='pending' ) { %>
+                <% } else if (relations[0].status==='en attente de réponse' ) { %>
                   <p>Demande de connexion déjà en attente, merci de patienter pour la réponse.</p>
 
-                  <% } else if (relation.status==='rejected' ) { %>
-                    <form action="/relation/demander" method="POST" class="relation-form">
+                  <% } else if (relations[0].status==='relation refusée' ) { %>
+                    <form action="/relation/demander/<%= profile.id %>" method="POST" class="relation-form">
                       <button type="submit" class="button cardcontact">Vous souhaitez rejoindre mon réseau ?</button>
                     </form>
                     <% } %>
@@ -73,6 +91,13 @@
 
 
     </section>
+    <!-- <script>
+      function showLoader()
+{ document.getElementById('wait').style.display = 'inline';
+
+}    </script> -->
+
+ <!-- <img id="wait"   src="/assets/img/wait.gif" alt=" image gif en attente" style="display: none; will-change: auto;"> -->
   </main>
 
   <%- include('partials/footer') %>

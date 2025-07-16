@@ -15,17 +15,12 @@ const relationController = {
       //todo ici, on pourrait faire un premier test pour vérifier qu'il n'y a pas de demande de relation déjà existante entre ces deux utilisateurs
       // ce serait pour éviter que quelqu'un accède à cette méthode directement en tapant la route
       
-
-
-
-
-
       // ce que doit faire la méthode ici, c'est ajouter la demande à la base de données
 
       const relation = await Relation.create({
         user_sender_id: user_sender_id,
         user_recipient_id: user_recipient_id,
-        status: 'pending' // ou 'accepted' si on veut accepter directement la relation
+        status: 'en attente de réponse' // ou 'relation acceptée' si on veut accepter directement la relation
       });
 
       
@@ -42,17 +37,17 @@ const relationController = {
             return res.status(404).render('error', {
               title: 'demande impossible'
             });
-          } else if (relationExisting.status=== 'accepted') 
+          } else if (relationExisting.status=== 'relation acceptée') 
     {
             return res.status(404).render('error', {
               title: 'votre demande de relation a déjà été acceptée'
             });
-          } else if (relationExisting.status== 'pending') 
+          } else if (relationExisting.status== 'en attente de réponse') 
           {
         return res.status(404).render('error', {
               title: 'votre demande de relation est en attente de réponse'
             });
-          } else if (relationExisting.status=== 'rejected') {
+          } else if (relationExisting.status=== 'relation refusée') {
         return res.render('profile'); // rendre vue profile avec id user
 
     // pas besoin du res render puisque dans la vue profile.ejs 
@@ -73,6 +68,10 @@ const relationController = {
     }
   }
 };
+//Accepter une demande/relation
+//accepter:
+//   async (req, res) => {
+//    try {
 
 export default relationController;
 

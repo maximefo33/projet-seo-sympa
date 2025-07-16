@@ -15,6 +15,9 @@ const profileController = {
         include: User
       });
 
+      console.log('[profilController] Profile', profile);
+      
+
       if (!profile) {
         return res.status(404).render('error', {
           title: 'Profil non trouvé'
@@ -23,7 +26,7 @@ const profileController = {
 
       // on a trouvé le profil, on va chercher les relations
 
-      const relation = await Relation.findAll({
+      const relations = await Relation.findAll({
 
         where: {
           [Op.or]: [
@@ -50,7 +53,7 @@ const profileController = {
       });
 
       res.render('profile', {
-          profile: {
+        /* profile: {
           id: profile.id_profile,
           firstname: profile.firstname,
           lastname: profile.lastname,
@@ -60,9 +63,11 @@ const profileController = {
           display_name: profile.display_name,
           company_identification_system: profile.company_identification_system,
           description: profile.description,
-        },
-          relation, // à garder ou non ? on ne se souvient +
-         session: req.session
+        }, */
+        profile,
+        relations, // à garder ou non ? on ne se souvient +
+
+        session: req.session
       });
 
     } catch (error) {

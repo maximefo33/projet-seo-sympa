@@ -101,12 +101,12 @@
                             <%= relation.dataValues.status %>
                         </td>
                         <td>
-                            <% if (isSender && relation.dataValues.status ==='pending' ) { %>
+                            <% if (isSender && relation.dataValues.status ==='en attente de réponse' ) { %>
                                 <form method="POST" action="/relation/supprimer">
                                     <input type="hidden" name="id" value="<%= relation.id %>">
                                     <button>❌ pour supprimer ce contact</button>
                                 </form>
-                                <% } else if (!isSender && relation.dataValues.status ==='pending' ) { %>
+                                <% } else if (!isSender && relation.dataValues.status ==='en attente de réponse' ) { %>
                                     <form method="POST" action="/relation/accepter">
                                         <input type="hidden" name="id" value="<%= relation.id %>">
                                         <button>✅ pour accepter ce contact</button>
