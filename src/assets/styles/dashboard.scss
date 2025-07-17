@@ -1,12 +1,21 @@
-
-
 @use './vars';
+@use './mixins'; // j’imagine que c’est là que sont tes mixins
 
 .container {
   width: 90%;
   max-width: 1000px;
   margin: auto;
   padding: 2rem 1rem;
+
+  @include mixins.phone {
+    width: 95%;
+    padding: 1.5rem 1rem;
+  }
+
+  @include mixins.tablet {
+    max-width: 700px;
+    padding: 2rem 1rem;
+  }
 }
 
 header.profil-header {
@@ -14,6 +23,10 @@ header.profil-header {
   color: vars.$color-white;
   text-align: center;
   padding: 2rem 0;
+
+  @include mixins.phone {
+    padding: 1.5rem 0;
+  }
 }
 
 .profil-main {
@@ -21,6 +34,10 @@ header.profil-header {
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+  @include mixins.phone {
+    padding: 1rem;
+  }
 }
 
 .profil-intro {
@@ -30,66 +47,146 @@ header.profil-header {
   margin-bottom: 2rem;
   padding: 10%;
 
+  @include mixins.phone {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1rem;
+  }
+
+  @include mixins.tablet {
+    flex-direction: row;
+    padding: 5%;
+  }
+
   .profil-photo {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid vars.$color-blue;
+
+    @include mixins.phone {
+      width: 90px;
+      height: 90px;
+    }
+
+    @include mixins.tablet {
+      width: 110px;
+      height: 110px;
+    }
   }
 
-  .profil-info h2 {
-    margin: 0;
-    font-size: vars.$title-fontsize;
-  }
+  .profil-info {
+    h2 {
+      margin: 0;
+      font-size: vars.$title-fontsize;
 
-  .specialite,
-  .localisation {
-    color: vars.$color-darkpurple;
-    font-size: vars.$text-fontsize;
+      @include mixins.phone {
+        font-size: 1.8rem;
+      }
+
+      @include mixins.tablet {
+        font-size: 2.4rem;
+      }
+    }
+
+    .specialite,
+    .localisation {
+      color: vars.$color-darkpurple;
+      font-size: vars.$text-fontsize;
+
+      @include mixins.phone {
+        font-size: 1rem;
+      }
+
+      @include mixins.tablet {
+        font-size: 1.25rem;
+      }
+    }
   }
 }
 
 section {
   margin-bottom: 2rem;
+
+  @include mixins.phone {
+    margin-bottom: 1.5rem;
+  }
 }
 
 h3 {
   color: vars.$color-purple;
   font-size: vars.$subtitle-fontsize;
   margin-bottom: 0.5rem;
-}
 
-.profil-services ul {
-  list-style: none;
-  padding: 0;
+  @include mixins.phone {
+    font-size: 1.25rem;
+  }
 
-  li {
-    background: vars.$color-lightblue;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-    color: vars.$color-white;
-    font-size: vars.$text-fontsize;
+  @include mixins.tablet {
+    font-size: 1.5rem;
   }
 }
 
-.profil-contact button {
-  background: vars.$color-darkpurple;
-  color: vars.$color-white;
-  border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: vars.$text-fontsize;
+.profil-services {
+  ul {
+    list-style: none;
+    padding: 0;
 
+    li {
+      background: vars.$color-lightblue;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      color: vars.$color-white;
+      font-size: vars.$text-fontsize;
 
+      @include mixins.phone {
+        font-size: 0.9rem;
+      }
 
-.profil-reseaux .reseaux-icons {
- display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+      @include mixins.tablet {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.profil-contact {
+  button {
+    background: vars.$color-darkpurple;
+    color: vars.$color-white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: vars.$text-fontsize;
+
+    @include mixins.phone {
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+    }
+
+    @include mixins.tablet {
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+    }
+  }
+}
+
+.profil-reseaux {
+  .reseaux-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    @include mixins.phone {
+      flex-direction: row;
+      justify-content: center;
+      gap: 1rem;
+    }
+  }
 }
 
 footer.profil-footer {
@@ -97,5 +194,8 @@ footer.profil-footer {
   font-size: 0.9rem;
   color: vars.$color-darkpurple;
   padding: 1rem 0;
-}
+
+  @include mixins.phone {
+    font-size: 0.8rem;
+  }
 }

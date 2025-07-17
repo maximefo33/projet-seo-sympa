@@ -1,15 +1,17 @@
 @use './vars';
 @use './mixins';
 
-
-
-//header integre via index.scss , profile.html
-
-
+// header intégré via index.scss , profile.html
 
 .public-profile-main {
   padding: 4%;
-    flex: 1;                       // CHANGEMENT
+  flex: 1;
+
+  // Sur mobile : padding plus petit
+  @include mixins.phone {
+    padding: 2%;
+  }
+
   .card {
     margin-top: 2rem;
     display: flex;
@@ -17,7 +19,8 @@
     gap: 1rem;
     align-items: center;
 
-    @include mixins.small {
+    // Sur tablette et plus grand → disposition en ligne
+    @include mixins.tablet {
       flex-direction: row; 
       align-items: flex-start;
     }
@@ -25,6 +28,11 @@
     .card__image {
       flex-shrink: 0;
       width: 150px;
+
+      // Sur téléphone, image plus petite
+      @include mixins.phone {
+        width: 100px;
+      }
 
       img {
         width: 100%;
@@ -37,7 +45,8 @@
       flex: 1;
       text-align: center;
 
-      @include mixins.small {
+      // Texte aligné à gauche dès tablette
+      @include mixins.tablet {
         text-align: left;
       }
     }
@@ -45,10 +54,19 @@
     .card__contact {
       margin-top: 1rem;
 
-      @include mixins.small {
+      // Dès tablette : contact à droite
+      @include mixins.tablet {
         margin-top: 0;
         margin-left: auto; 
         align-self: flex-start;
+      }
+
+      // Sur téléphone, recentrer et espacer un peu
+      @include mixins.phone {
+        text-align: center;
+        margin-top: 1rem;
+        margin-left: 0;
+        align-self: center;
       }
     }
   }

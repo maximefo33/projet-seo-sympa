@@ -1,4 +1,3 @@
-
 @use './vars.scss';
 @use './mixins.scss';
 
@@ -17,11 +16,11 @@
     font-size: vars.$title-fontsize;
     margin-bottom: 1rem;
 
-    @include mixins.small {
+    @include mixins.tablet {
       font-size: 3rem;
     }
 
-    @include mixins.medium {
+    @include mixins.desktop {
       font-size: 4rem;
     }
   }
@@ -82,59 +81,3 @@
     }
   }
 }
-
-
-
-
-
-
-// @import './var.scss';
-// @import './mixins.scss';
-
-// .error-404 {
-//   font-family: $font-texte;
-//   color: $color-black;
-//   background-color: $color-lightblue;
-//   min-height: 100vh;
-//   padding: 2rem;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   text-align: center;
-
-//   h1 {
-//     font-size: $title-fontsize;
-//     color: $color-purple;
-//     margin-bottom: 1rem;
-
-//     @include small {
-//       font-size: 3rem;
-//     }
-
-//     @include medium {
-//       font-size: 4rem;
-//     }
-//   }
-
-//   p {
-//     font-size: $text-fontsize;
-//     margin-bottom: 1.5rem;
-//     max-width: 600px;
-//   }
-
-//   a {
-//     font-size: $subtitle-fontsize;
-//     color: $color-blue;
-//     text-decoration: none;
-//     border-bottom: 2px solid transparent;
-//     transition: border-color 0.3s ease, color 0.3s ease;
-
-//     &:hover,
-//     &:focus {
-//       color: $color-darkpurple;
-//       border-color: $color-darkpurple;
-//       outline: none;
-//     }
-//   }
-// }

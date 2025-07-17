@@ -27,23 +27,51 @@
 
 
   <header class="menu">
-  <div class="menu-nav">
-    <a href="/">
-      <img class="logo" src="./assets/img/logo.png" alt="logo seo sympa avec lien vers accueil">
-    </a>
+    <div class="menu-nav">
+      <a href="/">
+        <img class="logo" src="/assets/img/logo.png" alt="Logo SEO Sympa - Accueil">
+      </a>
+<nav class="main-nav-fixed">
+  <ul class="main-nav__list">
+    <li class="main-nav__item"><a href="/a-propos" class="main-nav__link">À propos</a></li>
+    <li class="main-nav__item"><a href="/contact" class="main-nav__link">Contact</a></li>
+  </ul>
+</nav>
 
-    <nav class="main-nav">
-      <ul class="main-nav__list">
-        <li class="main-nav__item"><a href="/a-propos" class="main-nav__link">À propos</a></li>
-        <li class="main-nav__item"><a href="/contact" class="main-nav__link">Contact</a></li>
-      </ul>
-    </nav>
+      <!-- Bouton burger -->
+      <div class="burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
-    <div class="menu-search">
-      <!--  Vérification de la session pour afficher les boutons de connexion/déconnexion -->
-      <% if (userId) { %>
+      <!-- Menu mobile -->
+      <nav class="main-nav hidden" id="burger_menu">
+        <div class="burger-extra">
+          <div class="menu-search">
+            <a href="/connexion">
+              <button class="button__append">Connexion</button>
+            </a>
+            <a href="/inscription">
+              <button class="button__append">Inscription</button>
+            </a>
+
+            <form class="search-bar" role="search">
+              <input type="search" class="search-input" name="q" placeholder="Rechercher..." aria-label="Recherche">
+              <button type="submit" class="search-button">Rechercher</button>
+              <a class="icon" href="/src/pages/dashboard.html">
+                <span class="material-symbols-outlined" style="font-size: 60px;">person</span>
+              </a>
+            </form>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Barre de recherche classique -->
+      <div class="menu-search">
+         <% if (userId) { %>
         <!-- Si l'utilisateur est connecté, afficher le bouton de déconnexion -->
-          <a href="/logout">
+          <a href="/">
           <button type="submit" class="button__append">Déconnexion</button>
           </a>
         
@@ -57,22 +85,57 @@
         </a>
       <% } %>
 
-      <form class="search-bar" role="search" action="/rechercher" method="get">
-        <input 
-          type="search" 
-          class="search-input" 
-          name="q" 
-          placeholder="Recherchez un Expert SEO..." 
-          required
-        >
-        <button type="submit" class="search-button">Rechercher</button>
-      </form>
-
-      <a class="icon" href="/tableau-de-bord-prive">
-        <span class="material-symbols-outlined" style="font-size: 60px; width:auto;">
-          person
-        </span>
-      </a>
+        <form class="search-bar" role="search">
+          <input type="search" class="search-input" name="q" placeholder="Rechercher..." aria-label="Recherche">
+          <button type="submit" class="search-button">Rechercher</button>
+          <a class="icon" href="/tableau-de-bord-prive">
+            <span class="material-symbols-outlined" style="font-size: 60px;">person</span>
+          </a>
+        </form>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+
+  <script>
+    // Gestion du menu burger pour les écrans mobiles
+    const burger = document.getElementById("burger");
+    // Menu qui s'affiche au clic sur le burger
+    // Il est caché par défaut et s'affiche en mode mobile
+    const burgerMenu = document.getElementById("burger_menu");
+    // Fonction pour basculer l'affichage du menu en fonction de la taille de l'écran
+    // Si l'écran est large, le menu est visible, sinon il est caché
+    function toggleMenu() {
+      // Vérifie la largeur de l'écran
+      // Si la largeur est supérieure ou égale à 992px, le menu est affich
+      if (window.innerWidth >= 992) {
+        // Ajoute la classe "hidden" pour cacher le menu burger
+        // et affiche le menu principal
+        burgerMenu.classList.add("hidden");
+        // Affiche le menu principal
+        burger.classList.add("hidden");
+        // Retire la classe "hidden" du menu principal
+        // pour qu'il soit visible sur les écrans larges
+        document.querySelector(".main-nav").classList.remove("hidden");
+      // Si la largeur est inférieure à 992px, le menu burger est affiché
+      // et le menu principal est caché
+      } else {
+        // Retire la classe "hidden" pour afficher le menu burger
+        burger.classList.remove("hidden");
+        // Ajoute la classe "hidden" pour cacher le menu principal
+        document.querySelector(".main-nav").classList.add("hidden");
+      }
+    }
+    // Écoute les événements de chargement et de redimensionnement de la fenêtre
+    // pour ajuster l'affichage du menu en fonction de la taille de l'écran
+    ["load", "resize"].forEach(event =>
+      // Ajoute un écouteur d'événement pour chaque événement
+      // qui appelle la fonction toggleMenu
+      window.addEventListener(event, toggleMenu)
+    );
+    // Ajoute un écouteur d'événement au clic sur le bouton burger
+    // pour basculer l'affichage du menu burger
+    burger.addEventListener("click", () => {
+      burgerMenu.classList.toggle("hidden");
+    });
+  </script>
+

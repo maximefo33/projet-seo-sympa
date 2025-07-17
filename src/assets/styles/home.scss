@@ -1,96 +1,94 @@
 @use './vars';
-
-//header
-
-
-.menu {
-  position: fixed;
-  width: 100%;
-  background-color: white;
-  margin: -1%;
-
+@use './mixins';
+ 
+//  Header
+// .menu {
+//   position: fixed;
+//   width: 100%;
+//   background-color: white;
+//   margin: -1%;
 
 
-}
 
-.menu-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
+// }
 
-.logo {
-  height: 120px;
-}
+// .menu-nav {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   gap: 1rem;
+// }
 
-.main-nav__list {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  padding: 0;
-  margin: 0;
-}
+// .logo {
+//   height: 120px;
+// }
 
-.main-nav__link {
-  text-decoration: none;
-  color: vars.$color-black;
-  font-size: vars.$subtitle-fontsize;
-}
+// .main-nav__list {
+//   list-style: none;
+//   display: flex;
+//   gap: 2rem;
+//   padding: 0;
+//   margin: 0;
+// }
 
-.menu-search {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
+// .main-nav__link {
+//   text-decoration: none;
+//   color: vars.$color-black;
+//   font-size: vars.$subtitle-fontsize;
+// }
 
-.button__append {
-  background: linear-gradient(to bottom right,
-      transparent,
-      vars.$color-purple,
-      vars.$color-blue,
-      vars.$color-lightblue);
-  border-radius: 30px;
-  width: 125px;
-  padding: 0.5rem;
-  color: white;
-  border: none;
-}
+// .menu-search {
+//   display: flex;
+//   align-items: center;
+//   flex-wrap: wrap;
+//   gap: 1rem;
+// }
 
-.search-bar {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
+// .button__append {
+//   background: linear-gradient(to bottom right,
+//       transparent,
+//       vars.$color-purple,
+//       vars.$color-blue,
+//       vars.$color-lightblue);
+//   border-radius: 30px;
+//   width: 125px;
+//   padding: 0.5rem;
+//   color: white;
+//   border: none;
+// }
 
-.search-input {
-  padding: 0.5rem 1rem;
-  border-radius: 30px;
-  border: 1px solid vars.$color-black;
-  min-width: 200px;
-}
+// .search-bar {
+//   display: flex;
+//   align-items: center;
+//   gap: 0.5rem;
+// }
 
-.search-button {
-  background: linear-gradient(to bottom right,
-      transparent,
-      vars.$color-purple,
-      vars.$color-blue,
-      vars.$color-lightblue);
-  color: white;
-  border: none;
-  border-radius: 30px;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
+// .search-input {
+//   padding: 0.5rem 1rem;
+//   border-radius: 30px;
+//   border: 1px solid vars.$color-black;
+//   min-width: 200px;
+// }
 
-}
+// .search-button {
+//   background: linear-gradient(to bottom right,
+//       transparent,
+//       vars.$color-purple,
+//       vars.$color-blue,
+//       vars.$color-lightblue);
+//   color: white;
+//   border: none;
+//   border-radius: 30px;
+//   padding: 0.5rem 1rem;
+//   cursor: pointer;
 
-.icon {
-  color: black;
+// }
 
-}
+// .icon {
+//   color: black;
 
+// }
 
 
 //fin header
@@ -103,7 +101,7 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem;
+   padding: 8%;
   gap: 2rem;
   flex-wrap: wrap; // pour le responsive
   background: linear-gradient(to bottom right,
@@ -111,16 +109,31 @@
       vars.$color-purple,
       vars.$color-blue,
       vars.$color-lightblue);
+      flex-wrap: nowrap;
+
+  @include mixins.phone {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
 }
 
 .img_main {
-  max-width: 100%;
+  width: 50%;
   height: auto;
   border-radius: 20px;
+          
+ 
+
+  @include mixins.phone {
+    border-radius: 10px;
+    width: 100%;
+    margin: 25%;
+            
+  }
 }
 
 .main__text {
-
   p,
   h1 {
     color: white;
@@ -129,12 +142,28 @@
 
   p {
     font-size: 3.5rem;
+
+    @include mixins.phone {
+      font-size: 2rem;
+    }
+
+    @include mixins.tablet {
+      font-size: 2.75rem;
+    }
   }
 
   h1 {
     font-size: 3.5rem;
     font-weight: bold;
     margin-top: 1rem;
+
+    @include mixins.phone {
+      font-size: 2.5rem;
+    }
+
+    @include mixins.tablet {
+      font-size: 3rem;
+    }
   }
 }
 
@@ -142,8 +171,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  ;
-
 }
 
 .titre {
@@ -151,6 +178,11 @@
   font-family: vars.$font-texte;
   text-align: center;
   margin-bottom: 2rem;
+
+  @include mixins.phone {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .cardes {
@@ -160,7 +192,11 @@
   padding: 1rem 0;
   justify-content: center;
   width: 100%;
-  padding: 1rem 0;
+
+  @include mixins.phone {
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+  }
 }
 
 .carde {
@@ -170,6 +206,10 @@
   font-family: vars.$font-texte;
   font-size: vars.$text-fontsize;
   color: vars.$color-black;
+
+  @include mixins.phone {
+    font-size: 0.9rem;
+  }
 }
 
 .présentation {
@@ -178,14 +218,25 @@
   gap: 2rem;
   flex-direction: row-reverse;
   justify-content: space-around;
+  
   align-items: center;
   background-color: vars.$color-blue;
   margin: 3%;
+
+  @include mixins.phone {
+    flex-direction: column;
+    margin: 1rem 0;
+  }
 
   &__img {
     width: 1000px;
     max-width: 100%;
     border-radius: 10px;
+
+    @include mixins.phone {
+      width: 100%;
+      border-radius: 5px;
+    }
   }
 
   &__contenu {
@@ -193,18 +244,31 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
+    @include mixins.phone {
+      max-width: 100%;
+      padding: 0 1rem;
+    }
   }
 
   &__titre {
     font-size: 3rem;
     color: rgb(0, 0, 0);
     font-family: vars.$font-texte;
+
+    @include mixins.phone {
+      font-size: 2rem;
+    }
   }
 
   .text_main2 {
     font-size: 2.25rem;
     line-height: 1.6;
     color: white;
+
+    @include mixins.phone {
+      font-size: 1.5rem;
+    }
   }
 
   &__btn {
@@ -221,26 +285,24 @@
     cursor: pointer;
     font-size: 1rem;
 
-
+    @include mixins.phone {
+      font-size: 0.85rem;
+      padding: 0.4rem 1rem;
+    }
   }
 }
 
-.about_witness_contain0{
+.about_witness_contain0 {
   display: flex;
+
+  @include mixins.phone {
+    flex-direction: column;
+  }
 }
 
+// fin main
 
-
-
-
-
-
-// fin main 
-
-
-
-//footer 
-
+//footer
 
 .pied_de_page {
   background: linear-gradient(to bottom right, vars.$color-purple, vars.$color-blue, vars.$color-lightblue);
@@ -253,6 +315,12 @@
   column-gap: 4rem;
   font-size: vars.$text-fontsize;
   text-align: center;
+
+  @include mixins.phone {
+    flex-direction: column;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
 }
 
 .pied_de_page_ul {
@@ -267,6 +335,10 @@
   text-decoration: none;
   color: vars.$color-white;
   font-family: vars.$font-texte;
+
+  @include mixins.phone {
+    font-size: 0.9rem;
+  }
 }
 
 .pied_de_page_img {
@@ -278,12 +350,20 @@
 
 .pied_de_page_img2 {
   height: 40px;
+
+  @include mixins.phone {
+    height: 30px;
+  }
 }
 
 .contact {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  @include mixins.phone {
+    gap: 0.3rem;
+  }
 }
 
 .copy {
@@ -292,4 +372,8 @@
   font-size: 0.9rem;
   color: vars.$color-white;
   margin-top: 1rem;
+
+  @include mixins.phone {
+    font-size: 0.75rem;
+  }
 }
