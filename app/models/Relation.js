@@ -14,22 +14,25 @@ Relation.init({
   },
 
   approval_date: {
-  type: DataTypes.DATE,  //ou DATE(6)?
-  allowNull: true,
-},
+    type: DataTypes.DATE,  //ou DATE(6)?
+    allowNull: true,
+  },
 
   removal_date: {
-  type: DataTypes.DATE,
-  allowNull: true,
-},
-  status:{
+    type: DataTypes.DATE,
+    allowNull: true,
+  },
+  status: {
     type: DataTypes.STRING(50),
-  }
-  }, {
-    sequelize,
-    modelName: 'Relation',
-    tableName: 'relation',
-  }
+  },
+
+}, {
+  sequelize,
+  modelName: 'Relation',
+  tableName: 'relation',
+  timestamps: true, // si on ne veut pas de createdAt et updatedAt
+  underscored: true, // pour utiliser snake_case dans la base de données
+}
 );
 
 export default Relation;
