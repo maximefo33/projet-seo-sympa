@@ -1,5 +1,6 @@
-import { Profile, User } from '../../database/db/association.js';
-
+import session from 'express-session';
+import { Profile, User, Relation } from '../../database/db/association.js';
+import { Op } from 'sequelize';
 
 
 const dashboardController = {
@@ -17,8 +18,33 @@ const dashboardController = {
 
       if (!profile) return res.redirect('/inscription');
 
+// ajout du 15/7
+
+const relations = await Relation.findAll({
+
+      where: {
+          [Op.or]: [
+            { user_sender_id: req.session.userId },
+            { user_recipient_id: req.session.userId }
+          ]
+        },
+        include: [
+          { association: 'sender',
+            include: [Profile]
+          },
+          { association: 'recipient',
+            include: [Profile]
+          }
+        ],
+        order: [['created_at', 'DESC']]
+      });
+
+      console.log('[RELATIONS]',relations); // 16.7 console log A ENLEVER PLUS TARD APRES TESTS
+     
+// fin ajout
+
       res.render('dashboard', {
-        title: 'Mon tableau de bord Mon profile',
+        title: 'Mon tableau de bord Mon profil',
         profile: {
           firstname: profile.firstname,
           lastname: profile.lastname,
@@ -29,7 +55,8 @@ const dashboardController = {
           company_identification_system: profile.company_identification_system,
           description: profile.description,
         },
-      });
+        relations, // pluriel alors que dans profileController c'est au singulier
+        });
 
     } catch (error) {
       console.error("Erreur attrapée :", error);

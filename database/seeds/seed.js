@@ -1,6 +1,6 @@
 import sequelize from '../../config/database.js'; 
 
-import insertUsers from './insert.js';
+import {insertUsers} from './insert.js';
 
 const runSeed = async () => {
   try {
