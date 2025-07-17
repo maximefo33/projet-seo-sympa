@@ -28,6 +28,8 @@ class Message extends Model {}
     sequelize,
     modelName: 'Message',
     tableName: 'message',
+     timestamps: true, // si on ne veut pas de createdAt et updatedAt
+    underscored: true,
     
   });
 

@@ -12,6 +12,7 @@ import session from "express-session";
 // on peut continuer à utiliser dotenv pour les variables d'environnement
 
 import * as dotenv from "dotenv";
+// import { globalSession } from "./app/middlewares/globalSession.js"; // ajout 15/7
 
 dotenv.config();
 
@@ -45,6 +46,9 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+
+// app.use(globalSession); // ajout 15/7
 
 app.use(function(req, res, next) {
  res.locals.userId = req.session.userId || null; // on ajoute l'id de l'utilisateur à la réponse

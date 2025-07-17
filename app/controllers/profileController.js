@@ -1,4 +1,7 @@
-import { Profile, User } from '../../database/db/association.js';
+import sequelize from '../../config/database.js';
+import { Profile, User, Relation } from '../../database/db/association.js';
+import { Op } from 'sequelize';
+
 
 const profileController = {
 
@@ -12,25 +15,47 @@ const profileController = {
         include: User
       });
 
+      console.log('[profilController] Profile', profile);
+      
+
       if (!profile) {
         return res.status(404).render('error', {
           title: 'Profil non trouvé'
         });
       }
 
+      // on a trouvé le profil, on va chercher les relations
+
+      const relations = await Relation.findAll({
+
+        where: {
+          [Op.or]: [
+            {
+              user_sender_id: profileId,
+              user_recipient_id: req.session.userId
+            },
+            {
+              user_sender_id: req.session.userId,
+              user_recipient_id: profileId
+            }
+          ]
+        },
+        /* include: [
+          { model: Profile,
+            as: 'profile',
+            attributes: ['id_profile', 'display_name']
+          },
+          { model: User,
+            as: 'user',
+            attributes: ['id_user', 'username']
+          }
+        ] */
+      });
+
       res.render('profile', {
-        title: `Profil de ${profile.display_name}`,
-        profile: {
-          id: profile.id_profile,
-          firstname: profile.firstname,
-          lastname: profile.lastname,
-          address: profile.address,
-          city: profile.city,
-          zipcode: profile.zipcode,
-          display_name: profile.display_name,
-          company_identification_system: profile.company_identification_system,
-          description: profile.description,
-        }
+        profile,
+        relations, 
+        // session: req.session
       });
 
     } catch (error) {
@@ -45,89 +70,3 @@ const profileController = {
 export default profileController;
 
 
-
-/*import Profile from '../models/Profile.js';
-import User from '../models/User.js';
-import { Op } from 'sequelize';
-import validator from 'validator';
-
-const profileController = {
-  async profilePage(req, res) {
-    try {
-      // Récupération des villes
-      const citiesData = await Profile.findAll({
-        attributes: ['city'],
-        group: ['city']
-      });
-      const cities = citiesData.map(p => p.city).filter(Boolean);
-
-      // Nettoyer les query params
-      const query = req.query.q ? validator.trim(validator.escape(req.query.q)) : '';
-      const selectedCity = req.query.ville || '';
-      const villeLibre = req.query.villeLibre ? validator.trim(validator.escape(req.query.villeLibre)) : '';
-      const cityToUse = selectedCity === 'autre' && villeLibre
-        ? villeLibre
-        : (selectedCity !== 'autre' ? selectedCity : '');
-
-      let results = [];
-
-      const searchConditions = [];
-
-      if (query) {
-        searchConditions.push({
-          [Op.or]: [
-            { description: { [Op.iLike]: `%${query}%` } }
-          ]
-        });
-      }
-
-      if (cityToUse) {
-        searchConditions.push({
-          city: { [Op.iLike]: `%${cityToUse}%` }
-        });
-      }
-
-      const whereCondition = searchConditions.length > 0 ? { [Op.and]: searchConditions } : {};
-
-      if (searchConditions.length > 0) {
-        results = await Profile.findAll({
-          where: whereCondition,
-          include: [
-            {
-              model: User,
-              where: { role: 'expert' }
-            }
-          ]
-        });
-      }
-
-      } catch (error) {
-        console.error(error);
-        res.status(500).send('Erreur lors du chargement de la page de recherche');
-      }
-    }
-};
-
-
-
-  export default searchController;
-
-
-// insérer profile dans la const ci-desous
-     profile: function (req, res) {
-        res.render('profile', {
-          title: 'profile.display_name',
-          profile: {
-            id: 'profile.id_profile', // id user ou id profil ?
-            firstname: 'profile.firstname',
-            lastname: 'profile.lastname',
-            address: 'profile.address',
-            city: 'profile.city',
-            zipcode: 'profile.zipcode',
-            cis: 'profile.company_identification_system',
-            description: 'profile.description',
-          }
-        });
-      }
-    // fin profile
-    */
