@@ -5,6 +5,7 @@
   "source": "src/index.html",
   "type": "module",
   "scripts": {
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
     "start": "parcel --port 3001",
     "build": "parcel build",
     "db:create": "node ./database/db/db.create.js",
@@ -37,6 +38,8 @@
   "devDependencies": {
     "@parcel/transformer-sass": "^2.15.2",
     "buffer": "^6.0.3",
-    "parcel": "^2.15.2"
+    "jest": "^30.0.4",
+    "parcel": "^2.15.2",
+    "supertest": "^7.1.3"
   }
 }
