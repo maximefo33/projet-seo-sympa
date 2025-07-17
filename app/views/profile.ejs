@@ -41,11 +41,11 @@
 
       <% if (!session?.userId) { %>
 
-        <p>Vous devez être connecté pour envoyer une demande de connexion.</p>
+        <p> ► ► ► ► Vous devez être connecté pour envoyer une demande de connexion.</p>
 <!-- // ligne 46 voir pour débuguer, erreur sur nav = session is not defined -->
         <% } else if (profile.id_profile === session.userId) { %>
 
-          <p>Vous ne pouvez pas demander à vous connecter à votre propre réseau.</p>
+          <p> ► ► ► ► Vous ne pouvez pas demander à vous connecter à votre propre réseau.</p>
 
           <% } else { %>
             <!-- L'utilisateur est connecté et regarde un autre profil -->
@@ -59,21 +59,21 @@
             <% } 
               // ici, je force la récupération du premier élément de relations, car il n'est censé y en avoir qu'un seul                
               else if (relations[0].status === 'relation refusée' || relations[0].status==='relation supprimée' ) { %>
-                <p>Cette demande de relation a été refusée ou supprimée. Vous pouvez renvoyer une demande, à vos risques et périls !</p>
+                <p>► ► ► ► Cette demande de relation a été refusée ou supprimée. Vous pouvez renvoyer une demande, à vos risques et périls !</p>
                 <form action="/relation/demander/<%= profile.id_profile %>" method="POST" class="relation-form">
                   <button type="submit" class="button cardcontact">Vous souhaitez rejoindre mon réseau ?</button>
                 </form>
 
             <% }
               else if (relations[0].status === 'relation acceptée' ) { %>
-                <p>Vous êtes en relation avec cette personne.</p>
+                <p> ► ► ► ► Vous êtes en relation avec cette personne.</p>
                 <% /* Mettre le mail dans une balise a href pour que l'utilisateur puisse cliquer dessus et envoyer un mail à l'expert (= mailto) */ %>
                 <p class="cardinfo"> 
                    <a href="mailto: <%= profile.User.dataValues.email %>"> <%= profile.User.dataValues.email %></a>
                 </p>
 
             <% } else if (relations[0].status === 'en attente de réponse' ) { %>
-              <p>Demande de connexion en attente, merci de patienter pour la réponse.</p>
+              <p> ► ► ► ► Demande de connexion en attente, merci de patienter pour la réponse.</p>
 
               <% } else { %>
                 <p>Cas de fallback</p>
