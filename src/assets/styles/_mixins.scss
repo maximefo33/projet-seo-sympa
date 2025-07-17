@@ -1,17 +1,32 @@
-@mixin small {
-  @media screen and (min-width: 50rem) {
+@mixin phone {
+  @media (max-width: 768px) {
     @content;
   }
 }
 
-@mixin medium {
-  @media screen and (min-width: 60rem) {
+@mixin tablet {
+  @media screen and (max-width: 992px) {
     @content;
   }
 }
 
-@mixin big {
-  @media screen and (min-width: 90rem) {
+@mixin desktop {
+  @media screen and (min-width: 993px) {
     @content;
   }
 }
+
+@mixin burger($width: 25px, $height: 3px, $color: black, $spacing: 5px) {
+  width: $width;
+  height: $height;
+  background-color: $color;
+  display: block;
+  border-radius: 2px;
+  transition: 0.3s ease;
+
+  &:not(:last-child) {
+    margin-bottom: $spacing;
+  }
+}
+
+

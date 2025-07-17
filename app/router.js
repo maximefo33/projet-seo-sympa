@@ -65,6 +65,13 @@ router.get('/delete-account-confirm', (req, res) => {
 //router.get('/delete-account-final', isLoggedIn, deletController.loginForDelete);
 router.post('/delete-account-final', isLoggedIn, deletController.deleteAccount);
 
+// =================== Connexion /  ===================
+router.post('/connexion', authController.loginAction);
+router.get('/connexion', authController.login); //  GET pour afficher la page de connexion
+router.get('/logout', isLoggedIn, authController.logout);// route pour déconnexion
+//============ Inscription ====================// 
+
+
 // ================================== établir une demande de relation avec un autre user ============================
 
 router.post('/relation/demander/:id', isLogged, relationController.demander);
