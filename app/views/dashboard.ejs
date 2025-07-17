@@ -86,7 +86,7 @@
                             Si senderProfile.dataValues.user_id = mon id à moi (res.locals.userId) => j'affiche recipientProfile.dataValues.display_name 
                             Sinon j'affiche senderProfile.dataValues.display_name */ %>
                             <% if (senderProfile.dataValues.user_id === locals.userId) { %>
-                                <%= recipientProfile.dataValues.display_name %>
+                                <%= recipientProfile.dataValues.display_name %>  <%= //ici on veut mettre un lien a href vers le profile id mais pas réussi %>
                             <% } else { %>
                                 <%= senderProfile.dataValues.display_name %>
                             <% } %>

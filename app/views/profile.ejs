@@ -69,7 +69,7 @@
                 <p>Vous êtes en relation avec cette personne.</p>
                 <% /* Mettre le mail dans une balise a href pour que l'utilisateur puisse cliquer dessus et envoyer un mail à l'expert (= mailto) */ %>
                 <p class="cardinfo"> 
-                  <%= profile.User.dataValues.email %>
+                   <a href="mailto: <%= profile.User.dataValues.email %>"> <%= profile.User.dataValues.email %></a>
                 </p>
 
             <% } else if (relations[0].status === 'en attente de réponse' ) { %>

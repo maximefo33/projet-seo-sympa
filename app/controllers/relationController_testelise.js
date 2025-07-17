@@ -113,5 +113,6 @@ return res.redirect('/tableau-de-bord-prive');
   }
   };
 
+  
 export default relationController;
 
