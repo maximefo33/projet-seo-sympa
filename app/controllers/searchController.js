@@ -47,7 +47,6 @@ const searchController = {
   });
 }
 
-
       if (cityToUse) {
         searchConditions.push({
           city: { [Op.iLike]: `%${cityToUse}%` }
@@ -83,6 +82,6 @@ const searchController = {
     }
 };
 
-
+//comment pour pr
 
   export default searchController;
