@@ -1,57 +1,107 @@
-//styles de la page conditions.html correspondant à /terms-and-conditions
 @use './vars';
+@use './mixins';
 
 .main_conditions {
-   
-    font-size: vars.$text-fontsize;
-    font-family: vars.$font-texte;
-    margin-bottom: 2rem;
-    padding: 8%;
-    border-radius: 5%;
+  font-size: vars.$text-fontsize;
+  font-family: vars.$font-texte;
+  margin-bottom: 2rem;
+  padding: 8%;
+  border-radius: 5%;
 
-    h1,h2{
-        text-align: center; 
-    }
-    p{
-        white-space: pre;
-        text-align: center;
+  @include mixins.phone {
+    padding: 4%;
+    font-size: 0.9rem;
+  }
+
+  @include mixins.tablet {
+    padding: 6%;
+    font-size: 1rem;
+  }
+
+  h1, h2 {
+    text-align: center;
+
+    @include mixins.phone {
+      font-size: 1.8rem;
     }
     
+    @include mixins.tablet {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    white-space: pre;
+    text-align: center;
+
+    @include mixins.phone {
+      font-size: 0.85rem;
+      padding: 0 1rem;
+    }
+
+    @include mixins.tablet {
+      font-size: 0.95rem;
+      padding: 0 2rem;
+    }
+  }
 }
 
 .main_conditions h1 {
-    color: vars.$color-blue;
-    font-size: vars.$title-fontsize;
+  color: vars.$color-blue;
+  font-size: vars.$title-fontsize;
+
+  @include mixins.phone {
+    font-size: 2rem;
+  }
 }
 
 .main_conditions h2 {
-    color: vars.$color-darkpurple;
-    font-size: vars.$subtitle-fontsize;
+  color: vars.$color-darkpurple;
+  font-size: vars.$subtitle-fontsize;
+
+  @include mixins.phone {
+    font-size: 1.4rem;
+  }
 }
 
 .main_cgu {
-    font-weight: bold;
+  font-weight: bold;
 
+  @include mixins.phone {
+    font-size: 0.95rem;
+  }
 }
 
 .main_cgu_checkbox {
-    display: block;
-    color: vars.$color-black;
-    border-color: vars.$color-darkpurple;
-    border: solid;
-    border-style: inset;
-    height: auto;
-    width: auto;
-    text-align: left;
-    align-items: center;
+  display: block;
+  color: vars.$color-black;
+  border-color: vars.$color-darkpurple;
+  border: solid inset;
+  height: auto;
+  width: auto;
+  text-align: left;
+  align-items: center;
+
+  @include mixins.phone {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
 }
 
 .main_cgu_legend {
-    font-size: vars.$subtitle-fontsize;
-    font-weight: bold;
-    color: vars.$color-blue;
+  font-size: vars.$subtitle-fontsize;
+  font-weight: bold;
+  color: vars.$color-blue;
+
+  @include mixins.phone {
+    font-size: 1.2rem;
+  }
 }
 
-.coucou{
-    text-align: center;
+.coucou {
+  text-align: center;
+
+  @include mixins.phone {
+    font-size: 0.9rem;
+  }
 }

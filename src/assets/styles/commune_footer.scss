@@ -1,6 +1,5 @@
-@use '/src/assets/styles/vars';
-@use '/src/assets/styles/mixins' as *;
-
+@use './vars';
+@use './mixins';
 .pied_de_page {
   background: linear-gradient(to bottom right, vars.$color-purple, vars.$color-blue, vars.$color-lightblue);
   display: flex;
@@ -12,6 +11,20 @@
   column-gap: 4rem;
   font-size: vars.$text-fontsize;
   text-align: center;
+
+  // Sur mobile, on réduit les espacements
+  @include mixins.phone {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1rem;
+    column-gap: 0;
+    padding: 1.5rem;
+  }
+
+  // Sur tablette, légère adaptation possible
+  @include mixins.tablet {
+    justify-content: center;
+  }
 }
 
 .pied_de_page_ul {
@@ -20,12 +33,27 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  // Sur téléphone, on centre les items
+  @include mixins.phone {
+    align-items: center;
+  }
 }
 
 .pied_de_page_a {
   text-decoration: none;
   color: vars.$color-white;
   font-family: vars.$font-texte;
+  transition: color 0.3s;
+
+  &:hover {
+    color: vars.$color-lightblue;
+  }
+
+  // Sur mobile : plus petit texte
+  @include mixins.phone {
+    font-size: 0.9rem;
+  }
 }
 
 .pied_de_page_img {
@@ -34,22 +62,30 @@
   align-items: center;
   gap: 0.5rem;
 
-
-  @include small {
+  // Sur mobile, alignement à gauche
+  @include mixins.phone {
     align-items: flex-start;
   }
 }
 
-
-
 .pied_de_page_img2 {
   height: 40px;
+
+  // Optionnel : ajustement image sur mobile
+  @include mixins.phone {
+    height: 30px;
+  }
 }
 
 .contact {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+
+  // Sur tablette/mobile, centrer les contacts
+  @include mixins.tablet {
+    align-items: center;
+  }
 }
 
 .copy {
@@ -58,6 +94,10 @@
   font-size: 0.9rem;
   color: vars.$color-white;
   margin-top: 1rem;
-}
 
+  @include mixins.phone {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+}
 

@@ -1,17 +1,13 @@
 @use './vars' as *;
 @use './mixins' as *;
 
-
 //  le header est importé via index.scss depuis commune_header.scss
 
 .auth-page {
   display: flex;
   align-items: stretch;
-  
   flex-direction: column;
   background: linear-gradient(to bottom, $color-blue, $color-white);
-
-
 }
 
 .auth-main {
@@ -21,12 +17,12 @@
   margin: 2rem auto;
   padding: 0 1rem;
 
-  @include medium {
+  @include tablet {
     max-width: 500px;
     padding: 0 2rem;
   }
 
-  @include big {
+  @include desktop {
     max-width: 600px;
   }
 
@@ -37,15 +33,15 @@
     text-align: center;
     margin-bottom: 0.5rem;
 
-    @include small {
+    @include phone {
       font-size: 36px;
     }
 
-    @include medium {
+    @include tablet {
       font-size: 40px;
     }
 
-    @include big {
+    @include desktop {
       font-size: 48px;
     }
   }
@@ -56,16 +52,14 @@
     text-align: center;
     margin-bottom: 1.5rem;
 
-    @include medium {
+    @include tablet {
       font-size: 28px;
     }
 
-    @include big {
+    @include desktop {
       font-size: 32px;
     }
   }
-
-
 
   form {
     background: $color-white;
@@ -75,13 +69,12 @@
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 
-
-    @include medium {
+    @include tablet {
       max-width: 500px;
       padding: 3rem;
     }
 
-    @include big {
+    @include desktop {
       max-width: 600px;
     }
 
@@ -102,7 +95,7 @@
       border-radius: 5px;
       box-sizing: border-box;
 
-      @include medium {
+      @include tablet {
         padding: 1rem;
       }
     }
@@ -164,7 +157,7 @@
           text-decoration: underline;
 
           &:hover {
-            color: ($color-purple, 10%);
+            color: rgba($color-purple, 0.9);
           }
         }
       }
@@ -195,7 +188,6 @@
         font-weight: bold;
       }
     }
-
   }
 
   .sr-only {

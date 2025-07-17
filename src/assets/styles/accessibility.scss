@@ -1,8 +1,5 @@
 @use './vars';
-
-
-
-
+@use './mixins';
 
 .main-content {
   font-family: Verdana, Arial, sans-serif;
@@ -16,18 +13,16 @@
   min-height: 100vh;
 }
 
-
-// .page-title {
-//   font-size: 3rem;
-//   margin-bottom: 1rem;
-//   text-shadow: 2px 2px 4px vars.$color-black;
-//   color: vars.$color-purple;
-// }
-
-
-
 .accessibility-main {
   padding: 8%;
+
+  @include mixins.phone {
+    padding: 1rem;
+  }
+
+  @include mixins.tablet {
+    padding: 3rem 4rem;
+  }
 
   .declaration-section {
     background: vars.$color-white;
@@ -38,17 +33,36 @@
     box-shadow: 0 4px 15px vars.$color-blue;
     animation: fadeIn 0.8s ease-out;
 
+    @include mixins.phone {
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @include mixins.tablet {
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+
     .section-title {
       color: vars.$color-blue;
       margin-bottom: 1rem;
       font-size: 2.5rem;
       text-align: center;
+
+      @include mixins.phone {
+        font-size: 1.8rem;
+      }
     }
 
     .section-description {
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
       text-align: center;
+
+      @include mixins.phone {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
     }
 
     .subsection-title {
@@ -56,10 +70,21 @@
       font-size: 1.8rem;
       margin-top: 2rem;
       margin-bottom: 1rem;
+
+      @include mixins.phone {
+        font-size: 1.3rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.8rem;
+      }
     }
 
     .subsection-description {
       margin-bottom: 1.5rem;
+
+      @include mixins.phone {
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
     }
 
     .sub-subsection-title {
@@ -67,6 +92,12 @@
       font-size: 1.5rem;
       margin-top: 2rem;
       margin-bottom: 1rem;
+
+      @include mixins.phone {
+        font-size: 1.1rem;
+        margin-top: 1.2rem;
+        margin-bottom: 0.7rem;
+      }
     }
 
     .custom-list {
@@ -76,14 +107,22 @@
       li {
         margin-bottom: 0.5rem;
         list-style: disc;
+
+        @include mixins.phone {
+          font-size: 0.9rem;
+          margin-bottom: 0.4rem;
+        }
       }
     }
   }
 }
 
+// Responsive navigation styles adapted with mixins
 
-@media (max-width: 768px) {
-  .nav {
+.nav {
+  padding: 2rem;
+
+  @include mixins.phone {
     padding: 1rem;
 
     .nav-list {
@@ -94,19 +133,16 @@
       }
     }
   }
+}
 
-  .header_nav .page-title {
-    font-size: 2rem;
+.header_nav {
+  .page-title {
+    font-size: 3rem;
+
+    @include mixins.phone {
+      font-size: 2rem;
+    }
   }
-
-  .accessibility-main {
-    padding: 1rem;
-  }
-
-  .declaration-section {
-    padding: 1rem;
-  }
-
 }
 
 // Animations
