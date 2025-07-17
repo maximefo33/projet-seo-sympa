@@ -63,8 +63,8 @@
                 <tr>
                     <th>Nom d'affichage</th>
                     <th>Date de la demande</th>
-                    <th>Date d'acceptation de la demande</th>
-                    <th>Date de suppression de la demande</th>
+                    <th>Date d'acceptation</th>
+                    <th>Date de suppression</th>
                     <th>Statut de la relation</th>
                     <th>Actions</th>
                 </tr>
@@ -96,26 +96,6 @@
                         <td>
                             <%= relation.dataValues.created_at %>
                         </td>
-
-
-
- <% if (isSender && relation.dataValues.status ==='relation acceptée') { %>
-                                <%= recipientProfile.dataValues.approval_date %>  
-                            <% } else { %>
-                                <%= "  " %>
-                            <% } %>
-<td>
-    
-    </td>
-<% if (isSender && relation.dataValues.status ==='relation refusée') { %>
-                                <%= recipientProfile.dataValues.removal_date %>  
-                            <% } else { %>
-                                <%= "  " %>
-                            <% } %>
-    <td>
-        
-        
-        </td>                   
                         <td>
                             <%= relation.dataValues.status %>
                         </td>
