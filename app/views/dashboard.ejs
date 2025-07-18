@@ -60,84 +60,87 @@
         <section>
             <h2>Mes relations</h2>
             <table>
-                <tr>
-                    <th>Nom d'affichage</th>
-                    <th>Date de la demande 📅</th>
-                    <!-- <th>Date d'acceptation</th>
-                    <th>Date de refus</th> -->
-                    <th>Statut de la relation</th>
-                    <th>Actions</th>
-                </tr>
-                <% relations.forEach(relation=> { 
-                    //console.log('--------------------------------------- relation', relation);
-                    //console.log('****************************profile sender : ', relation.sender); // contient une instance de User
-                    //console.log('****************************profile recipient', relation.recipient); // contient une instance de User
-                    // essayer de voir ce qu'il y a dans Profile (qui semble contenu dans relation.sender / relation.recipient)
-                    //console.log('[DASHBOARD] profil du sender : ', relation.sender.Profile);
-                    const senderProfile = relation.sender.Profile;
-                    //console.log('[DASHBOARD] profil du recipient : ', relation.recipient.Profile);
-                    const recipientProfile = relation.recipient.Profile;
-                    //console.log('[DASHBOARD] profil du sender - firstname :', senderProfile.dataValues.firstname);
-                    //console.log('[DASHBOARD] profil du recipient - firstname :', recipientProfile.dataValues.firstname);
-                    const isSender = senderProfile.dataValues.user_id === locals.userId;
-                    
-                    %>
+                <thead>
                     <tr>
-                        <td> 
-                            <% /* ici, on est dans le cas où on doit afficher le destinaire si on est à l'origine de la demande, ou l'expéditeur si on est le destinataire 
-                            Si senderProfile.dataValues.user_id = mon id à moi (res.locals.userId) => j'affiche recipientProfile.dataValues.display_name 
-                            Sinon j'affiche senderProfile.dataValues.display_name */ %>
-                            <% if (senderProfile.dataValues.user_id === locals.userId) { %>
-                                <a href="/profil/<%= recipientProfile.dataValues.user_id %>">
-                                    <%= recipientProfile.dataValues.display_name %>
-                                </a>
-                            <% } else { %>
-                                <a href="/profil/<%= senderProfile.dataValues.user_id %>">
-                                    <%= senderProfile.dataValues.display_name %>
-                                </a>
-                            <% } %>
-                        </td>
-                        <td>
-                            <%= relation.dataValues.created_at %>
-                        </td>
-                        
-                        <td>
-
-                            <% if (relation.dataValues.status === 'relation acceptée') { %>
-                                <%= relation.dataValues.status %> le <%= relation.dataValues.approval_date %>
-                            <% } else if (relation.dataValues.status === 'relation refusée') { %>
-                                <%= relation.dataValues.status %> le <%= relation.dataValues.removal_date %>
-                            <% } else { %>
-                                <%= relation.dataValues.status %>
-                            <% } %>
-                        </td>
-                        <td>
-                            <% if (isSender && relation.dataValues.status ==='en attente de réponse' ) { %>
-                                <form method="POST" action="/relation/supprimer/<%= relation.id_relation %>">
-                                    <input type="hidden" name="id" value="<%= relation.id %>">
-                                    <button>❌ pour supprimer cette demande</button>
-                                </form>
-                                <% } else if (!isSender && relation.dataValues.status ==='en attente de réponse' ) { %>
-                                    <form method="POST" action="/relation/accepter/<%= relation.id_relation %>">
-                                        <input type="hidden" name="id" value="<%= relation.id %>">
-                                        <button>✅ pour accepter cette demande</button>
-                                    </form>
-
-                                    <form method="POST" action="/relation/refuser/<%= relation.id_relation %>">
-                                        <input type="hidden" name="id" value="<%= relation.id %>">
-                                        <button type="submit">❌ pour refuser cette demande</button>
-                                    </form>
-
-
-                                    <% } else { %>
-                                        <form method="POST" action="/relation/supprimer/<%= relation.id_relation %>">
-                                            <input type="hidden" name="id" value="<%= relation.id %>">
-                                            <button>❌ pour supprimer ce contact</button>
-                                        </form>
-                                        <% } %>
-                        </td>
+                        <th>Nom d'affichage</th>
+                        <th>Date de la demande 📅</th>
+                        <!-- <th>Date d'acceptation</th>
+                    <th>Date de refus</th> -->
+                        <th>Statut de la relation</th>
+                        <th>Actions</th>
+                </thead>
+                <tbody>
                     </tr>
-                    <% }); %>
+                    <% relations.forEach(relation=> {
+
+                        const senderProfile = relation.sender.Profile;
+                        const recipientProfile = relation.recipient.Profile;
+                        const isSender = senderProfile.dataValues.user_id === locals.userId;
+
+                        // Formatage de la date si elle existe
+                        let formattedDate = 'Date non disponible';
+                        if (relation.dataValues.created_at) {
+                        const date = new Date(relation.dataValues.created_at);
+                        formattedDate = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' }).format(date);
+                        }
+                        %>
+                        <tr>
+                            <td>
+                                <% if (isSender) { %>
+                                    <a href="/profil/<%= recipientProfile.dataValues.user_id %>">
+                                        <%= recipientProfile.dataValues.display_name %>
+                                    </a>
+                                    <% } else { %>
+                                        <a href="/profil/<%= senderProfile.dataValues.user_id %>">
+                                            <%= senderProfile.dataValues.display_name %>
+                                        </a>
+                                        <% } %>
+                            </td>
+
+                            <td>
+                                <%= formattedDate %>
+                            </td>
+                            <td>
+
+                                <% if (relation.dataValues.status==='relation acceptée' ) { %>
+                                    <%= relation.dataValues.status %> le <%= relation.dataValues.approval_date %>
+                                            <% } else if (relation.dataValues.status==='relation refusée' ) { %>
+                                                <%= relation.dataValues.status %> le <%=
+                                                        relation.dataValues.removal_date %>
+                                                        <% } else { %>
+                                                            <%= relation.dataValues.status %>
+                                                                <% } %>
+                            </td>
+                            <td>
+                                <% if (isSender && relation.dataValues.status==='en attente de réponse' ) { %>
+                                    <form method="POST" action="/relation/supprimer/<%= relation.id_relation %>">
+                                        <input type="hidden" name="id" value="<%= relation.id %>">
+                                        <button>❌ pour supprimer cette demande</button>
+                                    </form>
+                                    <% } else if (!isSender && relation.dataValues.status==='en attente de réponse' ) {
+                                        %>
+                                        <form method="POST" action="/relation/accepter/<%= relation.id_relation %>">
+                                            <input type="hidden" name="id" value="<%= relation.id %>">
+                                            <button>✅ pour accepter cette demande</button>
+                                        </form>
+
+                                        <form method="POST" action="/relation/refuser/<%= relation.id_relation %>">
+                                            <input type="hidden" name="id" value="<%= relation.id %>">
+                                            <button type="submit">❌ pour refuser cette demande</button>
+                                        </form>
+
+
+                                        <% } else { %>
+                                            <form method="POST"
+                                                action="/relation/supprimer/<%= relation.id_relation %>">
+                                                <input type="hidden" name="id" value="<%= relation.id %>">
+                                                <button>❌ pour supprimer ce contact</button>
+                                            </form>
+                                            <% } %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
             </table>
         </section>
 
