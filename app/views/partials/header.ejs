@@ -85,23 +85,25 @@
             <button type="submit" class="button__append">Déconnexion</button>
           </a>
 
-          <% } else { %>
-            <!-- Si l'utilisateur n'est pas connecté, afficher les boutons de connexion et d'inscription -->
-            <a href="/connexion">
-              <button class="button__append">Connexion</button>
-            </a>
-            <a href="/inscription">
-              <button class="button__append">Inscription</button>
-            </a>
-            <% } %>
+        
+      <% } else { %>
+        <!-- Si l'utilisateur n'est pas connecté, afficher les boutons de connexion et d'inscription -->
+        <a href="/connexion">
+          <button class="button__append">Connexion</button>
+        </a>
+        <a href="/inscription">
+          <button class="button__append">Inscription</button>
+        </a>
+      <% } %>
 
-              <form class="search-bar" role="search">
-                <input type="search" class="search-input" name="q" placeholder="Rechercher..." aria-label="Recherche">
-                <button type="submit" class="search-button">Rechercher</button>
-                <a class="icon" href="/tableau-de-bord-prive">
-                  <span class="material-symbols-outlined" style="font-size: 60px;">person</span>
-                </a>
-              </form>
+        <form class="search-bar" role="search" action="/rechercher" method="get">
+          <input type="search" class="search-input" name="q" placeholder="Rechercher..." aria-label="Recherche">
+          <button type="submit" class="search-button">Rechercher</button>
+          <a class="icon" href="/tableau-de-bord-prive">
+            <span class="material-symbols-outlined" style="font-size: 60px;">person</span>
+          </a>
+        </form>
+
       </div>
     </div>
   </header>

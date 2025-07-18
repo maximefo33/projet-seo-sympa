@@ -39,7 +39,7 @@ const relations = await Relation.findAll({
         order: [['created_at', 'DESC']]
       });
 
-      console.log('[RELATIONS]',relations); // 16.7 console log A ENLEVER PLUS TARD APRES TESTS
+      //console.log('[RELATIONS]',relations); // 16.7 console log A ENLEVER PLUS TARD APRES TESTS
      
 // fin ajout
 

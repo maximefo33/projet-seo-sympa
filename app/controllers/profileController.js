@@ -7,6 +7,8 @@ const profileController = {
 
 
   profile: async (req, res) => {
+    // On vérifie que l'utilisateur est connecté
+   
     try {
       const profileId = req.params.id;
 
@@ -15,7 +17,7 @@ const profileController = {
         include: User
       });
 
-      console.log('[profilController] Profile', profile);
+      console.log('============== [profilController] Profile ', profile);
       
 
       if (!profile) {
@@ -24,7 +26,14 @@ const profileController = {
         });
       }
 
-      // on a trouvé le profil, on va chercher les relations
+      // on a trouvé le profil, on va chercher les relations si on a un utilisateur connecté
+      if (!req.session.userId) {
+        return res.render('profile', {
+          profile,
+          relations: [],
+          session: req.session
+        });
+      }
 
       const relations = await Relation.findAll({
 
@@ -40,22 +49,13 @@ const profileController = {
             }
           ]
         },
-        /* include: [
-          { model: Profile,
-            as: 'profile',
-            attributes: ['id_profile', 'display_name']
-          },
-          { model: User,
-            as: 'user',
-            attributes: ['id_user', 'username']
-          }
-        ] */
+
       });
 
       res.render('profile', {
         profile,
         relations, 
-        // session: req.session
+        session: req.session
       });
 
     } catch (error) {

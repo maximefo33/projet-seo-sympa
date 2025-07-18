@@ -1,9 +1,9 @@
 <%- include('partials/header', { title: 'Page de connexion' , description: "Page de connexion du site SEO Sympa." ,
     page: 'dashboard' , description: "Tableau de bord d'un utilisateur inscrit sur le site SEO-Sympa" }) %>
-    
-            <main class="accessibility-main">
-                <h1> Mon profil </h1>
-                
+
+    <main class="accessibility-main">
+        <h1> Mon profil </h1>
+
         <section class="declaration-section">
             <div class="profil-info">
                 <h2>
@@ -62,21 +62,23 @@
             <table>
                 <tr>
                     <th>Nom d'affichage</th>
-                    <th>Date de la demande</th>
+                    <th>Date de la demande 📅</th>
+                    <!-- <th>Date d'acceptation</th>
+                    <th>Date de refus</th> -->
                     <th>Statut de la relation</th>
                     <th>Actions</th>
                 </tr>
                 <% relations.forEach(relation=> { 
-                    console.log('--------------------------------------- relation', relation);
-                    console.log('****************************profile sender : ', relation.sender); // contient une instance de User
-                    console.log('****************************profile recipient', relation.recipient); // contient une instance de User
+                    //console.log('--------------------------------------- relation', relation);
+                    //console.log('****************************profile sender : ', relation.sender); // contient une instance de User
+                    //console.log('****************************profile recipient', relation.recipient); // contient une instance de User
                     // essayer de voir ce qu'il y a dans Profile (qui semble contenu dans relation.sender / relation.recipient)
-                    console.log('[DASHBOARD] profil du sender : ', relation.sender.Profile);
+                    //console.log('[DASHBOARD] profil du sender : ', relation.sender.Profile);
                     const senderProfile = relation.sender.Profile;
-                    console.log('[DASHBOARD] profil du recipient : ', relation.recipient.Profile);
+                    //console.log('[DASHBOARD] profil du recipient : ', relation.recipient.Profile);
                     const recipientProfile = relation.recipient.Profile;
-                    console.log('[DASHBOARD] profil du sender - firstname :', senderProfile.dataValues.firstname);
-                    console.log('[DASHBOARD] profil du recipient - firstname :', recipientProfile.dataValues.firstname);
+                    //console.log('[DASHBOARD] profil du sender - firstname :', senderProfile.dataValues.firstname);
+                    //console.log('[DASHBOARD] profil du recipient - firstname :', recipientProfile.dataValues.firstname);
                     const isSender = senderProfile.dataValues.user_id === locals.userId;
                     
                     %>
@@ -86,34 +88,49 @@
                             Si senderProfile.dataValues.user_id = mon id à moi (res.locals.userId) => j'affiche recipientProfile.dataValues.display_name 
                             Sinon j'affiche senderProfile.dataValues.display_name */ %>
                             <% if (senderProfile.dataValues.user_id === locals.userId) { %>
-                                <%= recipientProfile.dataValues.display_name %>
+                                <a href="/profil/<%= recipientProfile.dataValues.user_id %>">
+                                    <%= recipientProfile.dataValues.display_name %>
+                                </a>
                             <% } else { %>
-                                <%= senderProfile.dataValues.display_name %>
+                                <a href="/profil/<%= senderProfile.dataValues.user_id %>">
+                                    <%= senderProfile.dataValues.display_name %>
+                                </a>
                             <% } %>
                         </td>
                         <td>
                             <%= relation.dataValues.created_at %>
                         </td>
+                        
                         <td>
-                            <%= relation.dataValues.status %>
+
+                            <% if (relation.dataValues.status === 'relation acceptée') { %>
+                                <%= relation.dataValues.status %> le <%= relation.dataValues.approval_date %>
+                            <% } else if (relation.dataValues.status === 'relation refusée') { %>
+                                <%= relation.dataValues.status %> le <%= relation.dataValues.removal_date %>
+                            <% } else { %>
+                                <%= relation.dataValues.status %>
+                            <% } %>
                         </td>
                         <td>
                             <% if (isSender && relation.dataValues.status ==='en attente de réponse' ) { %>
-                                <form method="POST" action="/relation/supprimer">
+                                <form method="POST" action="/relation/supprimer/<%= relation.id_relation %>">
                                     <input type="hidden" name="id" value="<%= relation.id %>">
                                     <button>❌ pour supprimer cette demande</button>
                                 </form>
                                 <% } else if (!isSender && relation.dataValues.status ==='en attente de réponse' ) { %>
-                                    <form method="POST" action="/relation/accepter">
+                                    <form method="POST" action="/relation/accepter/<%= relation.id_relation %>">
                                         <input type="hidden" name="id" value="<%= relation.id %>">
                                         <button>✅ pour accepter cette demande</button>
                                     </form>
-                                    <form method="POST" action="/relation/refuser">
+
+                                    <form method="POST" action="/relation/refuser/<%= relation.id_relation %>">
                                         <input type="hidden" name="id" value="<%= relation.id %>">
-                                        <button>❌ pour refuser cette demande</button>
+                                        <button type="submit">❌ pour refuser cette demande</button>
                                     </form>
+
+
                                     <% } else { %>
-                                        <form method="POST" action="/relation/supprimer">
+                                        <form method="POST" action="/relation/supprimer/<%= relation.id_relation %>">
                                             <input type="hidden" name="id" value="<%= relation.id %>">
                                             <button>❌ pour supprimer ce contact</button>
                                         </form>
