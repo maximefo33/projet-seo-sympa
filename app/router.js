@@ -30,6 +30,7 @@ router.get('/tableau-de-bord-prive', isLoggedIn, dashboardController.dashboard);
 router.get('/conditions-generales', mainController.conditions); 
 router.get('/mentions-legales', mainController.legal); 
 router.get('/declaration-d-accessibilite', mainController.accessibility); 
+router.get('/plan-du-site', mainController.sitemap); 
 router.get('/page-d-erreur', mainController.error);
 
 

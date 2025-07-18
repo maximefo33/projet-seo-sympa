@@ -52,6 +52,12 @@ const mainController = {
     });
   },
 
+sitemap: function (req, res) {
+    res.render('sitemap', {
+      title: 'plan du site Seo Sympa',
+    });
+  },
+
   error: function (req, res) {
     res.render('error', {
       title: 'page d\'erreur',
