@@ -31,12 +31,12 @@
       <a href="/">
         <img class="logo" src="/assets/img/logo.png" alt="Logo SEO Sympa - Accueil">
       </a>
-<nav class="main-nav-fixed">
-  <ul class="main-nav__list">
-    <li class="main-nav__item"><a href="/a-propos" class="main-nav__link">À propos</a></li>
-    <li class="main-nav__item"><a href="/contact" class="main-nav__link">Contact</a></li>
-  </ul>
-</nav>
+      <nav class="main-nav-fixed">
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a href="/a-propos" class="main-nav__link">À propos</a></li>
+          <li class="main-nav__item"><a href="/contact" class="main-nav__link">Contact</a></li>
+        </ul>
+      </nav>
 
       <!-- Bouton burger -->
       <div class="burger" id="burger">
@@ -49,31 +49,42 @@
       <nav class="main-nav hidden" id="burger_menu">
         <div class="burger-extra">
           <div class="menu-search">
-            <a href="/connexion">
-              <button class="button__append">Connexion</button>
-            </a>
-            <a href="/inscription">
-              <button class="button__append">Inscription</button>
-            </a>
-
-            <form class="search-bar" role="search">
-              <input type="search" class="search-input" name="q" placeholder="Rechercher..." aria-label="Recherche">
-              <button type="submit" class="search-button">Rechercher</button>
-              <a class="icon" href="/src/pages/dashboard.html">
-                <span class="material-symbols-outlined" style="font-size: 60px;">person</span>
+            <% if (userId) { %>
+              <!-- Si l'utilisateur est connecté, afficher le bouton de déconnexion -->
+              <a href="/logout">
+                <button type="submit" class="button__append">Déconnexion</button>
               </a>
-            </form>
+
+              <% } else { %>
+                <!-- Si l'utilisateur n'est pas connecté, afficher les boutons de connexion et d'inscription -->
+                <a href="/connexion">
+                  <button class="button__append">Connexion</button>
+                </a>
+                <a href="/inscription">
+                  <button class="button__append">Inscription</button>
+                </a>
+                <% } %>
+
+                  <form class="search-bar" role="search">
+                    <input type="search" class="search-input" name="q" placeholder="Rechercher..."
+                      aria-label="Recherche">
+                    <button type="submit" class="search-button">Rechercher</button>
+                    <a class="icon" href="/src/pages/dashboard.html">
+                      <span class="material-symbols-outlined" style="font-size: 60px;">person</span>
+                    </a>
+                  </form>
           </div>
         </div>
       </nav>
 
       <!-- Barre de recherche classique -->
       <div class="menu-search">
-         <% if (userId) { %>
-        <!-- Si l'utilisateur est connecté, afficher le bouton de déconnexion -->
+        <% if (userId) { %>
+          <!-- Si l'utilisateur est connecté, afficher le bouton de déconnexion -->
           <a href="/logout">
-          <button type="submit" class="button__append">Déconnexion</button>
+            <button type="submit" class="button__append">Déconnexion</button>
           </a>
+
         
       <% } else { %>
         <!-- Si l'utilisateur n'est pas connecté, afficher les boutons de connexion et d'inscription -->
@@ -92,6 +103,7 @@
             <span class="material-symbols-outlined" style="font-size: 60px;">person</span>
           </a>
         </form>
+
       </div>
     </div>
   </header>
@@ -116,8 +128,8 @@
         // Retire la classe "hidden" du menu principal
         // pour qu'il soit visible sur les écrans larges
         document.querySelector(".main-nav").classList.remove("hidden");
-      // Si la largeur est inférieure à 992px, le menu burger est affiché
-      // et le menu principal est caché
+        // Si la largeur est inférieure à 992px, le menu burger est affiché
+        // et le menu principal est caché
       } else {
         // Retire la classe "hidden" pour afficher le menu burger
         burger.classList.remove("hidden");
@@ -138,4 +150,3 @@
       burgerMenu.classList.toggle("hidden");
     });
   </script>
-
