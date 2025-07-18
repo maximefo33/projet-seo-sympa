@@ -74,12 +74,12 @@ router.get('/logout', isLoggedIn, authController.logout);// route pour déconnex
 
 // ================================== établir une demande de relation avec un autre user ============================
 
-// router.post('/relation/demander/:id', isLogged, relationController.demander);
-// router.post('/relation/accepter/:id', isLogged, relationController.accepter);
-// router.post('/relation/refuser/:id', isLogged, relationController.refuser);
-// router.post('/relation/supprimer/:id', isLogged, relationController.supprimer);
+router.post('/relation/demander/:id', isLogged, relationController.demander);
+router.post('/relation/accepter/:id', isLogged, relationController.accepter);
+router.post('/relation/refuser/:id', isLogged, relationController.refuser);
+router.post('/relation/supprimer/:id', isLogged, relationController.supprimer);
 
-// router.post('profile/:id', relationController.demander); // ???
+
 
 //Page fonctionnalité rechercher + resultats de la recherche et recherche avancée avec mots clefs et filtres ville
 router.get('/rechercher', searchController.searchPage);
