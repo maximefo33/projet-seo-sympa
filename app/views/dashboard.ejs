@@ -1,5 +1,5 @@
-<%- include('partials/header', { title: 'Page de connexion' , description: "Page de connexion du site SEO Sympa." ,
-    page: 'dashboard' , description: "Tableau de bord d'un utilisateur inscrit sur le site SEO-Sympa" }) %>
+<%- include('partials/header', { title: 'Page de connexion' ,
+    description: "Tableau de bord d'un utilisateur inscrit sur le site SEO-Sympa" , page: 'dashboard' }) %>
 
     <main class="accessibility-main">
         <h1> Mon profil </h1>
@@ -77,12 +77,16 @@
                         const recipientProfile = relation.recipient.Profile;
                         const isSender = senderProfile.dataValues.user_id === locals.userId;
 
-                        // Formatage de la date si elle existe
-                        let formattedDate = 'Date non disponible';
-                        if (relation.dataValues.created_at) {
-                        const date = new Date(relation.dataValues.created_at);
-                        formattedDate = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' }).format(date);
-                        }
+                        // Formatage des dates si elles existent
+                        const formatDate = (dateString) => {
+                        if (!dateString) return 'Date non disponible';
+                        const date = new Date(dateString);
+                        return new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' }).format(date);
+                        };
+
+                        const formattedCreated = formatDate(relation.dataValues.created_at);
+                        const formattedApproval = formatDate(relation.dataValues.approval_date);
+                        const formattedRemoval = formatDate(relation.dataValues.removal_date);
                         %>
                         <tr>
                             <td>
@@ -98,15 +102,14 @@
                             </td>
 
                             <td>
-                                <%= formattedDate %>
+                                <%= formattedCreated %>
                             </td>
                             <td>
 
                                 <% if (relation.dataValues.status==='relation acceptée' ) { %>
-                                    <%= relation.dataValues.status %> le <%= relation.dataValues.approval_date %>
+                                    <%= relation.dataValues.status %> le <%= formattedApproval %>
                                             <% } else if (relation.dataValues.status==='relation refusée' ) { %>
-                                                <%= relation.dataValues.status %> le <%=
-                                                        relation.dataValues.removal_date %>
+                                                <%= relation.dataValues.status %> le <%= formattedRemoval %>
                                                         <% } else { %>
                                                             <%= relation.dataValues.status %>
                                                                 <% } %>
