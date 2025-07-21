@@ -24,16 +24,10 @@ const mainController = {
     });
   },
 
-  //search: function (req, res) {
-  // res.render('search', {
-  //   title: 'rechercher',
-  //  });
-  //},
+ 
 
-  // endpoint dashboard => voir dashboardcontroller
-
-// endpoint profile : voir profileController
-
+  // pages légales
+  // ces pages sont accessibles depuis le footer, et ne sont pas des routes back
   conditions: function (req, res) {
     res.render('conditions', {
       title: 'conditions générales',
