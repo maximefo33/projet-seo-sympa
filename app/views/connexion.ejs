@@ -26,9 +26,13 @@
           <a href="#" aria-label="Réinitialiser le mot de passe">Mot de passe oublié&nbsp;?</a>
         </div>
       </fieldset>
-        <a href="/tableau-de-bord-prive">
-      <button type="submit" class="button" aria-label="Se connecter au site">Se connecter</button>
-        </a>
+        <button type="submit" class="button">Se connecter</button>
+        <% if (error) { %>
+  <div class="alert error" role="alert">
+    <p><%= error %></p>
+  </div>
+<% } %>
+
  
     </form>
   </main>
