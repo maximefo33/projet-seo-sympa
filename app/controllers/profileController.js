@@ -17,7 +17,7 @@ const profileController = {
         include: User
       });
 
-      console.log('============== [profilController] Profile ', profile);
+      
       
 
       if (!profile) {

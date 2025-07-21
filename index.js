@@ -82,6 +82,7 @@ app.use((req, res) => {
 
 
 app.listen(port, () => {
+  (`Listening on http://localhost:${port}/`);
   console.log(`Listening on http://localhost:${port}/`);
 });
 

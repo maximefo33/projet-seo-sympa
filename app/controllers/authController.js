@@ -8,7 +8,6 @@ import bcrypt from 'bcrypt';
 import User from '../models/User.js';
 import Profile from '../models/Profile.js';
 
-import sequelize from '../../config/database.js';
 
 // express session installé => cf dans le middleware
 
@@ -64,7 +63,7 @@ const authController = {
       // fonction de vérification entre le mot de passe saisi + la confirmation du mot de passe saisi
       const verifyPassword = async (plainPassword, confirmPassword) => {
         if (plainPassword !== confirmPassword) {
-          //console.log('Les mots de passe saisis ne sont pas identiques, merci de recommencer votre inscription.'); // res render A ECRIRE ????
+        
           return false;
         }
         return true; // retourne vrai si les mots de passe sont identiques
@@ -171,7 +170,7 @@ const authController = {
   //=======================================fin de connexion==========================//
 
 
-  //=======================================fin de connexion==========================//
+ 
 
   //   // pour se déconnecter, la session est terminée, les données sont supprimées, et l'utilisateur est redigiré vers la page d'accueil / à voir où on insère la fonction LOGOUT ci-dessous
   logout: function (req, res) {

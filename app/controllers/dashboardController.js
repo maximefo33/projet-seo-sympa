@@ -18,7 +18,6 @@ const dashboardController = {
 
       if (!profile) return res.redirect('/inscription');
 
-// ajout du 15/7
 
 const relations = await Relation.findAll({
 
@@ -39,9 +38,8 @@ const relations = await Relation.findAll({
         order: [['created_at', 'DESC']]
       });
 
-      //console.log('[RELATIONS]',relations); // 16.7 console log A ENLEVER PLUS TARD APRES TESTS
      
-// fin ajout
+
 
       res.render('dashboard', {
         title: 'Mon tableau de bord Mon profil',
