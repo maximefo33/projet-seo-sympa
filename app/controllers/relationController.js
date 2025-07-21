@@ -55,6 +55,7 @@ try {
   }
 
 relation.status = 'relation acceptée';
+relation.approval_date = new Date();
 await relation.save();
 
 return res.redirect('/tableau-de-bord-prive');
@@ -78,7 +79,9 @@ try {
   }
 
 relation.status = 'relation refusée';
+relation.removal_date = new Date();
 await relation.save();
+
 
 return res.redirect('/tableau-de-bord-prive');
 }catch (error) {

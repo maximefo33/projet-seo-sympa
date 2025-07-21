@@ -1,23 +1,23 @@
 <!-- view ejs - page A propos - /about -->
-<%- include('partials/header', {
-  title: 'A propos',
-  description: "Page A Propos du site SEO Sympa. Notre histoire, qu'est-ce que le SEO, des témoignages, FAQ"
-}) %>
+<%- include('partials/header', { title: 'A propos' ,
+    description: "Page A Propos du site SEO Sympa. Notre histoire, qu'est-ce que le SEO, des témoignages, FAQ" }) %>
 
- <main>
+    <main>
         <article class="contenu">
             <img class="img_main" src="/assets/img/img-seo3.jpg">
             <div class="main__text">
                 <h1 id="history">A propos de SEO Sympa</h1>
                 <p class="__titre"> SEO Sympa, soyez en tête sans prise de tête !</p>
-                <p>Avec notre site, ne vous compliquez-pas la vie ! Sérénité garantie. </p>
+                <p>Avec notre site, ne vous compliquez pas la vie ! Sérénité garantie. </p>
             </div>
         </article>
         <article class="présentation">
             <img class="présentation__img" src="/assets/img/soe.png" alt="">
             <div class="présentation__contenu">
+
                 <h2 class="présentation__titre">Histoire de notre plateforme</h2>
                 <p class="text_main2">Prenez 4 amis développeurs formés dans la même école (<a class="main-nav__link" href="https://oclock.io/"
+
                         target="_blank">O'clock</a>) et passionnés de référencement.
                     En juin 2025 leur est venue
                     l'idée d'aider les structures, entreprises, associations..., petites ou grandes, à mieux se faire
@@ -36,11 +36,11 @@
                 <h2 class="présentation__titre">SEO, Kézako ?</h2>
                 <p class="text_main2">L'optimisation pour les moteurs de recherche, aussi connue sous le nom de
                     référencement naturel et
-                    le sigle SEO (de l'anglais « Search Engine Optimization »), inclut l'ensemble des techniques qui
+                    le sigle SEO (de l'anglais « Search Engine Optimization »), incluent l'ensemble des techniques qui
                     visent à améliorer le positionnement d'une page, d'un site ou d'une application web dans la page de
-                    résultats d'un moteur de recherche.
+                    résultats d'un moteur de recherche. </p>
 
-                    Ces techniques cherchent à améliorer la compréhension et la prise en compte de la thématique et du
+                <p class="text_main2"> Ces techniques cherchent à améliorer la compréhension et la prise en compte de la thématique et du
                     contenu d'une ou de l'ensemble des pages d'un site Web par l'algorithme de classement des moteurs de
                     recherche.</p>
             </div>
@@ -48,7 +48,7 @@
 
 
         <div class="about_witness_contain0">
-            
+
 
             <section class="about_witness1"
                 aria-label="témoignages d'utilisateurs de notre site et propriétaires de pages web">
@@ -81,23 +81,24 @@
 
         <section title="FAQ" class="faq">
             <h2 id="faq">Foire Aux Questions (FAQ)</h2>
-               <article>
-                <h3>Comment créer mon compte ? </h3> 
-                <p>Cliquez sur le petit bonhomme à côté de connexion. , puis remplissez les informations
-                    demandées et validez. Votre compte est créé.</p>
+            <article>
+                <h3>Comment créer mon compte ? </h3>
+                <p>Cliquez sur le bouton "inscription" que vous trouverez en haut de page. Ensuite, remplissez les informations
+                    demandées et validez. Votre compte est créé. Rendez-vous ensuite sur le bouton "connexion" (ou le petit bonhomme), identifiez-vous et vous pourrez compléter votre profil et entrer en relation avec les experts.</p>
             </article>
 
             <article>
-                <h3>Je n'ai plus besoin de vos services, comment supprimer mon compte ? </h3> 
+                <h3>Je n'ai plus besoin de vos services, comment supprimer mon compte ? </h3>
                 <p>Connectez-vous sur votre profil, puis cliquez sur le bouton "suppression de compte",
-                    puis confirmer à nouveau.</p>
+                    puis confirmer à nouveau la suppression.</p>
             </article>
 
             <article>
                 <h3>Quid de mes données personnelles ?</h3>
-                <p>Conformément au RGPD, bla bla bla. Si vous supprimez votre compte, toutes vos données
-                    personnelles seront immédiatement effacées de notre base de données.</p>
+                <p>Si vous supprimez votre compte, toutes vos données
+                    personnelles seront immédiatement effacées de notre base de données. <a href="/mentions-legales">En savoir + ici</a></p>
             </article>
+
 
 
             <article>
@@ -107,6 +108,7 @@
                     (réponse sous 72h jours ouvrés) ou par
                     téléphone <a class="main-nav__link" href="tel:+14155550132">+1 (415) 555‑0132</a> (de 9h à 17h les jours ouvrés) </p>
             </article>
+
         </section>
 
 
@@ -116,5 +118,3 @@
 
     <!-- ceci sera notre modèle de footer pour toutes les pages -->
     <%- include('partials/footer') %>
-   
- 

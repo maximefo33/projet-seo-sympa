@@ -30,6 +30,7 @@ router.get('/tableau-de-bord-prive', isLoggedIn, dashboardController.dashboard);
 router.get('/conditions-generales', mainController.conditions); 
 router.get('/mentions-legales', mainController.legal); 
 router.get('/declaration-d-accessibilite', mainController.accessibility); 
+router.get('/plan-du-site', mainController.sitemap); 
 router.get('/page-d-erreur', mainController.error);
 
 
@@ -79,7 +80,7 @@ router.post('/relation/accepter/:id', isLogged, relationController.accepter);
 router.post('/relation/refuser/:id', isLogged, relationController.refuser);
 router.post('/relation/supprimer/:id', isLogged, relationController.supprimer);
 
-// router.post('profile/:id', relationController.demander); // ???
+
 
 //Page fonctionnalité rechercher + resultats de la recherche et recherche avancée avec mots clefs et filtres ville
 router.get('/rechercher', searchController.searchPage);

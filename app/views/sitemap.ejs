@@ -1,0 +1,41 @@
+<!-- view ejs de la page conditions générales - /terms-and-conditons -->
+
+<%- include('partials/header', { title: 'Plan du site ' , description: "Plan du site SEO Sympa" , page: 'sitemap' }) %>
+
+    <main class="accessibility-main">
+        <section id="declaration-accessibilite" class="declaration-section">
+
+            <h1 class="section-title">Plan du site SEO Sympa</h1>
+
+            <p class="subsection-description">Naviguez facilement sur notre site web SEO Sympa.</p>
+            <h2 class="subsection-title">Navigation principale</h2>
+
+            <ul class="subsection-description">
+
+                <li><a href="/">Page d'accueil</a></li>
+                <li><a href="/a-propos">Page A-Propos</a></li>
+                <li><a href="/inscription">Page d'inscription</a></li>
+                <li><a href="/connexion">Page de connexion</a></li>
+                <li><a href="/contact">Page de Contact</a></li>
+                <li><a href="/rechercher">Page de recherche</a></li>
+
+            </ul>
+
+            <h2 class="subsection-title">Navigation secondaire</h2>
+
+            <ul class="subsection-description">
+
+
+                <li><a href="/conditions-generales">Page conditions générales</a></li>
+                <li><a href="/mentions-legales">Page mentions légales & RGPD</a></li>
+                <li><a href="/declaration-d-accessibilite">Page déclaration d'accessibilité</a></li>
+
+
+            </ul>
+
+
+        </section>
+    </main>
+
+
+    <%- include('partials/footer') %>
