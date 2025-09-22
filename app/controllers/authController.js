@@ -31,10 +31,11 @@ const authController = {
   // - confirmation email à coder avec bcrypt compare
   // - nom et prénom : limiter à 50 caractères
 
-  // *********************************début /inscription ******************
+  
+  // Action d'inscription
   signupAction: async function (req, res) {
     try {
-
+      // Récupération des données du formulaire
       const plainPassword = req.body.password; // 1er mot de passe saisi
       const confirmPassword = req.body.confirmPassword; // confirmation du mot de passe
       const email = req.body.email; // Récupération de l'email
@@ -42,12 +43,14 @@ const authController = {
       // vérification du format email
       // see@ https://www.npmjs.com/package/validator
 
+
       if (!validator.isEmail(email)) {
         // throw new Error('L\'adresse e-mail fournie est invalide.');
         return res.render('inscription', { error: 'L\'adresse email fournie est invalide, merci d\'en saisir une au bon format.' });
       }
 
-      //** début ajout code 3/7 E pour vérifier si email déjà dans bdd */
+      // pour vérifier si email déjà dans bdd avant de créer un nouvel utilisateur
+      /* ajout code 3/7 E */          
       // je vérifie si mail saisi dans le formulaire déjà enregistré dans la base de données
 
       const mailAlreadyUse = await User.findOne({ where: { email: req.body.email } });
@@ -115,8 +118,9 @@ const authController = {
       // see @ https://johackim.com/sequelize?utm_source=rss&utm_medium=rss
       // see @ https://sequelize.org/docs/v6/core-concepts/model-querying-basics/ 
 
-
+     // on crée le profil en base de données
       const profileNeo = await Profile.create(profileRegistered);
+      // redirection vers la page de connexion une fois l'inscription réussie
       res.redirect('/connexion');
     } catch (error) {     // renvoyer message erreur dans la vue
       console.error(error);
@@ -163,10 +167,6 @@ const authController = {
       res.render('connexion', { error: 'Erreur lors de la tentative de connexion' });
     }
   },
-
-
-
-
   //=======================================fin de connexion==========================//
 
 

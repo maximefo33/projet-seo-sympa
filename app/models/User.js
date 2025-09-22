@@ -18,17 +18,11 @@ User.init({
     type: DataTypes.STRING(255),
     allowNull: false,
     unique: true
-  },
+  },                                                                
   role: {
     type: DataTypes.STRING(40),
     allowNull: false
   },
-
-  // essai debug erro
-  // user_sender_id: {
-  //   type: DataTypes.INTEGER,
-  //   allowNull: true
-  // }
 
 },
 

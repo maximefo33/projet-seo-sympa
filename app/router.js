@@ -69,7 +69,7 @@ router.post('/delete-account-final', isLoggedIn, deletController.deleteAccount);
 // =================== Connexion /  ===================
 router.post('/connexion', authController.loginAction);
 router.get('/connexion', authController.login); //  GET pour afficher la page de connexion
-router.get('/logout', isLoggedIn, authController.logout);// route pour déconnexion
+router.get('/déconnexion', isLoggedIn, authController.logout);// route pour déconnexion
 //============ Inscription ====================// 
 
 
