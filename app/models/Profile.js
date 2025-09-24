@@ -1,8 +1,6 @@
 import sequelize from "../../config/database.js";
-
 // Besoin des classes Sequelize
 import { DataTypes, Model } from "sequelize";
-
 // Notre modèle hérite de Model
 class Profile extends Model { }
 

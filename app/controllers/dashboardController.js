@@ -53,7 +53,7 @@ const relations = await Relation.findAll({
           company_identification_system: profile.company_identification_system,
           description: profile.description,
         },
-        relations, // pluriel alors que dans profileController c'est au singulier
+        relations, 
         });
 
     } catch (error) {
