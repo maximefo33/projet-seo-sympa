@@ -34,10 +34,7 @@ app.use(express.json());
 //appeler les templates EJS
 
 app.set("view engine", "ejs");
-app.set("views", "./app/views");
-
-
-
+app.set("views", "./app/view
 
 //Configuration de session 
 
