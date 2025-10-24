@@ -27,14 +27,15 @@ const app = express();
 
 //  Pour récupérer les données du payload, on doit ajouter le middleware express.urlencoded
 // see @ https://github.com/O-clock-Behemoth/Fiches-Objectifs/blob/main/saison5/e12.md
-app.use(express.urlencoded({ extended: true })); 
+app.use(express.urlencoded({ extended: true }));
 // l'option extended permet de passer aussi des objets et des tableaux
 app.use(express.json());
 
 //appeler les templates EJS
 
 app.set("view engine", "ejs");
-app.set("views", "./app/view
+app.set("views", "./app/views");
+
 
 //Configuration de session 
 
@@ -47,8 +48,8 @@ app.use(session({
 
 // app.use(globalSession); // ajout 15/7
 
-app.use(function(req, res, next) {
- res.locals.userId = req.session.userId || null; // on ajoute l'id de l'utilisateur à la réponse
+app.use(function (req, res, next) {
+  res.locals.userId = req.session.userId || null; // on ajoute l'id de l'utilisateur à la réponse
   next();
 });
 // on ajoute un middleware via .use à qui on passe la fonction retournée par express.static
@@ -62,8 +63,8 @@ app.use(router);
 //? mais si ce n'est pas le cas il sera appelé
 // réponse pour toutes les autres requêtes :
 //app.use((req, res) => {
-  // https://expressjs.com/fr/4x/api.html#res.status
- // res.status(404).send("<h1>Page non trouvée</h1>");
+// https://expressjs.com/fr/4x/api.html#res.status
+// res.status(404).send("<h1>Page non trouvée</h1>");
 //});
 
 //ERROR HANDLER 
